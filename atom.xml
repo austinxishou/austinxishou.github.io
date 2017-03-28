@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-03-28T03:16:59.125Z</updated>
+  <updated>2017-03-28T08:55:07.290Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -16,11 +16,258 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android NFC 解析</title>
+    <link href="https://austinxishou.github.io/2017/03/28/android/Android-nfc-%E8%A7%A3%E6%9E%90/"/>
+    <id>https://austinxishou.github.io/2017/03/28/android/Android-nfc-解析/</id>
+    <published>2017-03-28T08:54:50.097Z</published>
+    <updated>2017-03-28T08:55:07.290Z</updated>
+    
+    <summary type="html">
+    
+      Android activity lifetime
+    
+    </summary>
+    
+      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+    
+    
+      <category term="android activity" scheme="https://austinxishou.github.io/tags/android-activity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android组件生命周期解析</title>
+    <link href="https://austinxishou.github.io/2017/03/28/android/Android%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%A7%A3%E6%9E%90/"/>
+    <id>https://austinxishou.github.io/2017/03/28/android/Android组件生命周期解析/</id>
+    <published>2017-03-28T07:41:14.446Z</published>
+    <updated>2017-03-28T08:32:15.856Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><p>在平时的应用开发中,接触最多的就是<code>activity</code>的生命周期。在生命周期回调方法中，您可以声明当用户离开并重新进入活动时，执行相应的代码行为。每一个回调工作，都应该执行特定动作，在正确的时间进行正确的工作并正确处理转换，才能够使应用程序更加健壮，更有效率。</p>
+<p>如果没有处理好<code>activity</code>的生命周期，则有可能导致各种异常:</p>
+<ol>
+<li>应用程序运行时被电话或者其他程序中断，导致崩溃；</li>
+<li>没有正确释放资源时,消耗宝贵的系统资源，甚至OOM。</li>
+<li>如果用户离开您的应用程序并在以后返回，则丢失用户的进度。</li>
+<li>屏幕在横向和纵向方向之间旋转时，可能会崩溃或丢失用户的进度。</li>
+</ol>
+<p>所以有必要深入一些，了解和掌握Activity的生命，下面先放一张activity的生命周期图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/lifecycle/activity.png" alt="activity lifecycle" title="">
+                </div>
+                <div class="image-caption">activity lifecycle</div>
+            </figure>
+<h3 id="1-1-Activity状态"><a href="#1-1-Activity状态" class="headerlink" title="1.1 Activity状态"></a>1.1 Activity状态</h3><p>根据具体的应用的复杂性，可能不需要实现所有的生命周期方法。</p>
+<ul>
+<li><strong>创建 onCreate()：</strong><ul>
+<li>必须实现此回调，当系统首次创建活动时触发。</li>
+<li>在该方法中，执行基本的应用程序启动逻辑，该逻辑在整个活动的整个生命周期中应该只发生一次。</li>
+<li>例如，将数据绑定到列表，初始化后台线程，并实例化一些类范围变量。</li>
+<li>此方法接收参数savedInstanceState，该参数是包含Bundle 活动之前保存的状态的对象。如果活动从未存在，则该Bundle对象的值为null。
+　　</li>
+</ul>
+</li>
+<li><p><strong>开始 onStart()：</strong></p>
+<ul>
+<li>当活动进入“开始”状态时，系统将调用此回调。</li>
+<li>该方法是应用程序初始化维护UI的代码的位置。</li>
+<li>它也可以注册一个BroadcastReceiver 监视UI中响应的更改。</li>
+<li>该状态只是过渡状态，非常快速完成，与“创建”状态一样，活动不会保持在“已启动”状态。一旦这个回调结束，活动进入 Resumed状态，系统调用该 onResume()方法。</li>
+</ul>
+</li>
+<li><p><strong>恢复 onResume()：</strong></p>
+<ul>
+<li>这是应用程序与用户进行交互的状态。该应用程序停留在此状态，直到发生某些事情，将焦点从应用程序中移开。</li>
+<li>当发生中断事件时，活动进入暂停 状态，系统调用 onPause()回调。</li>
+<li>onResume状态说明activity在最上方，用户可以与它进行交互。所以那些仅在用户关注时才使用的组件应该在这个回调中初始化。</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>暂停 onPause()：</strong><ul>
+<li>当前activity仍然是可见的。但被另一个activity处在最上方，最上方的activity是半透明的，或者是部分覆盖整个屏幕。被暂停的activity不会再接受用户的输入。</li>
+<li>动画和音乐播放Activity在暂停状态下不应该继续。</li>
+<li>进入暂停的时机有以下几种：<ul>
+<li>电话或者短信等系统中断；</li>
+<li>在多窗口模式中，切换到其他窗口；</li>
+<li>打开一个新的半透明活动（如对话框）;</li>
+</ul>
+</li>
+<li>当处于极度低内存的状态时，系统会杀掉该activity，释放相应资源。</li>
+<li>onPause()执行非常简短，并不一定有足够的时间执行保存操作。保存应用程序或用户数据不应该在这步骤实现；</li>
+</ul>
+</li>
+<li><p><strong>停止 onStop（）：</strong></p>
+<ul>
+<li>当前activity完全被隐藏，不被用户可见。可以认为是处于在后台。</li>
+<li>由于对用户不再可见，只要有内存的需要，系统就会杀掉该activity来释放资源。</li>
+<li>该状态由<code>onStop()</code>进入，或<code>onRestart()</code>或者<code>onCreate()</code>重新唤醒软件，或者被<code>onDestroy()</code>彻底死亡..</li>
+</ul>
+</li>
+<li><p><strong>销毁 onDestroy()：</strong></p>
+<ul>
+<li>在活动被销毁之前调用。这是活动收到的最后一个回调。</li>
+<li>在该回调中，释放上述所有回调中未被销毁的资源；</li>
+</ul>
+</li>
+</ul>
+<p>当acitivty处于暂停或者停止状态，系统可以通过<code>finish()</code>或 <code>android.os.Process.killProcess(android.os.Process.myPid())</code>来杀死其进程。当该activity再次被打开时(结束或杀死后)，需要重新创建，走一遍完整的流程。</p>
+<h3 id="1-2-Activities调用流程"><a href="#1-2-Activities调用流程" class="headerlink" title="1.2 Activities调用流程"></a>1.2 Activities调用流程</h3><p>当Activity A 启动 Activity B时，两个activity都有自个的生命周期。Activity A暂停或者停止，Activity B被创建。记住，在Activity B创建之前，Activity A并不会完全停止，流程如下：</p>
+<ol>
+<li>Activity A 进入onPause();</li>
+<li>Activity B 依次 onCreate(), onStart(), onResume()。（此时Activity B得到了用户焦点）</li>
+<li>如果Activity A不再可见，则进入onStop().</li>
+</ol>
+<h3 id="1-3-代码实践"><a href="#1-3-代码实践" class="headerlink" title="1.3 代码实践"></a>1.3 代码实践</h3><p>利用下面的<code>DemoActivity</code>代码，可亲自感受每一个阶段的状态。比如点返回键，home键，menu键等操作，可以借助通过logcat查看该activity到底处于哪种状态，这里就不说结果了，自己动手，丰衣足食。</p>
+<pre><code>import android.app.Activity;
+import android.os.Bundle;
+import android.util.Log;
+
+public class DemoActivity extends Activity {
+    private static final String TAG = &quot;demo&quot;;
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.i(TAG,&quot;onCreate::The activity is being created.&quot;);
+    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.i(TAG, &quot;onStart::The activity is about to become visible.&quot;);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.i(TAG, &quot;onResume::The activity has become visible.&quot;);
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.i(TAG, &quot;onPause:: Another activity is taking focus.&quot;);
+    }
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.i(TAG, &quot;onStop::The activity is no longer visible&quot;);
+    }
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.i(TAG, &quot;onDestroy::The activity is about to be destroyed&quot;);
+    }
+}
+</code></pre><hr>
+<h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><p>理解activity的生命周期后，Service的生命周期也是大同小异，先看下Service的生命周期图：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/lifecycle/service.png" alt="service lifecycle" title="">
+                </div>
+                <div class="image-caption">service lifecycle</div>
+            </figure>
+<h3 id="2-1-启动方式："><a href="#2-1-启动方式：" class="headerlink" title="2.1  启动方式："></a>2.1  启动方式：</h3><p>service有两种启动方式：</p>
+<ul>
+<li>startService() 启动本地服务Local Service</li>
+<li>bindService() 启动远程服务Remote Service</li>
+</ul>
+<h3 id="2-2-生命周期"><a href="#2-2-生命周期" class="headerlink" title="2.2  生命周期"></a>2.2  生命周期</h3><p>两种不同的启动方式决定了Service具有两种生命周期的可能（并非互斥的两种）。</p>
+<ol>
+<li>start方式：onCreate()，onStartCommand()。onDestroy释放资源。</li>
+<li>bind方式： onCreate()，onBind()方法。需要所有client全部调用unbindService()才能将Service释放资源，等待系统回收。</li>
+</ol>
+<h3 id="2-3-代码实践"><a href="#2-3-代码实践" class="headerlink" title="2.3  代码实践"></a>2.3  代码实践</h3><p>利用下面的<code>DemoService</code>代码，通过logcat自行感受每一个阶段的状态与场景的关系。</p>
+<pre><code>import android.app.Service;
+import android.content.Intent;
+import android.os.IBinder;
+import android.util.Log;
+
+public class DemoService extends Service {
+    private static final String TAG = &quot;demo&quot;;
+
+    int mStartMode;       // service被杀掉的方式
+    IBinder mBinder;      // clients绑定接口
+    boolean mAllowRebind; // 是否允许onRebind
+
+    @Override
+    public void onCreate() {
+        Log.i(TAG,&quot;onCreate::The service is being created&quot;);
+    }
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i(TAG,&quot;onStartCommand::The service is starting&quot;);
+        return mStartMode;
+    }
+    @Override
+    public IBinder onBind(Intent intent) {
+        Log.i(TAG,&quot;onBind::A client is binding to the service&quot;);
+        return mBinder;
+    }
+    @Override
+    public boolean onUnbind(Intent intent) {
+        Log.i(TAG,&quot;onUnbind::All clients have unbound&quot;);
+        return mAllowRebind;
+    }
+    @Override
+    public void onRebind(Intent intent) {
+        Log.i(TAG,&quot;onRebind::A client rebind to the service &quot; +
+                &quot;after onUnbind() has already been called&quot;);
+    }
+    @Override
+    public void onDestroy() {
+        Log.i(TAG,&quot;onDestroy::The service is no longer used&quot;);
+    }
+}
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      Android activity lifetime
+    
+    </summary>
+    
+      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+    
+    
+      <category term="android activity" scheme="https://austinxishou.github.io/tags/android-activity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android Framework 开发笔记</title>
+    <link href="https://austinxishou.github.io/2017/03/28/android/AndroidFramework%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
+    <id>https://austinxishou.github.io/2017/03/28/android/AndroidFramework开发笔记/</id>
+    <published>2017-03-28T07:17:23.257Z</published>
+    <updated>2017-03-28T08:35:10.661Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><ol>
+<li>移植概述</li>
+<li>图形图像系统</li>
+<li>输入系统</li>
+<li>安卓安全</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      Android framework hal
+    
+    </summary>
+    
+      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hexo 3.0 使用指南</title>
     <link href="https://austinxishou.github.io/2017/03/28/Hexo3.0%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
     <id>https://austinxishou.github.io/2017/03/28/Hexo3.0使用指南/</id>
     <published>2017-03-28T02:01:27.807Z</published>
-    <updated>2017-03-28T03:16:59.125Z</updated>
+    <updated>2017-03-28T08:40:06.431Z</updated>
     
     <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。<br>而架设Hexo的环境更简单了 不需要lnmp/lamp这些繁琐复杂的环境 仅仅需要一个简单的http服务器即可使用 或者使用互联网上免费的页面托管服务</p>
 <p>比如Hexo的<a href="http://hexo.io" target="_blank" rel="external">官方网站</a>就是托管于github的pages服务上</p>
