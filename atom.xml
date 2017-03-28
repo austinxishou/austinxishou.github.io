@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-03-28T10:03:13.731Z</updated>
+  <updated>2017-03-28T10:03:10.465Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -14,26 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Android NFC 解析</title>
-    <link href="https://austinxishou.github.io/2017/03/28/android/Android-nfc-%E8%A7%A3%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/2017/03/28/android/Android-nfc-解析/</id>
-    <published>2017-03-28T10:03:13.731Z</published>
-    <updated>2017-03-28T10:03:13.731Z</updated>
-    
-    <summary type="html">
-    
-      Android activity lifetime
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android activity" scheme="https://austinxishou.github.io/tags/android-activity/"/>
-    
-  </entry>
   
   <entry>
     <title>微信公众号开发-微擎系统相关学习</title>
