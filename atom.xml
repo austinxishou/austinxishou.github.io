@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-03-28T08:55:07.290Z</updated>
+  <updated>2017-03-28T10:03:13.731Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -19,8 +19,8 @@
     <title>Android NFC 解析</title>
     <link href="https://austinxishou.github.io/2017/03/28/android/Android-nfc-%E8%A7%A3%E6%9E%90/"/>
     <id>https://austinxishou.github.io/2017/03/28/android/Android-nfc-解析/</id>
-    <published>2017-03-28T08:54:50.097Z</published>
-    <updated>2017-03-28T08:55:07.290Z</updated>
+    <published>2017-03-28T10:03:13.731Z</published>
+    <updated>2017-03-28T10:03:13.731Z</updated>
     
     <summary type="html">
     
@@ -32,6 +32,31 @@
     
     
       <category term="android activity" scheme="https://austinxishou.github.io/tags/android-activity/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>微信公众号开发-微擎系统相关学习</title>
+    <link href="https://austinxishou.github.io/2017/03/28/%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91-%E5%BE%AE%E6%93%8E%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://austinxishou.github.io/2017/03/28/微信公众号开发-微擎系统相关学习/</id>
+    <published>2017-03-28T09:08:23.184Z</published>
+    <updated>2017-03-28T10:03:10.465Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><ul>
+<li><a href="http://www.we7.cc/" target="_blank" rel="external"><strong>微擎官网</strong></a></li>
+<li><a href="http://www.we7.cc/docs/#module" target="_blank" rel="external"><strong>微擎文档</strong></a></li>
+<li><a href="http://www.we7.cc/manual/structure:outline" target="_blank" rel="external"><strong>微擎开发文档</strong></a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      公众号 小程序 PHP we7
+    
+    </summary>
+    
+      <category term="webdesign" scheme="https://austinxishou.github.io/categories/webdesign/"/>
+    
     
   </entry>
   
@@ -235,39 +260,11 @@ public class DemoService extends Service {
   </entry>
   
   <entry>
-    <title>Android Framework 开发笔记</title>
-    <link href="https://austinxishou.github.io/2017/03/28/android/AndroidFramework%E5%BC%80%E5%8F%91%E7%AC%94%E8%AE%B0/"/>
-    <id>https://austinxishou.github.io/2017/03/28/android/AndroidFramework开发笔记/</id>
-    <published>2017-03-28T07:17:23.257Z</published>
-    <updated>2017-03-28T08:35:10.661Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><ol>
-<li>移植概述</li>
-<li>图形图像系统</li>
-<li>输入系统</li>
-<li>安卓安全</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      Android framework hal
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Hexo 3.0 使用指南</title>
-    <link href="https://austinxishou.github.io/2017/03/28/Hexo3.0%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
-    <id>https://austinxishou.github.io/2017/03/28/Hexo3.0使用指南/</id>
+    <link href="https://austinxishou.github.io/2017/03/28/webdesign/Hexo3.0%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
+    <id>https://austinxishou.github.io/2017/03/28/webdesign/Hexo3.0使用指南/</id>
     <published>2017-03-28T02:01:27.807Z</published>
-    <updated>2017-03-28T08:40:06.431Z</updated>
+    <updated>2017-03-28T10:02:56.169Z</updated>
     
     <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。<br>而架设Hexo的环境更简单了 不需要lnmp/lamp这些繁琐复杂的环境 仅仅需要一个简单的http服务器即可使用 或者使用互联网上免费的页面托管服务</p>
 <p>比如Hexo的<a href="http://hexo.io" target="_blank" rel="external">官方网站</a>就是托管于github的pages服务上</p>
@@ -305,6 +302,8 @@ public class DemoService extends Service {
 <li><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">Next</a></li>
 <li><a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="external">Nidigo</a></li>
 </ol>
+<h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2><h3 id="使用草稿"><a href="#使用草稿" class="headerlink" title="使用草稿"></a>使用草稿</h3><p>在 source/_drafts 文件夹中 创建的文章为草稿，默认情况下不生成；<br>可以显示草稿<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo --draft</div></pre></td></tr></table></figure></p>
+<p>### </p>
 ]]></content>
     
     <summary type="html">
