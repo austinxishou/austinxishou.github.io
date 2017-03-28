@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hexo 3.0 使用指南 | 爵士犀首</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Hexo3.0使用指南 搭建静态网页">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo 3.0 使用指南">
+<meta property="og:url" content="http://yoursite.com/2017/03/28/Hexo3.0使用指南/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="Hexo3.0使用指南 搭建静态网页">
+<meta property="og:updated_time" content="2017-03-28T02:26:19.090Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo 3.0 使用指南">
+<meta name="twitter:description" content="Hexo3.0使用指南 搭建静态网页">
+  
+    <link rel="alternate" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">爵士犀首</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">Stand out or get out!</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Hexo3.0使用指南" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/28/Hexo3.0使用指南/" class="article-date">
+  <time datetime="2017-03-28T02:01:27.807Z" itemprop="datePublished">2017-03-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/webdesign/">webdesign</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hexo 3.0 使用指南
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。<br>而架设Hexo的环境更简单了 不需要lnmp/lamp这些繁琐复杂的环境 仅仅需要一个简单的http服务器即可使用 或者使用互联网上免费的页面托管服务</p>
+<p>比如Hexo的<a href="http://hexo.io" target="_blank" rel="external">官方网站</a>就是托管于github的pages服务上</p>
+<h2 id="Hexo配置方法"><a href="#Hexo配置方法" class="headerlink" title="Hexo配置方法"></a>Hexo配置方法</h2><p>进去之后加入hexo主程序和安装npm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
+<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>新建完成后，指定文件夹的目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure></p>
+<p>_config.yml<br>网站的 配置 信息，您可以在此配置大部分的参数。</p>
+<p>package.json<br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
+<p>scaffolds<br>模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
+<p>source<br>资源文件夹是存放用户资源的地方。除 posts 文件夹之外，开头命名为 (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
+<p>themes<br>主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
+<h3 id="Hexo全局配置"><a href="#Hexo全局配置" class="headerlink" title="Hexo全局配置"></a>Hexo全局配置</h3><p>用文本编辑器修改_config.yml这个文件 大致如下 只需要自行修改几个 其他保持默认即可</p>
+<p>通常需要修改站点名称 /URL格式 /归档设置 /disqus评论用户名 /部署配置 这几项就可以了 注意冒号后面都要添加一个半角空格 之后才是设置参数</p>
+<p>自定义域名设置 在 source 我文件夹下面新建 CNAME 文件 里面写入你的自定义域名 并设置您的dns配置cname方式到服务提供商的给的地址即可</p>
+<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>source_dir 资源文件夹，这个文件夹用来存放内容。 source</p>
+<p>public_dir 公共文件夹，这个文件夹用于存放生成的站点文件。 public</p>
+<p>tag_dir 标签文件夹 tags</p>
+<p>archive_dir 归档文件夹 archives</p>
+<p>category_dir 分类文件夹 categories</p>
+<p>code_dir Include code 文件夹 downloads/code</p>
+<p>i18n_dir 国际化（i18n）文件夹 :lang</p>
+<p>skip_render 跳过指定文件的渲染，您可使用 glob 来配置路径。</p>
+<h3 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h3><h2 id="本地启动server"><a href="#本地启动server" class="headerlink" title="本地启动server"></a>本地启动server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>可以观察命令行的输出，然后通过浏览器打开<a href="http://localhost:4000/，成功的情况下则会看到默认的欢迎页面。" target="_blank" rel="external">http://localhost:4000/，成功的情况下则会看到默认的欢迎页面。</a></p>
+<h2 id="部署到github-pages"><a href="#部署到github-pages" class="headerlink" title="部署到github pages"></a>部署到github pages</h2><p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2017/03/28/Hexo3.0使用指南/" data-id="cj0sy5vhg0001swpxnt4ea2tm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2017/03/28/test/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TEST</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/webdesign/">webdesign</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">三月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/03/28/Hexo3.0使用指南/">Hexo 3.0 使用指南</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/28/test/">TEST</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/27/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 austinxishou<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
