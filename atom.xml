@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-03-31T06:56:58.051Z</updated>
+  <updated>2017-03-31T07:35:02.108Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://austinxishou.github.io/2017/03/31/android/Android%E8%87%AA%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD/"/>
     <id>https://austinxishou.github.io/2017/03/31/android/Android自启动管理功能/</id>
     <published>2017-03-31T06:37:05.178Z</published>
-    <updated>2017-03-31T06:56:58.051Z</updated>
+    <updated>2017-03-31T07:35:02.108Z</updated>
     
     <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>基本功能: 获取设备上所有应用的开机启动完成的广播接收者,同时区分系统应用和用户应用.<br>然后,提供界面接口给用户,统一管理应用的自启动功能,这样可以提升系统的运行性能和待机时长;</p>
 <h2 id="获取所有receivers-区分是否使能"><a href="#获取所有receivers-区分是否使能" class="headerlink" title="获取所有receivers 区分是否使能"></a>获取所有receivers 区分是否使能</h2><p>获取包含被禁止自启动receiver的信息<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;ResolveInfo&gt; forbidInfoList = mPackageManager.queryBroadcastReceivers(intent,PackageManager.GET_DISABLED_COMPONENTS);</div></pre></td></tr></table></figure></p>
@@ -44,7 +44,7 @@
     
       <category term="app" scheme="https://austinxishou.github.io/tags/app/"/>
     
-      <category term="Android" scheme="https://austinxishou.github.io/tags/Android/"/>
+      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
     
   </entry>
   
@@ -53,7 +53,7 @@
     <link href="https://austinxishou.github.io/2017/03/31/android/Android%E5%8F%91%E9%80%81%E5%B9%BF%E6%92%AD%E8%AF%A6%E8%A7%A3/"/>
     <id>https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/</id>
     <published>2017-03-31T06:22:32.229Z</published>
-    <updated>2017-03-31T06:32:48.921Z</updated>
+    <updated>2017-03-31T07:34:50.276Z</updated>
     
     <content type="html"><![CDATA[<h2 id="调用ContextImpl进行发送"><a href="#调用ContextImpl进行发送" class="headerlink" title="调用ContextImpl进行发送"></a>调用ContextImpl进行发送</h2><p>同样，不管是<code>Activity</code>、<code>Service</code>上发送广播，最终实现都在<code>ContextImpl</code>，最后发送到<code>ActivityManagerService</code>处理</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendBroadcast</span><span class="params">(Intent intent)</span> </span>&#123;</div><div class="line">     warnIfCallingFromSystemProcess();</div><div class="line">     String resolvedType = intent.resolveTypeIfNeeded(getContentResolver());</div><div class="line">     <span class="keyword">try</span> &#123;</div><div class="line">         intent.prepareToLeaveProcess();</div><div class="line">         ActivityManagerNative.getDefault().broadcastIntent(</div><div class="line">             mMainThread.getApplicationThread(), intent, resolvedType, <span class="keyword">null</span>,</div><div class="line">             Activity.RESULT_OK, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, AppOpsManager.OP_NONE, <span class="keyword">false</span>, <span class="keyword">false</span>,</div><div class="line">             getUserId());</div><div class="line">     &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
@@ -87,9 +87,9 @@
     
       <category term="app" scheme="https://austinxishou.github.io/tags/app/"/>
     
-      <category term="Android" scheme="https://austinxishou.github.io/tags/Android/"/>
-    
       <category term="sendBroadcast" scheme="https://austinxishou.github.io/tags/sendBroadcast/"/>
+    
+      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
     
   </entry>
   
