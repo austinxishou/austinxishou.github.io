@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    <title>爵士犀首 | Stand out or get out!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="blog">
+    <meta name="description" content="等待队列在linux内核中有着举足轻重的作用，很多linux驱动都或多或少涉及到了等待队列。因此，对于linux内核及驱动开发者来说，掌握等待队列是必须课之一。Linux内核的等待队列是以双循环链表为基础数据结构，与进程调度机制紧密结合，能够用于实现核心的异步事件通知机制。它有两种数据结构：等待队列头（wait_queue_head_t）和等待队列项（wait_queue_t，typedef st">
+<meta property="og:type" content="website">
+<meta property="og:title" content="爵士犀首">
+<meta property="og:url" content="https://austinxishou.github.io/categories/android/linux等待队列.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="等待队列在linux内核中有着举足轻重的作用，很多linux驱动都或多或少涉及到了等待队列。因此，对于linux内核及驱动开发者来说，掌握等待队列是必须课之一。Linux内核的等待队列是以双循环链表为基础数据结构，与进程调度机制紧密结合，能够用于实现核心的异步事件通知机制。它有两种数据结构：等待队列头（wait_queue_head_t）和等待队列项（wait_queue_t，typedef st">
+<meta property="og:updated_time" content="2017-03-30T07:40:50.464Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="爵士犀首">
+<meta name="twitter:description" content="等待队列在linux内核中有着举足轻重的作用，很多linux驱动都或多或少涉及到了等待队列。因此，对于linux内核及驱动开发者来说，掌握等待队列是必须课之一。Linux内核的等待队列是以双循环链表为基础数据结构，与进程调度机制紧密结合，能够用于实现核心的异步事件通知机制。它有两种数据结构：等待队列头（wait_queue_head_t）和等待队列项（wait_queue_t，typedef st">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect active">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect active">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://austinxishou.github.io/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis"></div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header page-header">
+
+    <div class="container fade-scale">
+        <h1 class="title"></h1>
+        <h5 class="subtitle">
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    <article class="page-article fade" itemprop="blogPage">
+        <div class="post-content page-content" id="page-content" itemprop="pageContent">
+            <p>等待队列在linux内核中有着举足轻重的作用，很多linux驱动都或多或少涉及到了等待队列。因此，对于linux内核及驱动开发者来说，掌握等待队列是必须课之一。<br>Linux内核的等待队列是以双循环链表为基础数据结构，与进程调度机制紧密结合，能够用于实现核心的异步事件通知机制。它有两种数据结构：等待队列头（<code>wait_queue_head_t</code>）和等待队列项（<code>wait_queue_t</code>，<code>typedef struct
+__wait_queue wait_queue_t;</code>）。等待队列头和等待队列项中都包含一个list_head类型的域作为”连接件”。下面具体介绍。</p>
+<h2 id="一-数据结构定义"><a href="#一-数据结构定义" class="headerlink" title="一.数据结构定义"></a>一.数据结构定义</h2><h3 id="列表头"><a href="#列表头" class="headerlink" title="列表头"></a>列表头</h3><p>文件路径：/include/linux/wait.h<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> __wait_queue_head &#123;</div><div class="line">    <span class="keyword">spinlock_t</span> lock;</div><div class="line">    <span class="keyword">struct</span> list_head task_list;</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> __wait_queue_head <span class="keyword">wait_queue_head_t</span>;<span class="comment">//列表头</span></div></pre></td></tr></table></figure></p>
+<h3 id="列表项"><a href="#列表项" class="headerlink" title="列表项"></a>列表项</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> __wait_queue &#123;</div><div class="line">   <span class="keyword">unsigned</span> <span class="keyword">int</span> flags;</div><div class="line">   <span class="keyword">void</span>* <span class="keyword">private</span>;</div><div class="line">   <span class="keyword">wait_queue_func_t</span> func;</div><div class="line">   <span class="keyword">struct</span> list_head task_list;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>typedef struct __wait_queue wait_queue_t;//列表项</p>
+<h3 id="双向链表结构"><a href="#双向链表结构" class="headerlink" title="双向链表结构"></a>双向链表结构</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">struct</span> list_head &#123;</div><div class="line">       <span class="keyword">struct</span> list_head* next;</div><div class="line">        <span class="keyword">struct</span> list_head* prev;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<h2 id="二-作用"><a href="#二-作用" class="headerlink" title="二.作用"></a>二.作用</h2><p>在内核里面，等待队列是有很多用处的，尤其是在中断处理、进程同步、定时等场合。可以使用等待队列在实现阻塞进程的唤醒。它以队列为基础数据结构，与进程调度机制紧密结合，能够用于实现内核中的异步事件通知机制，同步对系统资源的访问等。</p>
+<h2 id="三-字段详解"><a href="#三-字段详解" class="headerlink" title="三.字段详解"></a>三.字段详解</h2><h3 id="1、spinlock-t-lock"><a href="#1、spinlock-t-lock" class="headerlink" title="1、spinlock_t lock;"></a>1、spinlock_t lock;</h3><p>在对task_list与操作的过程中，使用该锁实现对等待队列的互斥访问。</p>
+<h3 id="2、srtuct-list-head-t-task-list"><a href="#2、srtuct-list-head-t-task-list" class="headerlink" title="2、srtuct list_head_t task_list;"></a>2、srtuct list_head_t task_list;</h3><p>双向循环链表，存放等待的进程。</p>
+<h2 id="操作"><a href="#操作" class="headerlink" title="操作"></a>操作</h2><h3 id="1-定义并初始化列表头"><a href="#1-定义并初始化列表头" class="headerlink" title="1.定义并初始化列表头"></a>1.定义并初始化列表头</h3><h4 id="直接定义"><a href="#直接定义" class="headerlink" title="直接定义"></a>直接定义</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">wait_queue_head_t</span> my_queue;</div><div class="line">init_waitqueue_head(&amp;my_queue);</div></pre></td></tr></table></figure>
+<p><code>init_waitqueue_head()</code>函数会将自旋锁初始化为未锁，等待队列初始化为空的双向循环链表。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/include/linux/wait.h</div><div class="line"></div><div class="line"><span class="meta">#<span class="meta-keyword">define</span> init_waitqueue_head(q)                             </span></div><div class="line">   <span class="keyword">do</span> &#123;                                </div><div class="line">           <span class="function"><span class="keyword">static</span> <span class="keyword">struct</span> <span class="title">lock_class_key</span> <span class="params">(__key)</span></span>;                                                         </div><div class="line">           __init_waitqueue_head((q), (&amp;__key));   </div><div class="line">   &#125; <span class="keyword">while</span> (<span class="number">0</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">/kernel/wait.c</div><div class="line"></div><div class="line"><span class="keyword">void</span> __init_waitqueue_head(<span class="keyword">wait_queue_head_t</span> *q, <span class="keyword">struct</span> lock_class_key *key)</div><div class="line">&#123;</div><div class="line">  spin_lock_init(&amp;q-&gt;lock);</div><div class="line">  lockdep_set_class(&amp;q-&gt;lock, key);</div><div class="line">  INIT_LIST_HEAD(&amp;q-&gt;task_list);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/include/linux/list.<span class="function">h</span></div><div class="line"></div><div class="line"><span class="keyword">static</span> inline <span class="keyword">void</span> <span class="title">INIT_LIST_HEAD</span><span class="params">(struct list_head *list)</span></div><div class="line">&#123;</div><div class="line">  list-&gt;next = list;</div><div class="line">  list-&gt;prev = list;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="使用宏"><a href="#使用宏" class="headerlink" title="使用宏"></a>使用宏</h4><p><code>DECLARE_WAIT_QUEUE_HEAD(my_queue);</code><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">#define __WAIT_QUEUE_HEAD_INITIALIZER(name) &#123;                                </div><div class="line">   .lock            = __SPIN_LOCK_UNLOCKED(name.lock),           </div><div class="line">   .task_list       = &#123; &amp;(name).task_list, &amp;(name).task_list &#125; &#125;</div><div class="line"></div><div class="line">#define DECLARE_WAIT_QUEUE_HEAD(name)</div><div class="line">   wait_queue_head_t name = __WAIT_QUEUE_HEAD_INITIALIZER(name)</div></pre></td></tr></table></figure></p>
+<p>定义并初始化LIST，相当于(1)</p>
+<h3 id="定义等待队列"><a href="#定义等待队列" class="headerlink" title="定义等待队列"></a>定义等待队列</h3><p><code>DECLARE_WAITQUEUE(name,tsk);</code></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">#define DECLARE_WAITQUEUE(name, tsk)                                      </div><div class="line">   wait_queue_t name = __WAITQUEUE_INITIALIZER(name, tsk)</div><div class="line"></div><div class="line">#define __WAITQUEUE_INITIALIZER(name, tsk) &#123;                          </div><div class="line">   .private   = tsk,                                         </div><div class="line">   .func         = default_wake_function,                     </div><div class="line">   .task_list       = &#123; NULL, NULL &#125; &#125;</div></pre></td></tr></table></figure>
+<p>注意此处是定义一个wait_queue_t类型的变量name，并将其private设置为tsk，wait_queue_t 结构：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">struct __wait_queue &#123;</div><div class="line">   unsigned <span class="keyword">int</span> flags;<span class="comment">//指明该等待的进程是互斥进程还是非互斥进程，0是非互斥进程</span></div><div class="line">   <span class="keyword">void</span> *<span class="keyword">private</span>;</div><div class="line">   wait_queue_func_t func;</div><div class="line">   struct list_head task_list;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>其中flags域指明该等待的进程是互斥进程还是非互斥进程。其中0是非互斥进程，WQ_FLAG_EXCLUSIVE(0x01)是互斥进程。<br>等待队列(wait_queue_t)和等待对列头(wait_queue_head_t)的区别是等待队列是等待队列头的成员。<br>也就是说等待队列头的task_list域链接的成员就是等待队列类型的(wait_queue_t)。</p>
+<h3 id="从等待队列头中-添加／移出等待队列"><a href="#从等待队列头中-添加／移出等待队列" class="headerlink" title="(从等待队列头中)添加／移出等待队列"></a>(从等待队列头中)添加／移出等待队列</h3><h4 id="添加"><a href="#添加" class="headerlink" title="添加"></a>添加</h4><p>设置等待的进程为非互斥进程，并将其添加进等待队列头(q)的队头中（list.h）</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">add_wait_queue</span><span class="params">(wait_queue_head_t *q, wait_queue_t *wait)</span></span></div><div class="line">&#123;</div><div class="line">  unsigned <span class="keyword">long</span> flags;</div><div class="line">  wait-&gt;flags &amp;= ~WQ_FLAG_EXCLUSIVE;</div><div class="line">  spin_lock_irqsave(&amp;q-&gt;lock, flags);</div><div class="line">  __add_wait_queue(q, wait);</div><div class="line">  spin_unlock_irqrestore(&amp;q-&gt;lock, flags);</div><div class="line">&#125;</div><div class="line">EXPORT_SYMBOL(add_wait_queue);</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">static inline void __add_wait_queue(wait_queue_head_t *head, wait_queue_t *new)</div><div class="line">&#123;</div><div class="line">        list_add(&amp;new-&gt;task_list, &amp;head-&gt;task_list);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/include/linux/list.h</div><div class="line">static inline void list_add(struct list_head *new, struct list_head *head)</div><div class="line">&#123;</div><div class="line">   __list_add(new, head, head-&gt;next);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/include/linux/list.h</div><div class="line">static inline void __list_add(struct list_head *new,struct list_head *prev,struct list_head *next)</div><div class="line">   next-&gt;prev = new;</div><div class="line">   new-&gt;next = next;</div><div class="line">   new-&gt;prev = prev;</div><div class="line">   prev-&gt;next = new;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>该函数也和add_wait_queue()函数功能基本一样，只不过它是将等待的进程(wait)设置为互斥进程，且添加到末尾</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">void add_wait_queue_exclusive(wait_queue_head_t *q, wait_queue_t *wait)</div><div class="line">&#123;</div><div class="line">    unsigned long flags;</div><div class="line"></div><div class="line">    wait-&gt;flags |= WQ_FLAG_EXCLUSIVE;</div><div class="line">    spin_lock_irqsave(&amp;q-&gt;lock, flags);</div><div class="line">    __add_wait_queue_tail(q, wait);</div><div class="line">    spin_unlock_irqrestore(&amp;q-&gt;lock, flags);</div><div class="line">&#125;</div><div class="line">EXPORT_SYMBOL(add_wait_queue_exclusive);</div><div class="line">static inline void __add_wait_queue_tail(wait_queue_head_t *head,</div><div class="line">                                         wait_queue_t *new)</div><div class="line">&#123;</div><div class="line">     list_add_tail(&amp;new-&gt;task_list, &amp;head-&gt;task_list);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="移除"><a href="#移除" class="headerlink" title="移除"></a>移除</h4><p>在等待的资源或事件满足时，进程被唤醒，使用该函数被从等待头中删除</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">void remove_wait_queue(wait_queue_head_t *q, wait_queue_t *wait)</div><div class="line">&#123;</div><div class="line">    unsigned long flags;</div><div class="line"></div><div class="line">    spin_lock_irqsave(&amp;q-&gt;lock, flags);</div><div class="line">    __remove_wait_queue(q, wait);</div><div class="line">    spin_unlock_irqrestore(&amp;q-&gt;lock, flags);</div><div class="line">&#125;</div><div class="line">EXPORT_SYMBOL(remove_wait_queue);</div><div class="line">static inline void __remove_wait_queue(wait_queue_head_t *head,wait_queue_t *old)</div><div class="line">&#123;</div><div class="line">        list_del(&amp;old-&gt;task_list);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="等待事件"><a href="#等待事件" class="headerlink" title="等待事件"></a>等待事件</h2><h3 id="wait-event-宏："><a href="#wait-event-宏：" class="headerlink" title="wait_event()宏："></a>wait_event()宏：</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">/**</div><div class="line"> * wait_event - sleep until a condition gets true</div><div class="line"> * @wq: the waitqueue to wait on</div><div class="line"> * @condition: a C expression for the event to wait for</div><div class="line"> *</div><div class="line"> * The process is put to sleep (TASK_UNINTERRUPTIBLE) until the</div><div class="line"> * @condition evaluates to true. The @condition is checked each time</div><div class="line"> * the waitqueue @wq is woken up.</div><div class="line"> *</div><div class="line"> * wake_up() has to be called after changing any variable that could</div><div class="line"> * change the result of the wait condition.</div><div class="line"> */</div><div class="line">#define wait_event(wq, condition)                   \</div><div class="line">do &#123;                                    \</div><div class="line">    if (condition)                          \</div><div class="line">        break;                          \</div><div class="line">    __wait_event(wq, condition);                    \</div><div class="line">&#125; while (0)</div><div class="line">#define __wait_event(wq, condition)                                       \</div><div class="line">  (void)___wait_event(wq, condition, TASK_UNINTERRUPTIBLE, 0, 0, schedule())</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/*</div><div class="line"> * The below macro ___wait_event() has an explicit shadow of the __ret</div><div class="line"> * variable when used from the wait_event_*() macros.</div><div class="line"> *</div><div class="line"> * This is so that both can use the ___wait_cond_timeout() construct</div><div class="line"> * to wrap the condition.</div><div class="line"> *</div><div class="line"> * The type inconsistency of the wait_event_*() __ret variable is also</div><div class="line"> * on purpose; we use long where we can return timeout values and int</div><div class="line"> * otherwise.</div><div class="line"> */</div><div class="line"></div><div class="line">#define ___wait_event(wq, condition, state, exclusive, ret, cmd)      \</div><div class="line">(&#123;                                                                     \</div><div class="line">  __label__ __out;                                          \</div><div class="line">  wait_queue_t __wait;//列表项                                             \</div><div class="line">  long __ret = ret;        /* explicit shadow */                 \</div><div class="line">                                                                  \</div><div class="line">  INIT_LIST_HEAD(&amp;__wait.task_list);                         \</div><div class="line">  if (exclusive)                                                      \</div><div class="line">          __wait.flags = WQ_FLAG_EXCLUSIVE;                  \</div><div class="line">  else                                                             \</div><div class="line">          __wait.flags = 0;                                    \</div><div class="line">                                                                       \</div><div class="line">  for (;;) &#123;                                                       \</div><div class="line">          long __int = prepare_to_wait_event(&amp;wq, &amp;__wait, state);\</div><div class="line">                                                                  \</div><div class="line">          if (condition)                                              \</div><div class="line">                  break;                                           \</div><div class="line">                                                                  \</div><div class="line">          if (___wait_is_interruptible(state) &amp;&amp; __int) &#123;               \</div><div class="line">                  __ret = __int;                                        \</div><div class="line">                  if (exclusive) &#123;                            \</div><div class="line">                               abort_exclusive_wait(&amp;wq, &amp;__wait,      \</div><div class="line">                                               state, NULL);     \</div><div class="line">                          goto __out;                             \</div><div class="line">                  &#125;                                               \</div><div class="line">                  break;                                           \</div><div class="line">          &#125;                                                       \</div><div class="line">                                                                  \</div><div class="line">          cmd;                                                     \</div><div class="line">  &#125;                                                               \</div><div class="line">  finish_wait(&amp;wq, &amp;__wait);                                       \</div><div class="line">__out:        __ret;                                                         \</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>在等待会列中睡眠直到condition为真。在等待的期间，进程会被置为TASK_UNINTERRUPTIBLE进入睡眠，直到condition变量变为真。每次进程被唤醒的时候都会检查<br>condition的值.</p>
+
+        </div>
+
+        
+        <div class="card page-about-me flex-row">
+            <a href="/" class="avatar waves-effect waves-circle waves-light"><img src="/img/avatar.jpg"></a>
+            <div class="content flex-col">
+                <p><strong>AustinXishou</strong></p>
+                <p><em>Stand out or get out!</em></p>
+                <p>用户页面中作者相关的描述性文字，如不需要设为 false</p>
+            </div>
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/categories/android/linux等待队列.html&title=爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/categories/android/linux等待队列.html&title=爵士犀首&source=Personal blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/categories/android/linux等待队列.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=爵士犀首&url=https://austinxishou.github.io/categories/android/linux等待队列.html&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/categories/android/linux等待队列.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+        
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="hexo-page-categories-android-linux等待队列.html" data-title="" data-url="https://austinxishou.github.io/categories/android/linux等待队列.html"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.14');
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+    </article>
+    
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/categories/android/linux等待队列.html&title=爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/categories/android/linux等待队列.html&title=爵士犀首&source=Personal blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/categories/android/linux等待队列.html" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=爵士犀首&url=https://austinxishou.github.io/categories/android/linux等待队列.html&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/categories/android/linux等待队列.html" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtElEQVR42u3aQW7kMAwEwPn/p5PLHhZIPO4WpYEDlE8L2COpFEDikny94ufr4vn/bfvbn+Nc/SqZZfTg4eHhbVr6z6GvJrv6MsHk3+ez4OHh4X2Gd3WiJkO3V0gy8tolgYeHh/dkXntA51fL+83Cw8PD+4u8fOIkSbG2BXh4eHhP4K0lAtaO+Hbp70PzbbkWPDw8vK7eFFWRnvPvI/U9PDw8vHFVPU/FJgnc/Iifr/PfOHh4eHgHePmB2wavbfibB835OvHw8PBO8yYHfT7ZWltAsimXI+Dh4eEd5rVBbZsTWLuK2lRy1H2Ah4eHN+DtKjXlB3rbptCG+3h4eHinefn0eXtBUsrKN2i0HXh4eHgHeG2RqU1DTNqwki3b0FmGh4eHF/PWMPMFzVMh76+K4i+Gh4eHN+Al6dp2C9ov20D/Zi48PDy8Y7y14zsv4eezrLUsXL7Fw8PDO8ZLjuZJkmJX8awO9PHw8PAO8NqGquToz79sQ/bFBw8PD28rr02PTpIU7dtJMgIPDw/vk7wTRa85Ixn/l/Xg4eHhHeYlS88Xl4fCbUhdpJLx8PDwjvH2pi3yREabN0jGf63tMR4eHl7MyzH5gta2rG0mWGvPwsPDw9vFyxeXJ2TXimH5FkdNA3h4eHgf4U2SDnkDVvJ9noy4+RUeHh7eYV6+uHxBe8tmbfICDw8P7zQvHzTfoL3stmCGh4eHd5qXJwUSRhsuz8taRUiNh4eHt8T7Kp88KG+bt9aSyDdv8fDw8A7w5m0E7eHeBtb5NfOaPHh4eHglL7kMJgf9JIDOR7sE4+Hh4R3jtYWxSWp1b1h8c13h4eHhPYaXUJOLp23VyteMh4eH92Re2wSQY5Iw/eYiwcPDwzvGSw7rNjiepHHnaV88PDy8c7z2P/zztoC8HWFSeMPDw8M7wPsGtM7vZNNXGVcAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,61 +1,213 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
-  <title>爵士犀首</title>
-  <subtitle>Stand out or get out!</subtitle>
-  <link href="/atom.xml" rel="self"/>
-  
-  <link href="https://austinxishou.github.io/"/>
-  <updated>2017-03-31T06:56:58.051Z</updated>
-  <id>https://austinxishou.github.io/</id>
-  
-  <author>
-    <name>AustinXishou</name>
-    <email>austinxishou@yahoo.com</email>
-  </author>
-  
-  <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Android自启动管理功能</title>
-    <link href="https://austinxishou.github.io/2017/03/31/android/Android%E8%87%AA%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD/"/>
-    <id>https://austinxishou.github.io/2017/03/31/android/Android自启动管理功能/</id>
-    <published>2017-03-31T06:37:05.178Z</published>
-    <updated>2017-03-31T06:56:58.051Z</updated>
+<!DOCTYPE html>
+<html>
+<head>
     
-    <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>基本功能: 获取设备上所有应用的开机启动完成的广播接收者,同时区分系统应用和用户应用.<br>然后,提供界面接口给用户,统一管理应用的自启动功能,这样可以提升系统的运行性能和待机时长;</p>
-<h2 id="获取所有receivers-区分是否使能"><a href="#获取所有receivers-区分是否使能" class="headerlink" title="获取所有receivers 区分是否使能"></a>获取所有receivers 区分是否使能</h2><p>获取包含被禁止自启动receiver的信息<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;ResolveInfo&gt; forbidInfoList = mPackageManager.queryBroadcastReceivers(intent,PackageManager.GET_DISABLED_COMPONENTS);</div></pre></td></tr></table></figure></p>
-<p>获取所有使能的 receivers<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;ResolveInfo&gt; allowInfoList = mPackageManager.queryBroadcastReceivers(intent,PackageManager.GET_RECEIVERS);</div></pre></td></tr></table></figure></p>
-<p>两个列表比较,标志receivers是否开启<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;allowInfoList.size(); k++)&#123;</div><div class="line">	<span class="keyword">if</span>( allowInfoList.get(k).activityInfo.packageName.equals(packageName) )&#123;</div><div class="line">		isEnable =<span class="keyword">true</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="判断是否为系统应用"><a href="#判断是否为系统应用" class="headerlink" title="判断是否为系统应用"></a>判断是否为系统应用</h2><p>通过ApplicationInfo.FLAG_SYSTEM标志,判断是否为系统应用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>((forbidInfoList.get(i).activityInfo.applicationInfo.flags&amp;ApplicationInfo.FLAG_SYSTEM)==<span class="number">1</span>||  </div><div class="line">(forbidInfoList.get(i).activityInfo.applicationInfo.flags&amp;ApplicationInfo.FLAG_UPDATED_SYSTEM_APP)==<span class="number">1</span>)&#123;</div><div class="line">	isSystem = <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="判断是否运行并获取内存占用大小"><a href="#判断是否运行并获取内存占用大小" class="headerlink" title="判断是否运行并获取内存占用大小"></a>判断是否运行并获取内存占用大小</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">float</span> memUsed = <span class="number">0</span>;</div><div class="line">ArrayList&lt;Integer&gt; pid = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(runningApps.size());</div><div class="line"><span class="comment">//循环处理正在运行进程</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;runningApps.size(); k++)&#123;</div><div class="line">	<span class="keyword">if</span>(runningApps.get(k).processName.equals(packageName))&#123;</div><div class="line">		<span class="comment">// Log.e("ycltest","in runningApps list find the right process,handle it");</span></div><div class="line">		pid.add( Integer.valueOf(runningApps.get(k).pid) );</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="keyword">continue</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span>( pid.size() == <span class="number">0</span>)&#123;</div><div class="line">	isRun = <span class="keyword">false</span>;</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">	<span class="comment">//获取内存大小</span></div><div class="line">	isRun = <span class="keyword">true</span>;</div><div class="line">	<span class="keyword">int</span>[] pids = <span class="keyword">new</span> <span class="keyword">int</span>[pid.size()];</div><div class="line">	</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> num=<span class="number">0</span>; num&lt;pid.size(); num++) &#123;</div><div class="line">		pids[num] = pid.get(num).intValue();</div><div class="line">	&#125;</div><div class="line">	Debug.MemoryInfo[] mi = mActivityManager.getProcessMemoryInfo(pids);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> num=<span class="number">0</span>; num&lt;mi.length; num++) &#123;</div><div class="line">		memUsed += (<span class="keyword">float</span>)(mi[num].getTotalPrivateDirty()+mi[num].getTotalPss())/<span class="number">1024</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="关闭和开启Receiver"><a href="#关闭和开启Receiver" class="headerlink" title="关闭和开启Receiver"></a>关闭和开启Receiver</h2><p>通过PackageManager.setComponentEnabledSetting方法,关闭和开启Receiver</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updatePackageReceiverState</span><span class="params">( PackageEntry item, <span class="keyword">boolean</span> isChecked)</span></span>&#123;</div><div class="line">	String packageReceiverList[] = item.getPackageReceivers().split(<span class="string">";"</span>);</div><div class="line">	<span class="keyword">int</span> newState = isChecked ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;packageReceiverList.length; i++) &#123;</div><div class="line">		<span class="keyword">if</span>( packageReceiverList[i] != <span class="keyword">null</span> )&#123;</div><div class="line">			ComponentName comName = <span class="keyword">new</span> ComponentName(item.getPackageName(), packageReceiverList[i]);</div><div class="line">			<span class="keyword">int</span> flag = <span class="number">0</span>;</div><div class="line">			<span class="keyword">if</span>( item.getPackageName().equals(<span class="string">"com.android.settings"</span>) )&#123;</div><div class="line">				flag = PackageManager.DONT_KILL_APP;</div><div class="line">			&#125;</div><div class="line">			mPackageManager.setComponentEnabledSetting(comName,newState, flag);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="其他功能"><a href="#其他功能" class="headerlink" title="其他功能"></a>其他功能</h2><p>其他功能包括,列表排序,列表更新,无应用列表图片显示等,不在这里详细展开!</p>
-]]></content>
+
     
-    <summary type="html">
+
     
-      Android autostart manager
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+
+
+
+    <meta charset="utf-8">
     
     
-      <category term="app" scheme="https://austinxishou.github.io/tags/app/"/>
     
-      <category term="Android" scheme="https://austinxishou.github.io/tags/Android/"/>
+    <title>Android发送广播详解 | 爵士犀首 | Stand out or get out!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-  </entry>
-  
-  <entry>
-    <title>Android发送广播详解</title>
-    <link href="https://austinxishou.github.io/2017/03/31/android/Android%E5%8F%91%E9%80%81%E5%B9%BF%E6%92%AD%E8%AF%A6%E8%A7%A3/"/>
-    <id>https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/</id>
-    <published>2017-03-31T06:22:32.229Z</published>
-    <updated>2017-03-31T06:32:48.921Z</updated>
+    <meta name="theme-color" content="#3F51B5">
     
-    <content type="html"><![CDATA[<h2 id="调用ContextImpl进行发送"><a href="#调用ContextImpl进行发送" class="headerlink" title="调用ContextImpl进行发送"></a>调用ContextImpl进行发送</h2><p>同样，不管是<code>Activity</code>、<code>Service</code>上发送广播，最终实现都在<code>ContextImpl</code>，最后发送到<code>ActivityManagerService</code>处理</p>
+    
+    <meta name="keywords" content="app,Android,sendBroadcast">
+    <meta name="description" content="Android app sendBroadcast">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android发送广播详解">
+<meta property="og:url" content="https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="Android app sendBroadcast">
+<meta property="og:updated_time" content="2017-03-31T06:32:48.921Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android发送广播详解">
+<meta name="twitter:description" content="Android app sendBroadcast">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://austinxishou.github.io/" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android发送广播详解</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android发送广播详解</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-31T06:22:32.229Z" itemprop="datePublished" class="page-time">
+  2017-03-31
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#调用ContextImpl进行发送"><span class="post-toc-number">1.</span> <span class="post-toc-text">调用ContextImpl进行发送</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ActivityManagerProxy发送到AMS"><span class="post-toc-number">2.</span> <span class="post-toc-text">ActivityManagerProxy发送到AMS</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#AMS处理BROADCAST-INTENT-TRANSACTION"><span class="post-toc-number">3.</span> <span class="post-toc-text">AMS处理BROADCAST_INTENT_TRANSACTION</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#broadcastIntentLocked获取目标Receivers"><span class="post-toc-number">4.</span> <span class="post-toc-text">broadcastIntentLocked获取目标Receivers</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#scheduleBroadcastsLocked调度执行"><span class="post-toc-number">5.</span> <span class="post-toc-text">scheduleBroadcastsLocked调度执行</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#处理广播"><span class="post-toc-number">6.</span> <span class="post-toc-text">处理广播</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#处理无序广播"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">处理无序广播</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#BroadcastQueue-deliverToRegisteredReceiverLocked"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">BroadcastQueue#deliverToRegisteredReceiverLocked</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-3-BroadcastQueue-performReceiveLocked"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">6.3 BroadcastQueue#performReceiveLocked</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-4-IIntentReceiver-performReceive"><span class="post-toc-number">6.4.</span> <span class="post-toc-text">6.4 IIntentReceiver#performReceive</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-5-ReceiverDispatcher-performReceive"><span class="post-toc-number">6.5.</span> <span class="post-toc-text">6.5 ReceiverDispatcher#performReceive</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#6-6-Args-run"><span class="post-toc-number">6.6.</span> <span class="post-toc-text">6.6 Args#run</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/Android发送广播详解"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android发送广播详解</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年03月31日 14:22" datetime="2017-03-31T06:22:32.229Z"  itemprop="datePublished">2017-03-31</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="调用ContextImpl进行发送"><a href="#调用ContextImpl进行发送" class="headerlink" title="调用ContextImpl进行发送"></a>调用ContextImpl进行发送</h2><p>同样，不管是<code>Activity</code>、<code>Service</code>上发送广播，最终实现都在<code>ContextImpl</code>，最后发送到<code>ActivityManagerService</code>处理</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendBroadcast</span><span class="params">(Intent intent)</span> </span>&#123;</div><div class="line">     warnIfCallingFromSystemProcess();</div><div class="line">     String resolvedType = intent.resolveTypeIfNeeded(getContentResolver());</div><div class="line">     <span class="keyword">try</span> &#123;</div><div class="line">         intent.prepareToLeaveProcess();</div><div class="line">         ActivityManagerNative.getDefault().broadcastIntent(</div><div class="line">             mMainThread.getApplicationThread(), intent, resolvedType, <span class="keyword">null</span>,</div><div class="line">             Activity.RESULT_OK, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, AppOpsManager.OP_NONE, <span class="keyword">false</span>, <span class="keyword">false</span>,</div><div class="line">             getUserId());</div><div class="line">     &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <h2 id="ActivityManagerProxy发送到AMS"><a href="#ActivityManagerProxy发送到AMS" class="headerlink" title="ActivityManagerProxy发送到AMS"></a>ActivityManagerProxy发送到AMS</h2><p>由<code>ActivityManagerProxy</code>发送到<code>AMS</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//resultTo：null，resultCode：-resultData：null，map：null，requiredPermission：null</span></div><div class="line"><span class="comment">//appOp：-1，serialized：false，sticky：false</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">broadcastIntent</span><span class="params">(IApplicationThread caller,</span></span></div><div class="line">        Intent intent, String resolvedType,  IIntentReceiver resultTo,</div><div class="line">        <span class="keyword">int</span> resultCode, String resultData, Bundle map,</div><div class="line">        String requiredPermission, <span class="keyword">int</span> appOp, <span class="keyword">boolean</span> serialized,</div><div class="line">        <span class="keyword">boolean</span> sticky, <span class="keyword">int</span> userId) <span class="keyword">throws</span> RemoteException</div><div class="line">&#123;</div><div class="line">    Parcel data = Parcel.obtain();</div><div class="line">    Parcel reply = Parcel.obtain();</div><div class="line">    data.writeInterfaceToken(IActivityManager.descriptor);</div><div class="line">    data.writeStrongBinder(caller != <span class="keyword">null</span> ? caller.asBinder() : <span class="keyword">null</span>);</div><div class="line">    intent.writeToParcel(data, <span class="number">0</span>);</div><div class="line">    data.writeString(resolvedType);</div><div class="line">    data.writeStrongBinder(resultTo != <span class="keyword">null</span> ? resultTo.asBinder() : <span class="keyword">null</span>);</div><div class="line">    data.writeInt(resultCode);</div><div class="line">    data.writeString(resultData);</div><div class="line">    data.writeBundle(map);</div><div class="line">    data.writeString(requiredPermission);</div><div class="line">    data.writeInt(appOp);</div><div class="line">    data.writeInt(serialized ? <span class="number">1</span> : <span class="number">0</span>);</div><div class="line">    data.writeInt(sticky ? <span class="number">1</span> : <span class="number">0</span>);</div><div class="line">    data.writeInt(userId);</div><div class="line">    mRemote.transact(BROADCAST_INTENT_TRANSACTION, data, reply, <span class="number">0</span>);</div><div class="line">    reply.readException();</div><div class="line">    <span class="keyword">int</span> res = reply.readInt();</div><div class="line">    reply.recycle();</div><div class="line">    data.recycle();</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -74,415 +226,300 @@
 <h3 id="6-5-ReceiverDispatcher-performReceive"><a href="#6-5-ReceiverDispatcher-performReceive" class="headerlink" title="6.5 ReceiverDispatcher#performReceive"></a>6.5 ReceiverDispatcher#performReceive</h3><p>构造<code>Args</code>封装成一个消息,<code>Args</code>继承自<code>PendingResult</code>实现了<code>Runnable</code>接口<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">LoadedApk#ReceiverDispatcher</div><div class="line"></div><div class="line">public void performReceive(Intent intent, int resultCode, String data,</div><div class="line">        Bundle extras, boolean ordered, boolean sticky, int sendingUser) &#123;</div><div class="line"></div><div class="line">    Args args = new Args(intent, resultCode, data, extras, ordered,sticky, sendingUser);</div><div class="line">    if (!mActivityThread.post(args)) &#123;</div><div class="line">        if (mRegistered &amp;&amp; ordered) &#123;</div><div class="line">            IActivityManager mgr = ActivityManagerNative.getDefault();</div><div class="line"></div><div class="line">            args.sendFinished(mgr);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 <h3 id="6-6-Args-run"><a href="#6-6-Args-run" class="headerlink" title="6.6 Args#run"></a>6.6 Args#run</h3><p>但是构造一个<code>Args</code>对象又有什么用？或者说<code>PendingResult</code>的作用是什么？这个<code>PendingResult</code>可以在<code>BroadcastReceiver#onReceive</code>方法中通过<code>goAsync</code>方法返回，表示的结果的状态，在一个广播处理完之后必须调用其<code>finish</code>方法（这个在回调<code>onReceiver</code>方法后会自动回调）,<code>finish</code>方法用来完成某个广播，对于一个已经处理完的广播，如果是有序广播，接收完之后需要向<code>AMS</code>发一个回包，以便<code>AMS</code>可以将这个有序广播发送给下一个广播接收者。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Args</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span>.<span class="title">PendingResult</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Intent mCurIntent;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">boolean</span> mOrdered;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Args</span><span class="params">(Intent intent, <span class="keyword">int</span> resultCode, String resultData, Bundle resultExtras,</span></span></div><div class="line">            <span class="keyword">boolean</span> ordered, <span class="keyword">boolean</span> sticky, <span class="keyword">int</span> sendingUser) &#123;</div><div class="line">        <span class="keyword">super</span>(resultCode, resultData, resultExtras,</div><div class="line">                mRegistered ? TYPE_REGISTERED : TYPE_UNREGISTERED,</div><div class="line">                ordered, sticky, mIIntentReceiver.asBinder(), sendingUser);</div><div class="line">        mCurIntent = intent;</div><div class="line">        mOrdered = ordered;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> BroadcastReceiver receiver = mReceiver;<span class="comment">//具体注册的BroadcastReceiver，保存在ReceiverDispatcher成员变量</span></div><div class="line">        <span class="keyword">final</span> <span class="keyword">boolean</span> ordered = mOrdered;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">final</span> IActivityManager mgr = ActivityManagerNative.getDefault();</div><div class="line">        <span class="keyword">final</span> Intent intent = mCurIntent;</div><div class="line">        mCurIntent = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (receiver == <span class="keyword">null</span> || mForgotten) &#123;</div><div class="line">            <span class="keyword">if</span> (mRegistered &amp;&amp; ordered) &#123;</div><div class="line">                sendFinished(mgr);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            ClassLoader cl =  mReceiver.getClass().getClassLoader();</div><div class="line">            intent.setExtrasClassLoader(cl);</div><div class="line">            setExtrasClassLoader(cl);</div><div class="line">            receiver.setPendingResult(<span class="keyword">this</span>);</div><div class="line">            receiver.onReceive(mContext, intent);<span class="comment">//回调具体的Receiver</span></div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            <span class="keyword">if</span> (mRegistered &amp;&amp; ordered) &#123;</div><div class="line">                <span class="keyword">if</span> (ActivityThread.DEBUG_BROADCAST) Slog.i(ActivityThread.TAG,<span class="string">"Finishing failed broadcast to "</span> + mReceiver);</div><div class="line">                sendFinished(mgr);</div><div class="line">            &#125;</div><div class="line">              <span class="comment">//...</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (receiver.getPendingResult() != <span class="keyword">null</span>) &#123;</div><div class="line">            finish();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      Android app sendBroadcast
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="app" scheme="https://austinxishou.github.io/tags/app/"/>
-    
-      <category term="Android" scheme="https://austinxishou.github.io/tags/Android/"/>
-    
-      <category term="sendBroadcast" scheme="https://austinxishou.github.io/tags/sendBroadcast/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hexo 3.0 使用指南</title>
-    <link href="https://austinxishou.github.io/2017/03/29/webdesign/Hexo3.0%E4%BD%BF%E7%94%A8%E6%8C%87%E5%8D%97/"/>
-    <id>https://austinxishou.github.io/2017/03/29/webdesign/Hexo3.0使用指南/</id>
-    <published>2017-03-29T13:52:15.649Z</published>
-    <updated>2017-03-28T15:16:35.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><ul>
-<li>Hexo是一个轻量的静态博客框架，通过Hexo可以快速生成一个静态博客框架，仅需要几条命令就可以完成,相当方便。</li>
-<li>架设Hexo的环境更简单了，不需要lnmp/lamp这些繁琐复杂的环境，仅仅需要一个简单的http服务器即可使用 或者使用互联网上免费的页面托管服务。</li>
-<li>比如Hexo的<a href="http://hexo.io" target="_blank" rel="external">官方网站</a>就是托管于github的pages服务上。</li>
-<li>[AustinXishou个人博客]（<a href="https://austinxishou.github.io/）也是采用hexo+Github搭建。">https://austinxishou.github.io/）也是采用hexo+Github搭建。</a></li>
-</ul>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
-<li>安装hexo之前，确保环境中已经安装有GIT和Nodejs；</li>
-</ol>
-<p><strong> 安装 Node.js </strong><br>在Windows系统中可以直接下载<a href="http://pan.baidu.com/s/1sl0emC1" target="_blank" rel="external">node-v6.10.1-x64.msi</a>;</p>
-<p><strong> 安装hexo主程序 </strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install</div></pre></td></tr></table></figure>
-<h2 id="Hexo简单的建站配置"><a href="#Hexo简单的建站配置" class="headerlink" title="Hexo简单的建站配置"></a>Hexo简单的建站配置</h2><p>采用hexo可以很快速的搭建一个博客工程，然后修改相关配置，最后生成静态网页，分布到对应的托管服务上；</p>
-<p><strong> 安装hexo主程序 </strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo init myblog</div><div class="line">$ <span class="built_in">cd</span> myblog</div><div class="line">$ npm install</div></pre></td></tr></table></figure>
-<p><strong> 建完后目录结构为 </strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure></p>
-<p>_config.yml<br>网站的 配置 信息，您可以在此配置大部分的参数。</p>
-<p>package.json<br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
-<p>scaffolds<br>模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
-<p>source<br>资源文件夹是存放用户资源的地方。除 posts 文件夹之外，开头命名为 (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
-<p>themes<br>主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
-<h3 id="Hexo全局配置"><a href="#Hexo全局配置" class="headerlink" title="Hexo全局配置"></a>Hexo全局配置</h3><p>用文本编辑器修改_config.yml这个文件 大致如下 只需要自行修改几个 其他保持默认即可</p>
-<p>通常需要修改站点名称 /URL格式 /归档设置 /disqus评论用户名 /部署配置 这几项就可以了 注意冒号后面都要添加一个半角空格 之后才是设置参数</p>
-<p>自定义域名设置 在 source 我文件夹下面新建 CNAME 文件 里面写入你的自定义域名 并设置您的dns配置cname方式到服务提供商的给的地址即可</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>source_dir 资源文件夹，这个文件夹用来存放内容。 source</p>
-<p>public_dir 公共文件夹，这个文件夹用于存放生成的站点文件。 public</p>
-<p>tag_dir 标签文件夹 tags</p>
-<p>archive_dir 归档文件夹 archives</p>
-<p>category_dir 分类文件夹 categories</p>
-<p>code_dir Include code 文件夹 downloads/code</p>
-<p>i18n_dir 国际化（i18n）文件夹 :lang</p>
-<p>skip_render 跳过指定文件的渲染，您可使用 glob 来配置路径。</p>
-<h3 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h3><h2 id="本地启动server"><a href="#本地启动server" class="headerlink" title="本地启动server"></a>本地启动server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>可以观察命令行的输出，然后通过浏览器打开<a href="http://localhost:4000/，成功的情况下则会看到默认的欢迎页面。" target="_blank" rel="external">http://localhost:4000/，成功的情况下则会看到默认的欢迎页面。</a></p>
-<h2 id="部署到github-pages"><a href="#部署到github-pages" class="headerlink" title="部署到github pages"></a>部署到github pages</h2><p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
-<p>在开始之前，您必须先在 _config.yml 中修改参数，一个正确的部署配置中至少要有 type 参数，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repository url&gt;</div><div class="line">  branch: [branch]</div><div class="line">  message: [message]</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">参数	描述</div><div class="line">repo	库（Repository）地址</div><div class="line">branch	分支名称。如果您使用的是 GitHub 或 GitCafe 的话，程序会尝试自动检测。</div><div class="line">message	自定义提交信息 (默认为 Site updated: &#123;&#123; now(&apos;YYYY-MM-DD HH:mm:ss&apos;) &#125;&#125;)</div></pre></td></tr></table></figure>
-<p>我的博客对应的参数设置为<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/austinxishou/austinxishou.github.io.git</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div><div class="line"><span class="attr">  name:</span> <span class="string">austinxishou</span></div><div class="line"><span class="attr">  email:</span> <span class="string">austinxishou@yahoo.com</span></div></pre></td></tr></table></figure></p>
-<p>安装 hexo-deployer-git</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>之后依次执行:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo generate</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
-<p>上述命令只要Github的权限校验通过,基本都能成功;</p>
-<h2 id="hexo主题"><a href="#hexo主题" class="headerlink" title="hexo主题"></a>hexo主题</h2><p>收集主题</p>
-<ol>
-<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">Next</a></li>
-<li><a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="external">Nidigo</a></li>
-</ol>
-<h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2><h3 id="使用草稿"><a href="#使用草稿" class="headerlink" title="使用草稿"></a>使用草稿</h3><p>在 source/_drafts 文件夹中 创建的文章为草稿，默认情况下不生成；<br>可以显示草稿<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo --draft</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      Hexo3.0使用指南 搭建静态网页
-    
-    </summary>
-    
-      <category term="webdesign" scheme="https://austinxishou.github.io/categories/webdesign/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>SEAndroid权限修改</title>
-    <link href="https://austinxishou.github.io/2017/03/29/android/SEAndroid%E6%9D%83%E9%99%90%E4%BF%AE%E6%94%B9/"/>
-    <id>https://austinxishou.github.io/2017/03/29/android/SEAndroid权限修改/</id>
-    <published>2017-03-29T05:39:55.224Z</published>
-    <updated>2017-03-29T05:47:19.110Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="权限修改"><a href="#权限修改" class="headerlink" title="权限修改"></a>权限修改</h2><h3 id="方法1-adb在线修改seLinux"><a href="#方法1-adb在线修改seLinux" class="headerlink" title="方法1: adb在线修改seLinux"></a>方法1: adb在线修改seLinux</h3><p> <code>Enforcing</code>(表示已打开)，<code>Permissive</code>（表示已关闭）</p>
-<pre><code>getenforce;  //获取当前seLinux状态
-setenforce 1;   //打开seLinux
-setenforce 0;   //关闭seLinux
-</code></pre><h3 id="方法2-从kernel中彻底关闭"><a href="#方法2-从kernel中彻底关闭" class="headerlink" title="方法2: 从kernel中彻底关闭"></a>方法2: 从kernel中彻底关闭</h3><p>修改<code>LINUX/android/kernel/arch/arm64/configs/xxx_defconfig</code>文件（xxx一般为手机产品名）， 去掉<code>CONFIG_SECURITY_SELINUX=y</code>的配置项</p>
-<h3 id="方法3-sepolicy中添加权限"><a href="#方法3-sepolicy中添加权限" class="headerlink" title="方法3: sepolicy中添加权限"></a>方法3: sepolicy中添加权限</h3><ul>
-<li><p>修改依据，通过指令<code>cat /proc/kmsg | grep denied</code>，或者kernel的Log中定位到标志性log。</p>
-</li>
-<li><p>修改步骤</p>
-<ul>
-<li><p>找相应的<strong>源类型.te</strong>文件，此文件可能的存放路径 (其中<strong>源类型</strong>见下方的标志性log格式) ：</p>
-<pre><code>LINUX/android/external/sepolicy
-LINUX/android/device/qcom/sepolicy/common
-</code></pre></li>
-<li><p>标志性log 格式</p>
-<pre><code>avc: denied  { 操作权限  }  for pid=7201  comm=“进程名”  scontext=u:r:源类型:s0  tcontext=u:r:目标类型:s0  tclass=访问类型 permissive=0
-</code></pre></li>
-<li><p>在相应<strong>源类型.te</strong>文件，添加如下格式的一行语句：(结尾别忘了分号)</p>
-<pre><code>格式：allow  源类型 目标类型:访问类型 {操作权限};
-</code></pre></li>
-</ul>
-</li>
-<li><p>实例</p>
-<ul>
-<li><p>Kernel Log</p>
-<pre><code>avc: denied {getattr read} for pid=7201 comm=&quot;xxx.xxx&quot; scontext=u:r:system_app:s0 tcontext=u:r:shell_data_file:s0 tclass=dir permissive=0
-</code></pre></li>
-<li><p>修改方案</p>
-<pre><code>在system_app.te文件中，添加下面语句：
-allow system_app shell_data_file:dir{getattr read};
-</code></pre></li>
-</ul>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      android security selinux
-    
-    </summary>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="security" scheme="https://austinxishou.github.io/tags/security/"/>
-    
-      <category term="selinux" scheme="https://austinxishou.github.io/tags/selinux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GithubPages+Hexo3.0搭建静态博客网页</title>
-    <link href="https://austinxishou.github.io/2017/03/29/webdesign/GithubPages+Hexo3.0%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5/"/>
-    <id>https://austinxishou.github.io/2017/03/29/webdesign/GithubPages+Hexo3.0搭建静态博客网页/</id>
-    <published>2017-03-29T01:27:40.078Z</published>
-    <updated>2017-03-29T05:49:47.546Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。<br>而架设Hexo的环境更简单了 不需要lnmp/lamp这些繁琐复杂的环境 仅仅需要一个简单的http服务器即可使用 或者使用互联网上免费的页面托管服务</p>
-<p>比如Hexo的<a href="http://hexo.io" target="_blank" rel="external">官方网站</a>就是托管于github的pages服务上</p>
-<h2 id="Hexo配置方法"><a href="#Hexo配置方法" class="headerlink" title="Hexo配置方法"></a>Hexo配置方法</h2><p>进去之后加入hexo主程序和安装npm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
-<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>新建完成后，指定文件夹的目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure></p>
-<p>_config.yml<br>网站的 配置 信息，您可以在此配置大部分的参数。</p>
-<p>package.json<br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
-<p>scaffolds<br>模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
-<p>source<br>资源文件夹是存放用户资源的地方。除 posts 文件夹之外，开头命名为 (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
-<p>themes<br>主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
-<h3 id="Hexo全局配置"><a href="#Hexo全局配置" class="headerlink" title="Hexo全局配置"></a>Hexo全局配置</h3><p>用文本编辑器修改_config.yml这个文件 大致如下 只需要自行修改几个 其他保持默认即可</p>
-<p>通常需要修改站点名称 /URL格式 /归档设置 /disqus评论用户名 /部署配置 这几项就可以了 注意冒号后面都要添加一个半角空格 之后才是设置参数</p>
-<p>自定义域名设置 在 source 我文件夹下面新建 CNAME 文件 里面写入你的自定义域名 并设置您的dns配置cname方式到服务提供商的给的地址即可</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>source_dir 资源文件夹，这个文件夹用来存放内容。 source</p>
-<p>public_dir 公共文件夹，这个文件夹用于存放生成的站点文件。 public</p>
-<p>tag_dir 标签文件夹 tags</p>
-<p>archive_dir 归档文件夹 archives</p>
-<p>category_dir 分类文件夹 categories</p>
-<p>code_dir Include code 文件夹 downloads/code</p>
-<p>i18n_dir 国际化（i18n）文件夹 :lang</p>
-<p>skip_render 跳过指定文件的渲染，您可使用 glob 来配置路径。</p>
-<h3 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h3><h2 id="本地启动server"><a href="#本地启动server" class="headerlink" title="本地启动server"></a>本地启动server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>可以观察命令行的输出，然后通过浏览器打开<a href="http://localhost:4000/，成功的情况下则会看到默认的欢迎页面。" target="_blank" rel="external">http://localhost:4000/，成功的情况下则会看到默认的欢迎页面。</a></p>
-<h2 id="部署到github-pages"><a href="#部署到github-pages" class="headerlink" title="部署到github pages"></a>部署到github pages</h2><p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
-<p>在开始之前，您必须先在 _config.yml 中修改参数，一个正确的部署配置中至少要有 type 参数，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repository url&gt;</div><div class="line">  branch: [branch]</div><div class="line">  message: [message]</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">参数	描述</div><div class="line">repo	库（Repository）地址</div><div class="line">branch	分支名称。如果您使用的是 GitHub 或 GitCafe 的话，程序会尝试自动检测。</div><div class="line">message	自定义提交信息 (默认为 Site updated: &#123;&#123; now(&apos;YYYY-MM-DD HH:mm:ss&apos;) &#125;&#125;)</div></pre></td></tr></table></figure>
-<p>我的博客对应的参数设置为<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/austinxishou/austinxishou.github.io.git</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div><div class="line"><span class="attr">  name:</span> <span class="string">austinxishou</span></div><div class="line"><span class="attr">  email:</span> <span class="string">austinxishou@yahoo.com</span></div></pre></td></tr></table></figure></p>
-<p>安装 hexo-deployer-git</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>之后依次执行:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo generate</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
-<p>上述命令只要Github的权限校验通过,基本都能成功;</p>
-<h2 id="hexo主题"><a href="#hexo主题" class="headerlink" title="hexo主题"></a>hexo主题</h2><p>收集主题</p>
-<ol>
-<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">Next</a></li>
-<li><a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="external">Nidigo</a></li>
-</ol>
-<h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2><h3 id="使用草稿"><a href="#使用草稿" class="headerlink" title="使用草稿"></a>使用草稿</h3><p>在 source/_drafts 文件夹中 创建的文章为草稿，默认情况下不生成；<br>可以显示草稿<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo --draft</div></pre></td></tr></table></figure></p>
-<p>### </p>
-]]></content>
-    
-    <summary type="html">
-    
-      GithubPages+Hexo3.0搭建静态博客网页
-    
-    </summary>
-    
-      <category term="webdesign" scheme="https://austinxishou.github.io/categories/webdesign/"/>
-    
-    
-      <category term="Hexo" scheme="https://austinxishou.github.io/tags/Hexo/"/>
-    
-      <category term="webdesign" scheme="https://austinxishou.github.io/tags/webdesign/"/>
-    
-      <category term="github" scheme="https://austinxishou.github.io/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android组件生命周期解析</title>
-    <link href="https://austinxishou.github.io/2017/03/29/android/Android%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%A7%A3%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/2017/03/29/android/Android组件生命周期解析/</id>
-    <published>2017-03-29T01:27:40.077Z</published>
-    <updated>2017-03-29T05:47:33.103Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><p>在平时的应用开发中,接触最多的就是<code>activity</code>的生命周期。在生命周期回调方法中，您可以声明当用户离开并重新进入活动时，执行相应的代码行为。每一个回调工作，都应该执行特定动作，在正确的时间进行正确的工作并正确处理转换，才能够使应用程序更加健壮，更有效率。</p>
-<p>如果没有处理好<code>activity</code>的生命周期，则有可能导致各种异常:</p>
-<ol>
-<li>应用程序运行时被电话或者其他程序中断，导致崩溃；</li>
-<li>没有正确释放资源时,消耗宝贵的系统资源，甚至OOM。</li>
-<li>如果用户离开您的应用程序并在以后返回，则丢失用户的进度。</li>
-<li>屏幕在横向和纵向方向之间旋转时，可能会崩溃或丢失用户的进度。</li>
-</ol>
-<p>所以有必要深入一些，了解和掌握Activity的生命，下面先放一张activity的生命周期图：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/lifecycle/activity.png" alt="activity lifecycle" title="">
-                </div>
-                <div class="image-caption">activity lifecycle</div>
-            </figure>
-<h3 id="1-1-Activity状态"><a href="#1-1-Activity状态" class="headerlink" title="1.1 Activity状态"></a>1.1 Activity状态</h3><p>根据具体的应用的复杂性，可能不需要实现所有的生命周期方法。</p>
-<ul>
-<li><strong>创建 onCreate()：</strong><ul>
-<li>必须实现此回调，当系统首次创建活动时触发。</li>
-<li>在该方法中，执行基本的应用程序启动逻辑，该逻辑在整个活动的整个生命周期中应该只发生一次。</li>
-<li>例如，将数据绑定到列表，初始化后台线程，并实例化一些类范围变量。</li>
-<li>此方法接收参数savedInstanceState，该参数是包含Bundle 活动之前保存的状态的对象。如果活动从未存在，则该Bundle对象的值为null。
-　　</li>
-</ul>
-</li>
-<li><p><strong>开始 onStart()：</strong></p>
-<ul>
-<li>当活动进入“开始”状态时，系统将调用此回调。</li>
-<li>该方法是应用程序初始化维护UI的代码的位置。</li>
-<li>它也可以注册一个BroadcastReceiver 监视UI中响应的更改。</li>
-<li>该状态只是过渡状态，非常快速完成，与“创建”状态一样，活动不会保持在“已启动”状态。一旦这个回调结束，活动进入 Resumed状态，系统调用该 onResume()方法。</li>
-</ul>
-</li>
-<li><p><strong>恢复 onResume()：</strong></p>
-<ul>
-<li>这是应用程序与用户进行交互的状态。该应用程序停留在此状态，直到发生某些事情，将焦点从应用程序中移开。</li>
-<li>当发生中断事件时，活动进入暂停 状态，系统调用 onPause()回调。</li>
-<li>onResume状态说明activity在最上方，用户可以与它进行交互。所以那些仅在用户关注时才使用的组件应该在这个回调中初始化。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>暂停 onPause()：</strong><ul>
-<li>当前activity仍然是可见的。但被另一个activity处在最上方，最上方的activity是半透明的，或者是部分覆盖整个屏幕。被暂停的activity不会再接受用户的输入。</li>
-<li>动画和音乐播放Activity在暂停状态下不应该继续。</li>
-<li>进入暂停的时机有以下几种：<ul>
-<li>电话或者短信等系统中断；</li>
-<li>在多窗口模式中，切换到其他窗口；</li>
-<li>打开一个新的半透明活动（如对话框）;</li>
-</ul>
-</li>
-<li>当处于极度低内存的状态时，系统会杀掉该activity，释放相应资源。</li>
-<li>onPause()执行非常简短，并不一定有足够的时间执行保存操作。保存应用程序或用户数据不应该在这步骤实现；</li>
-</ul>
-</li>
-<li><p><strong>停止 onStop（）：</strong></p>
-<ul>
-<li>当前activity完全被隐藏，不被用户可见。可以认为是处于在后台。</li>
-<li>由于对用户不再可见，只要有内存的需要，系统就会杀掉该activity来释放资源。</li>
-<li>该状态由<code>onStop()</code>进入，或<code>onRestart()</code>或者<code>onCreate()</code>重新唤醒软件，或者被<code>onDestroy()</code>彻底死亡..</li>
-</ul>
-</li>
-<li><p><strong>销毁 onDestroy()：</strong></p>
-<ul>
-<li>在活动被销毁之前调用。这是活动收到的最后一个回调。</li>
-<li>在该回调中，释放上述所有回调中未被销毁的资源；</li>
-</ul>
-</li>
-</ul>
-<p>当acitivty处于暂停或者停止状态，系统可以通过<code>finish()</code>或 <code>android.os.Process.killProcess(android.os.Process.myPid())</code>来杀死其进程。当该activity再次被打开时(结束或杀死后)，需要重新创建，走一遍完整的流程。</p>
-<h3 id="1-2-Activities调用流程"><a href="#1-2-Activities调用流程" class="headerlink" title="1.2 Activities调用流程"></a>1.2 Activities调用流程</h3><p>当Activity A 启动 Activity B时，两个activity都有自个的生命周期。Activity A暂停或者停止，Activity B被创建。记住，在Activity B创建之前，Activity A并不会完全停止，流程如下：</p>
-<ol>
-<li>Activity A 进入onPause();</li>
-<li>Activity B 依次 onCreate(), onStart(), onResume()。（此时Activity B得到了用户焦点）</li>
-<li>如果Activity A不再可见，则进入onStop().</li>
-</ol>
-<h3 id="1-3-代码实践"><a href="#1-3-代码实践" class="headerlink" title="1.3 代码实践"></a>1.3 代码实践</h3><p>利用下面的<code>DemoActivity</code>代码，可亲自感受每一个阶段的状态。比如点返回键，home键，menu键等操作，可以借助通过logcat查看该activity到底处于哪种状态，这里就不说结果了，自己动手，丰衣足食。</p>
-<pre><code>import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
 
-public class DemoActivity extends Activity {
-    private static final String TAG = &quot;demo&quot;;
+        </div>
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.i(TAG,&quot;onCreate::The activity is being created.&quot;);
-    }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.i(TAG, &quot;onStart::The activity is about to become visible.&quot;);
-    }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i(TAG, &quot;onResume::The activity has become visible.&quot;);
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i(TAG, &quot;onPause:: Another activity is taking focus.&quot;);
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.i(TAG, &quot;onStop::The activity is no longer visible&quot;);
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, &quot;onDestroy::The activity is about to be destroyed&quot;);
-    }
-}
-</code></pre><hr>
-<h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><p>理解activity的生命周期后，Service的生命周期也是大同小异，先看下Service的生命周期图：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/lifecycle/service.png" alt="service lifecycle" title="">
-                </div>
-                <div class="image-caption">service lifecycle</div>
-            </figure>
-<h3 id="2-1-启动方式："><a href="#2-1-启动方式：" class="headerlink" title="2.1  启动方式："></a>2.1  启动方式：</h3><p>service有两种启动方式：</p>
-<ul>
-<li>startService() 启动本地服务Local Service</li>
-<li>bindService() 启动远程服务Remote Service</li>
-</ul>
-<h3 id="2-2-生命周期"><a href="#2-2-生命周期" class="headerlink" title="2.2  生命周期"></a>2.2  生命周期</h3><p>两种不同的启动方式决定了Service具有两种生命周期的可能（并非互斥的两种）。</p>
-<ol>
-<li>start方式：onCreate()，onStartCommand()。onDestroy释放资源。</li>
-<li>bind方式： onCreate()，onBind()方法。需要所有client全部调用unbindService()才能将Service释放资源，等待系统回收。</li>
-</ol>
-<h3 id="2-3-代码实践"><a href="#2-3-代码实践" class="headerlink" title="2.3  代码实践"></a>2.3  代码实践</h3><p>利用下面的<code>DemoService</code>代码，通过logcat自行感受每一个阶段的状态与场景的关系。</p>
-<pre><code>import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
-import android.util.Log;
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-31T06:32:48.921Z" itemprop="dateUpdated">2017年3月31日 14:32</time>
+</span><br>
 
-public class DemoService extends Service {
-    private static final String TAG = &quot;demo&quot;;
 
-    int mStartMode;       // service被杀掉的方式
-    IBinder mBinder;      // clients绑定接口
-    boolean mAllowRebind; // 是否允许onRebind
+        欢迎转载,请申明原链接：<a href="/2017/03/31/android/Android发送广播详解/" target="_blank" rel="external">https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
 
-    @Override
-    public void onCreate() {
-        Log.i(TAG,&quot;onCreate::The service is being created&quot;);
-    }
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(TAG,&quot;onStartCommand::The service is starting&quot;);
-        return mStartMode;
-    }
-    @Override
-    public IBinder onBind(Intent intent) {
-        Log.i(TAG,&quot;onBind::A client is binding to the service&quot;);
-        return mBinder;
-    }
-    @Override
-    public boolean onUnbind(Intent intent) {
-        Log.i(TAG,&quot;onUnbind::All clients have unbound&quot;);
-        return mAllowRebind;
-    }
-    @Override
-    public void onRebind(Intent intent) {
-        Log.i(TAG,&quot;onRebind::A client rebind to the service &quot; +
-                &quot;after onUnbind() has already been called&quot;);
-    }
-    @Override
-    public void onDestroy() {
-        Log.i(TAG,&quot;onDestroy::The service is no longer used&quot;);
-    }
-}
-</code></pre>]]></content>
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Android/">Android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/app/">app</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sendBroadcast/">sendBroadcast</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
     
-    <summary type="html">
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/&title=《Android发送广播详解》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/&title=《Android发送广播详解》 — 爵士犀首&source=Personal blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android发送广播详解》 — 爵士犀首&url=https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
     
-      Android activity lifetime
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="activity" scheme="https://austinxishou.github.io/tags/activity/"/>
-    
-  </entry>
+<nav class="post-nav flex-row flex-justify-between">
   
-</feed>
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/31/android/Android自启动管理功能/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android自启动管理功能</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/29/webdesign/Hexo3.0使用指南/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hexo 3.0 使用指南</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="android/Android发送广播详解" data-title="Android发送广播详解" data-url="https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.14');
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/&title=《Android发送广播详解》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/&title=《Android发送广播详解》 — 爵士犀首&source=Personal blog" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android发送广播详解》 — 爵士犀首&url=https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/03/31/android/Android发送广播详解/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACwElEQVR42u3aQY7CMAwFUO5/aWY7EkP530mAkV5XqJSS10Xs2r7d4uP+63h2/vGa6zOP5x/vfP3v2w48PDy8haXnC71e1rOlt3e4vs/1mvHw8PBO857tqPnnPGDMAkD+v3h4eHjfxku26TzXvV5DEmzw8PDw/juvDS1Jev1FgQEPDw+vLEYkW3xeYsjDSVIO3lBrwcPDw5vcp05/P/X5SH8PDw8Pb7mr3g4E5AGj3dbvowMPDw/vBC/fcPNG/sri1tNlPDw8vNO8fKQpHxTIzyePKfn26a/w8PDwDvCSn7XNsCIixQNY7WMqasB4eHh4JW9WPF0pPcwCTJum4+Hh4Z3j5UNU+XDAbIiqbXHVjTE8PDy8TbykfJAktXlISAJGm0a/6O/h4eHhHeDl2/Fs+ClplSUtsTahx8PDwzvB2/WqP2uktYuePRo8PDy8d/La8LArQd+VsuPh4eGd5uVNqVn7apYizwYa8PDw8M7x2kHSWSl2V9ioDzw8PLwDvLyx1BYpkiLCLAAkpRM8PDy807w22c1b+LOybF6MiK7Hw8PD28pr09w8FU4KB/k1w1QeDw8P70O8WYur3eLr9n/StMPDw8M7xms3/WHmfri1hoeHh/ce3kprKnk0s7vNysRL0Q8PDw9vgbdSUMgT9Lzgm6fgRZUaDw8P7xhvfYqpLXmstNzqheLh4eEt8/JG1CwAtOn19X8VIwt4eHh4x3htUz8pDewq4N7Ko3hjwMPDwyt5s0JqW57Im2p5eSIqcODh4eEd4LVbbZ74ts2qleA0Cx54eHh4K7w2GMyWnpd318e//nhjwMPDwzvAa5feDhbMkuO6soKHh4f3lbz1Nli79edDBi8aYHh4eHhfycsLsm0anb8A4OHh4b2H17as8sGsJEVeL3xEM2V4eHh4m3izF/6835R8m1y5gYGHh4e3yvsBF99zqPzhz3cAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
