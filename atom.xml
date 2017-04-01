@@ -42,9 +42,9 @@
       <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
     
     
-      <category term="app" scheme="https://austinxishou.github.io/tags/app/"/>
-    
       <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
+    
+      <category term="app" scheme="https://austinxishou.github.io/tags/app/"/>
     
   </entry>
   
@@ -85,11 +85,11 @@
       <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
     
     
+      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
+    
       <category term="app" scheme="https://austinxishou.github.io/tags/app/"/>
     
       <category term="sendBroadcast" scheme="https://austinxishou.github.io/tags/sendBroadcast/"/>
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
     
   </entry>
   
