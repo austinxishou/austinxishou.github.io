@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-04-12T06:18:10.772Z</updated>
+  <updated>2017-04-12T06:21:11.146Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -14,6 +14,54 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android�Ż�OTA����С�Ϳ�������ʱ��</title>
+    <link href="https://austinxishou.github.io/android/cj1el8cmv0000s8px4b6lfl85/android/Android%E4%BC%98%E5%8C%96OTA%E5%8C%85%E5%A4%A7%E5%B0%8F%E5%92%8C%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E6%97%B6%E9%97%B4/"/>
+    <id>https://austinxishou.github.io/android/cj1el8cmv0000s8px4b6lfl85/android/Android优化OTA包大小和开机启动时间/</id>
+    <published>2017-04-12T06:21:18.535Z</published>
+    <updated>2017-04-12T06:21:11.146Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="����˵��"><a href="#����˵��" class="headerlink" title="����˵��"></a>����˵��</h2><p>��Android ������ 5.0 (Lollipop/L)֮����������ʵ��������ART�����ӿ���Ӧ������ʱ���ٶȣ�������ϵͳ������ȴ������һЩ����֮����</p>
+<ol>
+<li>������������ʱ����ΪART������Ԥ�����Ż����ܣ����� APK ��JAR��ͨ��dex2otaԤ������odex�ļ��������������������������Ĵ�С��������G�Ĵ�С�������û������غ������Ĵ�����</li>
+<li>����������Ԥ�����Ż������ⲿ�ֲ�����ת�Ƶ�ˢ�����ɺ���һ�ο���ʱ�䣬ʮ����������������ʱ�䣬���û���ȷ���Ƿ����������⣻</li>
+</ol>
+<h2 id="Ԥ��������-���˴�С��ʱ��"><a href="#Ԥ��������-���˴�С��ʱ��" class="headerlink" title="Ԥ��������-���˴�С��ʱ��"></a>Ԥ��������-���˴�С��ʱ��</h2><p>�������⣬Androidϵͳ�����ߣ����ѿ�����ȫ�����������Դ洢�ռ����޵��豸���ṩ�˷ḻ�ı�������ѡ����㿪���߸����Լ�ʵ���������������Ե������޸ģ�</p>
+<p>������������Щ����ѡ������˵���ͱ��ǣ���������������Ա�ο���</p>
+<h3 id="����odex�����Z�"><a href="#����odex�����Z�" class="headerlink" title="����odex�����Ż�"></a>����odex�����Ż�</h3><p>���ȣ�������ȫ�ر�Ԥ�����Ż����ܣ���dalvik������ʱ������������ͬ��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">product BoardConfig.mk �ļ��У����ӱ��������� WITH_DEXPREOPT := true</div></pre></td></tr></table></figure></p>
+<p>��Ȼ�������Ľ�������������С�ˣ���һ�ο���ʱ�伫������</p>
+<h3 id="Ԥ�����I��������Z�"><a href="#Ԥ�����I��������Z�" class="headerlink" title="Ԥ�����İ��������Ż�"></a>Ԥ�����İ��������Ż�</h3><p>Ԥ�����İ���ָ��Щ��ģ�������ļ���ָ��Ϊ��include $(BUILD_PREBUILT) ��APK��JAR���ȣ�������������ռ��һ�����ţ�<br>DONT_DEXPREOPT_PREBUILTS  �����Ϳ��������ⲿ�Ŵ����Ƿ�����Ԥ�����Ż���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DONT_DEXPREOPT_PREBUILTS := true �󣬱���ϵͳ������ֹ prebuild ����odex�Ż���</div></pre></td></tr></table></figure></p>
+<h3 id="ֻ����BOOT-img-�Z�"><a href="#ֻ����BOOT-img-�Z�" class="headerlink" title="ֻ����BOOT.img �Ż�"></a>ֻ����BOOT.img �Ż�</h3><p>Android���������У�boot.img�����˴󲿷ֵײ�ϵͳ�������ͳ�ʼ������Ҫ������boot.art�ļ��У�<br>ʹ�� WITH_DEXPREOPT_BOOT_IMG_ONLY �������������Կ��Ʊ���ϵͳֻ����boot.img���Ż���<br>ʹ�ܸñ����󣬽���������ʡsystem�����Ĵ�С����ͬʱ��ζ�����е�app����Ҫ�ڵ�һ��������ʱ������odex�Ż���</p>
+<p>����������ͨ�� DONT_DEXPREOPT_PREBUILTS ���и���ȷ�Ŀ��ƣ�</p>
+<h3 id="LOCAL-DEX-PREOPT-��������ʹ��"><a href="#LOCAL-DEX-PREOPT-��������ʹ��" class="headerlink" title="LOCAL_DEX_PREOPT ��������ʹ��"></a>LOCAL_DEX_PREOPT ��������ʹ��</h3><p>ÿ��appӦ�ã�����ͨ���ñ����������п����Ƿ�����odex�Ż���<br>�� app��s Android.mk�����б�����ֵ LOCAL_DEX_PREOPT := false</p>
+<h3 id="PRODUCT-DEXPREOPT-��������ʹ��"><a href="#PRODUCT-DEXPREOPT-��������ʹ��" class="headerlink" title="PRODUCT_DEXPREOPT ��������ʹ��"></a>PRODUCT_DEX<em>PREOPT</em> ��������ʹ��</h3><p>�� post-L ���а汾֮��������������ϵ�еı������������и���������Ԥ�������Ż���</p>
+<ol>
+<li>PRODUCT_DEX_PREOPT_BOOT_FLAGS          ���ݲ����� dex2oat �������boot.img�ı���</li>
+<li>PRODUCT_DEX_PREOPT_DEFAULT_FLAGS     ����Ĭ�ϲ����� dex2oat ������Ƴ��� boot.img�ı��룬��jar����apk�ļ�<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(call add-product-dex-preopt-module-config,services,--compiler-filter=space)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>���� ֱ�ӹر�ģ����Ԥ�����Ż�<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(call add-product-dex-preopt-module-config,Calculator,disable)</div></pre></td></tr></table></figure></p>
+<h3 id="Android-7-0-֮�����Z�"><a href="#Android-7-0-֮�����Z�" class="headerlink" title="Android 7.0 ֮�����Ż�"></a>Android 7.0 ֮�����Ż�</h3><p>7.0����ϵͳ���Է�ΪA/B����������OTA�����Լ�APK���Ż���Ӱ���û�ǰ̨������ʹ�ã������ȼ�С���������Ĵ�С���������˵�һ�ο����ٶȣ�</p>
+<h3 id="Ԥ�������l�"><a href="#Ԥ�������l�" class="headerlink" title="Ԥ�������ļ�"></a>Ԥ�������ļ�</h3><p>Ԥ����������zygoteͳһ��ʼ��������ʹ����ʹ�õ���Щ����app�����ٶȼӿ죻����Ԥ��������ʹ����ʵ����Ŀ��Ҫ�ǳ�ע�⣬��Ҫ��ϸ������ȷ��Ȩ��ֵ��̫����Ԥ�������ᵼ��һЩ�����õ������ı������ڴ���Դ���෴���ᵼ�³��õ����ڲ�ͬӦ���ж������أ�������һ�����ݣ��ȼ���Ӧ�ÿ����ٶȣ�Ҳ���˷��ڴ棻</p>
+<p>Ԥ�������Ķ����б���Ĭ�Ϸ����� frameworks/base/preloaded-classes ��Ҳ�����ڲ�Ʒ��devic.mk���������ж�����Ԥ�����б���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PRODUCT_COPY_FILES += &lt;filename&gt;:system/etc/preloaded-classes</div></pre></td></tr></table></figure></p>
+<h3 id="�������б�"><a href="#�������б�" class="headerlink" title="�������б�"></a>�������б�</h3><p>���� PRODUCT_DEX_PREOPT_BOOT_FLAGS �� compiled-classes ���Կ��Ʊ���ϵͳ�Ƿ���Ԥ�����Ż��б�����Щ�ࣻ<br>���������б�ֻ�ܶ�����������һ���Ӽ����ʺ�������Щ�洢�ռ��ǳ����ޣ�����ȫ���Ż���������boot.img �������豸�����Զ�������˵�����ʺϣ�</p>
+]]></content>
+    
+    <summary type="html">
+    
+      Android �Ż�OTA����С�Ϳ�������ʱ�� ��������С�Ż� ��������ʱ���Ż� odex
+    
+    </summary>
+    
+      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
+    
+      <category term="odex" scheme="https://austinxishou.github.io/tags/odex/"/>
+    
+  </entry>
   
   <entry>
     <title>Android Recovery 源码解析和界面定制</title>
