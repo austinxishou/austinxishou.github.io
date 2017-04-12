@@ -30,7 +30,7 @@
 <meta property="og:url" content="https://austinxishou.github.io/android/cj1eljn1i002ld8pxpyd89wr3/android/AndroidRecovery源码解析和界面定制/index.html">
 <meta property="og:site_name" content="爵士犀首">
 <meta property="og:description" content="Android Recovery 源码解析和界面定制 recovery二次开发">
-<meta property="og:updated_time" content="2017-04-12T06:18:10.772Z">
+<meta property="og:updated_time" content="2017-04-12T06:32:55.116Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android Recovery 源码解析和界面定制">
 <meta name="twitter:description" content="Android Recovery 源码解析和界面定制 recovery二次开发">
@@ -184,7 +184,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Recovery主要功能"><span class="post-toc-number">1.</span> <span class="post-toc-text">Recovery主要功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码路径和主要原文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">源码路径和主要原文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#recovery-cpp"><span class="post-toc-number">3.</span> <span class="post-toc-text">recovery.cpp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命令行参数"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">命令行参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#main-函数"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">main 函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#界面定制"><span class="post-toc-number">4.</span> <span class="post-toc-text">界面定制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现Recovery-UI"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">实现Recovery UI</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现头部显示和列表项"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">实现头部显示和列表项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现ScreenRecoveryUI"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">实现ScreenRecoveryUI</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现设备类"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">实现设备类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加编译实现"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">添加编译实现</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Recovery主要功能"><span class="post-toc-number">1.</span> <span class="post-toc-text">Recovery主要功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码路径和主要原文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">源码路径和主要原文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#recovery-cpp"><span class="post-toc-number">3.</span> <span class="post-toc-text">recovery.cpp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命令行参数"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">命令行参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#main-函数"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">main 函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#界面定制"><span class="post-toc-number">4.</span> <span class="post-toc-text">界面定制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现Recovery-UI"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">实现Recovery UI</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现头部显示和列表项"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">实现头部显示和列表项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现ScreenRecoveryUI"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">实现ScreenRecoveryUI</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现设备类"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">实现设备类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加编译实现"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">添加编译实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#recovery-二次开发"><span class="post-toc-number">5.</span> <span class="post-toc-text">recovery 二次开发</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码结构："><span class="post-toc-number">5.1.</span> <span class="post-toc-text">代码结构：</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -252,6 +252,28 @@
 <h3 id="实现设备类"><a href="#实现设备类" class="headerlink" title="实现设备类"></a>实现设备类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">class MyDevice : public Device &#123;</div><div class="line">  public:</div><div class="line">	RkDevice() :</div><div class="line">        ui(new DeviceUI ) &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    RecoveryUI* GetUI() &#123; return ui; &#125;</div><div class="line"></div><div class="line">    int HandleMenuKey(int key_code, int visible) &#123;</div><div class="line">        if (visible) &#123;</div><div class="line">            switch (key_code) &#123;</div><div class="line">              case KEY_DOWN:</div><div class="line">              case KEY_VOLUMEDOWN:</div><div class="line">                return kHighlightDown;</div><div class="line"></div><div class="line">              case KEY_UP:</div><div class="line">              case KEY_VOLUMEUP:</div><div class="line">                return kHighlightUp;</div><div class="line"></div><div class="line">              case KEY_ENTER:</div><div class="line">              case KEY_POWER:</div><div class="line">                return kInvokeItem;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return kNoAction;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    BuiltinAction InvokeMenuItem(int menu_position) &#123;</div><div class="line">        switch (menu_position) &#123;</div><div class="line">          case 0: return REBOOT;</div><div class="line">          //case 1: return APPLY_ADB_SIDELOAD;</div><div class="line">          case 1: return APPLY_EXT;</div><div class="line">          case 2: return APPLY_INT_RKIMG;</div><div class="line">          case 3: return APPLY_CACHE;</div><div class="line">          case 4: return WIPE_DATA;</div><div class="line">          case 5: return WIPE_CACHE;</div><div class="line">          case 6: return RECOVER_SYSTEM;</div><div class="line">          default: return NO_ACTION;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    const char* const* GetMenuHeaders() &#123; return HEADERS; &#125;</div><div class="line">    const char* const* GetMenuItems() &#123; return ITEMS; &#125;</div><div class="line"></div><div class="line">  private:</div><div class="line">    RecoveryUI* ui;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//创建自己实现的设备</div><div class="line">Device* make_device() &#123;</div><div class="line">    return new MyDevice ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="添加编译实现"><a href="#添加编译实现" class="headerlink" title="添加编译实现"></a>添加编译实现</h3><p>主要是覆盖TARGET_RECOVERY_UI_LIB，输出到/out/…./recovery/root目录下：</p>
 <p>Android.mk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">LOCAL_PATH := $(call my-dir)</div><div class="line">include $(CLEAR_VARS)</div><div class="line"></div><div class="line">LOCAL_MODULE_TAGS := eng</div><div class="line">LOCAL_C_INCLUDES += bootable/recovery</div><div class="line">LOCAL_SRC_FILES := recovery_ui.cpp</div><div class="line"></div><div class="line"># should match TARGET_RECOVERY_UI_LIB set in BoardConfig.mk</div><div class="line">LOCAL_MODULE := librecovery_ui_$(TARGET_PRODUCT)</div><div class="line"></div><div class="line">include $(BUILD_STATIC_LIBRARY)</div></pre></td></tr></table></figure></p>
+<h2 id="recovery-二次开发"><a href="#recovery-二次开发" class="headerlink" title="recovery 二次开发"></a>recovery 二次开发</h2><h3 id="代码结构："><a href="#代码结构：" class="headerlink" title="代码结构："></a>代码结构：</h3><ol>
+<li><p>bootable/recovery<br>Recovery主程序代码，其中recovery.cpp是入口，rkimage.cpp处理update.img升级流程，updater/install.c处理ota update.zip包升级流程。</p>
+</li>
+<li><p>build/tools/releasetools/<br>Ota升级包编译的python脚本，控制完整包与差异包的生成。</p>
+</li>
+<li><p>build/tools/drmsigntool/<br>如果开启drm，生成ota包时对boot.img进行签名，使用build/target/product/security/private.key，<br>保证进行ota升级后drm功能还能正常使用。</p>
+</li>
+<li><p>build/tools/mkparameter/<br>编译ota包时打包可升级的parameter的工具。</p>
+</li>
+<li><p>build/tools/remkloader/<br>编译ota包时打包可升级的loader的工具。</p>
+</li>
+<li><p>build/target/product/security/<br>编译ota包时签名使用的密钥</p>
+</li>
+<li><p>device/rockchip/rksdk/recovery/<br>Recovery菜单及按键定制</p>
+</li>
+<li><p>device/rockchip/rksdk/loader/<br>将需要升级的loader放在该目录下，可以打包到ota升级包中。</p>
+</li>
+<li><p>device/rockchip/rksdk/parameter/<br>将需要升级的parameter放在该目录下，可以打包到ota升级包中。</p>
+</li>
+<li><p>out/target/product/rk3188/obj/PACKAGING/target_files_intermediates/<br>Ota升级包编译生成的素材包，要做差异包必须保存该素材包。</p>
+</li>
+</ol>
 
         </div>
 
@@ -259,7 +281,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-12T06:18:10.772Z" itemprop="dateUpdated">2017年4月12日 14:18</time>
+    最后更新时间：<time datetime="2017-04-12T06:32:55.116Z" itemprop="dateUpdated">2017年4月12日 14:32</time>
 </span><br>
 
 
@@ -349,7 +371,7 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/android/cj1eljn1h002fd8pxyjydma51/android/Android-OTA升级包生成机制分析/" id="post-next" class="post-nav-link">
+      <a href="/android/cj1eln6hs0000vgpx3ytqvmbz/android/AndroidOTA升级包生成机制分析/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
         <h4 class="title">Android OTA升级包制作和源码相关问题</h4>
       </a>
