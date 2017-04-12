@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>Android OTA升级包制作和源码相关问题 | 爵士犀首 | Stand out or get out!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android,OTA">
+
+    <meta name="description" content="Android OTA升级 updater updater-script">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android OTA升级包制作和源码相关问题">
+<meta property="og:url" content="https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="Android OTA升级 updater updater-script">
+<meta property="og:updated_time" content="2017-04-12T06:25:26.026Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android OTA升级包制作和源码相关问题">
+<meta name="twitter:description" content="Android OTA升级 updater updater-script">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android OTA升级包制作和源码相关问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android OTA升级包制作和源码相关问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-04-12T03:55:40.770Z" itemprop="datePublished" class="page-time">
+  2017-04-12
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OTA升级包编译及产品版本管理说明"><span class="post-toc-number">1.</span> <span class="post-toc-text">OTA升级包编译及产品版本管理说明</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OTA完整包生成方法"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">OTA完整包生成方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OTA差异包生成方法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">OTA差异包生成方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#版本管理"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">版本管理</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OTA包生成源码解析"><span class="post-toc-number">2.</span> <span class="post-toc-text">OTA包生成源码解析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Makefile-依赖"><span class="post-toc-number">3.</span> <span class="post-toc-text">Makefile 依赖</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#完整升级包"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">完整升级包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生成中间包"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">生成中间包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#RECOVERY目录下的组件"><span class="post-toc-number">3.2.1.</span> <span class="post-toc-text">RECOVERY目录下的组件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#BOOT-目录下的组件"><span class="post-toc-number">3.2.2.</span> <span class="post-toc-text">BOOT 目录下的组件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#RADIO-目录下的组件"><span class="post-toc-number">3.2.3.</span> <span class="post-toc-text">RADIO 目录下的组件</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#BOOTLOADER-组件内容"><span class="post-toc-number">3.2.4.</span> <span class="post-toc-text">BOOTLOADER 组件内容</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#Parameter-组件内容"><span class="post-toc-number">3.2.5.</span> <span class="post-toc-text">Parameter 组件内容</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#常规的system-以及-data-分区内容"><span class="post-toc-number">3.2.6.</span> <span class="post-toc-text">常规的system 以及 data 分区内容</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#供应商定制相关内容"><span class="post-toc-number">3.2.7.</span> <span class="post-toc-text">供应商定制相关内容</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/Android-OTA升级包生成机制分析"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android OTA升级包制作和源码相关问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年04月12日 11:55" datetime="2017-04-12T03:55:40.770Z"  itemprop="datePublished">2017-04-12</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="OTA升级包编译及产品版本管理说明"><a href="#OTA升级包编译及产品版本管理说明" class="headerlink" title="OTA升级包编译及产品版本管理说明"></a>OTA升级包编译及产品版本管理说明</h2><h3 id="OTA完整包生成方法"><a href="#OTA完整包生成方法" class="headerlink" title="OTA完整包生成方法"></a>OTA完整包生成方法</h3><blockquote>
+<p>OTA完整包可用于T卡本地升级和OTA在线升级。OTA完整包包含完整的system、recovery.和boot.img。<br><strong>发布一个版本固件正确顺序：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">make -j4</div><div class="line">make otapackage</div><div class="line">./mkimage.sh ota</div></pre></td></tr></table></figure></p>
+<p>注意：发布固件必须使用./mkimage.sh ota，将boot与kernel打包，不需要单独烧kernel，如果量产固件是分开的，将会影响后面差异包升级，除非你不需要用差异升级！</p>
+<p>在out/target/product/rk3288/目录下会生成ota完整包rk3288-ota-eng.root.zip，改名成<br>update.zip即可拷贝到T卡或内置flash中进行固件升级。</p>
+</blockquote>
+<h3 id="OTA差异包生成方法"><a href="#OTA差异包生成方法" class="headerlink" title="OTA差异包生成方法"></a>OTA差异包生成方法</h3><blockquote>
+<p>OTA差异包只有差异内容，包大小比较小，主要用于OTA在线升级，也可T卡本地升级。OTA差异包制作需要特殊的编译进行手动制作。</p>
+</blockquote>
+<ol>
+<li>首先发布v1版本的固件，生成v1版本的完整包</li>
+<li>保存out/target/product/rk3288/obj/PACKAGING/target_files_intermediates/rk3288-target_files-eng.root.zip 为rk3288-target_files-v1.zip，作为v1版本的基础素材包。</li>
+<li>修改kernel代码或者android代码，发布v2版本固件，生成v2版本完整包</li>
+<li>保存out/target/product/rk3288/obj/PACKAGING/target_files_intermediates/rk3288-target_files-eng.root.zip 为rk3288-target_files-v2.zip，作为v2版本的基础素材包。</li>
+<li>生成v1-v2的差异升级包：./build/tools/releasetools/ota_from_target_files  -v  -i  rk3288-target_files-v1.zip -p  out/host/linux-x86  -k build/target/product/security/testkey  rk3288-target_files-v2.zip out/target/product/rk3288/rk3288-v1-v2.zip</li>
+<li>最后生成的ota差异包</li>
+</ol>
+<h3 id="版本管理"><a href="#版本管理" class="headerlink" title="版本管理"></a>版本管理</h3><p>每个版本都会输出完整的刷机包,全量卡刷包,差量卡刷包,已经中间素材包;</p>
+<h2 id="OTA包生成源码解析"><a href="#OTA包生成源码解析" class="headerlink" title="OTA包生成源码解析"></a>OTA包生成源码解析</h2><h2 id="Makefile-依赖"><a href="#Makefile-依赖" class="headerlink" title="Makefile 依赖"></a>Makefile 依赖</h2><p>otapackage 是一个伪目标<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.PHONY: otapackage</div><div class="line">otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)</div></pre></td></tr></table></figure></p>
+<h3 id="完整升级包"><a href="#完整升级包" class="headerlink" title="完整升级包"></a>完整升级包</h3><p>生成的完整升级包会存放在out\target\product[project-name]\目录下<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">INTERNAL_OTA_PACKAGE_TARGET :<span class="comment"># $(PRODUCT_OUT)/$(name).zip</span></div><div class="line">$(INTERNAL_OTA_PACKAGE_TARGET): KEY_CERT_PAIR :<span class="comment"># $(DEFAULT_KEY_CERT_PAIR) 签名</span></div><div class="line">$(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)                                                                  </div><div class="line">     @<span class="built_in">echo</span> <span class="string">"Package OTA: <span class="variable">$@</span>"</span></div><div class="line">     $(hide) PATH<span class="comment">#$(foreach p,$(INTERNAL_USERIMAGES_BINARY_PATHS),$(p):)$$PATH MKBOOTIMG#$(MKBOOTIMG) \</span></div><div class="line">        ./build/tools/releasetools/ota_from_target_files -v \</div><div class="line">        -p $(HOST_OUT) \</div><div class="line">        -k $(KEY_CERT_PAIR) \</div><div class="line">        $(<span class="keyword">if</span> $(OEM_OTA_CONFIG), -o $(OEM_OTA_CONFIG)) \</div><div class="line">        $(BUILT_TARGET_FILES_PACKAGE) <span class="variable">$@</span></div></pre></td></tr></table></figure></p>
+<h3 id="生成中间包"><a href="#生成中间包" class="headerlink" title="生成中间包"></a>生成中间包</h3><p>生成的中间包存放在out/target/product/[project-name]/obj/PACKAGING/target_files_intermediates/目录下,该文件可用于创建差分升级包以及全量包<br>源码中的英文注释为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">A zip of the directories that map to the target filesystem.</div><div class="line">This zip can be used to create an OTA package or filesystem image as a post-build step.</div></pre></td></tr></table></figure></p>
+<p>中间包宏变量为： BUILT_TARGET_FILES_PACKAGE<br>部分代码为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">intermediates :<span class="comment"># $(call intermediates-dir-for,PACKAGING,target_files) //定义目录</span></div><div class="line">BUILT_TARGET_FILES_PACKAGE :<span class="comment"># $(intermediates)/$(name).zip  //宏变量赋值</span></div><div class="line">$(BUILT_TARGET_FILES_PACKAGE): intermediates :<span class="comment"># $(intermediates) //定义依赖</span></div><div class="line">$(BUILT_TARGET_FILES_PACKAGE): \</div><div class="line">        zip_root :<span class="comment"># $(intermediates)/$(name) //定义依赖</span></div><div class="line">... //省略一部分依赖说明</div><div class="line">		</div><div class="line"><span class="comment"># Depending on the various images guarantees that the underlying</span></div><div class="line"><span class="comment"># directories are up-to-date.</span></div><div class="line">$(BUILT_TARGET_FILES_PACKAGE): \</div><div class="line">		$(INSTALLED_BOOTIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_RADIOIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_LOADER_TARGET) \</div><div class="line">		$(INSTALLED_PARAMETER_TARGET) \</div><div class="line">		$(INSTALLED_RECOVERYIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_SYSTEMIMAGE) \</div><div class="line">		$(INSTALLED_USERDATAIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_CACHEIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_VENDORIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_ANDROID_INFO_TXT_TARGET) \</div><div class="line">		$(SELINUX_FC) \</div><div class="line">		$(built_ota_tools) \</div><div class="line">		$(APKCERTS_FILE) \</div><div class="line">		$(HOST_OUT_EXECUTABLES)/fs_config \</div><div class="line">		| $(ACP)</div><div class="line">上述依赖主要定义各个分区系统的文件</div><div class="line"></div><div class="line">//之后执行命令</div><div class="line">	@<span class="built_in">echo</span> <span class="string">"Package target files: <span class="variable">$@</span>"</span>  //打印日志</div><div class="line">	$(hide) rm -rf <span class="variable">$@</span> $(zip_root) //删除原有文件目录</div><div class="line">	$(hide) mkdir -p $(dir <span class="variable">$@</span>) $(zip_root) //重新创建目录</div></pre></td></tr></table></figure></p>
+<h4 id="RECOVERY目录下的组件"><a href="#RECOVERY目录下的组件" class="headerlink" title="RECOVERY目录下的组件"></a>RECOVERY目录下的组件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@<span class="comment"># Components of the recovery image   </span></div><div class="line">$(hide) mkdir -p $(zip_root)/RECOVERY //创建中间包中的RECOVERY目录</div><div class="line">$(hide) $(call package_files-copy-root, \</div><div class="line">	$(TARGET_RECOVERY_ROOT_OUT),$(zip_root)/RECOVERY/RAMDISK)</div><div class="line"></div><div class="line">//拷贝相关分区文件到 RECOVERY 目录</div><div class="line">1. $(ACP) $(INSTALLED_KERNEL_TARGET) $(zip_root)/RECOVERY/kernel</div><div class="line">2. $(ACP) $(INSTALLED_2NDBOOTLOADER_TARGET) $(zip_root)/RECOVERY/second</div><div class="line">3. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_CMDLINE)</span>"</span> &gt; $(zip_root)/RECOVERY/cmdline</div><div class="line">4. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_BASE)</span>"</span> &gt; $(zip_root)/RECOVERY/base</div><div class="line">5. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_PAGESIZE)</span>"</span> &gt; $(zip_root)/RECOVERY/pagesize</div></pre></td></tr></table></figure>
+<h4 id="BOOT-目录下的组件"><a href="#BOOT-目录下的组件" class="headerlink" title="BOOT 目录下的组件"></a>BOOT 目录下的组件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@<span class="comment"># Components of the boot image</span></div><div class="line">$(hide) mkdir -p $(zip_root)/BOOT</div><div class="line">$(hide) $(call package_files-copy-root, \</div><div class="line">	$(TARGET_ROOT_OUT),$(zip_root)/BOOT/RAMDISK)</div><div class="line"></div><div class="line">1. $(ACP) $(INSTALLED_KERNEL_TARGET) $(zip_root)/BOOT/kernel</div><div class="line">2. $(ACP) $(INSTALLED_2NDBOOTLOADER_TARGET) $(zip_root)/BOOT/second</div><div class="line">3. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_CMDLINE)</span>"</span> &gt; $(zip_root)/BOOT/cmdline</div><div class="line">4. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_BASE)</span>"</span> &gt; $(zip_root)/BOOT/base</div><div class="line">5. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_PAGESIZE)</span>"</span> &gt; $(zip_root)/BOOT/pagesize</div><div class="line">6.</div></pre></td></tr></table></figure>
+<h4 id="RADIO-目录下的组件"><a href="#RADIO-目录下的组件" class="headerlink" title="RADIO 目录下的组件"></a>RADIO 目录下的组件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(hide) $(foreach t,$(INSTALLED_RADIOIMAGE_TARGET),\</div><div class="line">            mkdir -p $(zip_root)/RADIO; \</div><div class="line">            $(ACP) $(t) $(zip_root)/RADIO/$(notdir $(t));)</div></pre></td></tr></table></figure>
+<h4 id="BOOTLOADER-组件内容"><a href="#BOOTLOADER-组件内容" class="headerlink" title="BOOTLOADER 组件内容"></a>BOOTLOADER 组件内容</h4><p>BOOTLOADER 需要提供之前使用的 BOOTLOADER 和 新的 BOOTLOADER 文件 以及 MISC 分区文件<br>之前使用的BOOTLOADER 放置在目录：$(TARGET_DEVICE_DIR)/ota/loader/RK<em>Loader</em>.bin)<br>新的 BOOTLOADER 文件 放置在目录：$(PRODUCT_OUT)/RKLoader_new.bin<br>MISC 分区文件  放置在目录：$(TARGET_DEVICE_DIR)/ota/loader/misc_loadercmd.img</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ifeq ($(INSTALLED_LOADER_TARGET),)</div><div class="line">	$(info No RK Loader <span class="keyword">for</span> TARGET_DEVICE $(TARGET_DEVICE) to otapackage) //不需要更新BOOTLOADER</div><div class="line"><span class="keyword">else</span></div><div class="line">	@<span class="comment"># Contents of the rk loader bin</span></div><div class="line">	$(hide) mkdir -p $(zip_root)/LOADER</div><div class="line">	$(hide) $(HOST_OUT_EXECUTABLES)/remkloader <span class="string">'$(INSTALLED_LOADER_TARGET)'</span> $(INSTALLED_NEW_LOADER_TARGET)</div><div class="line">	$(hide) cat $(INSTALLED_LOADER_MISC_TARGET) $(INSTALLED_NEW_LOADER_TARGET) &gt; $(zip_root)/LOADER/RKLoader.img </div><div class="line">endif</div></pre></td></tr></table></figure>
+<h4 id="Parameter-组件内容"><a href="#Parameter-组件内容" class="headerlink" title="Parameter 组件内容"></a>Parameter 组件内容</h4><p>parameter 需要放置在 $(TARGET_DEVICE_DIR)/ota/parameter/parameter*) 目录中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ifeq ($(INSTALLED_PARAMETER_TARGET),)</div><div class="line">	$(info No parameter <span class="keyword">for</span> TARGET_DEVICE $(TARGET_DEVICE) to otapackage) //不需要更新Parameter</div><div class="line"><span class="keyword">else</span></div><div class="line">	$(hide) rm -rf $(zip_root)/PARAMETER</div><div class="line">	$(hide) mkdir -p $(zip_root)/PARAMETER</div><div class="line">	$(hide) $(HOST_OUT_EXECUTABLES)/mkparameter <span class="string">'$(INSTALLED_PARAMETER_TARGET)'</span> $(zip_root)/PARAMETER/parameter</div><div class="line">endif</div></pre></td></tr></table></figure></p>
+<h4 id="常规的system-以及-data-分区内容"><a href="#常规的system-以及-data-分区内容" class="headerlink" title="常规的system 以及 data 分区内容"></a>常规的system 以及 data 分区内容</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="comment"># Contents of the system image</span></div><div class="line">$(hide) $(call package_files-copy-root, \</div><div class="line">	$(SYSTEMIMAGE_SOURCE_DIR),$(zip_root)/SYSTEM)</div><div class="line">@<span class="comment"># Contents of the data image</span></div><div class="line">$(hide) $(call package_files-copy-root, \</div><div class="line">	$(TARGET_OUT_DATA),$(zip_root)/DATA)</div></pre></td></tr></table></figure>
+<h4 id="供应商定制相关内容"><a href="#供应商定制相关内容" class="headerlink" title="供应商定制相关内容"></a>供应商定制相关内容</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ifdef BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE</div><div class="line">	@<span class="comment"># Contents of the vendor image</span></div><div class="line">	$(hide) $(call package_files-copy-root, \</div><div class="line">		$(TARGET_OUT_VENDOR),$(zip_root)/VENDOR)</div><div class="line">endif</div></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-04-12T06:25:26.026Z" itemprop="dateUpdated">2017年4月12日 14:25</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/" target="_blank" rel="external">https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OTA/">OTA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/&title=《Android OTA升级包制作和源码相关问题》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/&title=《Android OTA升级包制作和源码相关问题》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android OTA升级包制作和源码相关问题》 — 爵士犀首&url=https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/android/cj1eliypt002l74pxwudgp00v/android/AndroidRecovery源码解析和界面定制/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android Recovery 源码解析和界面定制</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/android/cj1eliyq3002z74pxa0ksrh7m/android/RK3288平台img包解压修改/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">RK3288平台img包解压修改</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="android/Android-OTA升级包生成机制分析" data-title="Android OTA升级包制作和源码相关问题" data-url="https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.14');
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/&title=《Android OTA升级包制作和源码相关问题》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/&title=《Android OTA升级包制作和源码相关问题》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android OTA升级包制作和源码相关问题》 — 爵士犀首&url=https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj1eliyps002j74px4y60k287/android/Android-OTA升级包生成机制分析/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD7klEQVR42u3aS07DQBAFQO5/6bAECZy81z2GLMqrKImdmRqkpj8fH/H1+HYl73//9Oc3N+//fPLVSq5WdeDCgQMHDhzxVvPFJd98DpRsLPn+c/p8jzhw4MCB4yxH8gOz4JoE3Vmozo8kPx4cOHDgwPFfHEnucyrFysNzsn4cOHDgwPFuHHkBMQml+XPykiUOHDhw4HgHjiQpapfSFuwSjn1Sd6xWigMHDhw4ung3LPm95+tb5jtw4MCBA0dQzssDUjJw0Aa/WXo2C8C//DoOHDhw4FhzzAp/M6w27LW/MkvPcODAgQPHWY7NT+YFvqLlM7o3X/mLg8GBAwcOHGuO2Wha3pTKG055gW/2zux9HDhw4MDRcswa/3nC1pb8ZoFzMxh3mcLhwIEDB441R77hNs1rE7C2xZUcQ7QXHDhw4MCx5kjyuTaIti2rswMKbXDFgQMHDhxnOWZltRnfptWUDyjk5ci6JooDBw4cOOKZsUd57e+aDRbMUsT6jwAHDhw4cBziyAPbvu1UzFaUjajk8F4cDA4cOHDgWHAk254NEMzSp7OJ3yp5w4EDBw4cI45kvGCG2CZmsxrdLDAXzSccOHDgwFFyJIlNEvzaFG42jrDniP4ucODAgQPHNherr7yctxlH2ATvWSsLBw4cOHDsOfJwdWrEbV80zMuIbSDHgQMHDhx7jjZY7iuRm4Rw1u5q78KBAwcOHJu7ThXR8sG4TZFudjz1KAMOHDhw4FhztCW8JIgm22hX9by5tS9B4sCBAweOPUeyjXbgoA3hbVjNDyanxIEDBw4cd3NsBgg2CVWbUuZlxLwZhgMHDhw4NhxJMyb/TjLcMGsdzcqO+W/hwIEDB447ODZpW5tEzaYt2nvzETocOHDgwHGKY3XboRJe20C6I2DjwIEDB45THLPhs7YgmJf58qCehN72Uxw4cODAcQdHG5z27Z88bLejCXm58zLQ4sCBAweOkiMvCJ4qDubPORWG60E9HDhw4MCx5sjDYRv8ZgtNDik5gGLzOHDgwIHjEMds1CBfdLKgfXCdpW2XGS0OHDhw4FhzJHFnkzhtguUmJWubajhw4MCBY8+xadskTaZ8xGFT+GuLmy/WgwMHDhw4FhyP8mqbVXkgP5sWDleIAwcOHDjWHG1AascUZinWLAFrn3CgR4cDBw4cOC6elmw1KdK19i1rnkauUjscOHDgwHGIIx8daMfUNhH+jme+OFQcOHDgwPEGHH85ppD/ozAs/+HAgQMHjn/imKVtsw1sypF1QRMHDhw4cBziSJbYjj7knz5n3Te3inCOAwcOHDjWHG1e07ag8kA4KxTORuKOpXk4cODAgePr9SeEa1Mlx5yD3AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
