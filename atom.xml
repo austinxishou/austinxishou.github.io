@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-04-12T06:21:11.146Z</updated>
+  <updated>2017-04-12T06:45:12.227Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -16,41 +16,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Android�Ż�OTA����С�Ϳ�������ʱ��</title>
-    <link href="https://austinxishou.github.io/android/cj1elzsvk002vg0pxco7r0ze0/android/Android%E4%BC%98%E5%8C%96OTA%E5%8C%85%E5%A4%A7%E5%B0%8F%E5%92%8C%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E6%97%B6%E9%97%B4/"/>
-    <id>https://austinxishou.github.io/android/cj1elzsvk002vg0pxco7r0ze0/android/Android优化OTA包大小和开机启动时间/</id>
+    <title>Android优化OTA包大小和开机启动时间</title>
+    <link href="https://austinxishou.github.io/android/cj1em31wd002mjopxo6hjb52l/android/Android%E4%BC%98%E5%8C%96OTA%E5%8C%85%E5%A4%A7%E5%B0%8F%E5%92%8C%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E6%97%B6%E9%97%B4/"/>
+    <id>https://austinxishou.github.io/android/cj1em31wd002mjopxo6hjb52l/android/Android优化OTA包大小和开机启动时间/</id>
     <published>2017-04-12T06:21:18.535Z</published>
-    <updated>2017-04-12T06:21:11.146Z</updated>
+    <updated>2017-04-12T06:45:12.227Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="����˵��"><a href="#����˵��" class="headerlink" title="����˵��"></a>����˵��</h2><p>��Android ������ 5.0 (Lollipop/L)֮����������ʵ��������ART�����ӿ���Ӧ������ʱ���ٶȣ�������ϵͳ������ȴ������һЩ����֮����</p>
+    <content type="html"><![CDATA[<h2 id="问题说明"><a href="#问题说明" class="headerlink" title="问题说明"></a>问题说明</h2><p>在Android 升级到 5.0 (Lollipop/L)之后，虚拟机实例换成了ART，这加快了应用运行时的速度，但是在系统升级中却引入了一些不便之处：</p>
 <ol>
-<li>������������ʱ����ΪART������Ԥ�����Ż����ܣ����� APK ��JAR��ͨ��dex2otaԤ������odex�ļ��������������������������Ĵ�С��������G�Ĵ�С�������û������غ������Ĵ�����</li>
-<li>����������Ԥ�����Ż������ⲿ�ֲ�����ת�Ƶ�ˢ�����ɺ���һ�ο���ʱ�䣬ʮ����������������ʱ�䣬���û���ȷ���Ƿ����������⣻</li>
+<li>在生成升级包时，因为ART采用了预编译优化功能，会把 APK 及JAR等通过dex2ota预编译成odex文件，这样极大的增加了升级包的大小，动辄上G的大小不方便用户的下载和网络的传播；</li>
+<li>如果不进行预编译优化，则这部分操作会转移到刷机完成后第一次开机时间，十几分钟甚至更多的时间，让用户不确认是否升级出问题；</li>
 </ol>
-<h2 id="Ԥ��������-���˴�С��ʱ��"><a href="#Ԥ��������-���˴�С��ʱ��" class="headerlink" title="Ԥ��������-���˴�С��ʱ��"></a>Ԥ��������-���˴�С��ʱ��</h2><p>�������⣬Androidϵͳ�����ߣ����ѿ�����ȫ�����������Դ洢�ռ����޵��豸���ṩ�˷ḻ�ı�������ѡ����㿪���߸����Լ�ʵ���������������Ե������޸ģ�</p>
-<p>������������Щ����ѡ������˵���ͱ��ǣ���������������Ա�ο���</p>
-<h3 id="����odex�����Z�"><a href="#����odex�����Z�" class="headerlink" title="����odex�����Ż�"></a>����odex�����Ż�</h3><p>���ȣ�������ȫ�ر�Ԥ�����Ż����ܣ���dalvik������ʱ������������ͬ��<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">product BoardConfig.mk �ļ��У����ӱ��������� WITH_DEXPREOPT := true</div></pre></td></tr></table></figure></p>
-<p>��Ȼ�������Ľ�������������С�ˣ���һ�ο���ʱ�伫������</p>
-<h3 id="Ԥ�����I��������Z�"><a href="#Ԥ�����I��������Z�" class="headerlink" title="Ԥ�����İ��������Ż�"></a>Ԥ�����İ��������Ż�</h3><p>Ԥ�����İ���ָ��Щ��ģ�������ļ���ָ��Ϊ��include $(BUILD_PREBUILT) ��APK��JAR���ȣ�������������ռ��һ�����ţ�<br>DONT_DEXPREOPT_PREBUILTS  �����Ϳ��������ⲿ�Ŵ����Ƿ�����Ԥ�����Ż���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DONT_DEXPREOPT_PREBUILTS := true �󣬱���ϵͳ������ֹ prebuild ����odex�Ż���</div></pre></td></tr></table></figure></p>
-<h3 id="ֻ����BOOT-img-�Z�"><a href="#ֻ����BOOT-img-�Z�" class="headerlink" title="ֻ����BOOT.img �Ż�"></a>ֻ����BOOT.img �Ż�</h3><p>Android���������У�boot.img�����˴󲿷ֵײ�ϵͳ�������ͳ�ʼ������Ҫ������boot.art�ļ��У�<br>ʹ�� WITH_DEXPREOPT_BOOT_IMG_ONLY �������������Կ��Ʊ���ϵͳֻ����boot.img���Ż���<br>ʹ�ܸñ����󣬽���������ʡsystem�����Ĵ�С����ͬʱ��ζ�����е�app����Ҫ�ڵ�һ��������ʱ������odex�Ż���</p>
-<p>����������ͨ�� DONT_DEXPREOPT_PREBUILTS ���и���ȷ�Ŀ��ƣ�</p>
-<h3 id="LOCAL-DEX-PREOPT-��������ʹ��"><a href="#LOCAL-DEX-PREOPT-��������ʹ��" class="headerlink" title="LOCAL_DEX_PREOPT ��������ʹ��"></a>LOCAL_DEX_PREOPT ��������ʹ��</h3><p>ÿ��appӦ�ã�����ͨ���ñ����������п����Ƿ�����odex�Ż���<br>�� app��s Android.mk�����б�����ֵ LOCAL_DEX_PREOPT := false</p>
-<h3 id="PRODUCT-DEXPREOPT-��������ʹ��"><a href="#PRODUCT-DEXPREOPT-��������ʹ��" class="headerlink" title="PRODUCT_DEXPREOPT ��������ʹ��"></a>PRODUCT_DEX<em>PREOPT</em> ��������ʹ��</h3><p>�� post-L ���а汾֮��������������ϵ�еı������������и���������Ԥ�������Ż���</p>
+<h2 id="预编译配置-兼顾大小和时间"><a href="#预编译配置-兼顾大小和时间" class="headerlink" title="预编译配置-兼顾大小和时间"></a>预编译配置-兼顾大小和时间</h2><p>上述问题，Android系统设计者，早已考虑周全，尤其是针对存储空间有限的设备，提供了丰富的编译配置选项，方便开发者根据自己实际情况进行针对性的配置修改；</p>
+<p>下面就针对这些配置选项进行说明和标记，方便后续开发人员参考；</p>
+<h3 id="打开odex编译优化"><a href="#打开odex编译优化" class="headerlink" title="打开odex编译优化"></a>打开odex编译优化</h3><p>首先，可以完全关闭预编译优化功能，跟dalvik虚拟机时代的升级包相同：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">product BoardConfig.mk 文件中，添加编译变量： WITH_DEXPREOPT := true</div></pre></td></tr></table></figure></p>
+<p>当然，这样的结果就是升级包小了，第一次开机时间极其慢；</p>
+<h3 id="预编译的包不进行优化"><a href="#预编译的包不进行优化" class="headerlink" title="预编译的包不进行优化"></a>预编译的包不进行优化</h3><p>预编译的包是指那些在模块编译文件中指定为：include $(BUILD_PREBUILT) 的APK和JAR包等，这在升级包中占了一大部门；<br>DONT_DEXPREOPT_PREBUILTS  变量就可以配置这部门代码是否进行预编译优化；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DONT_DEXPREOPT_PREBUILTS := true 后，编译系统将会阻止 prebuild 包的odex优化；</div></pre></td></tr></table></figure></p>
+<h3 id="只进行BOOT-img-优化"><a href="#只进行BOOT-img-优化" class="headerlink" title="只进行BOOT.img 优化"></a>只进行BOOT.img 优化</h3><p>Android启动过程中，boot.img包含了大部分底层系统的启动和初始化，主要包含在boot.art文件中；<br>使用 WITH_DEXPREOPT_BOOT_IMG_ONLY 编译变量，可以控制编译系统只进行boot.img的优化；<br>使能该变量后，将会大量节省system分区的大小，但同时意味着所有的app都需要在第一次重启的时候进行odex优化；</p>
+<p>所以最好是通过 DONT_DEXPREOPT_PREBUILTS 进行更精确的控制；</p>
+<h3 id="LOCAL-DEX-PREOPT-编译变量使用"><a href="#LOCAL-DEX-PREOPT-编译变量使用" class="headerlink" title="LOCAL_DEX_PREOPT 编译变量使用"></a>LOCAL_DEX_PREOPT 编译变量使用</h3><p>每个app应用，可以通过该编译变量进行控制是否进行odex优化；<br>在 app’s Android.mk，进行变量赋值 LOCAL_DEX_PREOPT := false</p>
+<h3 id="PRODUCT-DEXPREOPT-编译变量使用"><a href="#PRODUCT-DEXPREOPT-编译变量使用" class="headerlink" title="PRODUCT_DEXPREOPT 编译变量使用"></a>PRODUCT_DEX<em>PREOPT</em> 编译变量使用</h3><p>在 post-L 发行版本之后，添加了这个系列的编译变量，进行更深入控制预编译的优化；</p>
 <ol>
-<li>PRODUCT_DEX_PREOPT_BOOT_FLAGS          ���ݲ����� dex2oat �������boot.img�ı���</li>
-<li>PRODUCT_DEX_PREOPT_DEFAULT_FLAGS     ����Ĭ�ϲ����� dex2oat ������Ƴ��� boot.img�ı��룬��jar����apk�ļ�<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(call add-product-dex-preopt-module-config,services,--compiler-filter=space)</div></pre></td></tr></table></figure>
+<li>PRODUCT_DEX_PREOPT_BOOT_FLAGS          传递参数给 dex2oat 命令，控制boot.img的编译</li>
+<li>PRODUCT_DEX_PREOPT_DEFAULT_FLAGS     传递默认参数给 dex2oat 命令，控制除了 boot.img的编译，即jar包和apk文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(call add-product-dex-preopt-module-config,services,--compiler-filter=space)</div></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>���� ֱ�ӹر�ģ����Ԥ�����Ż�<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(call add-product-dex-preopt-module-config,Calculator,disable)</div></pre></td></tr></table></figure></p>
-<h3 id="Android-7-0-֮�����Z�"><a href="#Android-7-0-֮�����Z�" class="headerlink" title="Android 7.0 ֮�����Ż�"></a>Android 7.0 ֮�����Ż�</h3><p>7.0����ϵͳ���Է�ΪA/B����������OTA�����Լ�APK���Ż���Ӱ���û�ǰ̨������ʹ�ã������ȼ�С���������Ĵ�С���������˵�һ�ο����ٶȣ�</p>
-<h3 id="Ԥ�������l�"><a href="#Ԥ�������l�" class="headerlink" title="Ԥ�������ļ�"></a>Ԥ�������ļ�</h3><p>Ԥ����������zygoteͳһ��ʼ��������ʹ����ʹ�õ���Щ����app�����ٶȼӿ죻����Ԥ��������ʹ����ʵ����Ŀ��Ҫ�ǳ�ע�⣬��Ҫ��ϸ������ȷ��Ȩ��ֵ��̫����Ԥ�������ᵼ��һЩ�����õ������ı������ڴ���Դ���෴���ᵼ�³��õ����ڲ�ͬӦ���ж������أ�������һ�����ݣ��ȼ���Ӧ�ÿ����ٶȣ�Ҳ���˷��ڴ棻</p>
-<p>Ԥ�������Ķ����б���Ĭ�Ϸ����� frameworks/base/preloaded-classes ��Ҳ�����ڲ�Ʒ��devic.mk���������ж�����Ԥ�����б���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PRODUCT_COPY_FILES += &lt;filename&gt;:system/etc/preloaded-classes</div></pre></td></tr></table></figure></p>
-<h3 id="�������б�"><a href="#�������б�" class="headerlink" title="�������б�"></a>�������б�</h3><p>���� PRODUCT_DEX_PREOPT_BOOT_FLAGS �� compiled-classes ���Կ��Ʊ���ϵͳ�Ƿ���Ԥ�����Ż��б�����Щ�ࣻ<br>���������б�ֻ�ܶ�����������һ���Ӽ����ʺ�������Щ�洢�ռ��ǳ����ޣ�����ȫ���Ż���������boot.img �������豸�����Զ�������˵�����ʺϣ�</p>
+<p>或者 直接关闭模块的预编译优化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(call add-product-dex-preopt-module-config,Calculator,disable)</div></pre></td></tr></table></figure></p>
+<h3 id="Android-7-0-之后的优化"><a href="#Android-7-0-之后的优化" class="headerlink" title="Android 7.0 之后的优化"></a>Android 7.0 之后的优化</h3><p>7.0后，系统可以分为A/B两个分区，OTA升级以及APK的优化不影响用户前台的正常使用，这样既减小了升级包的大小，又提升了第一次开机速度；</p>
+<h3 id="预加载类文件"><a href="#预加载类文件" class="headerlink" title="预加载类文件"></a>预加载类文件</h3><p>预加载类会由zygote统一初始化，这样使后续使用到这些类的app开启速度加快；但是预加载类的使用在实际项目中要非常注意，需要仔细评估后确认权衡值，太多的预加载类会导致一些不常用的类消耗宝贵的内存资源，相反则会导致常用的类在不同应用中独立加载，各自有一个备份，既减慢应用开启速度，也是浪费内存；</p>
+<p>预加载类的定义列表，默认放置在 frameworks/base/preloaded-classes ，也可以在产品的devic.mk中添加自行定义的预加载列表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PRODUCT_COPY_FILES += &lt;filename&gt;:system/etc/preloaded-classes</div></pre></td></tr></table></figure></p>
+<h3 id="编译类列表"><a href="#编译类列表" class="headerlink" title="编译类列表"></a>编译类列表</h3><p>结合 PRODUCT_DEX_PREOPT_BOOT_FLAGS 和 compiled-classes 可以控制编译系统是否在预编译优化中编译这些类；<br>不过上述列表只能定义启动类的一个子集，适合用于那些存储空间非常有限，不能全局优化编译整个boot.img 分区的设备，所以对我们来说并不适合；</p>
 ]]></content>
     
     <summary type="html">
     
-      Android �Ż�OTA����С�Ϳ�������ʱ�� ��������С�Ż� ��������ʱ���Ż� odex
+      Android 优化OTA包大小和开机启动时间 升级包大小优化 升级开机时间优化 odex
     
     </summary>
     
@@ -65,8 +65,8 @@
   
   <entry>
     <title>Android Recovery 源码解析和界面定制</title>
-    <link href="https://austinxishou.github.io/android/cj1elzsvi002rg0pxc1hq9yuu/android/AndroidRecovery%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E5%92%8C%E7%95%8C%E9%9D%A2%E5%AE%9A%E5%88%B6/"/>
-    <id>https://austinxishou.github.io/android/cj1elzsvi002rg0pxc1hq9yuu/android/AndroidRecovery源码解析和界面定制/</id>
+    <link href="https://austinxishou.github.io/android/cj1em31wb002kjopxv5uhs2wh/android/AndroidRecovery%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E5%92%8C%E7%95%8C%E9%9D%A2%E5%AE%9A%E5%88%B6/"/>
+    <id>https://austinxishou.github.io/android/cj1em31wb002kjopxv5uhs2wh/android/AndroidRecovery源码解析和界面定制/</id>
     <published>2017-04-12T06:17:58.664Z</published>
     <updated>2017-04-12T06:32:55.116Z</updated>
     
@@ -152,8 +152,8 @@
   
   <entry>
     <title>Android OTA升级包制作和源码相关问题</title>
-    <link href="https://austinxishou.github.io/android/cj1elzsvh002ng0pxkn6d4e1u/android/AndroidOTA%E5%8D%87%E7%BA%A7%E5%8C%85%E7%94%9F%E6%88%90%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/android/cj1elzsvh002ng0pxkn6d4e1u/android/AndroidOTA升级包生成机制分析/</id>
+    <link href="https://austinxishou.github.io/android/cj1em31wf002ojopxgg2hnsda/android/AndroidOTA%E5%8D%87%E7%BA%A7%E5%8C%85%E7%94%9F%E6%88%90%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/"/>
+    <id>https://austinxishou.github.io/android/cj1em31wf002ojopxgg2hnsda/android/AndroidOTA升级包生成机制分析/</id>
     <published>2017-04-12T03:55:40.770Z</published>
     <updated>2017-04-12T06:41:44.473Z</updated>
     
@@ -204,8 +204,8 @@
   
   <entry>
     <title>RK3288平台img包解压修改</title>
-    <link href="https://austinxishou.github.io/android/cj1elzsvv0039g0pxobjise5l/android/RK3288%E5%B9%B3%E5%8F%B0img%E5%8C%85%E8%A7%A3%E5%8E%8B%E4%BF%AE%E6%94%B9/"/>
-    <id>https://austinxishou.github.io/android/cj1elzsvv0039g0pxobjise5l/android/RK3288平台img包解压修改/</id>
+    <link href="https://austinxishou.github.io/android/cj1em31wo0032jopxggd1rubh/android/RK3288%E5%B9%B3%E5%8F%B0img%E5%8C%85%E8%A7%A3%E5%8E%8B%E4%BF%AE%E6%94%B9/"/>
+    <id>https://austinxishou.github.io/android/cj1em31wo0032jopxggd1rubh/android/RK3288平台img包解压修改/</id>
     <published>2017-04-12T03:26:38.078Z</published>
     <updated>2017-04-12T04:00:52.137Z</updated>
     
@@ -234,8 +234,8 @@
   
   <entry>
     <title>Android自启动管理功能</title>
-    <link href="https://austinxishou.github.io/android/cj1elzsvt0035g0pxwe15m18u/android/Android%E8%87%AA%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD/"/>
-    <id>https://austinxishou.github.io/android/cj1elzsvt0035g0pxwe15m18u/android/Android自启动管理功能/</id>
+    <link href="https://austinxishou.github.io/android/cj1em31wn002zjopxbpf0ovq3/android/Android%E8%87%AA%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD/"/>
+    <id>https://austinxishou.github.io/android/cj1em31wn002zjopxbpf0ovq3/android/Android自启动管理功能/</id>
     <published>2017-03-31T06:37:05.178Z</published>
     <updated>2017-03-31T07:35:02.108Z</updated>
     
@@ -267,8 +267,8 @@
   
   <entry>
     <title>Android发送广播详解</title>
-    <link href="https://austinxishou.github.io/android/cj1elzsvn002yg0pxp1ljta4l/android/Android%E5%8F%91%E9%80%81%E5%B9%BF%E6%92%AD%E8%AF%A6%E8%A7%A3/"/>
-    <id>https://austinxishou.github.io/android/cj1elzsvn002yg0pxp1ljta4l/android/Android发送广播详解/</id>
+    <link href="https://austinxishou.github.io/android/cj1em31wj002vjopx9sm57bs0/android/Android%E5%8F%91%E9%80%81%E5%B9%BF%E6%92%AD%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://austinxishou.github.io/android/cj1em31wj002vjopx9sm57bs0/android/Android发送广播详解/</id>
     <published>2017-03-31T06:22:32.229Z</published>
     <updated>2017-03-31T07:34:50.276Z</updated>
     
@@ -312,8 +312,8 @@
   
   <entry>
     <title>SEAndroid权限修改</title>
-    <link href="https://austinxishou.github.io/uncategorized/cj1elzsvw003cg0px51ijp3mi/android/SEAndroid%E6%9D%83%E9%99%90%E4%BF%AE%E6%94%B9/"/>
-    <id>https://austinxishou.github.io/uncategorized/cj1elzsvw003cg0px51ijp3mi/android/SEAndroid权限修改/</id>
+    <link href="https://austinxishou.github.io/uncategorized/cj1em31wp0036jopxeay2vmvt/android/SEAndroid%E6%9D%83%E9%99%90%E4%BF%AE%E6%94%B9/"/>
+    <id>https://austinxishou.github.io/uncategorized/cj1em31wp0036jopxeay2vmvt/android/SEAndroid权限修改/</id>
     <published>2017-03-29T05:39:55.224Z</published>
     <updated>2017-03-29T05:47:19.110Z</updated>
     
@@ -370,8 +370,8 @@ allow system_app shell_data_file:dir{getattr read};
   
   <entry>
     <title>GithubPages+Hexo3.0搭建静态博客网页</title>
-    <link href="https://austinxishou.github.io/webdesign/cj1elzsvd002eg0px5sd6ib5i/webdesign/GithubPages+Hexo3.0%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5/"/>
-    <id>https://austinxishou.github.io/webdesign/cj1elzsvd002eg0px5sd6ib5i/webdesign/GithubPages+Hexo3.0搭建静态博客网页/</id>
+    <link href="https://austinxishou.github.io/webdesign/cj1em31wq0039jopxbv5tgj8c/webdesign/GithubPages+Hexo3.0%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5/"/>
+    <id>https://austinxishou.github.io/webdesign/cj1em31wq0039jopxbv5tgj8c/webdesign/GithubPages+Hexo3.0搭建静态博客网页/</id>
     <published>2017-03-29T01:27:40.078Z</published>
     <updated>2017-04-01T02:55:37.578Z</updated>
     
@@ -435,8 +435,8 @@ allow system_app shell_data_file:dir{getattr read};
   
   <entry>
     <title>Android组件生命周期解析</title>
-    <link href="https://austinxishou.github.io/android/cj1elzsvs0032g0pxp158x7o4/android/Android%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%A7%A3%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/android/cj1elzsvs0032g0pxp158x7o4/android/Android组件生命周期解析/</id>
+    <link href="https://austinxishou.github.io/android/cj1em31wg002sjopxsl9a7jbt/android/Android%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%A7%A3%E6%9E%90/"/>
+    <id>https://austinxishou.github.io/android/cj1em31wg002sjopxsl9a7jbt/android/Android组件生命周期解析/</id>
     <published>2017-03-29T01:27:40.077Z</published>
     <updated>2017-03-29T05:47:33.103Z</updated>
     
