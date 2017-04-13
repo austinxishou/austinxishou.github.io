@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-04-12T06:45:12.227Z</updated>
+  <updated>2017-04-13T05:56:30.978Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -16,9 +16,135 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android Studio中使用ButterKnife注解框架</title>
+    <link href="https://austinxishou.github.io/android/cj1fzsj3r002s0kpxoxf3ks7c/android/AndroidStudio%E4%B8%AD%E4%BD%BF%E7%94%A8ButterKnife%E6%B3%A8%E8%A7%A3%E6%A1%86%E6%9E%B6/"/>
+    <id>https://austinxishou.github.io/android/cj1fzsj3r002s0kpxoxf3ks7c/android/AndroidStudio中使用ButterKnife注解框架/</id>
+    <published>2017-04-13T03:38:02.387Z</published>
+    <updated>2017-04-13T05:56:30.978Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><blockquote>
+<p>比较复杂的布局文件中，会定义众多的view，在activity中使用findViewById逐个初始化，也是挺繁琐的一项工作，喜欢偷懒的程序员，一定会喜欢ButterKnife的，它大大的简化了这一步骤，只需要鼠标点击三下就OK了。<br>下面是android ButterKnife Zelezny的github上的一个动态使用流程图： </p>
+</blockquote>
+<p><img src="/images/android-butterknife/butterknife.gif" alt="butterknife"></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="安装ButterKnife插件"><a href="#安装ButterKnife插件" class="headerlink" title="安装ButterKnife插件"></a>安装ButterKnife插件</h3><ol>
+<li><strong>File –&gt; Settings –&gt; Plugins –&gt; Browse repositories</strong> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/android-butterknife/butterknife-install1.jpg" alt="插件安装" title="">
+                </div>
+                <div class="image-caption">插件安装</div>
+            </figure></li>
+<li><strong>查找ButterKnife插件，安装</strong> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/android-butterknife/butterknife-install2.jpg" alt="查找ButterKnife插件" title="">
+                </div>
+                <div class="image-caption">查找ButterKnife插件</div>
+            </figure></li>
+<li><strong>重启Android Studio</strong></li>
+</ol>
+<h3 id="使用ButterKnife插件"><a href="#使用ButterKnife插件" class="headerlink" title="使用ButterKnife插件"></a>使用ButterKnife插件</h3><ol>
+<li><p><strong>添加jar包</strong></p>
+<blockquote>
+<p>右键Module，Open Module Settings<br>切换到Dependencies，点击右侧的“+”，选择“Library Dependency” </p>
+</blockquote>
+<p> <img src="/images/android-butterknife/addDependency.jpg" alt="addDependency"> </p>
+<blockquote>
+<p>搜索ButterKnife，添加jar包 </p>
+</blockquote>
+<p> <img src="/images/android-butterknife/addDependency2.jpg" alt="addDependency"></p>
+</li>
+<li><p><strong>生成注解</strong></p>
+<blockquote>
+<p>右键layout的ID，点击“Generate” </p>
+</blockquote>
+<p> <img src="/images/android-butterknife/generate.jpg" alt="Generate"> </p>
+<blockquote>
+<p>选择“Generate Butterknife Injections” </p>
+</blockquote>
+<p> <img src="/images/android-butterknife/generate2.jpg" alt="Generate"> </p>
+<blockquote>
+<p>生成注解 </p>
+</blockquote>
+<p> <img src="/images/android-butterknife/generate3.jpg" alt="Generate"></p>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      Android butterknife
+    
+    </summary>
+    
+      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
+    
+      <category term="butterknife" scheme="https://austinxishou.github.io/tags/butterknife/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android小错误集锦</title>
+    <link href="https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android%E5%B0%8F%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/"/>
+    <id>https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/</id>
+    <published>2017-04-13T01:48:54.373Z</published>
+    <updated>2017-04-13T01:52:45.822Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="工程编译类"><a href="#工程编译类" class="headerlink" title="工程编译类"></a>工程编译类</h2><h3 id="Gradle-错误"><a href="#Gradle-错误" class="headerlink" title="Gradle 错误"></a>Gradle 错误</h3><p><strong>问题描述:</strong></p>
+<blockquote>
+<p>更新Android studio 2.3后,出现Gradle 错误</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Error:Failed to complete Gradle execution.</div><div class="line">Cause:</div><div class="line">Could not create parent directory for lock file C:\Users\Administrator\.gradle\wrapper\dists\D:AustinDevtoolsgradlegradle-2.10-all\dn4qn6r39kukmjs5vguem1ak2\D:AustinDevtoolsgradlegradle-2.10-all.zip.lck</div></pre></td></tr></table></figure>
+<p><strong>解决方法</strong></p>
+<blockquote>
+<p>找到工程的build.gradle,修改classpath ‘com.android.tools.build:gradle:2.1.0’为classpath ‘com.android.tools.build:gradle:2.3.0’</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      Android小错误集锦
+    
+    </summary>
+    
+      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Android OTA升级测试以及问题汇总</title>
+    <link href="https://austinxishou.github.io/android/cj1fzsj3b002a0kpxlnd8va6w/android/Android%20OTA%E5%8D%87%E7%BA%A7%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>https://austinxishou.github.io/android/cj1fzsj3b002a0kpxlnd8va6w/android/Android OTA升级测试以及问题汇总/</id>
+    <published>2017-04-12T07:13:17.361Z</published>
+    <updated>2017-04-12T07:13:17.382Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="OTA包本地升级操作步骤"><a href="#OTA包本地升级操作步骤" class="headerlink" title="OTA包本地升级操作步骤"></a>OTA包本地升级操作步骤</h2>]]></content>
+    
+    <summary type="html">
+    
+      Android OTA 升级测试以及问题汇总
+    
+    </summary>
+    
+      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
+    
+      <category term="OTA" scheme="https://austinxishou.github.io/tags/OTA/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android优化OTA包大小和开机启动时间</title>
-    <link href="https://austinxishou.github.io/android/cj1em31wd002mjopxo6hjb52l/android/Android%E4%BC%98%E5%8C%96OTA%E5%8C%85%E5%A4%A7%E5%B0%8F%E5%92%8C%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E6%97%B6%E9%97%B4/"/>
-    <id>https://austinxishou.github.io/android/cj1em31wd002mjopxo6hjb52l/android/Android优化OTA包大小和开机启动时间/</id>
+    <link href="https://austinxishou.github.io/android/cj1fzsj3r002w0kpx1izsx79u/android/Android%E4%BC%98%E5%8C%96OTA%E5%8C%85%E5%A4%A7%E5%B0%8F%E5%92%8C%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E6%97%B6%E9%97%B4/"/>
+    <id>https://austinxishou.github.io/android/cj1fzsj3r002w0kpx1izsx79u/android/Android优化OTA包大小和开机启动时间/</id>
     <published>2017-04-12T06:21:18.535Z</published>
     <updated>2017-04-12T06:45:12.227Z</updated>
     
@@ -65,10 +191,10 @@
   
   <entry>
     <title>Android Recovery 源码解析和界面定制</title>
-    <link href="https://austinxishou.github.io/android/cj1em31wb002kjopxv5uhs2wh/android/AndroidRecovery%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E5%92%8C%E7%95%8C%E9%9D%A2%E5%AE%9A%E5%88%B6/"/>
-    <id>https://austinxishou.github.io/android/cj1em31wb002kjopxv5uhs2wh/android/AndroidRecovery源码解析和界面定制/</id>
+    <link href="https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery%E6%BA%90%E7%A0%81%E8%A7%A3%E6%9E%90%E5%92%8C%E7%95%8C%E9%9D%A2%E5%AE%9A%E5%88%B6/"/>
+    <id>https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/</id>
     <published>2017-04-12T06:17:58.664Z</published>
-    <updated>2017-04-12T06:32:55.116Z</updated>
+    <updated>2017-04-12T06:50:32.418Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Recovery主要功能"><a href="#Recovery主要功能" class="headerlink" title="Recovery主要功能"></a>Recovery主要功能</h2><p>深入了解recovery源码前，先浏览下recovery能够给我们提供哪些功能；</p>
 <ol>
@@ -133,6 +259,36 @@
 <li><p>out/target/product/rk3188/obj/PACKAGING/target_files_intermediates/<br>Ota升级包编译生成的素材包，要做差异包必须保存该素材包。</p>
 </li>
 </ol>
+<h3 id="板级配置"><a href="#板级配置" class="headerlink" title="板级配置"></a>板级配置</h3><blockquote>
+<p>Recovery 一些宏配置开关在device/rockchip/rk30sdk/BoardConfig.mk</p>
+</blockquote>
+<ol>
+<li><p>BOARD_HAS_FLIPPED_SCREEN := true</p>
+<blockquote>
+<p>针对lcd装反的情况可以强制recovery ui旋转180°</p>
+</blockquote>
+</li>
+<li><p>TARGET_RECOVERY_UI_LIB ?= librecovery_ui_rk30sdk</p>
+<blockquote>
+<p>自定义recovery菜单与按键实现。</p>
+</blockquote>
+</li>
+<li><p>TARGET_USERIMAGES_USE_EXT4 ?= true</p>
+<blockquote>
+<p>Recovery支持ext4 文件系统</p>
+</blockquote>
+</li>
+<li><p>RECOVERY_UPDATEIMG_RSA_CHECK ?= false</p>
+<blockquote>
+<p>Update.img在升级时进行drm签名校验，防止第三方非法固件升级。Update.img必须使用secureboot工具签名，并勾选sign check复选框。</p>
+</blockquote>
+</li>
+<li><p>RECOVERY_BOARD_ID ?= false</p>
+<blockquote>
+<p>一种根据烧录Boardid 串号实现一种固件支持不同硬件不同国家定制的one image方案，该方案支持google 的ota 完整升级和差异升级。</p>
+</blockquote>
+</li>
+</ol>
 ]]></content>
     
     <summary type="html">
@@ -151,11 +307,11 @@
   </entry>
   
   <entry>
-    <title>Android OTA升级包制作和源码相关问题</title>
-    <link href="https://austinxishou.github.io/android/cj1em31wf002ojopxgg2hnsda/android/AndroidOTA%E5%8D%87%E7%BA%A7%E5%8C%85%E7%94%9F%E6%88%90%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/android/cj1em31wf002ojopxgg2hnsda/android/AndroidOTA升级包生成机制分析/</id>
+    <title>Android OTA升级包制作和源码解析</title>
+    <link href="https://austinxishou.github.io/android/cj1fzsj3r002g0kpx9bzty5hh/android/AndroidOTA%E5%8D%87%E7%BA%A7%E5%8C%85%E7%94%9F%E6%88%90%E6%9C%BA%E5%88%B6%E5%88%86%E6%9E%90/"/>
+    <id>https://austinxishou.github.io/android/cj1fzsj3r002g0kpx9bzty5hh/android/AndroidOTA升级包生成机制分析/</id>
     <published>2017-04-12T03:55:40.770Z</published>
-    <updated>2017-04-12T06:41:44.473Z</updated>
+    <updated>2017-04-12T06:48:38.426Z</updated>
     
     <content type="html"><![CDATA[<h2 id="OTA升级包编译及产品版本管理说明"><a href="#OTA升级包编译及产品版本管理说明" class="headerlink" title="OTA升级包编译及产品版本管理说明"></a>OTA升级包编译及产品版本管理说明</h2><h3 id="OTA完整包生成方法"><a href="#OTA完整包生成方法" class="headerlink" title="OTA完整包生成方法"></a>OTA完整包生成方法</h3><blockquote>
 <p>OTA完整包可用于T卡本地升级和OTA在线升级。OTA完整包包含完整的system、recovery.和boot.img。<br><strong>发布一个版本固件正确顺序：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">make -j4</div><div class="line">make otapackage</div><div class="line">./mkimage.sh ota</div></pre></td></tr></table></figure></p>
@@ -204,8 +360,8 @@
   
   <entry>
     <title>RK3288平台img包解压修改</title>
-    <link href="https://austinxishou.github.io/android/cj1em31wo0032jopxggd1rubh/android/RK3288%E5%B9%B3%E5%8F%B0img%E5%8C%85%E8%A7%A3%E5%8E%8B%E4%BF%AE%E6%94%B9/"/>
-    <id>https://austinxishou.github.io/android/cj1em31wo0032jopxggd1rubh/android/RK3288平台img包解压修改/</id>
+    <link href="https://austinxishou.github.io/android/cj1fzsj46003b0kpxy0t31dsx/android/RK3288%E5%B9%B3%E5%8F%B0img%E5%8C%85%E8%A7%A3%E5%8E%8B%E4%BF%AE%E6%94%B9/"/>
+    <id>https://austinxishou.github.io/android/cj1fzsj46003b0kpxy0t31dsx/android/RK3288平台img包解压修改/</id>
     <published>2017-04-12T03:26:38.078Z</published>
     <updated>2017-04-12T04:00:52.137Z</updated>
     
@@ -234,8 +390,8 @@
   
   <entry>
     <title>Android自启动管理功能</title>
-    <link href="https://austinxishou.github.io/android/cj1em31wn002zjopxbpf0ovq3/android/Android%E8%87%AA%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD/"/>
-    <id>https://austinxishou.github.io/android/cj1em31wn002zjopxbpf0ovq3/android/Android自启动管理功能/</id>
+    <link href="https://austinxishou.github.io/android/cj1fzsj46003e0kpxof6t7b5z/android/Android%E8%87%AA%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD/"/>
+    <id>https://austinxishou.github.io/android/cj1fzsj46003e0kpxof6t7b5z/android/Android自启动管理功能/</id>
     <published>2017-03-31T06:37:05.178Z</published>
     <updated>2017-03-31T07:35:02.108Z</updated>
     
@@ -267,8 +423,8 @@
   
   <entry>
     <title>Android发送广播详解</title>
-    <link href="https://austinxishou.github.io/android/cj1em31wj002vjopx9sm57bs0/android/Android%E5%8F%91%E9%80%81%E5%B9%BF%E6%92%AD%E8%AF%A6%E8%A7%A3/"/>
-    <id>https://austinxishou.github.io/android/cj1em31wj002vjopx9sm57bs0/android/Android发送广播详解/</id>
+    <link href="https://austinxishou.github.io/android/cj1fzsj3r00300kpxc8jexeii/android/Android%E5%8F%91%E9%80%81%E5%B9%BF%E6%92%AD%E8%AF%A6%E8%A7%A3/"/>
+    <id>https://austinxishou.github.io/android/cj1fzsj3r00300kpxc8jexeii/android/Android发送广播详解/</id>
     <published>2017-03-31T06:22:32.229Z</published>
     <updated>2017-03-31T07:34:50.276Z</updated>
     
@@ -312,8 +468,8 @@
   
   <entry>
     <title>SEAndroid权限修改</title>
-    <link href="https://austinxishou.github.io/uncategorized/cj1em31wp0036jopxeay2vmvt/android/SEAndroid%E6%9D%83%E9%99%90%E4%BF%AE%E6%94%B9/"/>
-    <id>https://austinxishou.github.io/uncategorized/cj1em31wp0036jopxeay2vmvt/android/SEAndroid权限修改/</id>
+    <link href="https://austinxishou.github.io/uncategorized/cj1fzsj46003i0kpxcmz5yyte/android/SEAndroid%E6%9D%83%E9%99%90%E4%BF%AE%E6%94%B9/"/>
+    <id>https://austinxishou.github.io/uncategorized/cj1fzsj46003i0kpxcmz5yyte/android/SEAndroid权限修改/</id>
     <published>2017-03-29T05:39:55.224Z</published>
     <updated>2017-03-29T05:47:19.110Z</updated>
     
@@ -370,8 +526,8 @@ allow system_app shell_data_file:dir{getattr read};
   
   <entry>
     <title>GithubPages+Hexo3.0搭建静态博客网页</title>
-    <link href="https://austinxishou.github.io/webdesign/cj1em31wq0039jopxbv5tgj8c/webdesign/GithubPages+Hexo3.0%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5/"/>
-    <id>https://austinxishou.github.io/webdesign/cj1em31wq0039jopxbv5tgj8c/webdesign/GithubPages+Hexo3.0搭建静态博客网页/</id>
+    <link href="https://austinxishou.github.io/webdesign/cj1fzsj4m003l0kpxljmjf7i2/webdesign/GithubPages+Hexo3.0%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5/"/>
+    <id>https://austinxishou.github.io/webdesign/cj1fzsj4m003l0kpxljmjf7i2/webdesign/GithubPages+Hexo3.0搭建静态博客网页/</id>
     <published>2017-03-29T01:27:40.078Z</published>
     <updated>2017-04-01T02:55:37.578Z</updated>
     
@@ -425,9 +581,9 @@ allow system_app shell_data_file:dir{getattr read};
       <category term="webdesign" scheme="https://austinxishou.github.io/categories/webdesign/"/>
     
     
-      <category term="webdesign" scheme="https://austinxishou.github.io/tags/webdesign/"/>
-    
       <category term="Hexo" scheme="https://austinxishou.github.io/tags/Hexo/"/>
+    
+      <category term="webdesign" scheme="https://austinxishou.github.io/tags/webdesign/"/>
     
       <category term="github" scheme="https://austinxishou.github.io/tags/github/"/>
     
@@ -435,8 +591,8 @@ allow system_app shell_data_file:dir{getattr read};
   
   <entry>
     <title>Android组件生命周期解析</title>
-    <link href="https://austinxishou.github.io/android/cj1em31wg002sjopxsl9a7jbt/android/Android%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%A7%A3%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/android/cj1em31wg002sjopxsl9a7jbt/android/Android组件生命周期解析/</id>
+    <link href="https://austinxishou.github.io/android/cj1fzsj4600370kpxn7doyazr/android/Android%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%A7%A3%E6%9E%90/"/>
+    <id>https://austinxishou.github.io/android/cj1fzsj4600370kpxn7doyazr/android/Android组件生命周期解析/</id>
     <published>2017-03-29T01:27:40.077Z</published>
     <updated>2017-03-29T05:47:33.103Z</updated>
     
