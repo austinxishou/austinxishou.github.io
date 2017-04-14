@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-04-14T09:04:32.126Z</updated>
+  <updated>2017-04-14T10:06:30.928Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -16,11 +16,82 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android-OTA(四) updater功能解析</title>
+    <link href="https://austinxishou.github.io/android/cj1hopnwb0000kkpxjlyt3iyd/android/Android-OTA(%E5%9B%9B)%20updater%E5%8A%9F%E8%83%BD%E8%A7%A3%E6%9E%90/"/>
+    <id>https://austinxishou.github.io/android/cj1hopnwb0000kkpxjlyt3iyd/android/Android-OTA(四) updater功能解析/</id>
+    <published>2017-04-14T09:12:59.419Z</published>
+    <updated>2017-04-14T10:06:30.928Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>可以说，前面分析的OTA升级的各部分代码都是在搭一个舞台，而主角现在终于登场，它就是<strong>updater</strong>. Google的代码架构设计非常好，各部分尽量松耦合。前面介绍升级脚本时，可知有两种类型的脚本，<strong>amend&amp; edify</strong>. 他们各自对应一个updater. 这里，我们主要关注新的edify的updater.</p>
+</blockquote>
+<h2 id="源码文件"><a href="#源码文件" class="headerlink" title="源码文件"></a>源码文件</h2><p><strong>tree</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── Android.mk</div><div class="line">├── blockimg.c</div><div class="line">├── blockimg.h</div><div class="line">├── install.c</div><div class="line">├── install.h</div><div class="line">├── updater.c</div><div class="line">└── updater.h</div></pre></td></tr></table></figure></p>
+<p><strong>入口函数 main</strong></p>
+<ol>
+<li><strong>处理version 参数</strong></li>
+<li><strong>获取命令管道</strong><blockquote>
+<p>Set up the pipe for sending commands back to the parent process.</p>
+</blockquote>
+</li>
+<li><strong>读入脚本</strong><blockquote>
+<p>mzFindZipEntry(&amp;za, SCRIPT_NAME);</p>
+</blockquote>
+</li>
+<li><strong>注册语句处理函数</strong><blockquote>
+<p>Configure edify’s functions.</p>
+</blockquote>
+</li>
+<li>解析脚本命令<blockquote>
+<p>Parse the script.</p>
+</blockquote>
+</li>
+<li>执行脚本 <blockquote>
+<p>核心函数是 Evaluate。它会调用其他callback函数，而这些callback函数又会调用Evaluate去解析不同的脚本片段。</p>
+</blockquote>
+</li>
+</ol>
+<p>主流程的代码非常简单,因为细节隐藏在那些 callback 函数里。</p>
+<p><strong>callback函数</strong></p>
+<ol>
+<li>RegisterBuiltins</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RegisterBuiltins</span><span class="params">()</span> </span>&#123;</div><div class="line">    RegisterFunction(<span class="string">"ifelse"</span>, IfElseFn);</div><div class="line">    RegisterFunction(<span class="string">"abort"</span>, AbortFn);</div><div class="line">    RegisterFunction(<span class="string">"assert"</span>, AssertFn);</div><div class="line">    RegisterFunction(<span class="string">"concat"</span>, ConcatFn);</div><div class="line">    RegisterFunction(<span class="string">"is_substring"</span>, SubstringFn);</div><div class="line">    RegisterFunction(<span class="string">"stdout"</span>, StdoutFn);</div><div class="line">    RegisterFunction(<span class="string">"sleep"</span>, SleepFn);</div><div class="line">    RegisterFunction(<span class="string">"less_than_int"</span>, LessThanIntFn);</div><div class="line">    RegisterFunction(<span class="string">"greater_than_int"</span>, GreaterThanIntFn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>RegisterInstallFunctions</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RegisterInstallFunctions</span><span class="params">()</span> </span>&#123;</div><div class="line">    RegisterFunction(<span class="string">"mount"</span>, MountFn);</div><div class="line">    RegisterFunction(<span class="string">"is_mounted"</span>, IsMountedFn);</div><div class="line">    RegisterFunction(<span class="string">"unmount"</span>, UnmountFn);</div><div class="line">    RegisterFunction(<span class="string">"format"</span>, FormatFn);</div><div class="line">    RegisterFunction(<span class="string">"show_progress"</span>, ShowProgressFn);</div><div class="line">    RegisterFunction(<span class="string">"set_progress"</span>, SetProgressFn);</div><div class="line">    RegisterFunction(<span class="string">"delete"</span>, DeleteFn);</div><div class="line">    RegisterFunction(<span class="string">"delete_recursive"</span>, DeleteFn);</div><div class="line">    RegisterFunction(<span class="string">"package_extract_dir"</span>, PackageExtractDirFn);</div><div class="line">    RegisterFunction(<span class="string">"package_extract_file"</span>, PackageExtractFileFn);</div><div class="line">    RegisterFunction(<span class="string">"symlink"</span>, SymlinkFn);</div><div class="line"></div><div class="line">    <span class="comment">// Usage:</span></div><div class="line">    <span class="comment">//   set_metadata("filename", "key1", "value1", "key2", "value2", ...)</span></div><div class="line">    <span class="comment">// Example:</span></div><div class="line">    <span class="comment">//   set_metadata("/system/bin/netcfg", "uid", 0, "gid", 3003, "mode", 02750, "selabel", "u:object_r:system_file:s0", "capabilities", 0x0);</span></div><div class="line">    RegisterFunction(<span class="string">"set_metadata"</span>, SetMetadataFn);</div><div class="line"></div><div class="line">    <span class="comment">// Usage:</span></div><div class="line">    <span class="comment">//   set_metadata_recursive("dirname", "key1", "value1", "key2", "value2", ...)</span></div><div class="line">    <span class="comment">// Example:</span></div><div class="line">    <span class="comment">//   set_metadata_recursive("/system", "uid", 0, "gid", 0, "fmode", 0644, "dmode", 0755, "selabel", "u:object_r:system_file:s0", "capabilities", 0x0);</span></div><div class="line">    RegisterFunction(<span class="string">"set_metadata_recursive"</span>, SetMetadataFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"getprop"</span>, GetPropFn);</div><div class="line">    RegisterFunction(<span class="string">"file_getprop"</span>, FileGetPropFn);</div><div class="line">    RegisterFunction(<span class="string">"write_raw_image"</span>, WriteRawImageFn);</div><div class="line">    RegisterFunction(<span class="string">"write_raw_parameter_image"</span>, WriteRawParameterImageFn);</div><div class="line">    RegisterFunction(<span class="string">"clear_misc_command"</span>, ClearMiscCommandFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"apply_patch"</span>, ApplyPatchFn);</div><div class="line">    RegisterFunction(<span class="string">"apply_patch_check"</span>, ApplyPatchCheckFn);</div><div class="line">    RegisterFunction(<span class="string">"apply_patch_space"</span>, ApplyPatchSpaceFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"wipe_block_device"</span>, WipeBlockDeviceFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"read_file"</span>, ReadFileFn);</div><div class="line">    RegisterFunction(<span class="string">"sha1_check"</span>, Sha1CheckFn);</div><div class="line">    RegisterFunction(<span class="string">"rename"</span>, RenameFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"wipe_cache"</span>, WipeCacheFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"ui_print"</span>, UIPrintFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"run_program"</span>, RunProgramFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"reboot_now"</span>, RebootNowFn);</div><div class="line">    RegisterFunction(<span class="string">"get_stage"</span>, GetStageFn);</div><div class="line">    RegisterFunction(<span class="string">"set_stage"</span>, SetStageFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"enable_reboot"</span>, EnableRebootFn);</div><div class="line">    RegisterFunction(<span class="string">"tune2fs"</span>, Tune2FsFn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>RegisterBlockImageFunctions</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RegisterBlockImageFunctions</span><span class="params">()</span> </span>&#123;</div><div class="line">    RegisterFunction(<span class="string">"block_image_verify"</span>, BlockImageVerifyFn);</div><div class="line">    RegisterFunction(<span class="string">"block_image_update"</span>, BlockImageUpdateFn);</div><div class="line">    RegisterFunction(<span class="string">"range_sha1"</span>, RangeSha1Fn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li>FinishRegistration<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">FinishRegistration</span><span class="params">()</span> </span>&#123;</div><div class="line">    qsort(fn_table, fn_entries, <span class="keyword">sizeof</span>(NamedFunction), fn_entry_compare);</div><div class="line">&#125;</div></pre></td></tr></table></figure></li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      Android OTA升级 recovery
+    
+    </summary>
+    
+      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
+    
+      <category term="OTA" scheme="https://austinxishou.github.io/tags/OTA/"/>
+    
+      <category term="recovery" scheme="https://austinxishou.github.io/tags/recovery/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Android-OTA(三) recovery 功能解析</title>
     <link href="https://austinxishou.github.io/android/cj1hl960a0001pgpxwqpxtw16/android/Android-OTA(%E4%B8%89)recovery%E5%8A%9F%E8%83%BD%E8%A7%A3%E6%9E%90/"/>
     <id>https://austinxishou.github.io/android/cj1hl960a0001pgpxwqpxtw16/android/Android-OTA(三)recovery功能解析/</id>
     <published>2017-04-14T03:45:15.978Z</published>
-    <updated>2017-04-14T09:04:32.126Z</updated>
+    <updated>2017-04-14T09:10:58.869Z</updated>
     
     <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>recovery 作为系统的恢复工具,有以下几点功能:</strong></p>
 <ol>
@@ -37,16 +108,7 @@
 <p>recovery最后是编译成一个可执行的命令，放在recovery文件系统中的/sbin/recovery；所以我们可以在终端中直接运行该命令，具体的参数如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">--send_intent=anystring - 传递给recovery的信息</div><div class="line">--adbd -adb sideload升级</div><div class="line">--update_package=path - 指定OTA升级包</div><div class="line">--wipe_data - 清楚用户数据并重启</div><div class="line">--wipe_cache - 清楚缓存并重启</div><div class="line">--set_encrypted_filesystem=on|off - 使能或者关闭文件系统加密</div><div class="line">--just_exit - 退出并重启</div></pre></td></tr></table></figure>
 <h2 id="recovery生成"><a href="#recovery生成" class="headerlink" title="recovery生成"></a>recovery生成</h2><p>先看一下 build/core/Makefile 的依赖文件:<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTFS) $(MKBOOTIMG) $(MINIGZIP) \</div><div class="line">                $(INSTALLED_RAMDISK_TARGET) \</div><div class="line">                $(INSTALLED_BOOTIMAGE_TARGET) \</div><div class="line">                $(INTERNAL_RECOVERYIMAGE_FILES) \</div><div class="line">                $(recovery_initrc) $(recovery_sepolicy) $(recovery_kernel) \</div><div class="line">                $(INSTALLED_2NDBOOTLOADER_TARGET) \</div><div class="line">                $(recovery_build_prop) $(recovery_resource_deps) \</div><div class="line">                $(recovery_fstab) \</div><div class="line">                $(recovery_fstab_mtd) \</div><div class="line">                $(recovery_fstab_emmc) \</div><div class="line">                $(RECOVERY_INSTALL_OTA_KEYS)</div><div class="line">                $(call build-recoveryimage-target, $@)</div></pre></td></tr></table></figure></p>
-<p>1．MKBOOTFS, MINIGZIP, MKBOOTIMG，PC端工具软件<br>2．INSTALLED_RAMDISK_TARGET，标准根文件系统 ramdisk.img<br>3．INSTALLED_BOOTIMAGE_TARGET， 即boot.img,标准内核及标准根文件系统</p>
-<ol>
-<li>recovery_binary, Recovery可执行程序，源码位于：bootable/recovery</li>
-<li>recovery_initrc，recovery模式的init.rc, 位于 bootable/recovery/etc/init.rc</li>
-<li>recovery_kernel, recovery 模式的kernel, 同标准内核</li>
-<li>INSTALLED_2NDBOOTLOADER_TARGET，我们不用。</li>
-<li>recovery_build_prop， recovery 模式的build.prop, 同标准模式。</li>
-<li>recovery_resource_deps， recovery 模式使用的res, 位于：recovery/custom/{product_name}/res</li>
-<li>RECOVERY_INSTALL_OTA_KEYS, ota 密钥：</li>
-</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1．MKBOOTFS, MINIGZIP, MKBOOTIMG，PC端工具软件 </div><div class="line">2．INSTALLED_RAMDISK_TARGET,标准根文件系统 ramdisk.img </div><div class="line">3．INSTALLED_BOOTIMAGE_TARGET,即boot.img,标准内核及标准根文件系统 </div><div class="line">4. recovery_binary, Recovery可执行程序，源码位于：bootable/recovery </div><div class="line">5. recovery_initrc，recovery模式的init.rc, 位于 bootable/recovery/etc/init.rc </div><div class="line">6. recovery_kernel, recovery 模式的kernel, 同标准内核 </div><div class="line">7. INSTALLED_2NDBOOTLOADER_TARGET，我们不用 </div><div class="line">8. recovery_build_prop， recovery 模式的build.prop, 同标准模式 </div><div class="line">9. recovery_resource_deps， recovery 模式使用的res, 位于：recovery/custom/&#123;product_name&#125;/res </div><div class="line">10. RECOVERY_INSTALL_OTA_KEYS, ota 密钥</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">recovery</div><div class="line">├── charger -&gt; /sbin/healthd</div><div class="line">├── data</div><div class="line">├── default.prop</div><div class="line">├── dev</div><div class="line">├── drmboot.ko</div><div class="line">├── etc</div><div class="line">│   ├── recovery.emmc.fstab</div><div class="line">│   └── recovery.fstab</div><div class="line">├── file_contexts</div><div class="line">├── fstab.rk30board.bootmode.emmc</div><div class="line">├── fstab.rk30board.bootmode.unknown</div><div class="line">├── init</div><div class="line">├── init.bootmode.emmc.rc</div><div class="line">├── init.bootmode.unknown.rc</div><div class="line">├── init.rc</div><div class="line">├── oem</div><div class="line">├── proc</div><div class="line">├── property_contexts</div><div class="line">├── res</div><div class="line">│   ├── images</div><div class="line">│   │   ├── erasing_text.png</div><div class="line">│   │   ├── error_text.png</div><div class="line">│   │   ├── font.png</div><div class="line">│   │   ├── icon_error.png</div><div class="line">│   │   ├── icon_installing.png</div><div class="line">│   │   ├── installing_text.png</div><div class="line">│   │   ├── no_command_text.png</div><div class="line">│   │   ├── progress_empty.png</div><div class="line">│   │   ├── progress_fill.png</div><div class="line">│   │   ├── stage_empty.png</div><div class="line">│   │   └── stage_fill.png</div><div class="line">│   └── keys</div><div class="line">├── rk30xxnand_ko.ko</div><div class="line">├── sbin</div><div class="line">│   ├── adbd</div><div class="line">│   ├── busybox</div><div class="line">│   ├── e2fsck</div><div class="line">│   ├── healthd</div><div class="line">│   ├── mkdosfs</div><div class="line">│   ├── mkfs.f2fs</div><div class="line">│   ├── recovery</div><div class="line">│   ├── resize2fs</div><div class="line">│   ├── sh</div><div class="line">│   ├── ueventd -&gt; ../init</div><div class="line">│   └── watchdogd -&gt; ../init</div><div class="line">├── seapp_contexts</div><div class="line">├── selinux_version</div><div class="line">├── sepolicy</div><div class="line">├── service_contexts</div><div class="line">├── sys</div><div class="line">├── system</div><div class="line">├── tmp</div><div class="line">├── ueventd.rc</div><div class="line">└── ueventd.rk30board.rc</div></pre></td></tr></table></figure>
 <h2 id="recovery根文件系统"><a href="#recovery根文件系统" class="headerlink" title="recovery根文件系统"></a>recovery根文件系统</h2><p>从bootloader 进入Recovery 模式后，首先也是运行Linux内核，该内核跟普通模式没有区别(减轻了BSP开发者的任务)。区别从执行文件系统开始。 Recovery 模式的细节就隐藏在其根文件系统中。<br>下面，我们就看看进入Recovery 根文件系统都干些啥。</p>
 <h3 id="init-rc"><a href="#init-rc" class="headerlink" title="init.rc"></a>init.rc</h3><p>和正常启动一样，内核进入文件系统会执行/init, init 的配置文件就是 /init.rc</p>

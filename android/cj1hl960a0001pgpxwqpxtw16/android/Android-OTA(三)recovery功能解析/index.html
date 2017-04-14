@@ -30,7 +30,7 @@
 <meta property="og:url" content="https://austinxishou.github.io/android/cj1hl960a0001pgpxwqpxtw16/android/Android-OTA(三)recovery功能解析/index.html">
 <meta property="og:site_name" content="爵士犀首">
 <meta property="og:description" content="Android OTA升级 recovery">
-<meta property="og:updated_time" content="2017-04-14T09:04:32.126Z">
+<meta property="og:updated_time" content="2017-04-14T09:10:58.869Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-OTA(三) recovery 功能解析">
 <meta name="twitter:description" content="Android OTA升级 recovery">
@@ -226,16 +226,7 @@
 <p>recovery最后是编译成一个可执行的命令，放在recovery文件系统中的/sbin/recovery；所以我们可以在终端中直接运行该命令，具体的参数如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">--send_intent=anystring - 传递给recovery的信息</div><div class="line">--adbd -adb sideload升级</div><div class="line">--update_package=path - 指定OTA升级包</div><div class="line">--wipe_data - 清楚用户数据并重启</div><div class="line">--wipe_cache - 清楚缓存并重启</div><div class="line">--set_encrypted_filesystem=on|off - 使能或者关闭文件系统加密</div><div class="line">--just_exit - 退出并重启</div></pre></td></tr></table></figure>
 <h2 id="recovery生成"><a href="#recovery生成" class="headerlink" title="recovery生成"></a>recovery生成</h2><p>先看一下 build/core/Makefile 的依赖文件:<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTFS) $(MKBOOTIMG) $(MINIGZIP) \</div><div class="line">                $(INSTALLED_RAMDISK_TARGET) \</div><div class="line">                $(INSTALLED_BOOTIMAGE_TARGET) \</div><div class="line">                $(INTERNAL_RECOVERYIMAGE_FILES) \</div><div class="line">                $(recovery_initrc) $(recovery_sepolicy) $(recovery_kernel) \</div><div class="line">                $(INSTALLED_2NDBOOTLOADER_TARGET) \</div><div class="line">                $(recovery_build_prop) $(recovery_resource_deps) \</div><div class="line">                $(recovery_fstab) \</div><div class="line">                $(recovery_fstab_mtd) \</div><div class="line">                $(recovery_fstab_emmc) \</div><div class="line">                $(RECOVERY_INSTALL_OTA_KEYS)</div><div class="line">                $(call build-recoveryimage-target, $@)</div></pre></td></tr></table></figure></p>
-<p>1．MKBOOTFS, MINIGZIP, MKBOOTIMG，PC端工具软件<br>2．INSTALLED_RAMDISK_TARGET，标准根文件系统 ramdisk.img<br>3．INSTALLED_BOOTIMAGE_TARGET， 即boot.img,标准内核及标准根文件系统</p>
-<ol>
-<li>recovery_binary, Recovery可执行程序，源码位于：bootable/recovery</li>
-<li>recovery_initrc，recovery模式的init.rc, 位于 bootable/recovery/etc/init.rc</li>
-<li>recovery_kernel, recovery 模式的kernel, 同标准内核</li>
-<li>INSTALLED_2NDBOOTLOADER_TARGET，我们不用。</li>
-<li>recovery_build_prop， recovery 模式的build.prop, 同标准模式。</li>
-<li>recovery_resource_deps， recovery 模式使用的res, 位于：recovery/custom/{product_name}/res</li>
-<li>RECOVERY_INSTALL_OTA_KEYS, ota 密钥：</li>
-</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1．MKBOOTFS, MINIGZIP, MKBOOTIMG，PC端工具软件 </div><div class="line">2．INSTALLED_RAMDISK_TARGET,标准根文件系统 ramdisk.img </div><div class="line">3．INSTALLED_BOOTIMAGE_TARGET,即boot.img,标准内核及标准根文件系统 </div><div class="line">4. recovery_binary, Recovery可执行程序，源码位于：bootable/recovery </div><div class="line">5. recovery_initrc，recovery模式的init.rc, 位于 bootable/recovery/etc/init.rc </div><div class="line">6. recovery_kernel, recovery 模式的kernel, 同标准内核 </div><div class="line">7. INSTALLED_2NDBOOTLOADER_TARGET，我们不用 </div><div class="line">8. recovery_build_prop， recovery 模式的build.prop, 同标准模式 </div><div class="line">9. recovery_resource_deps， recovery 模式使用的res, 位于：recovery/custom/&#123;product_name&#125;/res </div><div class="line">10. RECOVERY_INSTALL_OTA_KEYS, ota 密钥</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">recovery</div><div class="line">├── charger -&gt; /sbin/healthd</div><div class="line">├── data</div><div class="line">├── default.prop</div><div class="line">├── dev</div><div class="line">├── drmboot.ko</div><div class="line">├── etc</div><div class="line">│   ├── recovery.emmc.fstab</div><div class="line">│   └── recovery.fstab</div><div class="line">├── file_contexts</div><div class="line">├── fstab.rk30board.bootmode.emmc</div><div class="line">├── fstab.rk30board.bootmode.unknown</div><div class="line">├── init</div><div class="line">├── init.bootmode.emmc.rc</div><div class="line">├── init.bootmode.unknown.rc</div><div class="line">├── init.rc</div><div class="line">├── oem</div><div class="line">├── proc</div><div class="line">├── property_contexts</div><div class="line">├── res</div><div class="line">│   ├── images</div><div class="line">│   │   ├── erasing_text.png</div><div class="line">│   │   ├── error_text.png</div><div class="line">│   │   ├── font.png</div><div class="line">│   │   ├── icon_error.png</div><div class="line">│   │   ├── icon_installing.png</div><div class="line">│   │   ├── installing_text.png</div><div class="line">│   │   ├── no_command_text.png</div><div class="line">│   │   ├── progress_empty.png</div><div class="line">│   │   ├── progress_fill.png</div><div class="line">│   │   ├── stage_empty.png</div><div class="line">│   │   └── stage_fill.png</div><div class="line">│   └── keys</div><div class="line">├── rk30xxnand_ko.ko</div><div class="line">├── sbin</div><div class="line">│   ├── adbd</div><div class="line">│   ├── busybox</div><div class="line">│   ├── e2fsck</div><div class="line">│   ├── healthd</div><div class="line">│   ├── mkdosfs</div><div class="line">│   ├── mkfs.f2fs</div><div class="line">│   ├── recovery</div><div class="line">│   ├── resize2fs</div><div class="line">│   ├── sh</div><div class="line">│   ├── ueventd -&gt; ../init</div><div class="line">│   └── watchdogd -&gt; ../init</div><div class="line">├── seapp_contexts</div><div class="line">├── selinux_version</div><div class="line">├── sepolicy</div><div class="line">├── service_contexts</div><div class="line">├── sys</div><div class="line">├── system</div><div class="line">├── tmp</div><div class="line">├── ueventd.rc</div><div class="line">└── ueventd.rk30board.rc</div></pre></td></tr></table></figure>
 <h2 id="recovery根文件系统"><a href="#recovery根文件系统" class="headerlink" title="recovery根文件系统"></a>recovery根文件系统</h2><p>从bootloader 进入Recovery 模式后，首先也是运行Linux内核，该内核跟普通模式没有区别(减轻了BSP开发者的任务)。区别从执行文件系统开始。 Recovery 模式的细节就隐藏在其根文件系统中。<br>下面，我们就看看进入Recovery 根文件系统都干些啥。</p>
 <h3 id="init-rc"><a href="#init-rc" class="headerlink" title="init.rc"></a>init.rc</h3><p>和正常启动一样，内核进入文件系统会执行/init, init 的配置文件就是 /init.rc</p>
@@ -339,7 +330,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-14T09:04:32.126Z" itemprop="dateUpdated">2017年4月14日 17:04</time>
+    最后更新时间：<time datetime="2017-04-14T09:10:58.869Z" itemprop="dateUpdated">2017年4月14日 17:10</time>
 </span><br>
 
 
@@ -417,7 +408,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/android/cj1hopnwb0000kkpxjlyt3iyd/android/Android-OTA(四) updater功能解析/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android-OTA(四) updater功能解析</h4>
+      </a>
+    </div>
   
 
   
