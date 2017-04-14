@@ -16,7 +16,7 @@
 	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
     <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
     <meta http-equiv="content-language" content="zh-cn">
-    <title>Android Recovery 源码解析和界面定制 | 爵士犀首 | Stand out or get out!</title>
+    <title>Android-OTA(四)Recovery二次开发 | 爵士犀首 | Stand out or get out!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -26,13 +26,13 @@
 
     <meta name="description" content="Android Recovery 源码解析和界面定制 recovery二次开发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android Recovery 源码解析和界面定制">
-<meta property="og:url" content="https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/index.html">
+<meta property="og:title" content="Android-OTA(四)Recovery二次开发">
+<meta property="og:url" content="https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/index.html">
 <meta property="og:site_name" content="爵士犀首">
 <meta property="og:description" content="Android Recovery 源码解析和界面定制 recovery二次开发">
-<meta property="og:updated_time" content="2017-04-12T06:50:32.418Z">
+<meta property="og:updated_time" content="2017-04-14T03:44:43.578Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android Recovery 源码解析和界面定制">
+<meta name="twitter:title" content="Android-OTA(四)Recovery二次开发">
 <meta name="twitter:description" content="Android Recovery 源码解析和界面定制 recovery二次开发">
     
         <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
@@ -138,7 +138,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">Android Recovery 源码解析和界面定制</div>
+        <div class="flex-col header-title ellipsis">Android-OTA(四)Recovery二次开发</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -160,7 +160,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">Android Recovery 源码解析和界面定制</h1>
+        <h1 class="title">Android-OTA(四)Recovery二次开发</h1>
         <h5 class="subtitle">
             
                 <time datetime="2017-04-12T06:17:58.664Z" itemprop="datePublished" class="page-time">
@@ -184,15 +184,15 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Recovery主要功能"><span class="post-toc-number">1.</span> <span class="post-toc-text">Recovery主要功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码路径和主要原文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">源码路径和主要原文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#recovery-cpp"><span class="post-toc-number">3.</span> <span class="post-toc-text">recovery.cpp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命令行参数"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">命令行参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#main-函数"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">main 函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#界面定制"><span class="post-toc-number">4.</span> <span class="post-toc-text">界面定制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现Recovery-UI"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">实现Recovery UI</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现头部显示和列表项"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">实现头部显示和列表项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现ScreenRecoveryUI"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">实现ScreenRecoveryUI</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现设备类"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">实现设备类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加编译实现"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">添加编译实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#recovery-二次开发"><span class="post-toc-number">5.</span> <span class="post-toc-text">recovery 二次开发</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码结构："><span class="post-toc-number">5.1.</span> <span class="post-toc-text">代码结构：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#板级配置"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">板级配置</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Recovery主要功能"><span class="post-toc-number">1.</span> <span class="post-toc-text">Recovery主要功能</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码路径和主要原文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">源码路径和主要原文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#recovery-cpp"><span class="post-toc-number">3.</span> <span class="post-toc-text">recovery.cpp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#命令行参数"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">命令行参数</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#main-函数"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">main 函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#界面定制"><span class="post-toc-number">4.</span> <span class="post-toc-text">界面定制</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现Recovery-UI"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">实现Recovery UI</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现头部显示和列表项"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">实现头部显示和列表项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现ScreenRecoveryUI"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">实现ScreenRecoveryUI</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#实现设备类"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">实现设备类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#添加编译实现"><span class="post-toc-number">4.5.</span> <span class="post-toc-text">添加编译实现</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#recovery-二次开发"><span class="post-toc-number">5.</span> <span class="post-toc-text">recovery 二次开发</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代码结构："><span class="post-toc-number">5.1.</span> <span class="post-toc-text">代码结构：</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#板级配置"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">板级配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#脚本文件命令以及解析"><span class="post-toc-number">6.</span> <span class="post-toc-text">脚本文件命令以及解析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#try-update-binary"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">try_update_binary</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
-<article id="post-android/AndroidRecovery源码解析和界面定制"
+<article id="post-android/Android-OTA(四)Recovery二次开发"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">Android Recovery 源码解析和界面定制</h1>
+        <h1 class="post-card-title">Android-OTA(四)Recovery二次开发</h1>
         <div class="post-meta">
             <time class="post-time" title="2017年04月12日 14:17" datetime="2017-04-12T06:17:58.664Z"  itemprop="datePublished">2017-04-12</time>
 
@@ -304,6 +304,8 @@
 </blockquote>
 </li>
 </ol>
+<h2 id="脚本文件命令以及解析"><a href="#脚本文件命令以及解析" class="headerlink" title="脚本文件命令以及解析"></a>脚本文件命令以及解析</h2><p>升级脚本文件解析,</p>
+<h3 id="try-update-binary"><a href="#try-update-binary" class="headerlink" title="try_update_binary"></a>try_update_binary</h3><p>主要命令有<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">progress &lt;frac&gt; &lt;secs&gt;</div><div class="line">set_progress &lt;frac&gt;</div><div class="line">firmware &lt;<span class="string">"hboot"</span>|<span class="string">"radio"</span>&gt; &lt;filename&gt;</div><div class="line">ui_print &lt;<span class="built_in">string</span>&gt;</div><div class="line">wipe_cache</div><div class="line">clear_display</div><div class="line">enable_reboot</div></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -311,11 +313,11 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-12T06:50:32.418Z" itemprop="dateUpdated">2017年4月12日 14:50</time>
+    最后更新时间：<time datetime="2017-04-14T03:44:43.578Z" itemprop="dateUpdated">2017年4月14日 11:44</time>
 </span><br>
 
 
-        欢迎转载,但请申明原链接：<a href="/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/" target="_blank" rel="external">https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/</a>
+        欢迎转载,但请申明原链接：<a href="/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/" target="_blank" rel="external">https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/</a>
     </div>
     <footer>
         <a href="https://austinxishou.github.io">
@@ -344,7 +346,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/&title=《Android Recovery 源码解析和界面定制》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/&title=《Android-OTA(四)Recovery二次开发》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -354,22 +356,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/&title=《Android Recovery 源码解析和界面定制》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/&title=《Android-OTA(四)Recovery二次开发》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Recovery 源码解析和界面定制》 — 爵士犀首&url=https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/&via=https://austinxishou.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android-OTA(四)Recovery二次开发》 — 爵士犀首&url=https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/&via=https://austinxishou.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -401,9 +403,9 @@
 
   
     <div class="waves-block waves-effect next">
-      <a href="/android/cj1fzsj3r002g0kpx9bzty5hh/android/AndroidOTA升级包生成机制分析/" id="post-next" class="post-nav-link">
+      <a href="/android/cj1hl95zv0000pgpxraz1yd5r/android/Android-OTA(一)升级包编译制作/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Android OTA升级包制作和源码解析</h4>
+        <h4 class="title">Android OTA (一) 升级包编译制作</h4>
       </a>
     </div>
   
@@ -414,7 +416,7 @@
     
 
 <div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="android/AndroidRecovery源码解析和界面定制" data-title="Android Recovery 源码解析和界面定制" data-url="https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/"></div>
+    <div class="ds-thread" data-thread-key="android/Android-OTA(四)Recovery二次开发" data-title="Android-OTA(四)Recovery二次开发" data-url="https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/"></div>
 </div>
 <script>
 lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
@@ -499,7 +501,7 @@ lazyScripts.push('/js/embed.min.js?v=1.4.14');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/&title=《Android Recovery 源码解析和界面定制》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/&title=《Android-OTA(四)Recovery二次开发》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -509,22 +511,22 @@ lazyScripts.push('/js/embed.min.js?v=1.4.14');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/&title=《Android Recovery 源码解析和界面定制》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/&title=《Android-OTA(四)Recovery二次开发》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Recovery 源码解析和界面定制》 — 爵士犀首&url=https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/&via=https://austinxishou.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android-OTA(四)Recovery二次开发》 — 爵士犀首&url=https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/&via=https://austinxishou.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -535,7 +537,7 @@ lazyScripts.push('/js/embed.min.js?v=1.4.14');
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD7klEQVR42u3cu5baQBAEUP7/p9epA0uq6h6xDi7RHgxidAmKfhx/PvHjJ3gk7/r7+fw1V1e++qzkCqsHDhw4cOBY3OrVh93fTHL9+xu7eiaHuEe/PDMOHDhw4DjEcR9mSewlUTqL4eTv5JkksHHgwIEDx//DkZRnsyN+8104cODAgeO3OPLbPtWavI/22deJAwcOHDje48hDMT9K27BLbj751y/1SnHgwIEDxyIB98273/37lf0OHDhw4MARrxpsluHy6+Tx2bYCh3eHAwcOHDjWHHkgtSVZ1IYbpV57w+194cCBAweODUe7iDZr5OUhnQRw3qxsFylw4MCBA8dZjtm6QFvatcR5qdauaPzjeRw4cODAseaYBd5sTWHDNIvetlDEgQMHDhx7jlkrrY3kPKTbq+UNyugLw4EDBw4ca47ZYkHebpstN+Rtx7aYjNqXOHDgwIFjwbEZJu3DL4/Sdj0iidu6LYgDBw4cOGKONiyHeR6vTbQhPcO6bA7iwIEDB45DHLMmYB7Vs+WD2RBr9uXhwIEDB449R16A5W24PFbzpYT2R0DLWs+1cODAgQPHbY60zydx1bYd8+WDWYMy+gGBAwcOHDhe5pgVUe2SxL5deCzUceDAgQPHaxxvrB201WQ70EoGTg9lKg4cOHDgWHPMRkpJsXQqbtuSbHb+ov7DgQMHDhxxEs2KonaAlA+Z9ieZvRIHDhw4cJzl2DT+2mBrdy7aNYvhTgcOHDhw4DjKsWnetYG3bwtutgIfXokDBw4cOEYceUuuvcm2pZiXbfcnnK1H4MCBAweOUxx53CYc7aLbfoi1R6yHTzhw4MCB45ZjVhRtAvhUSJ8tL3HgwIEDx1mOsx+5KdXaNuVsieEhaHHgwIEDx5qjbRG+d9z2MSsyL6+DAwcOHDgOcbRLCbPQzQ/aDpY2oyYcOHDgwPEGR36gTUDOgJKmZBu90cwNBw4cOHBs+2yr/1AmieG6oCpHUPnWRvRKHDhw4MCx3g1rF9Hy6JoNt2bxP2t3fma/GnDgwIEDR8yRl1V5cM7Csm1EtiVoFLQ4cODAgaPkaEuvWXzOVhM2MZ8UjcPkx4EDBw4c8fCpXVNIjl4Me0ZrCu2nPNDgwIEDB44Fx0/52IRcEn5J/G+i/eG9OHDgwIFjzdF+ZLsMNyOb4X7nRwAOHDhw4Eg49kOjTRgnBWTyrmJxYfPN48CBAweOdQnUll7DYc/RRuHmrnHgwIEDx/c5NjE5Q2/JVu0/HDhw4MDxdY7NknQb1S39ZoSGAwcOHDjOciTNwaT9N3tle+icrB6M4cCBAweONces0JrFXjusapuP91izdQocOHDgwBFz/AF3ZCpcsjk2SgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD9klEQVR42u3dS1LjQBAEUN//0nAAIzmzqgUsnlcOw0jq50VSn4h5veLX19vr/adXn7z/q6ufJp+3V3g98cKBAwcOHOVRk4fb/E5CmdPnX8D9s+HAgQMHjrMcyQ2ubjZ7iDZik8+TaP9wdhw4cODA8esc90dN6qOkxGqLsaTMw4EDBw4c/5MjgUiCOenO5RE+A8WBAwcOHM9x5E295H17yDwm29bkg71SHDhw4MDR5V0Ruv///SP7HThw4MCBo9wKy0O3HTXlQZuXXnn78vKpcODAgQPHmqMd6iRtu/xxZ6nXHrhtROLAgQMHjg3HZuFs34DLD5mUlPl1Lplw4MCBA8chjnb5YFaGtSOitlRrVzR++BwHDhw4cKw5ksvtj5q3/JKAbwdjBypaHDhw4MBRdsNmt8/h2sZfW/61zcoPAyccOHDgwLHgSAqbpKBKGogtwakhUz2OwoEDBw4cj3G0ZMlh2ubdsTo1L/lw4MCBA8chjjYsc442nvPCb5OVhSUOHDhw4FhwzMZC7W9uWoGzoq44Iw4cOHDgWHC0ZVUbpafKqnb4NItnHDhw4MCx55i14doR0RNtx9mfAsXVcODAgQPHiKMNs1nI5eGXBHZy9/arfc2yHQcOHDhwBLP7zVxmE6t5+Xcq2i+DFgcOHDhwHOJIRjV5WN5/MltQSK65+lMABw4cOHA8wJEPgfKFuXygdX/9PKrbIdZl0OLAgQMHjpJjs77QNgTz68+Otwny1+ZxceDAgQPHIb92RDRrDrZF5iyGceDAgQPHKY48wJIyb9a2a2M1H4DllDhw4MCB4wmOomV29LFypk3zMRli4cCBAweOsxxJYTZrHebX3LQC22LyQ12LAwcOHDhGHG0c3hNswviJ1YQaFAcOHDhwrDnaFYS2IdiOpmYLeTlN3SvFgQMHDhwlx2aJoW3h7Zch9oH64T0OHDhw4DjKkSfzrC3YomzuO1y2wIEDBw4cZ/bWVv8R2qmx0GYBYharl9fHgQMHDhwLjvY2eXuuXXrLFyby1mFynWG9iAMHDhw4yiWDWQC30ThbdNiUhR/GXThw4MCB4xBHnjt5M65t8+WRuV+8wIEDBw4cz3G0Y5u2CGwXJjaNv/aOl9A4cODAgWPB8VW+2sZfTlZMyWL0uqTEgQMHDhxrjjb22gMko6Ok3NoXdbPxGA4cOHDgmHHMlhXaMqkNws0yxKa0w4EDBw4cpzhmqwNtodUm/GYhb/hV4cCBAweOX+fYD4Ha1mH7h0Ib9jhw4MCB42858lLq/hFPFWNn25Q4cODAgeMUx2awlK8ytI9+6usp4hwHDhw4cKw52lbapmDLg3O2bJcXcrNBGg4cOHDguD3RN8mx4pVVRMF7AAAAAElFTkSuQmCC" alt="微信分享二维码">
 </div>
 
 

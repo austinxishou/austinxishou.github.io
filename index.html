@@ -176,6 +176,113 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-android/Android-OTA(三)recovery功能解析"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年04月14日 11:45" datetime="2017-04-14T03:45:15.978Z"  itemprop="datePublished">2017-04-14</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/android/cj1hl960a0001pgpxwqpxtw16/android/Android-OTA(三)recovery功能解析/">Android-OTA(三) recovery 功能解析</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        简介recovery 最为系统内部的恢复工具,有以下几点功能:
+
+首先是我们熟悉的恢复工厂设置 –&gt; wipe_data wipe_cache
+刷升级包，可以通过sdcard升级，通常说的卡刷，有些还提供ADB sideload升级；
+可以进行系统的系统的OTA升级，本质上同手动刷包一样；
+
+recovery 与 主系统交互是通过 /cache 目录下的文件:
+
+/cache/reco...
+    
+
+        <a href="/android/cj1hl960a0001pgpxwqpxtw16/android/Android-OTA(三)recovery功能解析/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OTA/">OTA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/recovery/">recovery</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-android/Android-OTA(二)ota_from_target_files命令解析"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年04月14日 11:25" datetime="2017-04-14T03:25:29.926Z"  itemprop="datePublished">2017-04-14</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/android/cj1hl960a0003pgpx0z33z1lg/android/Android-OTA(二)ota_from_target_files命令解析/">Android-OTA(二)ota_from_target_files命令解析</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        简介主要是从一个输入的中间压缩包,生成OTA升级包
+1234567./build/tools/releasetools/ota_from_target_filesGiven a target-files zipfile, produces an OTA package that installsthat build.  An incremental OTA is produced if -i...
+    
+
+        <a href="/android/cj1hl960a0003pgpx0z33z1lg/android/Android-OTA(二)ota_from_target_files命令解析/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OTA/">OTA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-android/AndroidStudio中使用ButterKnife注解框架"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -384,7 +491,7 @@ Fi...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-android/AndroidRecovery源码解析和界面定制"
+            <article id="post-android/Android-OTA(四)Recovery二次开发"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -404,7 +511,7 @@ Fi...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/">Android Recovery 源码解析和界面定制</a>
+      <a class="post-title-link" href="/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/">Android-OTA(四)Recovery二次开发</a>
     </h3>
   
 
@@ -423,7 +530,7 @@ Fi...
 源码路径和主要原文件在Android源码环境中，re...
     
 
-        <a href="/android/cj1fzsj3r002p0kpx7flise98/android/AndroidRecovery源码解析和界面定制/" class="post-more waves-effect waves-button">
+        <a href="/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/" class="post-more waves-effect waves-button">
             阅读全文...
         </a>
     </div>
@@ -439,7 +546,7 @@ Fi...
         </li>
     
         <li class="post-list-item fade">
-            <article id="post-android/AndroidOTA升级包生成机制分析"
+            <article id="post-android/Android-OTA(一)升级包编译制作"
   class="article-card article-type-post" itemprop="blogPost">
 
     <div class="post-meta">
@@ -459,7 +566,7 @@ Fi...
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/android/cj1fzsj3r002g0kpx9bzty5hh/android/AndroidOTA升级包生成机制分析/">Android OTA升级包制作和源码解析</a>
+      <a class="post-title-link" href="/android/cj1hl95zv0000pgpxraz1yd5r/android/Android-OTA(一)升级包编译制作/">Android OTA (一) 升级包编译制作</a>
     </h3>
   
 
@@ -469,12 +576,13 @@ Fi...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        OTA升级包编译及产品版本管理说明OTA完整包生成方法
+        OTA完整包生成方法
 OTA完整包可用于T卡本地升级和OTA在线升级。OTA完整包包含完整的system、recovery.和boot.img。发布一个版本固件正确顺序：123make -j4make otapackage./mkimage.sh ota
-注意：发布固件必须使用./mkimage.sh ota，将boot与kernel打包，不需要单独烧ker...
+
+即可获得：out/target/product/{product_name}/ {product_name}-ota-eng.{uid}...
     
 
-        <a href="/android/cj1fzsj3r002g0kpx9bzty5hh/android/AndroidOTA升级包生成机制分析/" class="post-more waves-effect waves-button">
+        <a href="/android/cj1hl95zv0000pgpxraz1yd5r/android/Android-OTA(一)升级包编译制作/" class="post-more waves-effect waves-button">
             阅读全文...
         </a>
     </div>
@@ -582,107 +690,6 @@ OTA完整包可用于T卡本地升级和OTA在线升级。OTA完整包包含完�
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/app/">app</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-android/Android发送广播详解"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017年03月31日 14:22" datetime="2017-03-31T06:22:32.229Z"  itemprop="datePublished">2017-03-31</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/android/cj1fzsj3r00300kpxc8jexeii/android/Android发送广播详解/">Android发送广播详解</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        调用ContextImpl进行发送同样，不管是Activity、Service上发送广播，最终实现都在ContextImpl，最后发送到ActivityManagerService处理
-12345678910111213@Override public void sendBroadcast(Intent intent) &#123;     warnIfCallingFromSystemPr...
-    
-
-        <a href="/android/cj1fzsj3r00300kpxc8jexeii/android/Android发送广播详解/" class="post-more waves-effect waves-button">
-            阅读全文...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/app/">app</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sendBroadcast/">sendBroadcast</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-android/SEAndroid权限修改"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017年03月29日 13:39" datetime="2017-03-29T05:39:55.224Z"  itemprop="datePublished">2017-03-29</time>
-
-        
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/uncategorized/cj1fzsj46003i0kpxcmz5yyte/android/SEAndroid权限修改/">SEAndroid权限修改</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        权限修改方法1: adb在线修改seLinux Enforcing(表示已打开)，Permissive（表示已关闭）
-getenforce;  //获取当前seLinux状态
-setenforce 1;   //打开seLinux
-setenforce 0;   //关闭seLinux
-方法2: 从kernel中彻底关闭修改LINUX/android/kernel/arch/arm64/co...
-    
-
-        <a href="/uncategorized/cj1fzsj46003i0kpxcmz5yyte/android/SEAndroid权限修改/" class="post-more waves-effect waves-button">
-            阅读全文...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/selinux/">selinux</a></li></ul>
 
     </div>
     
