@@ -30,7 +30,7 @@
 <meta property="og:url" content="https://austinxishou.github.io/android/cj1hl960a0001pgpxwqpxtw16/android/Android-OTA(三)recovery功能解析/index.html">
 <meta property="og:site_name" content="爵士犀首">
 <meta property="og:description" content="Android OTA升级 recovery">
-<meta property="og:updated_time" content="2017-04-14T08:44:12.511Z">
+<meta property="og:updated_time" content="2017-04-14T09:04:32.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android-OTA(三) recovery 功能解析">
 <meta name="twitter:description" content="Android OTA升级 recovery">
@@ -184,7 +184,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#recovery生成"><span class="post-toc-number">2.</span> <span class="post-toc-text">recovery生成</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#recovery根文件系统"><span class="post-toc-number">3.</span> <span class="post-toc-text">recovery根文件系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#init-rc"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">init.rc</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#执行流程分析"><span class="post-toc-number">4.</span> <span class="post-toc-text">执行流程分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#核心函数-install-package"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">核心函数 install_package</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#recovery生成"><span class="post-toc-number">2.</span> <span class="post-toc-text">recovery生成</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#recovery根文件系统"><span class="post-toc-number">3.</span> <span class="post-toc-text">recovery根文件系统</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#init-rc"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">init.rc</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#执行流程分析"><span class="post-toc-number">4.</span> <span class="post-toc-text">执行流程分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主要执行流程"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">主要执行流程</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#核心函数-really-install-package"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">核心函数 really_install_package</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -211,13 +211,13 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>recovery 最为系统内部的恢复工具,有以下几点功能:</p>
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>recovery 作为系统的恢复工具,有以下几点功能:</strong></p>
 <ol>
 <li>首先是我们熟悉的恢复工厂设置 –&gt; wipe_data wipe_cache</li>
 <li>刷升级包，可以通过sdcard升级，通常说的卡刷，有些还提供ADB sideload升级；</li>
 <li>可以进行系统的系统的OTA升级，本质上同手动刷包一样；</li>
 </ol>
-<p>recovery 与 主系统交互是通过 /cache 目录下的文件:</p>
+<p><strong>recovery 与 主系统交互是通过 /cache 目录下的文件:</strong></p>
 <ol>
 <li>/cache/recovery/command 作为recovery的输入参数,以行为分割</li>
 <li>/cache/recovery/log        收集recovery的日志文件</li>
@@ -239,7 +239,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">recovery</div><div class="line">├── charger -&gt; /sbin/healthd</div><div class="line">├── data</div><div class="line">├── default.prop</div><div class="line">├── dev</div><div class="line">├── drmboot.ko</div><div class="line">├── etc</div><div class="line">│   ├── recovery.emmc.fstab</div><div class="line">│   └── recovery.fstab</div><div class="line">├── file_contexts</div><div class="line">├── fstab.rk30board.bootmode.emmc</div><div class="line">├── fstab.rk30board.bootmode.unknown</div><div class="line">├── init</div><div class="line">├── init.bootmode.emmc.rc</div><div class="line">├── init.bootmode.unknown.rc</div><div class="line">├── init.rc</div><div class="line">├── oem</div><div class="line">├── proc</div><div class="line">├── property_contexts</div><div class="line">├── res</div><div class="line">│   ├── images</div><div class="line">│   │   ├── erasing_text.png</div><div class="line">│   │   ├── error_text.png</div><div class="line">│   │   ├── font.png</div><div class="line">│   │   ├── icon_error.png</div><div class="line">│   │   ├── icon_installing.png</div><div class="line">│   │   ├── installing_text.png</div><div class="line">│   │   ├── no_command_text.png</div><div class="line">│   │   ├── progress_empty.png</div><div class="line">│   │   ├── progress_fill.png</div><div class="line">│   │   ├── stage_empty.png</div><div class="line">│   │   └── stage_fill.png</div><div class="line">│   └── keys</div><div class="line">├── rk30xxnand_ko.ko</div><div class="line">├── sbin</div><div class="line">│   ├── adbd</div><div class="line">│   ├── busybox</div><div class="line">│   ├── e2fsck</div><div class="line">│   ├── healthd</div><div class="line">│   ├── mkdosfs</div><div class="line">│   ├── mkfs.f2fs</div><div class="line">│   ├── recovery</div><div class="line">│   ├── resize2fs</div><div class="line">│   ├── sh</div><div class="line">│   ├── ueventd -&gt; ../init</div><div class="line">│   └── watchdogd -&gt; ../init</div><div class="line">├── seapp_contexts</div><div class="line">├── selinux_version</div><div class="line">├── sepolicy</div><div class="line">├── service_contexts</div><div class="line">├── sys</div><div class="line">├── system</div><div class="line">├── tmp</div><div class="line">├── ueventd.rc</div><div class="line">└── ueventd.rk30board.rc</div></pre></td></tr></table></figure>
 <h2 id="recovery根文件系统"><a href="#recovery根文件系统" class="headerlink" title="recovery根文件系统"></a>recovery根文件系统</h2><p>从bootloader 进入Recovery 模式后，首先也是运行Linux内核，该内核跟普通模式没有区别(减轻了BSP开发者的任务)。区别从执行文件系统开始。 Recovery 模式的细节就隐藏在其根文件系统中。<br>下面，我们就看看进入Recovery 根文件系统都干些啥。</p>
 <h3 id="init-rc"><a href="#init-rc" class="headerlink" title="init.rc"></a>init.rc</h3><p>和正常启动一样，内核进入文件系统会执行/init, init 的配置文件就是 /init.rc</p>
-<p>主要功能为:</p>
+<p><strong>主要功能为:</strong></p>
 <ol>
 <li>设置环境变量;</li>
 <li>建立 etc 链接;</li>
@@ -248,8 +248,7 @@
 </ol>
 <h2 id="执行流程分析"><a href="#执行流程分析" class="headerlink" title="执行流程分析"></a>执行流程分析</h2><p>在Android源码环境中，recovery的源码主要在bootable/recovery文件下，另外在device目录下，会根据各个设备定制自己的接口以及UI界面，也就是文章后半部分分析的界面定制的内容；</p>
 <p>在bootable/recovery目录下，看Android.mk文件的源文件列表：<br><figure class="highlight mk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">LOCAL_SRC_FILES := \</div><div class="line">    adb_install.cpp \</div><div class="line">    asn1_decoder.cpp \</div><div class="line">    bootloader.cpp \</div><div class="line">    device.cpp \</div><div class="line">    fuse_sdcard_provider.c \</div><div class="line">    install.cpp \</div><div class="line">    recovery.cpp \</div><div class="line">    roots.cpp \</div><div class="line">    screen_ui.cpp \</div><div class="line">    ui.cpp \</div><div class="line">    verifier.cpp \</div></pre></td></tr></table></figure></p>
-<p>主要执行流程:</p>
-<ol>
+<h3 id="主要执行流程"><a href="#主要执行流程" class="headerlink" title="主要执行流程"></a>主要执行流程</h3><ol>
 <li><p>标准错误输出重定向</p>
 <blockquote>
 <p>将标准输出和标准错误输出重定位到”/tmp/recovery.log”,如果是eng模式，就可以通过adb pull /tmp/recovery.log, 看到当前的log信息，这为我们提供了有效的调试手段。后面还会看到，recovery模式运行完毕后，会将其拷贝到cache分区，以便后续分析。</p>
@@ -289,14 +288,58 @@
 </code></pre></blockquote>
 </li>
 </ol>
-<h3 id="核心函数-install-package"><a href="#核心函数-install-package" class="headerlink" title="核心函数 install_package"></a>核心函数 install_package</h3>
+<h3 id="核心函数-really-install-package"><a href="#核心函数-really-install-package" class="headerlink" title="核心函数 really_install_package"></a>核心函数 really_install_package</h3><ol>
+<li><p>更新UI显示</p>
+<blockquote>
+<p>ui-&gt;Print 更新升级时UI界面显示</p>
+</blockquote>
+</li>
+<li><p>确保所有分区正确挂载</p>
+<blockquote>
+<p>ensure_path_mounted ,主要是cache分区或者SD分区</p>
+</blockquote>
+</li>
+<li><p>读取update.zip文件</p>
+</li>
+<li><p>load_keys 装载公钥</p>
+<blockquote>
+<p>verify_file 注释很清楚,就是签名的验证;</p>
+</blockquote>
+</li>
+<li><p>打开升级包</p>
+<blockquote>
+<p>mzOpenZipArchive，将相关信息存到 ZipArchive 数据结构中，便于后面处理。</p>
+</blockquote>
+</li>
+<li><p>调用try_update_binary继续执行</p>
+<blockquote>
+<p>如果升级包中包含脚本文件,则解压执行;主要功能都在这个函数中完成,接下去继续分析;</p>
+</blockquote>
+</li>
+<li><p>复制脚本文件</p>
+<blockquote>
+<p>将升级包内文件META-INF/com/google/android/update-binary 复制为/tmp/update_binary</p>
+</blockquote>
+</li>
+<li><p>创建新的进程，执行：/tmp/update_binary</p>
+<blockquote>
+<p>主进程与子进程通过管道进行进程间通信;原进程变成一个服务进程，它提供UI更新服务;<br>包括:更新精度条,打印提示信息,清除缓存,清除显示等</p>
+</blockquote>
+</li>
+<li><p>执行update_binary</p>
+<blockquote>
+<p>这样，我们又回到了升级包中的文件：META-INF/com/google/android/update-binary</p>
+</blockquote>
+</li>
+</ol>
+
         </div>
 
         <blockquote class="post-copyright">
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-14T08:44:12.511Z" itemprop="dateUpdated">2017年4月14日 16:44</time>
+    最后更新时间：<time datetime="2017-04-14T09:04:32.126Z" itemprop="dateUpdated">2017年4月14日 17:04</time>
 </span><br>
 
 
