@@ -415,11 +415,11 @@
   </entry>
   
   <entry>
-    <title>Android小错误集锦</title>
+    <title>Android工程编译错误集锦</title>
     <link href="https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/"/>
     <id>https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/</id>
     <published>2017-04-13T01:48:54.373Z</published>
-    <updated>2017-05-04T09:31:15.458Z</updated>
+    <updated>2017-05-04T09:32:30.321Z</updated>
     
     <content type="html"><![CDATA[<h2 id="工程编译类"><a href="#工程编译类" class="headerlink" title="工程编译类"></a>工程编译类</h2><h3 id="Gradle-错误"><a href="#Gradle-错误" class="headerlink" title="Gradle 错误"></a>Gradle 错误</h3><p><strong>问题描述:</strong></p>
 <blockquote>
@@ -465,14 +465,14 @@
     
     <summary type="html">
     
-      Android小错误集锦
+      Android工程编译错误集锦 Gradle error
     
     </summary>
     
       <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
     
     
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
+      <category term="android gradle" scheme="https://austinxishou.github.io/tags/android-gradle/"/>
     
   </entry>
   
