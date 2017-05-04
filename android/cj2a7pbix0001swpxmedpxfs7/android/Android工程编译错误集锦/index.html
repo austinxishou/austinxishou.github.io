@@ -27,10 +27,10 @@
     <meta name="description" content="Android小错误集锦">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android小错误集锦">
-<meta property="og:url" content="https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/index.html">
+<meta property="og:url" content="https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/index.html">
 <meta property="og:site_name" content="爵士犀首">
 <meta property="og:description" content="Android小错误集锦">
-<meta property="og:updated_time" content="2017-04-17T06:16:46.029Z">
+<meta property="og:updated_time" content="2017-05-04T09:31:15.458Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android小错误集锦">
 <meta name="twitter:description" content="Android小错误集锦">
@@ -184,11 +184,11 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工程编译类"><span class="post-toc-number">1.</span> <span class="post-toc-text">工程编译类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gradle-错误"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Gradle 错误</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Python-工作环境错误"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Python 工作环境错误</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工程编译类"><span class="post-toc-number">1.</span> <span class="post-toc-text">工程编译类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gradle-错误"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Gradle 错误</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gradle"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Gradle</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android程序报错程序包org-apache-http不存在问题的解决方法"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Android程序报错程序包org.apache.http不存在问题的解决方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Python-工作环境错误"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Python 工作环境错误</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
-<article id="post-android/Android小错误集锦"
+<article id="post-android/Android工程编译错误集锦"
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
@@ -220,6 +220,32 @@
 <blockquote>
 <p>找到工程的build.gradle,修改classpath ‘com.android.tools.build:gradle:2.1.0’为classpath ‘com.android.tools.build:gradle:2.3.0’</p>
 </blockquote>
+<h3 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a>Gradle</h3><p><strong> 问题描述 </strong></p>
+<blockquote>
+<p>Android Studio AAPT err: libpng error: Not a PNG file</p>
+</blockquote>
+<p><strong> 问题说明: </strong></p>
+<blockquote>
+<p>问题的根源是,项目的png文件已经通过其他工具提前优化过,但是AAPT工具在编译工程时再次进行优化,<br>但是不能识别该图片之前使用的是什么工具,所以编译出错;解决办法只需要把aapt的图片编译优化关掉即可</p>
+</blockquote>
+<p><strong> 解决方法 </strong></p>
+<blockquote>
+<p>aaptOptions.cruncherEnabled = false</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion <span class="number">25</span></div><div class="line">    buildToolsVersion <span class="string">"25.0.2"</span></div><div class="line">    aaptOptions.cruncherEnabled = <span class="keyword">false</span></div><div class="line">    useLibrary <span class="string">'org.apache.http.legacy'</span></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId <span class="string">"com.Mankewan.manke"</span></div><div class="line">        minSdkVersion <span class="number">15</span></div><div class="line">        targetSdkVersion <span class="number">25</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            <span class="function">minifyEnabled <span class="keyword">false</span></span></div><div class="line">            proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.txt'</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Android程序报错程序包org-apache-http不存在问题的解决方法"><a href="#Android程序报错程序包org-apache-http不存在问题的解决方法" class="headerlink" title="Android程序报错程序包org.apache.http不存在问题的解决方法"></a>Android程序报错程序包org.apache.http不存在问题的解决方法</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p>Android程序报错程序包org.apache.http不存在问题的解决方法</p>
+</blockquote>
+<p><strong>问题说明</strong></p>
+<blockquote>
+<p>Android 6.0已经不支持HttpClient” </p>
+</blockquote>
+<p><strong>解决方法</strong></p>
+<blockquote>
+<p>Android 6.0（api 23）已经不支持HttpClient了，在build.gradle中 加入 useLibrary ‘org.apache.http.legacy’就可以</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion <span class="number">25</span></div><div class="line">    buildToolsVersion <span class="string">"25.0.2"</span></div><div class="line">    aaptOptions.cruncherEnabled = <span class="keyword">false</span></div><div class="line">    useLibrary <span class="string">'org.apache.http.legacy'</span></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId <span class="string">"com.Mankewan.manke"</span></div><div class="line">        minSdkVersion <span class="number">15</span></div><div class="line">        targetSdkVersion <span class="number">25</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            <span class="function">minifyEnabled <span class="keyword">false</span></span></div><div class="line">            proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.txt'</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="Python-工作环境错误"><a href="#Python-工作环境错误" class="headerlink" title="Python 工作环境错误"></a>Python 工作环境错误</h3><p><strong>问题描述:</strong> </p>
 <blockquote>
 <p>最近在写一个Python程序的时候，使用from selenium import webdriver,在run的时候却出现ImportError: cannot import name webdriver的提示，但是在Python IDLE里面跑却没有错误。很是疑惑，谷歌一下才发现有人已经在stackoverflow里面提出类似问题了，原因如下，在当前目录有个名叫selenium的文件，Python会先导入这个文件，然后再导入标准库里面的selenium.py</p>
@@ -232,11 +258,11 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-17T06:16:46.029Z" itemprop="dateUpdated">2017年4月17日 14:16</time>
+    最后更新时间：<time datetime="2017-05-04T09:31:15.458Z" itemprop="dateUpdated">2017年5月4日 17:31</time>
 </span><br>
 
 
-        欢迎转载,但请申明原链接：<a href="/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/" target="_blank" rel="external">https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/</a>
+        欢迎转载,但请申明原链接：<a href="/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/" target="_blank" rel="external">https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/</a>
     </div>
     <footer>
         <a href="https://austinxishou.github.io">
@@ -265,7 +291,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/&title=《Android小错误集锦》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/&title=《Android小错误集锦》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -275,22 +301,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/&title=《Android小错误集锦》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/&title=《Android小错误集锦》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android小错误集锦》 — 爵士犀首&url=https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/&via=https://austinxishou.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android小错误集锦》 — 爵士犀首&url=https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/&via=https://austinxishou.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -335,7 +361,7 @@
     
 
 <div class="comments" id="comments">
-    <div class="ds-thread" data-thread-key="android/Android小错误集锦" data-title="Android小错误集锦" data-url="https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/"></div>
+    <div class="ds-thread" data-thread-key="android/Android工程编译错误集锦" data-title="Android小错误集锦" data-url="https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/"></div>
 </div>
 <script>
 lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
@@ -420,7 +446,7 @@ lazyScripts.push('/js/embed.min.js?v=1.4.14');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/&title=《Android小错误集锦》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/&title=《Android小错误集锦》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -430,22 +456,22 @@ lazyScripts.push('/js/embed.min.js?v=1.4.14');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/&title=《Android小错误集锦》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/&title=《Android小错误集锦》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android小错误集锦》 — 爵士犀首&url=https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/&via=https://austinxishou.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android小错误集锦》 — 爵士犀首&url=https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/&via=https://austinxishou.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -456,7 +482,7 @@ lazyScripts.push('/js/embed.min.js?v=1.4.14');
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADL0lEQVR42u3aQZLiQAwEwPn/p9nL3mYHqiTPBm7SJwJMW9k+KCT111d8PeLrp/ufr/n8Wd9/ff7NZRc2Njb2TdgtI3lYux3PV84jSSzY2NjYp7J/Cj353Caq2Ua3W/DCiI2Njf3B7DysZJ1k/WTLsLGxsbHbBJaUInkCuyo5YWNjY38yu00M+UZsCo/kib/eS8PGxsZ+e3Y+FX3/z78y38bGxsZ+Y/ajvPKBblKEbKKaxf/3v9jY2NgHsfMEsAk3P2ozK0KG8WNjY2MfxE4Gt3m4bfLbf9OWT9jY2NjnsTfjgfz7vMWfjGzbgqSueLCxsbFvxW4fc1UHPm88zdJh9F9sbGzsg9jJMDU/NDMLJRkk/EZaxcbGxr4vOw8xX7TduBwzTE7fV8DGxsY+lL0Z67ZNomvTYbs+NjY29nnsWRNnlt72QbfD4B/PKGFjY2Mfwc6Hr5tjN236mR0YiqjY2NjYh7LbgeusrbNJXZuNjt45NjY29s3ZebpqC4B8hHBtuRK5sLGxsY9gb8YAswJjNk5OSo685YSNjY19ErttJD2eXps72ybRrIVUzEawsbGxb8VuA002ZTYqaEuLJCsVvTRsbGzsG7Lb5v5VzabNPe2L+ced2NjY2AexZ4HuP7dJKC+ZigYTNjY29hHsGS8fxG7ST1KQDDcIGxsb+yB20uKZYfLuzWZwuyqfsLGxsQ9lX1Va5OmkTUj5q4qGBNjY2NgHsfeN+80sdZZQ8yRanFTCxsbGvi17A9s3npLW0uZYz4tBLzY2NvbN2W2Lpw0iT5Oz4cGm5YSNjY19BnvTJJolmLbwyNNqsd3Y2NjYx7HzZv3m6Ewy9J0ly7rgwcbGxj6O3bb72+TUlhnRsZvyX9jY2NjnsR/lNTsikw9u8xSVDJVfDAOwsbGxj2C3yWC2TUmLZ3a4J29pDdfHxsbGvgl7Fvpsy5IElpQ3mxEyNjY29qnsPDHkAbXbNEuKw63HxsbG/mD280fuC5LZkZ16U7CxsbE/mN1OkjeNpzzC/5S3sbGxsd+YnYQ1GwPPGvqb1Bi9HmxsbOyD2O0wNWnKt6389oBOi1zNt7GxsbHfl/0Hmkq6lgYq6KoAAAAASUVORK5CYII=" alt="微信分享二维码">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAPYAAAD2CAAAAADAeSUUAAADMUlEQVR42u3a3Y6qUAwGUN//pZ3kXE3iHPzaSgJ1cWVAYK/tRe3P4xEfz3/H65nf55PvJFefL0fy/ccZBzY2NvZN2M/D4/XRx6/J7z2G9daT3IuNjY29lX0ctJJwkoSi/DnVzcot2NjY2N/MzhOJeUqTbFOy9djY2NjY+eKqJadkO3qrwsbGxv5Odi9svCncBKR5uDq9loaNjY19eXa10Xvlzyf2t7GxsbEvyX4Wj3mB/rxCVUGBjY2NvYg9Kejkw5S9aDIZD4qegI2Njb2CnQ/HJFszL+jkb5mkT9jY2Nhb2cdhIPl+/sw8jTnjLdjY2Nib2Hko6iUPvQZttXRVXT82Njb2VnaePFQ3pVd+mrcK3pzHxsbGXsHuDcfkaUCP12szN5MQbGxs7Juze4lBtfRTHdxJCv299gM2Njb2bna1lNNbXC/JqYaopNWBjY2NvZtdGH8Jyj2ThsGkjBV1ubGxsbFvzu4VhibjONXEo3fmzdqwsbGxF7HzolKy9F4RP09aPjv0g42Njb2DPSnfTwpPvaSl16J4k3thY2NjL2JPGq7zhVYBox8DGxsbexG7V8TvjfVUFzcZ7inchY2Njb2InYSWyV3zJCdpD1RTFGxsbOwd7OogY3UjeqEubxLnSU4548HGxsa+PHte7qmGpbzk9KmGMTY2NvZudhJOJsOXkzZDL0Eq/JDY2NjYK9jVhVZbsL0hmySBydf23+FLbGxs7HXs/GW9NkBekMp51UIYNjY29j52NZGoFm6qW5AUj3rJCTY2NvZWdv5Hv7qX1e2rJieTZgM2Njb2JvYkgM1bvzl1HrT+eBo2Njb2CnZSvsmHaeYtgRzfK3iNlo6NjY19YXbvfPVzNQQmpf/8+CNiY2NjYy9iV8s0VUyva9EbJ4rWgI2Njb2I3QsAeVDpLaXacqiGT2xsbOx97F7Q+lQRqrdZeVuiGb2xsbGxb8jO26X5Uqot23z4ctLuxcbGxv5m9uRqEtjydkU0i3QcrbCxsbG/mF1NKibhbZ6EfCAVwcbGxr4JO/nrX72aFHryNCNJS5LiFzY2NvY+drXRWy39T8Yle43ejw3xYGNjY1+d/QOUD+hMBzDItwAAAABJRU5ErkJggg==" alt="微信分享二维码">
 </div>
 
 
