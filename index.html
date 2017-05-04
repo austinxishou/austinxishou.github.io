@@ -176,6 +176,59 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-python/python多线程实践"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017年05月04日 9:43" datetime="2017-05-04T01:43:52.969Z"  itemprop="datePublished">2017-05-04</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/python/cj29tr79i0006fkpxmknjd74o/python/python多线程实践/">python 多线程实践</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        多线程 threading模块
+Python中的多线程操作有两种方式： 函数式(thread)和继承(threading.Threading)式
+python是支持多线程的，并且是native的线程。主要是通过thread和threading这两个模块来实现的。thread是比较底层的模 块，threading是对thread做了一些包装的，可以更加方便的被使用。
+
+ 函数式 1234def...
+    
+
+        <a href="/python/cj29tr79i0006fkpxmknjd74o/python/python多线程实践/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/threading/">threading</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-android/Android-OTA(四) updater功能解析"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -573,13 +626,10 @@ Fi...
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        Recovery主要功能深入了解recovery源码前，先浏览下recovery能够给我们提供哪些功能；
+        main 函数从main入口函数分析recovery的主要源码：
+输出重定向
 
-首先是我们熟悉的恢复工厂设置 –&gt; wipe_data wipe_cache
-刷升级包，可以通过sdcard升级，通常说的卡刷，有些还提供ADB sideload升级；
-可以进行系统的系统的OTA升级，本质上同手动刷包一样；
-
-源码路径和主要原文件在Android源码环境中，re...
+123456    redirect_stdio(TEMPORARY_LOG_FILE);    //redirect log to serial output#ifdef LogToSerial    freopen(&quot;/dev/ttyFIQ0&quot;, &quot;a&quot;, stdout...
     
 
         <a href="/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/" class="post-more waves-effect waves-button">
@@ -642,56 +692,6 @@ OTA完整包可用于T卡本地升级和OTA在线升级。OTA完整包包含完�
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OTA/">OTA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-android/RK3288平台img包解压修改"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017年04月12日 11:26" datetime="2017-04-12T03:26:38.078Z"  itemprop="datePublished">2017-04-12</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/android/cj1fzsj46003b0kpxy0t31dsx/android/RK3288平台img包解压修改/">RK3288平台img包解压修改</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        解压update.img12./rkImageMaker -unpack update.img output  ./afptool -unpack output/firmware.img output
-解压 system.img123456789mount -o loop Image/system.img /mnt/systemumount /mnt/system//增加 128M 的空间d...
-    
-
-        <a href="/android/cj1fzsj46003b0kpxy0t31dsx/android/RK3288平台img包解压修改/" class="post-more waves-effect waves-button">
-            阅读全文...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/app/">app</a></li></ul>
 
     </div>
     

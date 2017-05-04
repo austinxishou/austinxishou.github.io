@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-04-14T10:06:30.928Z</updated>
+  <updated>2017-05-04T02:58:42.640Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -14,6 +14,45 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python 多线程实践</title>
+    <link href="https://austinxishou.github.io/python/cj29tr79i0006fkpxmknjd74o/python/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
+    <id>https://austinxishou.github.io/python/cj29tr79i0006fkpxmknjd74o/python/python多线程实践/</id>
+    <published>2017-05-04T01:43:52.969Z</published>
+    <updated>2017-05-04T02:58:42.640Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="多线程-threading模块"><a href="#多线程-threading模块" class="headerlink" title="多线程 threading模块"></a>多线程 threading模块</h2><blockquote>
+<p>Python中的多线程操作有两种方式： 函数式(thread)和继承(threading.Threading)式</p>
+<p>python是支持多线程的，并且是native的线程。主要是通过thread和threading这两个模块来实现的。thread是比较底层的模 块，threading是对thread做了一些包装的，可以更加方便的被使用。</p>
+</blockquote>
+<p><strong> 函数式 </strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def function adbc()</div><div class="line">threading.Thread(target=fun,args=(a,b))</div><div class="line">或者</div><div class="line">thread.start_new_thread(fun,(a,b))启动线程</div></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h2 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h2><blockquote>
+<p>如果你的主线程在退出的时候，不用等待那些子线程完成，那就设置这些线程的 daemon 属性。即，在线程开始 thread.start()之前，调用setDeamon()函数，设定线程的daemon标志。thread.setDaemon(True)就表示这个线程“不重要”。</p>
+<p>如果你想等待子线程完成再退出，那就什么都不用做。，或者显示地调用thread.setDaemon(False)，设置daemon的值为false。新的子线程会继承父线程的daemon标志。整个Python会在所有的非守护线程退出后才会结束，即进程中没有非守护线程存在的时候才结束。</p>
+<p>根据原装官方文档的解释，主线程在所有非守护线程都死亡后才会被kill，这样当你忘记使用threading.Thread.exit_thread()或者thread_stop()的时候，嘿嘿，你的程序中主线程收到结束信号，但是因为有一个非守护进程的存在，所以等待。</p>
+</blockquote>
+<h2 id="Queue模块"><a href="#Queue模块" class="headerlink" title="Queue模块"></a>Queue模块</h2><blockquote>
+<p>Queue模块实现了多生产者、多消费者队列。它特别适用于信息必须在多个线程间安全地交换的多线程程序中。这个模块中的Queue类实现了所有必须的锁语义。它依赖于Python中线程支持的可用性；参见threading模块。</p>
+</blockquote>
+<h3 id="特性参数"><a href="#特性参数" class="headerlink" title="特性参数"></a>特性参数</h3><p>模块实现了三类队列：FIFO（First In First Out，先进先出，默认为该队列）、LIFO（Last In First Out，后进先出）、基于优先级的队列。以下为其常用方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">先进先出  q = Queue.Queue(maxsize)</div><div class="line">后进先出  a = Queue.LifoQueue(maxsize)</div><div class="line">优先级  Queue.PriorityQueue(maxsize)</div><div class="line">Queue.qsize() 返回队列的大小</div><div class="line">Queue.empty() 如果队列为空，返回<span class="keyword">True</span>,反之<span class="keyword">False</span></div><div class="line">Queue.full() 如果队列满了，返回<span class="keyword">True</span>,反之<span class="keyword">False</span></div><div class="line">Queue.full 与 maxsize 大小对应</div><div class="line">Queue.put(item) 写入队列，timeout等待时间   非阻塞</div><div class="line">Queue.get([block[, timeout]]) 获取队列，timeout等待时间</div><div class="line">Queue.get_nowait() 相当Queue.get(<span class="keyword">False</span>)</div><div class="line">Queue.put_nowait(item) 相当Queue.put(item, <span class="keyword">False</span>)</div><div class="line">Queue.task_done() 在完成一项工作之后，函数向任务已经完成的队列发送一个信号</div><div class="line">Queue.join()： 实际上意味着等到队列为空，再执行别的操作</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      python 多线程 threading Queue daemon
+    
+    </summary>
+    
+      <category term="python" scheme="https://austinxishou.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://austinxishou.github.io/tags/python/"/>
+    
+      <category term="threading" scheme="https://austinxishou.github.io/tags/threading/"/>
+    
+  </entry>
   
   <entry>
     <title>Android-OTA(四) updater功能解析</title>
@@ -346,7 +385,7 @@
     <link href="https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android%E5%B0%8F%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/"/>
     <id>https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/</id>
     <published>2017-04-13T01:48:54.373Z</published>
-    <updated>2017-04-13T01:52:45.822Z</updated>
+    <updated>2017-04-17T06:16:46.029Z</updated>
     
     <content type="html"><![CDATA[<h2 id="工程编译类"><a href="#工程编译类" class="headerlink" title="工程编译类"></a>工程编译类</h2><h3 id="Gradle-错误"><a href="#Gradle-错误" class="headerlink" title="Gradle 错误"></a>Gradle 错误</h3><p><strong>问题描述:</strong></p>
 <blockquote>
@@ -357,6 +396,11 @@
 <blockquote>
 <p>找到工程的build.gradle,修改classpath ‘com.android.tools.build:gradle:2.1.0’为classpath ‘com.android.tools.build:gradle:2.3.0’</p>
 </blockquote>
+<h3 id="Python-工作环境错误"><a href="#Python-工作环境错误" class="headerlink" title="Python 工作环境错误"></a>Python 工作环境错误</h3><p><strong>问题描述:</strong> </p>
+<blockquote>
+<p>最近在写一个Python程序的时候，使用from selenium import webdriver,在run的时候却出现ImportError: cannot import name webdriver的提示，但是在Python IDLE里面跑却没有错误。很是疑惑，谷歌一下才发现有人已经在stackoverflow里面提出类似问题了，原因如下，在当前目录有个名叫selenium的文件，Python会先导入这个文件，然后再导入标准库里面的selenium.py</p>
+</blockquote>
+<p><strong>解决方法</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##可以使用</span></div><div class="line"><span class="keyword">import</span> selenium </div><div class="line"><span class="keyword">print</span> selenium.__file__  </div><div class="line"><span class="comment">##去看打印出的文件路径，如果不是下面类似的C:\Python27\lib\site-packages\selenium-2.31.0-py2.7.egg\selenium\__init__.pyc，需要把当前目录下的文件删除或者重命名。</span></div></pre></td></tr></table></figure></p>
 ]]></content>
     
     <summary type="html">
@@ -449,20 +493,9 @@
     <link href="https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(%E5%9B%9B)Recovery%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/"/>
     <id>https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/</id>
     <published>2017-04-12T06:17:58.664Z</published>
-    <updated>2017-04-14T03:44:43.578Z</updated>
+    <updated>2017-04-17T02:06:25.241Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="Recovery主要功能"><a href="#Recovery主要功能" class="headerlink" title="Recovery主要功能"></a>Recovery主要功能</h2><p>深入了解recovery源码前，先浏览下recovery能够给我们提供哪些功能；</p>
-<ol>
-<li>首先是我们熟悉的恢复工厂设置 –&gt; wipe_data wipe_cache</li>
-<li>刷升级包，可以通过sdcard升级，通常说的卡刷，有些还提供ADB sideload升级；</li>
-<li>可以进行系统的系统的OTA升级，本质上同手动刷包一样；</li>
-</ol>
-<h2 id="源码路径和主要原文件"><a href="#源码路径和主要原文件" class="headerlink" title="源码路径和主要原文件"></a>源码路径和主要原文件</h2><p>在Android源码环境中，recovery的源码主要在bootable/recovery文件下，另外再device目录下，会根据各个设备定制自己的接口以及UI界面，也就是文章后半部分分析的界面定制的内容；</p>
-<p>在bootable/recovery目录下，主要的源文件有：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">LOCAL_SRC_FILES := \</div><div class="line">    adb_install.cpp \</div><div class="line">    asn1_decoder.cpp \</div><div class="line">    bootloader.cpp \</div><div class="line">    device.cpp \</div><div class="line">    fuse_sdcard_provider.c \</div><div class="line">    install.cpp \</div><div class="line">    recovery.cpp \</div><div class="line">    roots.cpp \</div><div class="line">    screen_ui.cpp \</div><div class="line">    ui.cpp \</div><div class="line">    verifier.cpp \</div></pre></td></tr></table></figure></p>
-<p>该部分代码在编译后，会统一输出到 out/recovery/root/目录；</p>
-<h2 id="recovery-cpp"><a href="#recovery-cpp" class="headerlink" title="recovery.cpp"></a>recovery.cpp</h2><h3 id="命令行参数"><a href="#命令行参数" class="headerlink" title="命令行参数"></a>命令行参数</h3><p>recovery最后是编译成一个可执行的命令，放在recovery文件系统中的/sbin/recovery；所以我们可以在终端中直接运行该命令，具体的参数如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">--send_intent=anystring - 传递给recovery的信息</div><div class="line">--adbd -adb sideload升级</div><div class="line">--update_package=path - 指定OTA升级包</div><div class="line">--wipe_data - 清楚用户数据并重启</div><div class="line">--wipe_cache - 清楚缓存并重启</div><div class="line">--set_encrypted_filesystem=on|off - 使能或者关闭文件系统加密</div><div class="line">--just_exit - 退出并重启</div></pre></td></tr></table></figure>
-<h3 id="main-函数"><a href="#main-函数" class="headerlink" title="main 函数"></a>main 函数</h3><p>从main入口函数分析recovery的主要源码：</p>
+    <content type="html"><![CDATA[<h3 id="main-函数"><a href="#main-函数" class="headerlink" title="main 函数"></a>main 函数</h3><p>从main入口函数分析recovery的主要源码：</p>
 <p><strong>输出重定向</strong></p>
 <hr>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    redirect_stdio(TEMPORARY_LOG_FILE);</div><div class="line">    //redirect log to serial output</div><div class="line">#ifdef LogToSerial</div><div class="line">    freopen(&quot;/dev/ttyFIQ0&quot;, &quot;a&quot;, stdout); setbuf(stdout, NULL);</div><div class="line">    freopen(&quot;/dev/ttyFIQ0&quot;, &quot;a&quot;, stderr); setbuf(stderr, NULL);</div><div class="line">#endif</div></pre></td></tr></table></figure>

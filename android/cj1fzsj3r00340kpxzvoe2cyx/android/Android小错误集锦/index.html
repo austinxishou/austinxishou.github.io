@@ -30,7 +30,7 @@
 <meta property="og:url" content="https://austinxishou.github.io/android/cj1fzsj3r00340kpxzvoe2cyx/android/Android小错误集锦/index.html">
 <meta property="og:site_name" content="爵士犀首">
 <meta property="og:description" content="Android小错误集锦">
-<meta property="og:updated_time" content="2017-04-13T01:52:45.822Z">
+<meta property="og:updated_time" content="2017-04-17T06:16:46.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android小错误集锦">
 <meta name="twitter:description" content="Android小错误集锦">
@@ -184,7 +184,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工程编译类"><span class="post-toc-number">1.</span> <span class="post-toc-text">工程编译类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gradle-错误"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Gradle 错误</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工程编译类"><span class="post-toc-number">1.</span> <span class="post-toc-text">工程编译类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gradle-错误"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Gradle 错误</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Python-工作环境错误"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Python 工作环境错误</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -220,6 +220,11 @@
 <blockquote>
 <p>找到工程的build.gradle,修改classpath ‘com.android.tools.build:gradle:2.1.0’为classpath ‘com.android.tools.build:gradle:2.3.0’</p>
 </blockquote>
+<h3 id="Python-工作环境错误"><a href="#Python-工作环境错误" class="headerlink" title="Python 工作环境错误"></a>Python 工作环境错误</h3><p><strong>问题描述:</strong> </p>
+<blockquote>
+<p>最近在写一个Python程序的时候，使用from selenium import webdriver,在run的时候却出现ImportError: cannot import name webdriver的提示，但是在Python IDLE里面跑却没有错误。很是疑惑，谷歌一下才发现有人已经在stackoverflow里面提出类似问题了，原因如下，在当前目录有个名叫selenium的文件，Python会先导入这个文件，然后再导入标准库里面的selenium.py</p>
+</blockquote>
+<p><strong>解决方法</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##可以使用</span></div><div class="line"><span class="keyword">import</span> selenium </div><div class="line"><span class="keyword">print</span> selenium.__file__  </div><div class="line"><span class="comment">##去看打印出的文件路径，如果不是下面类似的C:\Python27\lib\site-packages\selenium-2.31.0-py2.7.egg\selenium\__init__.pyc，需要把当前目录下的文件删除或者重命名。</span></div></pre></td></tr></table></figure></p>
 
         </div>
 
@@ -227,7 +232,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-13T01:52:45.822Z" itemprop="dateUpdated">2017年4月13日 9:52</time>
+    最后更新时间：<time datetime="2017-04-17T06:16:46.029Z" itemprop="dateUpdated">2017年4月17日 14:16</time>
 </span><br>
 
 
