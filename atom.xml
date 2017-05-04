@@ -419,9 +419,9 @@
     <link href="https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/"/>
     <id>https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/</id>
     <published>2017-04-13T01:48:54.373Z</published>
-    <updated>2017-05-04T09:32:30.321Z</updated>
+    <updated>2017-05-04T09:34:05.993Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="工程编译类"><a href="#工程编译类" class="headerlink" title="工程编译类"></a>工程编译类</h2><h3 id="Gradle-错误"><a href="#Gradle-错误" class="headerlink" title="Gradle 错误"></a>Gradle 错误</h3><p><strong>问题描述:</strong></p>
+    <content type="html"><![CDATA[<h2 id="工程编译类"><a href="#工程编译类" class="headerlink" title="工程编译类"></a>工程编译类</h2><h3 id="Gradle-错误-Failed-to-complete-Gradle-execution"><a href="#Gradle-错误-Failed-to-complete-Gradle-execution" class="headerlink" title="Gradle 错误 Failed to complete Gradle execution."></a>Gradle 错误 Failed to complete Gradle execution.</h3><p><strong>问题描述:</strong></p>
 <blockquote>
 <p>更新Android studio 2.3后,出现Gradle 错误</p>
 </blockquote>
@@ -430,7 +430,7 @@
 <blockquote>
 <p>找到工程的build.gradle,修改classpath ‘com.android.tools.build:gradle:2.1.0’为classpath ‘com.android.tools.build:gradle:2.3.0’</p>
 </blockquote>
-<h3 id="Gradle"><a href="#Gradle" class="headerlink" title="Gradle"></a>Gradle</h3><p><strong> 问题描述 </strong></p>
+<h3 id="AAPT-err-libpng-error-Not-a-PNG-file"><a href="#AAPT-err-libpng-error-Not-a-PNG-file" class="headerlink" title="AAPT err: libpng error: Not a PNG file"></a>AAPT err: libpng error: Not a PNG file</h3><p><strong> 问题描述 </strong></p>
 <blockquote>
 <p>Android Studio AAPT err: libpng error: Not a PNG file</p>
 </blockquote>
@@ -472,7 +472,7 @@
       <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
     
     
-      <category term="android gradle" scheme="https://austinxishou.github.io/tags/android-gradle/"/>
+      <category term="android gradle aapt" scheme="https://austinxishou.github.io/tags/android-gradle-aapt/"/>
     
   </entry>
   
