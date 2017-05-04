@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-05-04T02:58:42.640Z</updated>
+  <updated>2017-05-04T03:18:20.887Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -16,18 +16,52 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Android 冻结APP</title>
+    <link href="https://austinxishou.github.io/android/cj29uf5ph0000zopxa5jy1cqz/android/Android%20%E5%86%BB%E7%BB%93%E4%B8%8D%E5%B8%B8%E7%94%A8%E7%9A%84app/"/>
+    <id>https://austinxishou.github.io/android/cj29uf5ph0000zopxa5jy1cqz/android/Android 冻结不常用的app/</id>
+    <published>2017-05-04T03:07:12.925Z</published>
+    <updated>2017-05-04T03:18:20.887Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h2><blockquote>
+<p>在国内的Android生态中,所有的APP开发者都是一种流氓的心态,后台服务一大堆,还监听各种广播,导致用户根本不可能完全删除后台服务;有人说既然他们流氓,你不用他们就是,卸载掉啊!!哎,一些主流公司的APP,即使知道他流氓,还真的继续用它,比如支付宝\微信等;</p>
+<p>所以采用冻结的方法是最有效,最干净的,只是可惜<strong> pm disable </strong>这个权限Android并没有对普通应用开放,也是一个蛋疼的事情.Android生态也是,申请各种权限不需要root,反而关闭权限需要;</p>
+</blockquote>
+<p>使用冻结APP的场景:</p>
+<ol>
+<li>某些应用开启大量后台服务,导致系统响应缓慢,再不能卸载的情况下,冻结它;</li>
+<li>某些不常用的APP,但是需要的时候重新下载又麻烦,冻结它;</li>
+<li>某些应用后台大量更新数据,消耗流量,冻结它;</li>
+<li>冻结app解冻后,保留所有应用数据,不用担心数据丢失,账号重新登录等;</li>
+</ol>
+<h2 id="主要代码实现"><a href="#主要代码实现" class="headerlink" title="主要代码实现"></a>主要代码实现</h2><p>冻结APP<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">disableApp</span><span class="params">(String appPackageName)</span></span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Process localProcess=Runtime.getRuntime().exec(<span class="string">"su"</span>);</div><div class="line">        String cmd=<span class="string">"pm disable "</span>+appPackageName+<span class="string">"\n"</span>;</div><div class="line">        DataOutputStream dataOutputStream=<span class="keyword">new</span> DataOutputStream(localProcess.getOutputStream());</div><div class="line">        dataOutputStream.writeBytes(cmd);</div><div class="line">        dataOutputStream.flush();</div><div class="line">        dataOutputStream.writeBytes(<span class="string">"exit\n"</span>);</div><div class="line"></div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>解冻APP<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enableApp</span><span class="params">(String appPackageName)</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Process localProcess=Runtime.getRuntime().exec(<span class="string">"su"</span>);</div><div class="line">        String cmd=<span class="string">"pm enable "</span>+appPackageName+<span class="string">"\n"</span>;</div><div class="line">        DataOutputStream dataOutputStream=<span class="keyword">new</span> DataOutputStream(localProcess.getOutputStream());</div><div class="line">        dataOutputStream.writeBytes(cmd);</div><div class="line">        dataOutputStream.flush();</div><div class="line">        dataOutputStream.writeBytes(<span class="string">"exit\n"</span>);</div><div class="line"></div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      Android pm disable
+    
+    </summary>
+    
+      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
     <title>python 多线程实践</title>
     <link href="https://austinxishou.github.io/python/cj29tr79i0006fkpxmknjd74o/python/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
     <id>https://austinxishou.github.io/python/cj29tr79i0006fkpxmknjd74o/python/python多线程实践/</id>
     <published>2017-05-04T01:43:52.969Z</published>
-    <updated>2017-05-04T02:58:42.640Z</updated>
+    <updated>2017-05-04T03:02:41.990Z</updated>
     
     <content type="html"><![CDATA[<h2 id="多线程-threading模块"><a href="#多线程-threading模块" class="headerlink" title="多线程 threading模块"></a>多线程 threading模块</h2><blockquote>
 <p>Python中的多线程操作有两种方式： 函数式(thread)和继承(threading.Threading)式</p>
 <p>python是支持多线程的，并且是native的线程。主要是通过thread和threading这两个模块来实现的。thread是比较底层的模 块，threading是对thread做了一些包装的，可以更加方便的被使用。</p>
 </blockquote>
 <p><strong> 函数式 </strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">def function adbc()</div><div class="line">threading.Thread(target=fun,args=(a,b))</div><div class="line">或者</div><div class="line">thread.start_new_thread(fun,(a,b))启动线程</div></pre></td></tr></table></figure></p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
 <h2 id="守护进程"><a href="#守护进程" class="headerlink" title="守护进程"></a>守护进程</h2><blockquote>
 <p>如果你的主线程在退出的时候，不用等待那些子线程完成，那就设置这些线程的 daemon 属性。即，在线程开始 thread.start()之前，调用setDeamon()函数，设定线程的daemon标志。thread.setDaemon(True)就表示这个线程“不重要”。</p>
 <p>如果你想等待子线程完成再退出，那就什么都不用做。，或者显示地调用thread.setDaemon(False)，设置daemon的值为false。新的子线程会继承父线程的daemon标志。整个Python会在所有的非守护线程退出后才会结束，即进程中没有非守护线程存在的时候才结束。</p>
