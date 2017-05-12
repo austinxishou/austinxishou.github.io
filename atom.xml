@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-05-04T03:18:20.887Z</updated>
+  <updated>2017-05-12T02:26:43.950Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -14,6 +14,574 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在线工具类网站</title>
+    <link href="https://austinxishou.github.io/killtime/cj2l840xk000l5opxp4bz0u29/killtime/tools/"/>
+    <id>https://austinxishou.github.io/killtime/cj2l840xk000l5opxp4bz0u29/killtime/tools/</id>
+    <published>2017-05-12T02:16:41.523Z</published>
+    <updated>2017-05-12T02:26:43.950Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="生活类"><a href="#生活类" class="headerlink" title="生活类"></a>生活类</h2><ul>
+<li>在线听歌: <a href="http://lab.mkblog.cn/music/" target="_blank" rel="external">http://lab.mkblog.cn/music/</a></li>
+</ul>
+<h2 id="翻译平台"><a href="#翻译平台" class="headerlink" title="翻译平台"></a>翻译平台</h2><ul>
+<li>Google翻译x: <a href="https://translate.google.com/" target="_blank" rel="external">https://translate.google.com/</a></li>
+<li>有道: <a href="http://youdao.com/" target="_blank" rel="external">http://youdao.com/</a></li>
+<li>扇贝英语 : <a href="https://www.shanbay.com/" target="_blank" rel="external">https://www.shanbay.com/</a></li>
+<li>CNKI翻译助手：<a href="http://dict.cnki.net/" target="_blank" rel="external">http://dict.cnki.net/</a></li>
+<li>句酷：<a href="http://www.jukuu.com/" target="_blank" rel="external">http://www.jukuu.com/</a></li>
+<li>词都：<a href="http://www.dictall.com/" target="_blank" rel="external">http://www.dictall.com/</a></li>
+<li>LINE Dictionary：<a href="http://ce.linedict.com/dict.html#/cnen/" target="_blank" rel="external">http://ce.linedict.com/dict.html#/cnen/</a></li>
+<li>Glosbe：<a href="https://glosbe.com/" target="_blank" rel="external">https://glosbe.com/</a></li>
+</ul>
+<h2 id="程序工具箱"><a href="#程序工具箱" class="headerlink" title="程序工具箱"></a>程序工具箱</h2><ul>
+<li>在线正则 : <a href="http://regexr.com/" target="_blank" rel="external">http://regexr.com/</a></li>
+<li>编码转换 : <a href="http://tool.chinaz.com/Tools/Unicode.aspx" target="_blank" rel="external">http://tool.chinaz.com/Tools/Unicode.aspx</a></li>
+<li>Json检验 : <a href="http://www.bejson.com/" target="_blank" rel="external">http://www.bejson.com/</a></li>
+<li>Json检验 : <a href="http://pro.jsonlint.com/" target="_blank" rel="external">http://pro.jsonlint.com/</a></li>
+<li>Json检验带错误行 : <a href="http://www.json.cn/" target="_blank" rel="external">http://www.json.cn/</a></li>
+<li>ping工具 : <a href="http://ping.chinaz.com/" target="_blank" rel="external">http://ping.chinaz.com/</a></li>
+<li>RGB颜色查询 : <a href="http://www.atool.org/colorpicker.php" target="_blank" rel="external">http://www.atool.org/colorpicker.php</a></li>
+<li>字符串处理 : <a href="http://www.5ixuexiwang.com/str/compress.php" target="_blank" rel="external">http://www.5ixuexiwang.com/str/compress.php</a></li>
+<li>在线运行代码 : <a href="http://www.shucunwang.com/RunCode/php/" target="_blank" rel="external">http://www.shucunwang.com/RunCode/php/</a></li>
+<li>在线运行代码 : <a href="http://codepad.org/" target="_blank" rel="external">http://codepad.org/</a></li>
+<li>在线Sql : <a href="http://sqlfiddle.com/#!4/c0be1c/1" target="_blank" rel="external">http://sqlfiddle.com/#!4/c0be1c/1</a></li>
+<li>Ascii流程图 : <a href="http://asciiflow.com/" target="_blank" rel="external">http://asciiflow.com/</a></li>
+<li>1024tools:<a href="https://1024tools.com/" target="_blank" rel="external">https://1024tools.com/</a></li>
+<li>oschina:<a href="http://tool.oschina.net/" target="_blank" rel="external">http://tool.oschina.net/</a></li>
+<li>shell练习:<a href="http://cb.vu/" target="_blank" rel="external">http://cb.vu/</a></li>
+<li>rsa和pkcs8转换:<a href="https://www.chinassl.net/ssltools/convert-key.html" target="_blank" rel="external">https://www.chinassl.net/ssltools/convert-key.html</a></li>
+<li>程序在线工具:<a href="http://tool.lu/" target="_blank" rel="external">http://tool.lu/</a></li>
+<li>多线路速度测试:<a href="http://ping.chinaz.com/45.76.185.184" target="_blank" rel="external">http://ping.chinaz.com/45.76.185.184</a></li>
+<li>github的star管理:<a href="http://gitconstellation.com/#/" target="_blank" rel="external">http://gitconstellation.com/#/</a></li>
+<li>在线mock工具:<a href="http://apizza.cc" target="_blank" rel="external">http://apizza.cc</a></li>
+<li>在线gitignore生成工具:<a href="https://www.gitignore.io/" target="_blank" rel="external">https://www.gitignore.io/</a></li>
+</ul>
+<h2 id="API"><a href="#API" class="headerlink" title="API"></a>API</h2><ul>
+<li>百度语音朗读:<a href="http://tts.baidu.com/text2audio?lan=zh&amp;ie=UTF-8&amp;text=%E4%BC%98%E9%85%B7%E5%BD%95%E5%B1%8F%E5%A4%A7%E5%B8%88" target="_blank" rel="external">http://tts.baidu.com/text2audio?lan=zh&amp;ie=UTF-8&amp;text=%E4%BC%98%E9%85%B7%E5%BD%95%E5%B1%8F%E5%A4%A7%E5%B8%88</a></li>
+<li>模拟数据:<a href="https://apiary.io/" target="_blank" rel="external">https://apiary.io/</a></li>
+<li><strong>在线api文档</strong>: <a href="http://devdocs.io/" target="_blank" rel="external">http://devdocs.io/</a></li>
+</ul>
+<h2 id="解密"><a href="#解密" class="headerlink" title="解密"></a>解密</h2><ul>
+<li>php在线解密: <a href="http://dezend.qiling.org/" target="_blank" rel="external">http://dezend.qiling.org/</a></li>
+<li>md5解密: <a href="http://cmd5.com/" target="_blank" rel="external">http://cmd5.com/</a></li>
+<li>国家代码查询 : <a href="https://countrycode.org/" target="_blank" rel="external">https://countrycode.org/</a></li>
+</ul>
+<h2 id="在线编辑"><a href="#在线编辑" class="headerlink" title="在线编辑"></a>在线编辑</h2><ul>
+<li>zybuluo : <a href="https://www.zybuluo.com/" target="_blank" rel="external">https://www.zybuluo.com/</a></li>
+<li>markdown_table生成 : <a href="http://www.tablesgenerator.com/markdown_tables" target="_blank" rel="external">http://www.tablesgenerator.com/markdown_tables</a></li>
+<li>processon协作:<a href="http://www.processon.com/" target="_blank" rel="external">http://www.processon.com/</a></li>
+<li>石墨:<a href="https://shimo.im/" target="_blank" rel="external">https://shimo.im/</a></li>
+<li>tower在线办公:<a href="https://tower.im/" target="_blank" rel="external">https://tower.im/</a></li>
+<li>钉钉:<a href="https://www.dingtalk.com/" target="_blank" rel="external">https://www.dingtalk.com/</a></li>
+<li>马克飞象:<a href="https://maxiang.io/" target="_blank" rel="external">https://maxiang.io/</a></li>
+<li>在线时序图:<a href="https://www.websequencediagrams.com/" target="_blank" rel="external">https://www.websequencediagrams.com/</a></li>
+<li>stackedit:<a href="https://stackedit.io/" target="_blank" rel="external">https://stackedit.io/</a></li>
+</ul>
+<h2 id="其他工具"><a href="#其他工具" class="headerlink" title="其他工具"></a>其他工具</h2><ul>
+<li>video_to_gif: <a href="http://ezgif.com/video-to-gif" target="_blank" rel="external">http://ezgif.com/video-to-gif</a></li>
+<li>markdwon转换: <a href="http://pandoc.org/try/" target="_blank" rel="external">http://pandoc.org/try/</a></li>
+<li>在线测速: <a href="http://www.speedtest.net/" target="_blank" rel="external">http://www.speedtest.net/</a></li>
+<li>在线签到: <a href="https://qiandao.today/" target="_blank" rel="external">https://qiandao.today/</a></li>
+<li>微信对话生成: <a href="http://www.duihuashengchengqi.com/" target="_blank" rel="external">http://www.duihuashengchengqi.com/</a></li>
+<li>飞机航班追踪：<a href="https://www.flightradar24.com/" target="_blank" rel="external">https://www.flightradar24.com/</a></li>
+<li>清华大学镜像站:<a href="https://mirrors.tuna.tsinghua.edu.cn/" target="_blank" rel="external">https://mirrors.tuna.tsinghua.edu.cn/</a></li>
+<li>dll之家:<a href="http://www.dllzj.com/" target="_blank" rel="external">http://www.dllzj.com/</a></li>
+<li>流量宝:<a href="http://www.liuliangbao.cn/" target="_blank" rel="external">http://www.liuliangbao.cn/</a></li>
+<li>百度网盘永久直链外链:<a href="http://pan.plyz.net/" target="_blank" rel="external">http://pan.plyz.net/</a></li>
+<li>艺匠独立作品:<a href="https://artizen.cc/" target="_blank" rel="external">https://artizen.cc/</a></li>
+<li>dnsmasq:<a href="https://g2w.online/" target="_blank" rel="external">https://g2w.online/</a></li>
+<li>tinypng:<a href="https://tinypng.com/" target="_blank" rel="external">https://tinypng.com/</a></li>
+<li>方糖收微信消息:<a href="http://sc.ftqq.com/3.version" target="_blank" rel="external">http://sc.ftqq.com/3.version</a></li>
+<li>随机生成美国身份: <a href="http://www.haoweichi.com/Index/random" target="_blank" rel="external">http://www.haoweichi.com/Index/random</a></li>
+<li><ul>
+<li>前端预处理器语言图形编译工具: <a href="http://koala-app.com/index-zh.html" target="_blank" rel="external">http://koala-app.com/index-zh.html</a></li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      在线工具类网站
+    
+    </summary>
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
+    
+    
+      <category term="design" scheme="https://austinxishou.github.io/tags/design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>软件及源码仓库收集</title>
+    <link href="https://austinxishou.github.io/killtime/cj2l840xi000j5opx6rgt5wv5/killtime/soft_site/"/>
+    <id>https://austinxishou.github.io/killtime/cj2l840xi000j5opx6rgt5wv5/killtime/soft_site/</id>
+    <published>2017-05-12T02:16:41.522Z</published>
+    <updated>2017-05-12T02:25:58.517Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="软件"><a href="#软件" class="headerlink" title="软件"></a>软件</h2><ul>
+<li>小众软件: <a href="http://www.appinn.com/" target="_blank" rel="external">http://www.appinn.com/</a></li>
+<li>异次元:<a href="http://www.iplaysoft.com/" target="_blank" rel="external">http://www.iplaysoft.com/</a></li>
+<li>精品绿色便携软件 : <a href="http://www.portablesoft.org/" target="_blank" rel="external">http://www.portablesoft.org/</a></li>
+<li>大眼仔 : <a href="http://www.dayanzai.me/" target="_blank" rel="external">http://www.dayanzai.me/</a></li>
+<li>少轻狂: <a href="http://www.flighty.cn/" target="_blank" rel="external">http://www.flighty.cn/</a></li>
+<li>殁漂遥: <a href="http://www.shaoit.com/" target="_blank" rel="external">http://www.shaoit.com/</a></li>
+<li>冰点软件:<a href="http://www.bingdian001.com/" target="_blank" rel="external">http://www.bingdian001.com/</a></li>
+</ul>
+<h3 id="mac"><a href="#mac" class="headerlink" title="mac"></a>mac</h3><ul>
+<li>xclient : <a href="http://xclient.info/" target="_blank" rel="external">http://xclient.info/</a></li>
+<li>反斗软件: <a href="http://www.apprcn.com/" target="_blank" rel="external">http://www.apprcn.com/</a></li>
+<li>爱情守望者: <a href="http://www.waitsun.com/" target="_blank" rel="external">http://www.waitsun.com/</a></li>
+<li>威锋: <a href="http://bbs.feng.com/forum.php?mod=forumdisplay&amp;fid=19&amp;page=" target="_blank" rel="external">http://bbs.feng.com/forum.php?mod=forumdisplay&amp;fid=19&amp;page=</a></li>
+</ul>
+<h2 id="源码站"><a href="#源码站" class="headerlink" title="源码站"></a>源码站</h2><ul>
+<li>资源爱好者: <a href="http://www.aihao.org/" target="_blank" rel="external">http://www.aihao.org/</a></li>
+<li>游戏素材: <a href="http://www.6m5m.com/index.php" target="_blank" rel="external">http://www.6m5m.com/index.php</a></li>
+<li>车库源码: <a href="http://www.src.cool/portal.php" target="_blank" rel="external">http://www.src.cool/portal.php</a></li>
+<li>零度源码:<a href="http://www.0dyx.cn/" target="_blank" rel="external">http://www.0dyx.cn/</a></li>
+<li>我爱h5游戏:<a href="http://www.52h5game.com/" target="_blank" rel="external">http://www.52h5game.com/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      软件及源码仓库收集
+    
+    </summary>
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
+    
+    
+      <category term="design" scheme="https://austinxishou.github.io/tags/design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>找资源</title>
+    <link href="https://austinxishou.github.io/killtime/cj2l840x6000f5opxj5ytl0wb/killtime/search/"/>
+    <id>https://austinxishou.github.io/killtime/cj2l840x6000f5opxj5ytl0wb/killtime/search/</id>
+    <published>2017-05-12T02:16:41.521Z</published>
+    <updated>2017-05-12T02:25:02.429Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="找资源"><a href="#找资源" class="headerlink" title="找资源"></a>找资源</h2><ul>
+<li>西林街：<a href="http://www.xilinjie.com/" target="_blank" rel="external">http://www.xilinjie.com/</a></li>
+<li>胖次：<a href="http://www.panc.cc/" target="_blank" rel="external">http://www.panc.cc/</a></li>
+<li>找文件：<a href="http://www.zhaofile.com/" target="_blank" rel="external">http://www.zhaofile.com/</a></li>
+<li>呆木瓜：<a href="http://www.daimugua.com/" target="_blank" rel="external">http://www.daimugua.com/</a></li>
+<li>爱挖盘：<a href="http://www.iwapan.com/" target="_blank" rel="external">http://www.iwapan.com/</a></li>
+<li>57百度云：<a href="http://baiduyun.57fx.cn/index-index.html" target="_blank" rel="external">http://baiduyun.57fx.cn/index-index.html</a></li>
+<li>云盘搜索大师:<a href="http://www.xiandoudou.com/" target="_blank" rel="external">http://www.xiandoudou.com/</a></li>
+<li>靠谱搜索:<a href="http://kaopu.so/" target="_blank" rel="external">http://kaopu.so/</a></li>
+<li>网盘搜: <a href="http://www.wangpansou.cn/" target="_blank" rel="external">http://www.wangpansou.cn/</a></li>
+</ul>
+<h2 id="BT种子搜索引擎"><a href="#BT种子搜索引擎" class="headerlink" title="BT种子搜索引擎"></a>BT种子搜索引擎</h2><ul>
+<li>BT搜搜  :<a href="http://www.btsoso.me/" target="_blank" rel="external">http://www.btsoso.me/</a></li>
+<li>BTbook:  <a href="http://www.btbook.net/" target="_blank" rel="external">http://www.btbook.net/</a></li>
+<li>Runbt : <a href="http://www.runbt.com/" target="_blank" rel="external">http://www.runbt.com/</a></li>
+<li>Diggbt:  <a href="http://www.diggbt.com/" target="_blank" rel="external">http://www.diggbt.com/</a></li>
+<li>BT樱桃:<a href="http://www.btcherry.com/" target="_blank" rel="external">http://www.btcherry.com/</a></li>
+<li>BTdigg:  <a href="https://btdigg.org/" target="_blank" rel="external">https://btdigg.org/</a></li>
+<li>btsoufuli:  <a href="http://www.btsoufuli.com/" target="_blank" rel="external">http://www.btsoufuli.com/</a></li>
+<li>btkitty:  <a href="http://btkitty.bid/" target="_blank" rel="external">http://btkitty.bid/</a></li>
+<li>btdao:  <a href="http://www.btdao.biz/" target="_blank" rel="external">http://www.btdao.biz/</a></li>
+<li>rarbg:  <a href="https://rarbg.to/torrents.php/" target="_blank" rel="external">https://rarbg.to/torrents.php/</a></li>
+<li>btavmo:  <a href="http://www.btavmo.com/" target="_blank" rel="external">http://www.btavmo.com/</a></li>
+<li>coretorrents:  <a href="http://coretorrents.com/" target="_blank" rel="external">http://coretorrents.com/</a></li>
+<li>mytorrents:  <a href="http://mytorrents.org/" target="_blank" rel="external">http://mytorrents.org/</a></li>
+<li>bt1024:  <a href="http://www.bt1024.net/" target="_blank" rel="external">http://www.bt1024.net/</a></li>
+</ul>
+<h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><ul>
+<li>龙轩导航 : <a href="http://ilxdh.com/" target="_blank" rel="external">http://ilxdh.com/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      找资源
+    
+    </summary>
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
+    
+    
+      <category term="driver" scheme="https://austinxishou.github.io/tags/driver/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>电影资源汇总</title>
+    <link href="https://austinxishou.github.io/killtime/cj2l840x4000e5opx152r88xj/killtime/movie/"/>
+    <id>https://austinxishou.github.io/killtime/cj2l840x4000e5opx152r88xj/killtime/movie/</id>
+    <published>2017-05-12T02:16:41.519Z</published>
+    <updated>2017-05-12T02:23:28.103Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="电视直播"><a href="#电视直播" class="headerlink" title="电视直播"></a>电视直播</h2><ul>
+<li>直播吧: <a href="http://www.zhiboo.net/" target="_blank" rel="external">http://www.zhiboo.net/</a></li>
+<li>江苏卫视: <a href="http://live.jstv.com/" target="_blank" rel="external">http://live.jstv.com/</a></li>
+<li>jsr体育直播: <a href="http://nba.tmiaoo.com/nba.html" target="_blank" rel="external">http://nba.tmiaoo.com/nba.html</a></li>
+</ul>
+<h2 id="电影资源网站"><a href="#电影资源网站" class="headerlink" title="电影资源网站"></a>电影资源网站</h2><ul>
+<li>PVideos-97:<a href="http://www.id97.com/" target="_blank" rel="external">http://www.id97.com/</a></li>
+<li>云影院：<a href="http://www.yunyy.cc/" target="_blank" rel="external">http://www.yunyy.cc/</a></li>
+<li>高清控联盟：<a href="http://www.gaoqingkong.com/" target="_blank" rel="external">http://www.gaoqingkong.com/</a></li>
+<li>中国高清网：<a href="http://gaoqing.la/" target="_blank" rel="external">http://gaoqing.la/</a></li>
+<li>小无相：<a href="http://movtop.cn/" target="_blank" rel="external">http://movtop.cn/</a></li>
+<li>优质电影网：<a href="http://www.youzhidy.com/" target="_blank" rel="external">http://www.youzhidy.com/</a></li>
+<li>蓝光电影网：<a href="http://www.hd1080.cn/" target="_blank" rel="external">http://www.hd1080.cn/</a></li>
+<li>电影王国：<a href="http://www.moviewg.com/" target="_blank" rel="external">http://www.moviewg.com/</a></li>
+<li>电影天堂 : <a href="http://www.dy2018.com/" target="_blank" rel="external">http://www.dy2018.com/</a></li>
+<li>电影小二网:  <a href="http://movie002.com/" target="_blank" rel="external">http://movie002.com/</a></li>
+<li>搬运工 : <a href="http://banyungong.net/" target="_blank" rel="external">http://banyungong.net/</a></li>
+<li>龙部落:  <a href="http://www.xuandy.com/" target="_blank" rel="external">http://www.xuandy.com/</a></li>
+<li>我飞网:  <a href="http://www.bestxl.com/" target="_blank" rel="external">http://www.bestxl.com/</a></li>
+<li>泡饭影视:  <a href="http://www.chapaofan.com/" target="_blank" rel="external">http://www.chapaofan.com/</a></li>
+<li>天天美剧:  <a href="http://www.ttmeiju.com/" target="_blank" rel="external">http://www.ttmeiju.com/</a></li>
+<li>天天美剧电影:<a href="http://www.ttmeiju.com/meiju/Movie.html" target="_blank" rel="external">http://www.ttmeiju.com/meiju/Movie.html</a></li>
+<li>电影FM : <a href="http://dianying.fm/" target="_blank" rel="external">http://dianying.fm/</a></li>
+<li>kickass:  <a href="https://kickass.to/" target="_blank" rel="external">https://kickass.to/</a></li>
+<li>MP4吧:  <a href="http://www.mp4ba.com/" target="_blank" rel="external">http://www.mp4ba.com/</a></li>
+<li>迅播影院:  <a href="http://www.xiamp4.com/" target="_blank" rel="external">http://www.xiamp4.com/</a></li>
+<li>新视觉影院:<a href="http://www.yy6080.org/" target="_blank" rel="external">http://www.yy6080.org/</a></li>
+<li>深影论坛:<a href="http://www.shinybbs.com/forum.php" target="_blank" rel="external">http://www.shinybbs.com/forum.php</a></li>
+<li>破烂熊乐园:<a href="http://www.ragbear.com/" target="_blank" rel="external">http://www.ragbear.com/</a></li>
+<li>謦灵风软美剧论坛:<a href="http://1000fr.net/" target="_blank" rel="external">http://1000fr.net/</a></li>
+<li>66kk:<a href="http://www.66kk.com/meiju/" target="_blank" rel="external">http://www.66kk.com/meiju/</a></li>
+<li>豆瓣皮:<a href="http://movie.doubanpi.com/" target="_blank" rel="external">http://movie.doubanpi.com/</a></li>
+<li>豆瓣X:<a href="http://www.doubanx.com/" target="_blank" rel="external">http://www.doubanx.com/</a></li>
+<li>特片:<a href="http://www.tepian.com/" target="_blank" rel="external">http://www.tepian.com/</a></li>
+<li>同步影院:<a href="http://www.tongbuyy.com/oumeiju/" target="_blank" rel="external">http://www.tongbuyy.com/oumeiju/</a></li>
+<li>原来天天美剧网:<a href="http://www.yuanlai521.com/" target="_blank" rel="external">http://www.yuanlai521.com/</a></li>
+<li>~~ 高清视界:<a href="http://www.4567.tv/" target="_blank" rel="external">http://www.4567.tv/</a> ~~</li>
+<li>8oS: <a href="http://www.80s.tw" target="_blank" rel="external">http://www.80s.tw</a></li>
+<li>全看TV : <a href="http://www.quankan.tv/" target="_blank" rel="external">http://www.quankan.tv/</a></li>
+<li>起飞电影网 : <a href="http://www.ehecom.com/index.html" target="_blank" rel="external">http://www.ehecom.com/index.html</a></li>
+</ul>
+<h3 id="手机影院"><a href="#手机影院" class="headerlink" title="手机影院"></a>手机影院</h3><ul>
+<li>大卫手机影院 : <a href="http://140tv.com/" target="_blank" rel="external">http://140tv.com/</a></li>
+<li>影视之家 : <a href="http://www.yingshimp.com/" target="_blank" rel="external">http://www.yingshimp.com/</a></li>
+<li>74hy: <a href="http://www.74hy.com/type/1.html" target="_blank" rel="external">http://www.74hy.com/type/1.html</a></li>
+</ul>
+<h3 id="纪录片精品网站"><a href="#纪录片精品网站" class="headerlink" title="纪录片精品网站"></a>纪录片精品网站</h3><ul>
+<li>Free DocumentAries：<a href="http://freedocumentaries.org/" target="_blank" rel="external">http://freedocumentaries.org/</a></li>
+<li>Top DocumentaryFilm：<a href="http://topdocumentaryfilms.com/" target="_blank" rel="external">http://topdocumentaryfilms.com/</a></li>
+<li>District 7 Media:<a href="http://www.district7media.net/main/" target="_blank" rel="external">http://www.district7media.net/main/</a></li>
+<li>Citizen 4Film:<a href="https://citizenfourfilm.com/" target="_blank" rel="external">https://citizenfourfilm.com/</a></li>
+<li>Documentary：<a href="http://documentaryaddict.com/" target="_blank" rel="external">http://documentaryaddict.com/</a></li>
+<li>腾讯记录片频道：<a href="http://v.qq.com/doco/" target="_blank" rel="external">http://v.qq.com/doco/</a></li>
+<li>央视记录片：<a href="http://jishi.cntv.cn/vod/keji/index.shtml" target="_blank" rel="external">http://jishi.cntv.cn/vod/keji/index.shtml</a></li>
+</ul>
+<h3 id="国外"><a href="#国外" class="headerlink" title="国外"></a>国外</h3><ul>
+<li>iitv : <a href="http://iitv.pl/" target="_blank" rel="external">http://iitv.pl/</a></li>
+</ul>
+<h2 id="专业影评类网站"><a href="#专业影评类网站" class="headerlink" title="专业影评类网站"></a>专业影评类网站</h2><ul>
+<li>时光网: <a href="http://www.mtime.com/community/" target="_blank" rel="external">http://www.mtime.com/community/</a></li>
+<li>豆瓣电影:<a href="http://movie.douban.com/" target="_blank" rel="external">http://movie.douban.com/</a></li>
+<li>烂番茄: <a href="http://www.rottentomatoes.com/" target="_blank" rel="external">http://www.rottentomatoes.com/</a></li>
+<li>IMBD: <a href="http://www.imdb.com/" target="_blank" rel="external">http://www.imdb.com/</a></li>
+<li>美国广播影评人协会:<a href="http://www.criticschoice.com/" target="_blank" rel="external">http://www.criticschoice.com/</a></li>
+<li>纽约影评家协会:<a href="http://www.nyfcc.com/" target="_blank" rel="external">http://www.nyfcc.com/</a></li>
+<li>Film: <a href="http://www.film.com/" target="_blank" rel="external">http://www.film.com/</a></li>
+<li>GoodFil.ms: <a href="http://goodfil.ms/" target="_blank" rel="external">http://goodfil.ms/</a></li>
+<li>Cinephilia: <a href="http://cinephilia.net/" target="_blank" rel="external">http://cinephilia.net/</a></li>
+</ul>
+<h2 id="公开课网站"><a href="#公开课网站" class="headerlink" title="公开课网站"></a>公开课网站</h2><ul>
+<li>网易公开课：<a href="http://open.163.com/" target="_blank" rel="external">http://open.163.com/</a></li>
+<li>中国大学MOOC：<a href="http://www.icourse163.org/" target="_blank" rel="external">http://www.icourse163.org/</a></li>
+<li>新浪公开课：<a href="http://open.sina.com.cn/" target="_blank" rel="external">http://open.sina.com.cn/</a></li>
+<li>央视网–公开课：<a href="http://opencla.cntv.cn/" target="_blank" rel="external">http://opencla.cntv.cn/</a></li>
+<li>爱课堂：<a href="http://www.icourses.cn/home/" target="_blank" rel="external">http://www.icourses.cn/home/</a></li>
+<li>MOOC中国：<a href="http://www.mooc.cn/" target="_blank" rel="external">http://www.mooc.cn/</a></li>
+<li>超星公开课：<a href="http://openv.chaoxing.com/" target="_blank" rel="external">http://openv.chaoxing.com/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      电影资源汇总
+    
+    </summary>
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
+    
+    
+      <category term="video" scheme="https://austinxishou.github.io/tags/video/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://austinxishou.github.io/uncategorized/cj2l840x2000d5opxypwkjfhg/killtime/game/"/>
+    <id>https://austinxishou.github.io/uncategorized/cj2l840x2000d5opxypwkjfhg/killtime/game/</id>
+    <published>2017-05-12T02:16:41.518Z</published>
+    <updated>2017-03-26T11:28:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="游戏站推荐"><a href="#游戏站推荐" class="headerlink" title="游戏站推荐"></a>游戏站推荐</h1><ul>
+<li>拼命玩游戏 : <a href="http://wanga.me/" target="_blank" rel="external">http://wanga.me/</a></li>
+<li>ArmorGames : <a href="http://armorgames.com/" target="_blank" rel="external">http://armorgames.com/</a></li>
+<li>u77汉化 : <a href="http://www.u77.com/" target="_blank" rel="external">http://www.u77.com/</a></li>
+<li>taptap : <a href="https://www.taptap.com/" target="_blank" rel="external">https://www.taptap.com/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;游戏站推荐&quot;&gt;&lt;a href=&quot;#游戏站推荐&quot; class=&quot;headerlink&quot; title=&quot;游戏站推荐&quot;&gt;&lt;/a&gt;游戏站推荐&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;拼命玩游戏 : &lt;a href=&quot;http://wanga.me/&quot; target=&quot;_blank&quot; r
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>老司机资源汇总</title>
+    <link href="https://austinxishou.github.io/killtime/cj2l840wr000a5opxhjwobsby/killtime/driver/"/>
+    <id>https://austinxishou.github.io/killtime/cj2l840wr000a5opxhjwobsby/killtime/driver/</id>
+    <published>2017-05-12T02:16:41.518Z</published>
+    <updated>2017-05-12T02:21:51.509Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="磁力"><a href="#磁力" class="headerlink" title="磁力"></a>磁力</h2><ul>
+<li>磁力播播: <a href="http://cilibobo.cc/" target="_blank" rel="external">http://cilibobo.cc/</a></li>
+<li>九秒在线: <a href="http://apiv.ga/magnet/" target="_blank" rel="external">http://apiv.ga/magnet/</a></li>
+</ul>
+<h2 id="youtube下载"><a href="#youtube下载" class="headerlink" title="youtube下载"></a>youtube下载</h2><ul>
+<li>yout: <a href="https://yout.com/" target="_blank" rel="external">https://yout.com/</a></li>
+<li>savefrom: <a href="http://en.savefrom.net/" target="_blank" rel="external">http://en.savefrom.net/</a></li>
+<li>savemedia: <a href="https://savemedia.com/en/" target="_blank" rel="external">https://savemedia.com/en/</a></li>
+<li>clipconverter: <a href="http://www.clipconverter.cc/" target="_blank" rel="external">http://www.clipconverter.cc/</a></li>
+</ul>
+<h2 id="Tumblr"><a href="#Tumblr" class="headerlink" title="Tumblr"></a>Tumblr</h2><ul>
+<li>Tumblr热度: <a href="http://heimu360.applinzi.com/index.php?m=Home&amp;c=Index&amp;a=stat" target="_blank" rel="external">http://heimu360.applinzi.com/index.php?m=Home&amp;c=Index&amp;a=stat</a></li>
+<li>91视频: <a href="http://freeget.co/" target="_blank" rel="external">http://freeget.co/</a></li>
+</ul>
+<h2 id="直播聚合"><a href="#直播聚合" class="headerlink" title="直播聚合"></a>直播聚合</h2><ul>
+<li>直播盒子: <a href="http://www.zhubohezi.com/" target="_blank" rel="external">http://www.zhubohezi.com/</a></li>
+</ul>
+<h3 id="vip视频-广告过滤"><a href="#vip视频-广告过滤" class="headerlink" title="vip视频,广告过滤"></a>vip视频,广告过滤</h3><ul>
+<li>硕鼠 : <a href="http://www.flvcd.com/index.htm" target="_blank" rel="external">http://www.flvcd.com/index.htm</a></li>
+<li>dsqndh: <a href="http://v.dsqndh.com/" target="_blank" rel="external">http://v.dsqndh.com/</a></li>
+<li>紫狐:<a href="http://api.zihu.tv/" target="_blank" rel="external">http://api.zihu.tv/</a></li>
+</ul>
+<h4 id="测试地址"><a href="#测试地址" class="headerlink" title="测试地址"></a>测试地址</h4><ul>
+<li>爱奇艺: <a href="http://www.iqiyi.com/v_19rr9nt2p8.html" target="_blank" rel="external">http://www.iqiyi.com/v_19rr9nt2p8.html</a></li>
+<li>优酷: <a href="http://v.youku.com/v_show/id_XMTc3NjUxMDU2MA==.html?spm=a2h03.8164468.2069780.11" target="_blank" rel="external">http://v.youku.com/v_show/id_XMTc3NjUxMDU2MA==.html?spm=a2h03.8164468.2069780.11</a></li>
+<li>乐视: <a href="http://www.le.com/ptv/vplay/26677046.html?ref=hypdrydp" target="_blank" rel="external">http://www.le.com/ptv/vplay/26677046.html?ref=hypdrydp</a></li>
+<li>芒果TV: <a href="http://www.mgtv.com/v/1/303260/f/3665598.html" target="_blank" rel="external">http://www.mgtv.com/v/1/303260/f/3665598.html</a></li>
+<li>腾讯: <a href="http://v.qq.com/x/cover/mhlkz47d7thi2k4.html" target="_blank" rel="external">http://v.qq.com/x/cover/mhlkz47d7thi2k4.html</a></li>
+</ul>
+<h4 id="通用接口"><a href="#通用接口" class="headerlink" title="通用接口"></a>通用接口</h4><ul>
+<li>wmxz: <a href="http://www.wmxz.wang/video.php?url=http://www.mgtv.com/v/1/303260/f/3665598.html" target="_blank" rel="external">http://www.wmxz.wang/video.php?url=http://www.mgtv.com/v/1/303260/f/3665598.html</a> (<code>高清</code>)<br><code>其他域名http://100000001.top(1-10):支持域名绑定A记录解析到47.89.49.245</code></li>
+<li><del>aikantv: <a href="http://jx.aikantv.cc/index.php?url=http://www.mgtv.com/v/3/8849/f/307467.html" target="_blank" rel="external">http://jx.aikantv.cc/index.php?url=http://www.mgtv.com/v/3/8849/f/307467.html</a> (<code>高清</code>)</del></li>
+<li>moondown:<a href="http://moon.moondown.net/tong.php?url=http://www.mgtv.com/v/2/104817/f/3621326.html" target="_blank" rel="external">http://moon.moondown.net/tong.php?url=http://www.mgtv.com/v/2/104817/f/3621326.html</a> <a href="http://moon.moondown.net/moon.php" target="_blank" rel="external">测试页面</a></li>
+<li>000o: <a href="http://000o.cc/jx/ty.php?url=http://www.mgtv.com/v/1/298442/f/3640929.html" target="_blank" rel="external">http://000o.cc/jx/ty.php?url=http://www.mgtv.com/v/1/298442/f/3640929.html</a></li>
+<li>yydy8: <a href="http://www.yydy8.com/Common/?url=http://www.mgtv.com/v/1/303260/f/3665598.html" target="_blank" rel="external">http://www.yydy8.com/Common/?url=http://www.mgtv.com/v/1/303260/f/3665598.html</a> (<code>高清</code>)</li>
+<li><del>ckparse: <a href="http://www.ckparse.com/ckparse/?url=http://www.mgtv.com/v/1/303260/f/3665598.html" target="_blank" rel="external">http://www.ckparse.com/ckparse/?url=http://www.mgtv.com/v/1/303260/f/3665598.html</a> (<code>高清</code>)</del></li>
+<li>九澧影院:<a href="http://dy.jiuli8.com/jiuli8/?url=" target="_blank" rel="external">http://dy.jiuli8.com/jiuli8/?url=</a></li>
+<li>紫狐:<a href="http://yun.zihu.tv/play.html?url=http://v.qq.com/x/cover/mhlkz47d7thi2k4.html" target="_blank" rel="external">http://yun.zihu.tv/play.html?url=http://v.qq.com/x/cover/mhlkz47d7thi2k4.html</a></li>
+<li>wbg3721:<a href="http://api.wbg3721.club/?url=http://www.iqiyi.com/v_19rrm2pgd4.html?fc=8b62d5327a54411b#vfrm=19-9-0-1" target="_blank" rel="external">http://api.wbg3721.club/?url=http://www.iqiyi.com/v_19rrm2pgd4.html?fc=8b62d5327a54411b#vfrm=19-9-0-1</a></li>
+<li><del>mp4la : <a href="http://api.mp4la.net/?url=http://v.youku.com/v_show/id_XMTc3NjUxMDU2MA==.html?spm=a2h03.8164468.2069780.11" target="_blank" rel="external">http://api.mp4la.net/?url=http://v.youku.com/v_show/id_XMTc3NjUxMDU2MA==.html?spm=a2h03.8164468.2069780.11</a></del></li>
+<li><del>990969_1: <a href="http://www.990969.top/jiu/vip1.php?url=http://www.iqiyi.com/v_19rr9nt2p8.html" target="_blank" rel="external">http://www.990969.top/jiu/vip1.php?url=http://www.iqiyi.com/v_19rr9nt2p8.html</a></del></li>
+<li><del>990969_2: <a href="http://www.990969.top/jiu/vip2.php?url=http://www.iqiyi.com/v_19rr9nt2p8.html" target="_blank" rel="external">http://www.990969.top/jiu/vip2.php?url=http://www.iqiyi.com/v_19rr9nt2p8.html</a></del></li>
+<li><del>990969_3: <a href="http://www.990969.top/jiu/vip3.php?url=http://www.iqiyi.com/v_19rr9nt2p8.html" target="_blank" rel="external">http://www.990969.top/jiu/vip3.php?url=http://www.iqiyi.com/v_19rr9nt2p8.html</a></del></li>
+<li><del>mt2t:<a href="http://mt2t.com/yun?url=http://www.mgtv.com/v/1/303260/f/3665598.html" target="_blank" rel="external">http://mt2t.com/yun?url=http://www.mgtv.com/v/1/303260/f/3665598.html</a></del></li>
+<li><del>五奇艺:<a href="http://vip.sdyhy.cn/ckflv/?url=" target="_blank" rel="external">http://vip.sdyhy.cn/ckflv/?url=</a></del></li>
+<li>qtzr:<a href="http://qtzr.net/s/?qt=http://v.qq.com/x/cover/mhlkz47d7thi2k4.html" target="_blank" rel="external">http://qtzr.net/s/?qt=http://v.qq.com/x/cover/mhlkz47d7thi2k4.html</a></li>
+<li><del>xiguaso:<a href="http://www.xiguaso.com/api/index.php?url=http://v.qq.com/x/cover/mhlkz47d7thi2k4.html" target="_blank" rel="external">http://www.xiguaso.com/api/index.php?url=http://v.qq.com/x/cover/mhlkz47d7thi2k4.html</a></del></li>
+<li>vipjiexi:<a href="http://www.vipjiexi.com/yun.php?url=http://v.qq.com/x/cover/mhlkz47d7thi2k4.html" target="_blank" rel="external">http://www.vipjiexi.com/yun.php?url=http://v.qq.com/x/cover/mhlkz47d7thi2k4.html</a></li>
+</ul>
+<h4 id="芒果tv"><a href="#芒果tv" class="headerlink" title="芒果tv"></a>芒果tv</h4><ul>
+<li>47ks: <a href="http://v.47ks.com/v2/videoplayer/api.html?u=http://www.mgtv.com/v/3/293930/f/3623801.html" target="_blank" rel="external">http://v.47ks.com/v2/videoplayer/api.html?u=http://www.mgtv.com/v/3/293930/f/3623801.html</a></li>
+<li>mmhhw: <a href="http://api.mmhhw.cn/huan6/mgtv.php?vid=3665598" target="_blank" rel="external">http://api.mmhhw.cn/huan6/mgtv.php?vid=3665598</a></li>
+<li>1314yq: <a href="http://api.1314yq.com/mgtv.php?url=http://www.mgtv.com/v/1/303260/f/3665598.html" target="_blank" rel="external">http://api.1314yq.com/mgtv.php?url=http://www.mgtv.com/v/1/303260/f/3665598.html</a></li>
+<li>52jizhi: <a href="http://52jizhi.cn/6/vip1.php?url=http://www.mgtv.com/v/1/303260/f/3665598.html" target="_blank" rel="external">http://52jizhi.cn/6/vip1.php?url=http://www.mgtv.com/v/1/303260/f/3665598.html</a></li>
+</ul>
+<h4 id="优酷"><a href="#优酷" class="headerlink" title="优酷"></a>优酷</h4><ul>
+<li>200919 :  <a href="http://www.200919.com/tv/v.php?url=http://v.youku.com/v_show/id_XMTc3NjUxMDU2MA==.html?spm=a2h03.8164468.2069780.11" target="_blank" rel="external">http://www.200919.com/tv/v.php?url=http://v.youku.com/v_show/id_XMTc3NjUxMDU2MA==.html?spm=a2h03.8164468.2069780.11</a></li>
+<li>quankan : <a href="http://www.quankan.tv/playz/youku.php?url=http://v.youku.com/v_show/id_XMTc2NjA1NDgwNA==.html?spm=a2h03.8164468.2069780.5" target="_blank" rel="external">http://www.quankan.tv/playz/youku.php?url=http://v.youku.com/v_show/id_XMTc2NjA1NDgwNA==.html?spm=a2h03.8164468.2069780.5</a></li>
+<li>moease: <a href="http://www.moease.org/tao_ddv.php?vid=http://v.youku.com/v_show/id_XMTc3NjUxMDU2MA==.html?spm=a2h03.8164468.2069780.11" target="_blank" rel="external">http://www.moease.org/tao_ddv.php?vid=http://v.youku.com/v_show/id_XMTc3NjUxMDU2MA==.html?spm=a2h03.8164468.2069780.11</a></li>
+<li>mmhhw : <a href="http://api.mmhhw.cn/huan6/mgtv66.php?vid=CMzcxNTUzMg==" target="_blank" rel="external">http://api.mmhhw.cn/huan6/mgtv66.php?vid=CMzcxNTUzMg==</a> (c值)</li>
+<li>zhaogou8 : <a href="http://ykyun.zhaogou8.com/?v=CNjgzODc5Ng==" target="_blank" rel="external">http://ykyun.zhaogou8.com/?v=CNjgzODc5Ng==</a> (c值)</li>
+<li>zai63 : <a href="http://player.zai63.com/yunparse/?vid=CMzcxNTUzMg==" target="_blank" rel="external">http://player.zai63.com/yunparse/?vid=CMzcxNTUzMg==</a> (c值)</li>
+</ul>
+<h4 id="腾讯"><a href="#腾讯" class="headerlink" title="腾讯"></a>腾讯</h4><ul>
+<li>quankan: <a href="http://www.quankan.tv/playpc/index.php?url=http://v.qq.com/x/cover/nye24rhm7f8dyry.html" target="_blank" rel="external">http://www.quankan.tv/playpc/index.php?url=http://v.qq.com/x/cover/nye24rhm7f8dyry.html</a></li>
+<li>aikantv: <a href="http://api.aikantv.cc/?url=http://v.qq.com/x/cover/mhlkz47d7thi2k4.html" target="_blank" rel="external">http://api.aikantv.cc/?url=http://v.qq.com/x/cover/mhlkz47d7thi2k4.html</a></li>
+<li>apifree : <a href="http://www.apifree.net/ckplayer.jsp?id=apifree&amp;sp=vqq&amp;by=url&amp;value=http%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Fczi2qltdys4wc3k.html&amp;single=" target="_blank" rel="external">http://www.apifree.net/ckplayer.jsp?id=apifree&amp;sp=vqq&amp;by=url&amp;value=http%3A%2F%2Fv.qq.com%2Fx%2Fcover%2Fczi2qltdys4wc3k.html&amp;single=</a></li>
+</ul>
+<h4 id="爱奇艺"><a href="#爱奇艺" class="headerlink" title="爱奇艺"></a>爱奇艺</h4><ul>
+<li>72du: <a href="http://v.72du.com/api/?url=http://www.iqiyi.com/v_19rr9nt2p8.html" target="_blank" rel="external">http://v.72du.com/api/?url=http://www.iqiyi.com/v_19rr9nt2p8.html</a></li>
+<li>ckplayer: <a href="http://ckplayer.duapp.com/?url=http://www.iqiyi.com/v_19rr9nt2p8.html" target="_blank" rel="external">http://ckplayer.duapp.com/?url=http://www.iqiyi.com/v_19rr9nt2p8.html</a></li>
+<li>yydy8: <a href="http://www.yydy8.com/Common/?url=http://www.iqiyi.com/v_19rr9nt2p8.html" target="_blank" rel="external">http://www.yydy8.com/Common/?url=http://www.iqiyi.com/v_19rr9nt2p8.html</a></li>
+<li>97zxkan: <a href="http://www.97zxkan.com/jiexi/97zxkanapi.php?url=http://www.iqiyi.com/v_19rr9nt2p8.html" target="_blank" rel="external">http://www.97zxkan.com/jiexi/97zxkanapi.php?url=http://www.iqiyi.com/v_19rr9nt2p8.html</a></li>
+<li>20000817: <a href="http://sp.20000817.pw/?url=http://www.iqiyi.com/v_19rrm2t3x0.html" target="_blank" rel="external">http://sp.20000817.pw/?url=http://www.iqiyi.com/v_19rrm2t3x0.html</a></li>
+<li>wanwantv: <a href="http://vip.wanwantv.com/yunparse/?url=http://www.iqiyi.com/v_19rrlzki4s.html" target="_blank" rel="external">http://vip.wanwantv.com/yunparse/?url=http://www.iqiyi.com/v_19rrlzki4s.html</a></li>
+</ul>
+<h4 id="乐视"><a href="#乐视" class="headerlink" title="乐视"></a>乐视</h4><ul>
+<li>mmhhw:<a href="http://api.mmhhw.cn/huan6/letvvip.php?vid=26677046" target="_blank" rel="external">http://api.mmhhw.cn/huan6/letvvip.php?vid=26677046</a></li>
+</ul>
+<h4 id="A-站"><a href="#A-站" class="headerlink" title="A 站"></a>A 站</h4><ul>
+<li>aiwlan : <a href="http://hp.aiwlan.net/79iw.php?vid=1238251&amp;t=ykyun&amp;w=100%&amp;h=94%" target="_blank" rel="external">http://hp.aiwlan.net/79iw.php?vid=1238251&amp;t=ykyun&amp;w=100%&amp;h=94%</a></li>
+</ul>
+<h4 id="2mm"><a href="#2mm" class="headerlink" title="2mm"></a>2mm</h4><ul>
+<li>moondown:<a href="http://moon.moondown.net/2mm.php?url=http://www.2ni.la/sy147" target="_blank" rel="external">http://moon.moondown.net/2mm.php?url=http://www.2ni.la/sy147</a></li>
+</ul>
+<h4 id="接口失效黑色单"><a href="#接口失效黑色单" class="headerlink" title="接口失效黑色单"></a>接口失效黑色单</h4><ul>
+<li>jiexi.71ki.com</li>
+<li>wyccoo.cn</li>
+<li>avziliao</li>
+<li>lklhd</li>
+<li>ehecom.com</li>
+<li>ivlook.com</li>
+<li>rpsofts.com</li>
+<li>shop.freegx.cn</li>
+<li>licoy.cn</li>
+<li>yunbofang.duapp.cn</li>
+<li>api.ppypp</li>
+<li>ccok.top</li>
+<li>qqdzz.com</li>
+<li>vip.77ds.vip</li>
+<li>litools.licoy.cn</li>
+</ul>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><ul>
+<li>舒克高清视频下载:<a href="http://www.shokdown.com/index.php" target="_blank" rel="external">http://www.shokdown.com/index.php</a></li>
+<li>夏贝贝网盘: <a href="http://xabb360.net/index.php?m=Login" target="_blank" rel="external">http://xabb360.net/index.php?m=Login</a></li>
+<li>uzer: <a href="https://uzer.me/" target="_blank" rel="external">https://uzer.me/</a></li>
+<li>买家秀: <a href="http://www.mjxzs.cc/" target="_blank" rel="external">http://www.mjxzs.cc/</a></li>
+<li>豆瓣请不要害羞: <a href="https://f.binux.me/haixiuzu.html" target="_blank" rel="external">https://f.binux.me/haixiuzu.html</a></li>
+<li>豆瓣请不要害羞: <a href="https://haixiu.herokuapp.com/" target="_blank" rel="external">https://haixiu.herokuapp.com/</a></li>
+<li>reddit: <a href="https://www.reddit.com/" target="_blank" rel="external">https://www.reddit.com/</a></li>
+<li>微博视频下载: <a href="http://www.weibovideo.com/" target="_blank" rel="external">http://www.weibovideo.com/</a></li>
+<li>bilibili解析: <a href="http://www.ibilibili.com/video/av8355080/" target="_blank" rel="external">http://www.ibilibili.com/video/av8355080/</a></li>
+<li>斗鱼火箭监控: <a href="http://douyu.shiniv.com/" target="_blank" rel="external">http://douyu.shiniv.com/</a></li>
+<li>百度外链不限速: <a href="http://pan.plyz.net/" target="_blank" rel="external">http://pan.plyz.net/</a></li>
+<li>福利油猴脚本: <a href="https://sleazyfork.org/zh-CN" target="_blank" rel="external">https://sleazyfork.org/zh-CN</a></li>
+<li>网易云音乐: <a href="http://projects.qiyichao.cn/netease-music-parse/" target="_blank" rel="external">http://projects.qiyichao.cn/netease-music-parse/</a></li>
+</ul>
+<h2 id="资讯"><a href="#资讯" class="headerlink" title="资讯"></a>资讯</h2><ul>
+<li>免费吧: <a href="http://www.mianfeib.com/" target="_blank" rel="external">http://www.mianfeib.com/</a></li>
+<li>福利吧: <a href="http://fuliba.net/" target="_blank" rel="external">http://fuliba.net/</a></li>
+<li>nanrenfuli: <a href="http://www.nanrenfuli.com" target="_blank" rel="external">http://www.nanrenfuli.com</a></li>
+<li>番号村: <a href="http://www.fanhaocun.com/" target="_blank" rel="external">http://www.fanhaocun.com/</a></li>
+<li>宅男福利社: <a href="http://www.zhainanfulishe.net/" target="_blank" rel="external">http://www.zhainanfulishe.net/</a></li>
+<li>avbaike: <a href="http://www.avbaike.net" target="_blank" rel="external">http://www.avbaike.net</a></li>
+<li>leglegs: <a href="http://www.leglegs.com/" target="_blank" rel="external">http://www.leglegs.com/</a></li>
+<li>sexvid: <a href="http://sexvid.cc/" target="_blank" rel="external">http://sexvid.cc/</a></li>
+<li>fuzokuav: <a href="http://fuzokuav.com/main.html" target="_blank" rel="external">http://fuzokuav.com/main.html</a></li>
+<li>和邪社: <a href="http://www.hexieshe.com/" target="_blank" rel="external">http://www.hexieshe.com/</a></li>
+<li>magazinesdownload: <a href="http://magazinesdownload.org/" target="_blank" rel="external">http://magazinesdownload.org/</a></li>
+<li>vr: <a href="https://www.alicex.com/" target="_blank" rel="external">https://www.alicex.com/</a></li>
+<li>绝对领域 : <a href="http://www.jdlingyu.moe/" target="_blank" rel="external">http://www.jdlingyu.moe/</a></li>
+<li>骨感女穿包臀裙:<a href="https://www.douban.com/photos/album/1632810621/" target="_blank" rel="external">https://www.douban.com/photos/album/1632810621/</a></li>
+<li>别总是在我背后:<a href="https://www.douban.com/people/56491865/" target="_blank" rel="external">https://www.douban.com/people/56491865/</a></li>
+<li>看bilibili:<a href="http://www.kanbilibili.com/" target="_blank" rel="external">http://www.kanbilibili.com/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      老司机资源汇总
+    
+    </summary>
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
+    
+    
+      <category term="driver" scheme="https://austinxishou.github.io/tags/driver/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设计资源汇总</title>
+    <link href="https://austinxishou.github.io/killtime/cj2l840wp00085opx0u9exkmb/killtime/design/"/>
+    <id>https://austinxishou.github.io/killtime/cj2l840wp00085opx0u9exkmb/killtime/design/</id>
+    <published>2017-05-12T02:16:41.517Z</published>
+    <updated>2017-05-12T02:21:02.414Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><ul>
+<li>牛大拿:<a href="http://niudana.com/" target="_blank" rel="external">http://niudana.com/</a></li>
+</ul>
+<h2 id="视频素材"><a href="#视频素材" class="headerlink" title="视频素材"></a>视频素材</h2><ul>
+<li>视崛:<a href="http://www.shij001.com/" target="_blank" rel="external">http://www.shij001.com/</a></li>
+<li>92素材网:<a href="http://www.92sucai.com/" target="_blank" rel="external">http://www.92sucai.com/</a></li>
+<li>新GG儿:<a href="http://www.newcger.com/" target="_blank" rel="external">http://www.newcger.com/</a></li>
+<li>39视频:<a href="http://www.39video.com/" target="_blank" rel="external">http://www.39video.com/</a></li>
+</ul>
+<h2 id="字体"><a href="#字体" class="headerlink" title="字体"></a>字体</h2><ul>
+<li>找字体: <a href="http://www.qiuziti.com/" target="_blank" rel="external">http://www.qiuziti.com/</a></li>
+</ul>
+<h2 id="设计网站"><a href="#设计网站" class="headerlink" title="设计网站"></a>设计网站</h2><ul>
+<li>优设: <a href="http://www.uisdc.com" target="_blank" rel="external">http://www.uisdc.com</a></li>
+<li>设计癖 : <a href="http://www.shejipi.com/" target="_blank" rel="external">http://www.shejipi.com/</a></li>
+<li>站酷 : <a href="http://www.zcool.com.cn" target="_blank" rel="external">http://www.zcool.com.cn</a></li>
+<li>indienova : <a href="http://indienova.com/" target="_blank" rel="external">http://indienova.com/</a></li>
+<li>建筑 : <a href="http://afasiaarchzine.com/" target="_blank" rel="external">http://afasiaarchzine.com/</a></li>
+<li>创客贴 : <a href="https://www.chuangkit.com/" target="_blank" rel="external">https://www.chuangkit.com/</a></li>
+</ul>
+<h2 id="设计工具"><a href="#设计工具" class="headerlink" title="设计工具"></a>设计工具</h2><ul>
+<li>马克鳗设计稿标注 : <a href="http://www.getmarkman.com/" target="_blank" rel="external">http://www.getmarkman.com/</a></li>
+<li>cutterman切图标注 : <a href="http://www.cutterman.cn/parker" target="_blank" rel="external">http://www.cutterman.cn/parker</a></li>
+<li>标你妹 : <a href="http://www.biaonimeia.com/main" target="_blank" rel="external">http://www.biaonimeia.com/main</a></li>
+<li>截图贴图 : <a href="http://zh.snipaste.com/" target="_blank" rel="external">http://zh.snipaste.com/</a></li>
+<li>配色 : <a href="http://www.fancynode.com.cn/colorcube/home" target="_blank" rel="external">http://www.fancynode.com.cn/colorcube/home</a></li>
+</ul>
+<h2 id="壁纸"><a href="#壁纸" class="headerlink" title="壁纸"></a>壁纸</h2><ul>
+<li>picswalls : <a href="http://www.picswalls.com/" target="_blank" rel="external">http://www.picswalls.com/</a></li>
+<li>brothersoft : <a href="http://wallpapers.brothersoft.com/" target="_blank" rel="external">http://wallpapers.brothersoft.com/</a></li>
+</ul>
+<h2 id="Icon"><a href="#Icon" class="headerlink" title="Icon"></a>Icon</h2><ul>
+<li>nucleoapp : <a href="https://nucleoapp.com/" target="_blank" rel="external">https://nucleoapp.com/</a></li>
+<li>easyicon : <a href="http://www.easyicon.net/" target="_blank" rel="external">http://www.easyicon.net/</a></li>
+<li>dribbble : <a href="https://dribbble.com/" target="_blank" rel="external">https://dribbble.com/</a></li>
+<li>pixabay : <a href="http://pixabay.com/" target="_blank" rel="external">http://pixabay.com/</a></li>
+<li>on1 : <a href="http://www.on1.com/500px/" target="_blank" rel="external">http://www.on1.com/500px/</a></li>
+<li>icons8 : <a href="http://icons8.com/" target="_blank" rel="external">http://icons8.com/</a></li>
+<li>findicons : <a href="http://findicons.com" target="_blank" rel="external">http://findicons.com</a></li>
+<li>iconmatrix : <a href="http://iconmatrix.sharpmark.net/" target="_blank" rel="external">http://iconmatrix.sharpmark.net/</a></li>
+<li>thenounproject : <a href="https://thenounproject.com/" target="_blank" rel="external">https://thenounproject.com/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      设计资源汇总 网页设计资源
+    
+    </summary>
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
+    
+    
+      <category term="design" scheme="https://austinxishou.github.io/tags/design/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="https://austinxishou.github.io/uncategorized/cj2l840wn00065opxhqmercv2/killtime/cartoon/"/>
+    <id>https://austinxishou.github.io/uncategorized/cj2l840wn00065opxhqmercv2/killtime/cartoon/</id>
+    <published>2017-05-12T02:16:41.513Z</published>
+    <updated>2017-03-26T11:28:14.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="动漫"><a href="#动漫" class="headerlink" title="动漫"></a>动漫</h1><h2 id="动漫资源网站"><a href="#动漫资源网站" class="headerlink" title="动漫资源网站"></a>动漫资源网站</h2><ul>
+<li>Animation World Network：<a href="http://www.awn.com/" target="_blank" rel="external">http://www.awn.com/</a></li>
+<li>皮克斯帝国：<a href="http://pixarempire.com/" target="_blank" rel="external">http://pixarempire.com/</a></li>
+<li>动漫花园：<a href="http://share.dmhy.org" target="_blank" rel="external">http://share.dmhy.org</a></li>
+<li>简单动漫：<a href="http://www.36dm.com/" target="_blank" rel="external">http://www.36dm.com/</a></li>
+<li>漫画书：<a href="http://manhuashu.net/" target="_blank" rel="external">http://manhuashu.net/</a></li>
+<li>旋风动漫：<a href="http://bt.xfsub.com/" target="_blank" rel="external">http://bt.xfsub.com/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;动漫&quot;&gt;&lt;a href=&quot;#动漫&quot; class=&quot;headerlink&quot; title=&quot;动漫&quot;&gt;&lt;/a&gt;动漫&lt;/h1&gt;&lt;h2 id=&quot;动漫资源网站&quot;&gt;&lt;a href=&quot;#动漫资源网站&quot; class=&quot;headerlink&quot; title=&quot;动漫资源网站&quot;&gt;&lt;/a&gt;动
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>Android 冻结APP</title>
@@ -419,7 +987,7 @@
     <link href="https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/"/>
     <id>https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/</id>
     <published>2017-04-13T01:48:54.373Z</published>
-    <updated>2017-05-04T09:34:05.993Z</updated>
+    <updated>2017-05-05T02:10:20.568Z</updated>
     
     <content type="html"><![CDATA[<h2 id="工程编译类"><a href="#工程编译类" class="headerlink" title="工程编译类"></a>工程编译类</h2><h3 id="Gradle-错误-Failed-to-complete-Gradle-execution"><a href="#Gradle-错误-Failed-to-complete-Gradle-execution" class="headerlink" title="Gradle 错误 Failed to complete Gradle execution."></a>Gradle 错误 Failed to complete Gradle execution.</h3><p><strong>问题描述:</strong></p>
 <blockquote>
@@ -443,6 +1011,22 @@
 <p>aaptOptions.cruncherEnabled = false</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion <span class="number">25</span></div><div class="line">    buildToolsVersion <span class="string">"25.0.2"</span></div><div class="line">    aaptOptions.cruncherEnabled = <span class="keyword">false</span></div><div class="line">    useLibrary <span class="string">'org.apache.http.legacy'</span></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId <span class="string">"com.Mankewan.manke"</span></div><div class="line">        minSdkVersion <span class="number">15</span></div><div class="line">        targetSdkVersion <span class="number">25</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            <span class="function">minifyEnabled <span class="keyword">false</span></span></div><div class="line">            proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.txt'</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Gradle-Could-not-create-parent-directory-for-lock-file"><a href="#Gradle-Could-not-create-parent-directory-for-lock-file" class="headerlink" title="Gradle Could not create parent directory for lock file"></a>Gradle Could not create parent directory for lock file</h3><p><strong>问题描述</strong><br>Error:Could not create parent directory for lock file C:\Users\Administrator.gradle\wrapper\dists\D:AustinDevtoolsgradlegradle-3.4.1-all…gradlegradle-3.4.1-all.zip.lck</p>
+<p><strong>解决方法</strong></p>
+<blockquote>
+<p>在Android studio 设置中,把gradle设置成 Use local gradle distribution</p>
+</blockquote>
+<h3 id="Android-支持库"><a href="#Android-支持库" class="headerlink" title="Android 支持库"></a>Android 支持库</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p>Error:Could not find method compile() for arguments [com.android.support:appcompat-v7:19.1.0] on root project ‘Aaaa’.</p>
+<p>Please install the Android Support Repository from the Android SDK Manager.</p>
+</blockquote>
+<p><strong>问题说明</strong><br>Android的支持库位置声明错误,应该放在模块的gradle文件中,而不是顶层的gradle文件中</p>
+<blockquote>
+<p>You’ve put your dependencies block in the wrong build.gradle file. Instead of the top-level build file, put it in your module’s build file instead.</p>
+</blockquote>
+<p><strong>解决方法</strong><br>在模块的gradle文件中,添加</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'com.android.support:appcompat-v7:19.1.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h3 id="Android程序报错程序包org-apache-http不存在问题的解决方法"><a href="#Android程序报错程序包org-apache-http不存在问题的解决方法" class="headerlink" title="Android程序报错程序包org.apache.http不存在问题的解决方法"></a>Android程序报错程序包org.apache.http不存在问题的解决方法</h3><p><strong>问题描述</strong></p>
 <blockquote>
 <p>Android程序报错程序包org.apache.http不存在问题的解决方法</p>
@@ -747,408 +1331,6 @@
       <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
     
       <category term="app" scheme="https://austinxishou.github.io/tags/app/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android自启动管理功能</title>
-    <link href="https://austinxishou.github.io/android/cj1fzsj46003e0kpxof6t7b5z/android/Android%E8%87%AA%E5%90%AF%E5%8A%A8%E7%AE%A1%E7%90%86%E5%8A%9F%E8%83%BD/"/>
-    <id>https://austinxishou.github.io/android/cj1fzsj46003e0kpxof6t7b5z/android/Android自启动管理功能/</id>
-    <published>2017-03-31T06:37:05.178Z</published>
-    <updated>2017-03-31T07:35:02.108Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>基本功能: 获取设备上所有应用的开机启动完成的广播接收者,同时区分系统应用和用户应用.<br>然后,提供界面接口给用户,统一管理应用的自启动功能,这样可以提升系统的运行性能和待机时长;</p>
-<h2 id="获取所有receivers-区分是否使能"><a href="#获取所有receivers-区分是否使能" class="headerlink" title="获取所有receivers 区分是否使能"></a>获取所有receivers 区分是否使能</h2><p>获取包含被禁止自启动receiver的信息<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;ResolveInfo&gt; forbidInfoList = mPackageManager.queryBroadcastReceivers(intent,PackageManager.GET_DISABLED_COMPONENTS);</div></pre></td></tr></table></figure></p>
-<p>获取所有使能的 receivers<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">List&lt;ResolveInfo&gt; allowInfoList = mPackageManager.queryBroadcastReceivers(intent,PackageManager.GET_RECEIVERS);</div></pre></td></tr></table></figure></p>
-<p>两个列表比较,标志receivers是否开启<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;allowInfoList.size(); k++)&#123;</div><div class="line">	<span class="keyword">if</span>( allowInfoList.get(k).activityInfo.packageName.equals(packageName) )&#123;</div><div class="line">		isEnable =<span class="keyword">true</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="判断是否为系统应用"><a href="#判断是否为系统应用" class="headerlink" title="判断是否为系统应用"></a>判断是否为系统应用</h2><p>通过ApplicationInfo.FLAG_SYSTEM标志,判断是否为系统应用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span>((forbidInfoList.get(i).activityInfo.applicationInfo.flags&amp;ApplicationInfo.FLAG_SYSTEM)==<span class="number">1</span>||  </div><div class="line">(forbidInfoList.get(i).activityInfo.applicationInfo.flags&amp;ApplicationInfo.FLAG_UPDATED_SYSTEM_APP)==<span class="number">1</span>)&#123;</div><div class="line">	isSystem = <span class="keyword">true</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="判断是否运行并获取内存占用大小"><a href="#判断是否运行并获取内存占用大小" class="headerlink" title="判断是否运行并获取内存占用大小"></a>判断是否运行并获取内存占用大小</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">float</span> memUsed = <span class="number">0</span>;</div><div class="line">ArrayList&lt;Integer&gt; pid = <span class="keyword">new</span> ArrayList&lt;Integer&gt;(runningApps.size());</div><div class="line"><span class="comment">//循环处理正在运行进程</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>; k&lt;runningApps.size(); k++)&#123;</div><div class="line">	<span class="keyword">if</span>(runningApps.get(k).processName.equals(packageName))&#123;</div><div class="line">		<span class="comment">// Log.e("ycltest","in runningApps list find the right process,handle it");</span></div><div class="line">		pid.add( Integer.valueOf(runningApps.get(k).pid) );</div><div class="line">	&#125;<span class="keyword">else</span>&#123;</div><div class="line">		<span class="keyword">continue</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">if</span>( pid.size() == <span class="number">0</span>)&#123;</div><div class="line">	isRun = <span class="keyword">false</span>;</div><div class="line">&#125;<span class="keyword">else</span>&#123;</div><div class="line">	<span class="comment">//获取内存大小</span></div><div class="line">	isRun = <span class="keyword">true</span>;</div><div class="line">	<span class="keyword">int</span>[] pids = <span class="keyword">new</span> <span class="keyword">int</span>[pid.size()];</div><div class="line">	</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> num=<span class="number">0</span>; num&lt;pid.size(); num++) &#123;</div><div class="line">		pids[num] = pid.get(num).intValue();</div><div class="line">	&#125;</div><div class="line">	Debug.MemoryInfo[] mi = mActivityManager.getProcessMemoryInfo(pids);</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> num=<span class="number">0</span>; num&lt;mi.length; num++) &#123;</div><div class="line">		memUsed += (<span class="keyword">float</span>)(mi[num].getTotalPrivateDirty()+mi[num].getTotalPss())/<span class="number">1024</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="关闭和开启Receiver"><a href="#关闭和开启Receiver" class="headerlink" title="关闭和开启Receiver"></a>关闭和开启Receiver</h2><p>通过PackageManager.setComponentEnabledSetting方法,关闭和开启Receiver</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">updatePackageReceiverState</span><span class="params">( PackageEntry item, <span class="keyword">boolean</span> isChecked)</span></span>&#123;</div><div class="line">	String packageReceiverList[] = item.getPackageReceivers().split(<span class="string">";"</span>);</div><div class="line">	<span class="keyword">int</span> newState = isChecked ? PackageManager.COMPONENT_ENABLED_STATE_ENABLED : PackageManager.COMPONENT_ENABLED_STATE_DISABLED;</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;packageReceiverList.length; i++) &#123;</div><div class="line">		<span class="keyword">if</span>( packageReceiverList[i] != <span class="keyword">null</span> )&#123;</div><div class="line">			ComponentName comName = <span class="keyword">new</span> ComponentName(item.getPackageName(), packageReceiverList[i]);</div><div class="line">			<span class="keyword">int</span> flag = <span class="number">0</span>;</div><div class="line">			<span class="keyword">if</span>( item.getPackageName().equals(<span class="string">"com.android.settings"</span>) )&#123;</div><div class="line">				flag = PackageManager.DONT_KILL_APP;</div><div class="line">			&#125;</div><div class="line">			mPackageManager.setComponentEnabledSetting(comName,newState, flag);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="其他功能"><a href="#其他功能" class="headerlink" title="其他功能"></a>其他功能</h2><p>其他功能包括,列表排序,列表更新,无应用列表图片显示等,不在这里详细展开!</p>
-]]></content>
-    
-    <summary type="html">
-    
-      Android autostart manager
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="app" scheme="https://austinxishou.github.io/tags/app/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android发送广播详解</title>
-    <link href="https://austinxishou.github.io/android/cj1fzsj3r00300kpxc8jexeii/android/Android%E5%8F%91%E9%80%81%E5%B9%BF%E6%92%AD%E8%AF%A6%E8%A7%A3/"/>
-    <id>https://austinxishou.github.io/android/cj1fzsj3r00300kpxc8jexeii/android/Android发送广播详解/</id>
-    <published>2017-03-31T06:22:32.229Z</published>
-    <updated>2017-03-31T07:34:50.276Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="调用ContextImpl进行发送"><a href="#调用ContextImpl进行发送" class="headerlink" title="调用ContextImpl进行发送"></a>调用ContextImpl进行发送</h2><p>同样，不管是<code>Activity</code>、<code>Service</code>上发送广播，最终实现都在<code>ContextImpl</code>，最后发送到<code>ActivityManagerService</code>处理</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"> <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sendBroadcast</span><span class="params">(Intent intent)</span> </span>&#123;</div><div class="line">     warnIfCallingFromSystemProcess();</div><div class="line">     String resolvedType = intent.resolveTypeIfNeeded(getContentResolver());</div><div class="line">     <span class="keyword">try</span> &#123;</div><div class="line">         intent.prepareToLeaveProcess();</div><div class="line">         ActivityManagerNative.getDefault().broadcastIntent(</div><div class="line">             mMainThread.getApplicationThread(), intent, resolvedType, <span class="keyword">null</span>,</div><div class="line">             Activity.RESULT_OK, <span class="keyword">null</span>, <span class="keyword">null</span>, <span class="keyword">null</span>, AppOpsManager.OP_NONE, <span class="keyword">false</span>, <span class="keyword">false</span>,</div><div class="line">             getUserId());</div><div class="line">     &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</div><div class="line">     &#125;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
-<h2 id="ActivityManagerProxy发送到AMS"><a href="#ActivityManagerProxy发送到AMS" class="headerlink" title="ActivityManagerProxy发送到AMS"></a>ActivityManagerProxy发送到AMS</h2><p>由<code>ActivityManagerProxy</code>发送到<code>AMS</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//resultTo：null，resultCode：-resultData：null，map：null，requiredPermission：null</span></div><div class="line"><span class="comment">//appOp：-1，serialized：false，sticky：false</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">broadcastIntent</span><span class="params">(IApplicationThread caller,</span></span></div><div class="line">        Intent intent, String resolvedType,  IIntentReceiver resultTo,</div><div class="line">        <span class="keyword">int</span> resultCode, String resultData, Bundle map,</div><div class="line">        String requiredPermission, <span class="keyword">int</span> appOp, <span class="keyword">boolean</span> serialized,</div><div class="line">        <span class="keyword">boolean</span> sticky, <span class="keyword">int</span> userId) <span class="keyword">throws</span> RemoteException</div><div class="line">&#123;</div><div class="line">    Parcel data = Parcel.obtain();</div><div class="line">    Parcel reply = Parcel.obtain();</div><div class="line">    data.writeInterfaceToken(IActivityManager.descriptor);</div><div class="line">    data.writeStrongBinder(caller != <span class="keyword">null</span> ? caller.asBinder() : <span class="keyword">null</span>);</div><div class="line">    intent.writeToParcel(data, <span class="number">0</span>);</div><div class="line">    data.writeString(resolvedType);</div><div class="line">    data.writeStrongBinder(resultTo != <span class="keyword">null</span> ? resultTo.asBinder() : <span class="keyword">null</span>);</div><div class="line">    data.writeInt(resultCode);</div><div class="line">    data.writeString(resultData);</div><div class="line">    data.writeBundle(map);</div><div class="line">    data.writeString(requiredPermission);</div><div class="line">    data.writeInt(appOp);</div><div class="line">    data.writeInt(serialized ? <span class="number">1</span> : <span class="number">0</span>);</div><div class="line">    data.writeInt(sticky ? <span class="number">1</span> : <span class="number">0</span>);</div><div class="line">    data.writeInt(userId);</div><div class="line">    mRemote.transact(BROADCAST_INTENT_TRANSACTION, data, reply, <span class="number">0</span>);</div><div class="line">    reply.readException();</div><div class="line">    <span class="keyword">int</span> res = reply.readInt();</div><div class="line">    reply.recycle();</div><div class="line">    data.recycle();</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="AMS处理BROADCAST-INTENT-TRANSACTION"><a href="#AMS处理BROADCAST-INTENT-TRANSACTION" class="headerlink" title="AMS处理BROADCAST_INTENT_TRANSACTION"></a>AMS处理BROADCAST_INTENT_TRANSACTION</h2><p><code>AMS</code>处理<code>BROADCAST_INTENT_TRANSACTION</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//resultTo：null，resultCode：-resultData：null，map：null，requiredPermission：null</span></div><div class="line"><span class="comment">//appOp：-1，serialized：false，sticky：false</span></div><div class="line"><span class="keyword">case</span> BROADCAST_INTENT_TRANSACTION:</div><div class="line">        &#123;</div><div class="line">            data.enforceInterface(IActivityManager.descriptor);</div><div class="line">            IBinder b = data.readStrongBinder();</div><div class="line">            IApplicationThread app =b != <span class="keyword">null</span> ? ApplicationThreadNative.asInterface(b) : <span class="keyword">null</span>;<span class="comment">//依然是Binder本地对象</span></div><div class="line">            Intent intent = Intent.CREATOR.createFromParcel(data);</div><div class="line">            String resolvedType = data.readString();</div><div class="line">            b = data.readStrongBinder();<span class="comment">//null</span></div><div class="line">            IIntentReceiver resultTo =b != <span class="keyword">null</span> ? IIntentReceiver.Stub.asInterface(b) : <span class="keyword">null</span>;<span class="comment">//null</span></div><div class="line">            <span class="keyword">int</span> resultCode = data.readInt();<span class="comment">//-1</span></div><div class="line">            String resultData = data.readString();<span class="comment">//null</span></div><div class="line">            Bundle resultExtras = data.readBundle();<span class="comment">//null</span></div><div class="line">            String perm = data.readString();<span class="comment">//null</span></div><div class="line">            <span class="keyword">int</span> appOp = data.readInt();<span class="comment">//-1</span></div><div class="line">            <span class="keyword">boolean</span> serialized = data.readInt() != <span class="number">0</span>;<span class="comment">//0</span></div><div class="line">            <span class="keyword">boolean</span> sticky = data.readInt() != <span class="number">0</span>;<span class="comment">//0</span></div><div class="line">            <span class="keyword">int</span> userId = data.readInt();</div><div class="line">            <span class="keyword">int</span> res = broadcastIntent(app, intent, resolvedType, resultTo,</div><div class="line">                    resultCode, resultData, resultExtras, perm, appOp,</div><div class="line">                    serialized, sticky, userId);</div><div class="line">            reply.writeNoException();</div><div class="line">            reply.writeInt(res);</div><div class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">        &#125;</div></pre></td></tr></table></figure></p>
-<p>首先检验<code>Intent</code>的有效性，是否带文件描述符，如果进程未启动完成，带<code>FLAG_RECEIVER_REGISTERED_ONLY_BEFORE_BOOT</code>，表示可以在进程未启动完之前接收广播，没有该标识则抛异常，接着调用方法<code>broadcastIntentLocked</code>处理<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//resultTo：null，resultCode：-resultData：null，map：null，requiredPermission：null</span></div><div class="line"><span class="comment">//appOp：-1，serialized：false，sticky：false</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">broadcastIntent</span><span class="params">(IApplicationThread caller,</span></span></div><div class="line">        Intent intent, String resolvedType, IIntentReceiver resultTo,</div><div class="line">        <span class="keyword">int</span> resultCode, String resultData, Bundle map,</div><div class="line">        String requiredPermission, <span class="keyword">int</span> appOp, <span class="keyword">boolean</span> serialized, <span class="keyword">boolean</span> sticky, <span class="keyword">int</span> userId) &#123;</div><div class="line">    enforceNotIsolatedCaller(<span class="string">"broadcastIntent"</span>);</div><div class="line">    <span class="keyword">synchronized</span>(<span class="keyword">this</span>) &#123;</div><div class="line">    <span class="comment">//intent有效性检查，不能带文件描述符</span></div><div class="line">        intent = verifyBroadcastLocked(intent);</div><div class="line">        <span class="keyword">final</span> ProcessRecord callerApp = getRecordForAppLocked(caller);</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> callingPid = Binder.getCallingPid();</div><div class="line">        <span class="keyword">final</span> <span class="keyword">int</span> callingUid = Binder.getCallingUid();</div><div class="line">        <span class="keyword">final</span> <span class="keyword">long</span> origId = Binder.clearCallingIdentity();</div><div class="line">        <span class="keyword">int</span> res = broadcastIntentLocked(callerApp,</div><div class="line">                callerApp != <span class="keyword">null</span> ? callerApp.info.packageName : <span class="keyword">null</span>,</div><div class="line">                intent, resolvedType, resultTo,</div><div class="line">                resultCode, resultData, map, requiredPermission, appOp, serialized, sticky,</div><div class="line">                callingPid, callingUid, userId);</div><div class="line">        Binder.restoreCallingIdentity(origId);</div><div class="line">        <span class="keyword">return</span> res;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="broadcastIntentLocked获取目标Receivers"><a href="#broadcastIntentLocked获取目标Receivers" class="headerlink" title="broadcastIntentLocked获取目标Receivers"></a>broadcastIntentLocked获取目标Receivers</h2><p>首先处理一些特殊的广播，如：接收到<code>PackageManager</code>发来的应用包移除广播，就会把所有属于该包下的<code>ActivityRecord</code>出栈等，<code>AMS</code>内有两种广播队列，分别是前台广播队列<code>mFgBroadcastQueue</code>保存带<code>FLAG_RECEIVER_FOREGROUND</code>的广播，和后台广播队列<code>mBgBroadcastQueue</code>，先会尝试向并行<code>receivers</code>递送广播，此时会调用到<code>queue.scheduleBroadcastsLocked()</code>，简单地说就是，新建一个<code>BroadcastRecord</code>节点，并插入对应的<code>BroadcastQueue</code>，最后发起实际的广播调度（<code>scheduleBroadcastsLocked()</code>），不光并行处理部分需要一个<code>BroadcastRecord</code>节点，串行处理部分也需要<code>BroadcastRecord</code>节点。也就是说，要激发一次广播，<code>AMS</code>必须构造一个或两个<code>BroadcastRecord</code>节点，并将之插入合适的广播队列。插入成功后，再执行队列的<code>scheduleBroadcastsLocked()</code>动作<br><code>BroadcastRecord</code>节点内部的<code>receivers</code>列表，记录着和这个广播动作相关的目标<code>receiver</code>信息，该列表内部的子节点可能是<code>ResolveInfo</code>类型的，也可能是<code>BroadcastFilter</code>类型的。<code>ResolveInfo</code>是从<code>PKMS</code>处查到的静态<code>receiver</code>的描述信息，它的源头是<code>PKMS</code>解析的那些<code>AndroidManifest.xml</code>文件。而<code>BroadcastFilter</code>来自于动态注册<code>receiver</code>时，保存在<code>AMS</code>成员变量<code>mReceiverResolver</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//resultTo：null，resultCode：-resultData：null，map：null，requiredPermission：null</span></div><div class="line"><span class="comment">//appOp：-1，serialized：false，sticky：false</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> <span class="title">broadcastIntentLocked</span><span class="params">(ProcessRecord callerApp,</span></span></div><div class="line">        String callerPackage, Intent intent, String resolvedType,</div><div class="line">        IIntentReceiver resultTo, <span class="keyword">int</span> resultCode, String resultData,</div><div class="line">        Bundle map, String requiredPermission, <span class="keyword">int</span> appOp,</div><div class="line">        <span class="keyword">boolean</span> ordered, <span class="keyword">boolean</span> sticky, <span class="keyword">int</span> callingPid, <span class="keyword">int</span> callingUid,</div><div class="line">        <span class="keyword">int</span> userId) &#123;</div><div class="line">    intent = <span class="keyword">new</span> Intent(intent);</div><div class="line"></div><div class="line">    <span class="comment">// By default broadcasts do not go to stopped apps.</span></div><div class="line">    <span class="comment">//在Android3.1之后，PKMS加强了对“处于停止状态的”应用的管理。如果一个应用在安装后从来没有启动过，或者已经被用户强制停止了，那么这个应用就处于停止状态（stoppedstate）。为了达到精细调整的目的，Android增加了2个flag：FLAG_INCLUDE_STOPPED_PACKAGES和FLAG_EXCLUDE_STOPPED_PACKAGES，以此来表示intent是否要激活“处于停止状态的”应用。而默认则是不激活</span></div><div class="line">    intent.addFlags(Intent.FLAG_EXCLUDE_STOPPED_PACKAGES);</div><div class="line"></div><div class="line">    <span class="comment">//....</span></div><div class="line"></div><div class="line">    userId = handleIncomingUser(callingPid, callingUid, userId,<span class="keyword">true</span>, <span class="keyword">false</span>, <span class="string">"broadcast"</span>, callerPackage);<span class="comment">//权限检测</span></div><div class="line"></div><div class="line">    <span class="comment">// Make sure that the user who is receiving this broadcast is started.</span></div><div class="line">    <span class="comment">// If not, we will just skip it.</span></div><div class="line">    <span class="keyword">if</span> (userId != UserHandle.USER_ALL &amp;&amp; mStartedUsers.get(userId) == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (callingUid != Process.SYSTEM_UID || (intent.getFlags()</div><div class="line">                &amp; Intent.FLAG_RECEIVER_BOOT_UPGRADE) == <span class="number">0</span>) &#123;</div><div class="line">            Slog.w(TAG, <span class="string">"Skipping broadcast of "</span> + intent+ <span class="string">": user "</span> + userId + <span class="string">" is stopped"</span>);</div><div class="line">            <span class="keyword">return</span> ActivityManager.BROADCAST_SUCCESS;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/*</span></div><div class="line">     * Prevent non-system code (defined here to be non-persistent processes) from sending protected broadcasts.</div><div class="line">     */</div><div class="line">    <span class="keyword">int</span> callingAppId = UserHandle.getAppId(callingUid);</div><div class="line">    <span class="keyword">if</span> (callingAppId == Process.SYSTEM_UID || callingAppId == Process.PHONE_UID</div><div class="line">        || callingAppId == Process.SHELL_UID || callingAppId == Process.BLUETOOTH_UID ||</div><div class="line">        callingUid == <span class="number">0</span>) &#123;</div><div class="line">        <span class="comment">// Always okay.</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (callerApp == <span class="keyword">null</span> || !callerApp.persistent) &#123;</div><div class="line">        <span class="comment">//...</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Handle special intents: if this broadcast is from the package</span></div><div class="line">    <span class="comment">// manager about a package being removed, we need to remove all of</span></div><div class="line">    <span class="comment">// its activities from the history stack.</span></div><div class="line">    <span class="keyword">final</span> <span class="keyword">boolean</span> uidRemoved = Intent.ACTION_UID_REMOVED.equals(intent.getAction());</div><div class="line">    <span class="keyword">if</span> (Intent.ACTION_PACKAGE_REMOVED.equals(intent.getAction())</div><div class="line">            || Intent.ACTION_PACKAGE_CHANGED.equals(intent.getAction())</div><div class="line">            || Intent.ACTION_EXTERNAL_APPLICATIONS_UNAVAILABLE.equals(intent.getAction())</div><div class="line">            || uidRemoved) &#123;</div><div class="line">        <span class="keyword">if</span> (checkComponentPermission(android.Manifest.permission.BROADCAST_PACKAGE_REMOVED,callingPid, callingUid, -<span class="number">1</span>, <span class="keyword">true</span>)</div><div class="line">                == PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">            <span class="keyword">if</span> (uidRemoved) &#123;</div><div class="line">                <span class="keyword">final</span> Bundle intentExtras = intent.getExtras();</div><div class="line">                <span class="keyword">final</span> <span class="keyword">int</span> uid = intentExtras != <span class="keyword">null</span></div><div class="line">                        ? intentExtras.getInt(Intent.EXTRA_UID) : -<span class="number">1</span>;</div><div class="line">                <span class="keyword">if</span> (uid &gt;= <span class="number">0</span>) &#123;</div><div class="line">                    BatteryStatsImpl bs = mBatteryStatsService.getActiveStatistics();</div><div class="line">                    <span class="keyword">synchronized</span> (bs) &#123;</div><div class="line">                        bs.removeUidStatsLocked(uid);</div><div class="line">                    &#125;</div><div class="line">                    mAppOpsService.uidRemoved(uid);</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">// If resources are unavailable just force stop all</span></div><div class="line">                <span class="comment">// those packages and flush the attribute cache as well.</span></div><div class="line">                <span class="keyword">if</span> (Intent.ACTION_EXTERNAL_APPLICATIONS_UNAVAILABLE.equals(intent.getAction())) &#123;</div><div class="line">                    String list[] = intent.getStringArrayExtra(Intent.EXTRA_CHANGED_PACKAGE_LIST);</div><div class="line">                    <span class="keyword">if</span> (list != <span class="keyword">null</span> &amp;&amp; (list.length &gt; <span class="number">0</span>)) &#123;</div><div class="line">                        <span class="keyword">for</span> (String pkg : list) &#123;</div><div class="line">                            forceStopPackageLocked(pkg, -<span class="number">1</span>, <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>, <span class="keyword">false</span>, userId,</div><div class="line">                                    <span class="string">"storage unmount"</span>);</div><div class="line">                        &#125;</div><div class="line">                        sendPackageBroadcastLocked(</div><div class="line">                                IApplicationThread.EXTERNAL_STORAGE_UNAVAILABLE, list, userId);</div><div class="line">                    &#125;</div><div class="line">                &#125; <span class="keyword">else</span> &#123;</div><div class="line">                    Uri data = intent.getData();</div><div class="line">                    String ssp;</div><div class="line">                    <span class="keyword">if</span> (data != <span class="keyword">null</span> &amp;&amp; (ssp=data.getSchemeSpecificPart()) != <span class="keyword">null</span>) &#123;</div><div class="line">                        <span class="keyword">boolean</span> removed = Intent.ACTION_PACKAGE_REMOVED.equals(</div><div class="line">                                intent.getAction());</div><div class="line">                        <span class="keyword">if</span> (!intent.getBooleanExtra(Intent.EXTRA_DONT_KILL_APP, <span class="keyword">false</span>)) &#123;</div><div class="line">                            forceStopPackageLocked(ssp, UserHandle.getAppId(</div><div class="line">                                    intent.getIntExtra(Intent.EXTRA_UID, -<span class="number">1</span>)), <span class="keyword">false</span>, <span class="keyword">true</span>, <span class="keyword">true</span>,</div><div class="line">                                    <span class="keyword">false</span>, userId, removed ? <span class="string">"pkg removed"</span> : <span class="string">"pkg changed"</span>);</div><div class="line">                        &#125;</div><div class="line">                        <span class="keyword">if</span> (removed) &#123;</div><div class="line">                            sendPackageBroadcastLocked(IApplicationThread.PACKAGE_REMOVED,</div><div class="line">                                    <span class="keyword">new</span> String[] &#123;ssp&#125;, userId);</div><div class="line">                            <span class="keyword">if</span> (!intent.getBooleanExtra(Intent.EXTRA_REPLACING, <span class="keyword">false</span>)) &#123;</div><div class="line">                                mAppOpsService.packageRemoved(</div><div class="line">                                        intent.getIntExtra(Intent.EXTRA_UID, -<span class="number">1</span>), ssp);</div><div class="line"></div><div class="line">                                <span class="comment">// Remove all permissions granted from/to this package</span></div><div class="line">                                removeUriPermissionsForPackageLocked(ssp, userId, <span class="keyword">true</span>);</div><div class="line">                            &#125;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="comment">//"Permission Denial: "</span></div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(msg);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Special case for adding a package: by default turn on compatibility mode.</span></div><div class="line">    &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Intent.ACTION_PACKAGE_ADDED.equals(intent.getAction())) &#123;</div><div class="line">        Uri data = intent.getData();</div><div class="line">        String ssp;</div><div class="line">        <span class="keyword">if</span> (data != <span class="keyword">null</span> &amp;&amp; (ssp=data.getSchemeSpecificPart()) != <span class="keyword">null</span>) &#123;</div><div class="line">            mCompatModePackages.handlePackageAddedLocked(ssp,</div><div class="line">                    intent.getBooleanExtra(Intent.EXTRA_REPLACING, <span class="keyword">false</span>));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/*</span></div><div class="line">     * If this is the time zone changed action, queue up a message that will reset the timezone</div><div class="line">     * of all currently running processes. This message will get queued up before the broadcast</div><div class="line">     * happens.</div><div class="line">     */</div><div class="line">    <span class="keyword">if</span> (intent.ACTION_TIMEZONE_CHANGED.equals(intent.getAction())) &#123;</div><div class="line">        mHandler.sendEmptyMessage(UPDATE_TIME_ZONE);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (intent.ACTION_CLEAR_DNS_CACHE.equals(intent.getAction())) &#123;</div><div class="line">        mHandler.sendEmptyMessage(CLEAR_DNS_CACHE_MSG);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (Proxy.PROXY_CHANGE_ACTION.equals(intent.getAction())) &#123;</div><div class="line">        ProxyProperties proxy = intent.getParcelableExtra(<span class="string">"proxy"</span>);</div><div class="line">        mHandler.sendMessage(mHandler.obtainMessage(UPDATE_HTTP_PROXY_MSG, proxy));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Add to the sticky list if requested.</span></div><div class="line">    <span class="keyword">if</span> (sticky) &#123;<span class="comment">//false，先忽略</span></div><div class="line">        <span class="keyword">if</span> (checkPermission(android.Manifest.permission.BROADCAST_STICKY,callingPid, callingUid)</div><div class="line">                != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">                  <span class="comment">//...</span></div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(msg);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (requiredPermission != <span class="keyword">null</span>) &#123;</div><div class="line">            Slog.w(TAG, <span class="string">"Can't broadcast sticky intent "</span> + intent+ <span class="string">" and enforce permission "</span> + requiredPermission);</div><div class="line">            <span class="keyword">return</span> ActivityManager.BROADCAST_STICKY_CANT_HAVE_PERMISSION;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (intent.getComponent() != <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> SecurityException(<span class="string">"Sticky broadcasts can't target a specific component"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// We use userId directly here, since the "all" target is maintained</span></div><div class="line">        <span class="comment">// as a separate set of sticky broadcasts.</span></div><div class="line">        <span class="keyword">if</span> (userId != UserHandle.USER_ALL) &#123;</div><div class="line">            <span class="comment">// But first, if this is not a broadcast to all users, then</span></div><div class="line">            <span class="comment">// make sure it doesn't conflict with an existing broadcast to</span></div><div class="line">            <span class="comment">// all users.</span></div><div class="line">            ArrayMap&lt;String, ArrayList&lt;Intent&gt;&gt; stickies = mStickyBroadcasts.get(</div><div class="line">                    UserHandle.USER_ALL);</div><div class="line">            <span class="keyword">if</span> (stickies != <span class="keyword">null</span>) &#123;</div><div class="line">                ArrayList&lt;Intent&gt; list = stickies.get(intent.getAction());</div><div class="line">                <span class="keyword">if</span> (list != <span class="keyword">null</span>) &#123;</div><div class="line">                    <span class="keyword">int</span> N = list.size();</div><div class="line">                    <span class="keyword">int</span> i;</div><div class="line">                    <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;N; i++) &#123;</div><div class="line">                        <span class="keyword">if</span> (intent.filterEquals(list.get(i))) &#123;</div><div class="line">                            <span class="keyword">throw</span> <span class="keyword">new</span> IllegalArgumentException(</div><div class="line">                                    <span class="string">"Sticky broadcast "</span> + intent + <span class="string">" for user "</span></div><div class="line">                                    + userId + <span class="string">" conflicts with existing global broadcast"</span>);</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        ArrayMap&lt;String, ArrayList&lt;Intent&gt;&gt; stickies = mStickyBroadcasts.get(userId);</div><div class="line">        <span class="keyword">if</span> (stickies == <span class="keyword">null</span>) &#123;</div><div class="line">            stickies = <span class="keyword">new</span> ArrayMap&lt;String, ArrayList&lt;Intent&gt;&gt;();</div><div class="line">            mStickyBroadcasts.put(userId, stickies);</div><div class="line">        &#125;</div><div class="line">        ArrayList&lt;Intent&gt; list = stickies.get(intent.getAction());</div><div class="line">        <span class="keyword">if</span> (list == <span class="keyword">null</span>) &#123;</div><div class="line">            list = <span class="keyword">new</span> ArrayList&lt;Intent&gt;();</div><div class="line">            stickies.put(intent.getAction(), list);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> N = list.size();</div><div class="line">        <span class="keyword">int</span> i;</div><div class="line">        <span class="keyword">for</span> (i=<span class="number">0</span>; i&lt;N; i++) &#123;</div><div class="line">            <span class="keyword">if</span> (intent.filterEquals(list.get(i))) &#123;</div><div class="line">                <span class="comment">// This sticky already exists, replace it.</span></div><div class="line">                list.set(i, <span class="keyword">new</span> Intent(intent));</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (i &gt;= N) &#123;</div><div class="line">            list.add(<span class="keyword">new</span> Intent(intent));</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">int</span>[] users;</div><div class="line">    <span class="keyword">if</span> (userId == UserHandle.USER_ALL) &#123;</div><div class="line">        <span class="comment">// Caller wants broadcast to go to all started users.</span></div><div class="line">        users = mStartedUserArray;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// Caller wants broadcast to go to one specific user.</span></div><div class="line">        users = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;userId&#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// Figure out who all will receive this broadcast.</span></div><div class="line">    List receivers = <span class="keyword">null</span>;</div><div class="line">    List&lt;BroadcastFilter&gt; registeredReceivers = <span class="keyword">null</span>;</div><div class="line">    <span class="comment">// Need to resolve the intent to interested receivers...</span></div><div class="line">    <span class="comment">//FLAG_RECEIVER_REGISTERED_ONLY标识标识的是动态注册的广播，至于静态注册的广播是通过PackageManager获得</span></div><div class="line">    <span class="keyword">if</span> ((intent.getFlags()&amp;Intent.FLAG_RECEIVER_REGISTERED_ONLY)== <span class="number">0</span>) &#123;</div><div class="line">        receivers = collectReceiverComponents(intent, resolvedType, users);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (intent.getComponent() == <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="comment">//找到符合的接受者（详细之后再看），返回结果按照优先级排序</span></div><div class="line">        registeredReceivers = mReceiverResolver.queryIntent(intent,resolvedType, <span class="keyword">false</span>, userId);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//是否替代</span></div><div class="line">    <span class="keyword">final</span> <span class="keyword">boolean</span> replacePending =(intent.getFlags()&amp;Intent.FLAG_RECEIVER_REPLACE_PENDING) != <span class="number">0</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">int</span> NR = registeredReceivers != <span class="keyword">null</span> ? registeredReceivers.size() : <span class="number">0</span>;</div><div class="line">    <span class="keyword">if</span> (!ordered &amp;&amp; NR &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="comment">// If we are not serializing this broadcast, then send the</span></div><div class="line">        <span class="comment">// registered receivers separately so they don't wait for the</span></div><div class="line">        <span class="comment">// components to be launched.</span></div><div class="line">        <span class="keyword">final</span> BroadcastQueue queue = broadcastQueueForIntent(intent);</div><div class="line">        BroadcastRecord r = <span class="keyword">new</span> BroadcastRecord(queue, intent, callerApp,</div><div class="line">                callerPackage, callingPid, callingUid, resolvedType, requiredPermission,</div><div class="line">                appOp, registeredReceivers, resultTo, resultCode, resultData, map,</div><div class="line">                ordered, sticky, <span class="keyword">false</span>, userId);</div><div class="line"></div><div class="line">        <span class="keyword">final</span> <span class="keyword">boolean</span> replaced = replacePending &amp;&amp; queue.replaceParallelBroadcastLocked(r);</div><div class="line">        <span class="keyword">if</span> (!replaced) &#123;</div><div class="line">            queue.enqueueParallelBroadcastLocked(r);</div><div class="line">            queue.scheduleBroadcastsLocked();<span class="comment">//</span></div><div class="line">        &#125;</div><div class="line">        <span class="comment">//上面完成了无序广播的调度</span></div><div class="line">        registeredReceivers = <span class="keyword">null</span>;</div><div class="line">        NR = <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//看来是先处理动态注册的，之后才是静态注册的</span></div><div class="line">    <span class="comment">// Merge into one list.</span></div><div class="line">    <span class="keyword">int</span> ir = <span class="number">0</span>;</div><div class="line">    <span class="comment">//receiver记录的是在清单文件夹静态注册的广播</span></div><div class="line">    <span class="keyword">if</span> (receivers != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="comment">// A special case for PACKAGE_ADDED: do not allow the package</span></div><div class="line">        <span class="comment">// being added to see this broadcast.  This prevents them from</span></div><div class="line">        <span class="comment">// using this as a back door to get run as soon as they are</span></div><div class="line">        <span class="comment">// installed.  Maybe in the future we want to have a special install</span></div><div class="line">        <span class="comment">// broadcast or such for apps, but we'd like to deliberately make</span></div><div class="line">        <span class="comment">// this decision.</span></div><div class="line">        <span class="comment">//防止监听自己的应用安装后自己收到广播而自动启动</span></div><div class="line">        String skipPackages[] = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">if</span> (Intent.ACTION_PACKAGE_ADDED.equals(intent.getAction())</div><div class="line">                || Intent.ACTION_PACKAGE_RESTARTED.equals(intent.getAction())</div><div class="line">                || Intent.ACTION_PACKAGE_DATA_CLEARED.equals(intent.getAction())) &#123;</div><div class="line">            Uri data = intent.getData();</div><div class="line">            <span class="keyword">if</span> (data != <span class="keyword">null</span>) &#123;</div><div class="line">                String pkgName = data.getSchemeSpecificPart();</div><div class="line">                <span class="keyword">if</span> (pkgName != <span class="keyword">null</span>) &#123;</div><div class="line">                    skipPackages = <span class="keyword">new</span> String[] &#123; pkgName &#125;;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (Intent.ACTION_EXTERNAL_APPLICATIONS_AVAILABLE.equals(intent.getAction())) &#123;</div><div class="line">            skipPackages = intent.getStringArrayExtra(Intent.EXTRA_CHANGED_PACKAGE_LIST);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//移除特定的广播任务</span></div><div class="line">        <span class="keyword">if</span> (skipPackages != <span class="keyword">null</span> &amp;&amp; (skipPackages.length &gt; <span class="number">0</span>)) &#123;</div><div class="line">            <span class="keyword">for</span> (String skipPackage : skipPackages) &#123;</div><div class="line">                <span class="keyword">if</span> (skipPackage != <span class="keyword">null</span>) &#123;</div><div class="line">                    <span class="keyword">int</span> NT = receivers.size();</div><div class="line">                    <span class="keyword">for</span> (<span class="keyword">int</span> it=<span class="number">0</span>; it&lt;NT; it++) &#123;</div><div class="line">                        ResolveInfo curt = (ResolveInfo)receivers.get(it);</div><div class="line">                        <span class="keyword">if</span> (curt.activityInfo.packageName.equals(skipPackage)) &#123;</div><div class="line">                            receivers.remove(it);</div><div class="line">                            it--;</div><div class="line">                            NT--;</div><div class="line">                        &#125;</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//如果是无序广播，在上面NR已置为了0，下面是用于合并有序和静态注册的广播</span></div><div class="line">        <span class="keyword">int</span> NT = receivers != <span class="keyword">null</span> ? receivers.size() : <span class="number">0</span>;<span class="comment">//静态注册的广播数量</span></div><div class="line">        <span class="keyword">int</span> it = <span class="number">0</span>;</div><div class="line">        ResolveInfo curt = <span class="keyword">null</span>;</div><div class="line">        BroadcastFilter curr = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">while</span> (it &lt; NT &amp;&amp; ir &lt; NR) &#123;</div><div class="line">            <span class="keyword">if</span> (curt == <span class="keyword">null</span>) &#123;</div><div class="line">                curt = (ResolveInfo)receivers.get(it);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (curr == <span class="keyword">null</span>) &#123;</div><div class="line">                curr = registeredReceivers.get(ir);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (curr.getPriority() &gt;= curt.priority) &#123;</div><div class="line">                <span class="comment">// Insert this broadcast record into the final list.</span></div><div class="line">                receivers.add(it, curr);</div><div class="line">                ir++;</div><div class="line">                curr = <span class="keyword">null</span>;</div><div class="line">                it++;</div><div class="line">                NT++;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="comment">// Skip to the next ResolveInfo in the final list.</span></div><div class="line">                it++;</div><div class="line">                curt = <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">while</span> (ir &lt; NR) &#123;</div><div class="line">        <span class="keyword">if</span> (receivers == <span class="keyword">null</span>) &#123;</div><div class="line">            receivers = <span class="keyword">new</span> ArrayList();</div><div class="line">        &#125;</div><div class="line">        receivers.add(registeredReceivers.get(ir));</div><div class="line">        ir++;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">//下面的操作和处理无序广播一样</span></div><div class="line">    <span class="keyword">if</span> ((receivers != <span class="keyword">null</span> &amp;&amp; receivers.size() &gt; <span class="number">0</span>)|| resultTo != <span class="keyword">null</span>) &#123;</div><div class="line">        BroadcastQueue queue = broadcastQueueForIntent(intent);</div><div class="line">        <span class="comment">//resultTo：null，resultCode：-resultData：null，map：null，requiredPermission：null</span></div><div class="line">        <span class="comment">//appOp：-1，serialized：false，sticky：false</span></div><div class="line">        BroadcastRecord r = <span class="keyword">new</span> BroadcastRecord(queue, intent, callerApp,</div><div class="line">                callerPackage, callingPid, callingUid, resolvedType,</div><div class="line">                requiredPermission, appOp, receivers, resultTo, resultCode,</div><div class="line">                resultData, map, ordered, sticky, <span class="keyword">false</span>, userId);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">boolean</span> replaced = replacePending &amp;&amp; queue.replaceOrderedBroadcastLocked(r);</div><div class="line">        <span class="keyword">if</span> (!replaced) &#123;</div><div class="line">            queue.enqueueOrderedBroadcastLocked(r);</div><div class="line">            queue.scheduleBroadcastsLocked();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">return</span> ActivityManager.BROADCAST_SUCCESS;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="scheduleBroadcastsLocked调度执行"><a href="#scheduleBroadcastsLocked调度执行" class="headerlink" title="scheduleBroadcastsLocked调度执行"></a>scheduleBroadcastsLocked调度执行</h2><p>以上不管是处理有序广播还是无序广播，最重要的无疑是<code>scheduleBroadcastsLocked</code>方法调用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">BroadcastQueue.<span class="function">java</span></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">scheduleBroadcastsLocked</span><span class="params">()</span> &#123;</div><div class="line">       <span class="keyword">if</span> (mBroadcastsScheduled) &#123;</div><div class="line">           <span class="keyword">return</span>;</div><div class="line">       &#125;</div><div class="line">       mHandler.sendMessage(mHandler.obtainMessage(BROADCAST_INTENT_MSG, <span class="keyword">this</span>));</div><div class="line">       mBroadcastsScheduled = <span class="keyword">true</span>;</div><div class="line">   &#125;</div></pre></td></tr></table></figure></p>
-<p>处理<code>BROADCAST_TIMEOUT_MSG</code>消息</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">BroadcastQueue.java</div><div class="line"></div><div class="line"><span class="keyword">case</span> BROADCAST_INTENT_MSG: &#123;</div><div class="line">    processNextBroadcast(<span class="keyword">true</span>);</div><div class="line">&#125; <span class="keyword">break</span>;</div></pre></td></tr></table></figure>
-<h2 id="处理广播"><a href="#处理广播" class="headerlink" title="处理广播"></a>处理广播</h2><p>所有的静态<code>receiver</code>都是串行处理的，而动态<code>receiver</code>则会按照发广播时指定的方式，进行“并行”或“串行”处理。能够并行处理的广播，其对应的若干<code>receiver</code>一定都已经存在了，不会牵扯到启动新进程的操作，所以可以在一个<code>while</code>循环中，一次性全部<code>deliver</code>。而有序广播，则需要一个一个地处理，其滚动处理的手段是发送事件，也就是说，在一个<code>receiver</code>处理完毕后，会利用广播队列（<code>BroadcastQueue</code>）的<code>mHandler</code>，发送一个<code>BROADCAST_INTENT_MSG</code>事件，从而执行下一次的<code>processNextBroadcast</code>的调度</p>
-<h3 id="处理无序广播"><a href="#处理无序广播" class="headerlink" title="处理无序广播"></a>处理无序广播</h3><p>遍历并行列表（<code>mParallelBroadcasts</code>）的每一个<code>BroadcastRecord</code>以及其中的<code>receivers</code>列表。对于无序广播而言，<code>receivers</code>列表中的每个子节点是个<code>BroadcastFilter</code>。我们直接通过方法<code>deliverToRegisteredReceiverLocked</code>将广播递送出去即可</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">final</span> <span class="keyword">void</span> <span class="title">processNextBroadcast</span><span class="params">(<span class="keyword">boolean</span> fromMsg)</span> </span>&#123;</div><div class="line">    <span class="keyword">synchronized</span>(mService) &#123;</div><div class="line">        BroadcastRecord r;</div><div class="line"></div><div class="line">        mService.updateCpuStats();</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (fromMsg) &#123;</div><div class="line">          <span class="comment">//表示BROADCAST_INTENT_MSG消息已经处理完了</span></div><div class="line">            mBroadcastsScheduled = <span class="keyword">false</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">// First, deliver any non-serialized broadcasts right away.</span></div><div class="line">        <span class="keyword">while</span> (mParallelBroadcasts.size() &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">//BroadcastRecord类型的r内部记录了该广播的所有接收者</span></div><div class="line">            r = mParallelBroadcasts.remove(<span class="number">0</span>);</div><div class="line">            r.dispatchTime = SystemClock.uptimeMillis();</div><div class="line">            r.dispatchClockTime = System.currentTimeMillis();</div><div class="line">            <span class="keyword">final</span> <span class="keyword">int</span> N = r.receivers.size();<span class="comment">//接收者数量</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;N; i++) &#123;</div><div class="line">                Object target = r.receivers.get(i);</div><div class="line">                <span class="comment">//把非有序队列中各个广播发送给广播接收者</span></div><div class="line">                deliverToRegisteredReceiverLocked(r, (BroadcastFilter)target, <span class="keyword">false</span>);</div><div class="line">            &#125;</div><div class="line">            addBroadcastToHistoryLocked(r);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//.......</span></div><div class="line">      &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<h3 id="BroadcastQueue-deliverToRegisteredReceiverLocked"><a href="#BroadcastQueue-deliverToRegisteredReceiverLocked" class="headerlink" title="BroadcastQueue#deliverToRegisteredReceiverLocked"></a>BroadcastQueue#deliverToRegisteredReceiverLocked</h3><p>先进行的权限判断、操作的检测、目标进程是否启动等操作，如果都OK，前面可知<code>BroadcastFilter</code>用来关联了动态注册的<code>IIntentReceiver</code>和<code>IntentFilter</code>,所以拿到一个<code>BroadcastFilter</code>接可以知道宿主<code>IIntentReceiver</code>，最后调用<code>performReceiveLocked</code><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//order=false；</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">deliverToRegisteredReceiverLocked</span><span class="params">(BroadcastRecord r,BroadcastFilter filter, <span class="keyword">boolean</span> ordered)</span> </span>&#123;</div><div class="line">    <span class="keyword">boolean</span> skip = <span class="keyword">false</span>;</div><div class="line">    <span class="keyword">if</span> (filter.requiredPermission != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">int</span> perm = mService.checkComponentPermission(filter.requiredPermission,r.callingPid, r.callingUid, -<span class="number">1</span>, <span class="keyword">true</span>);</div><div class="line">        <span class="keyword">if</span> (perm != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">            <span class="comment">//Permission Denial: broadcasting</span></div><div class="line">            skip = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (!skip &amp;&amp; r.requiredPermission != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">int</span> perm = mService.checkComponentPermission(r.requiredPermission,</div><div class="line">                filter.receiverList.pid, filter.receiverList.uid, -<span class="number">1</span>, <span class="keyword">true</span>);</div><div class="line">        <span class="keyword">if</span> (perm != PackageManager.PERMISSION_GRANTED) &#123;</div><div class="line">            <span class="comment">//Permission Denial: receiving</span></div><div class="line">            skip = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (r.appOp != AppOpsManager.OP_NONE) &#123;</div><div class="line">        <span class="keyword">int</span> mode = mService.mAppOpsService.noteOperation(r.appOp,</div><div class="line">                filter.receiverList.uid, filter.packageName);</div><div class="line">        <span class="keyword">if</span> (mode != AppOpsManager.MODE_ALLOWED) &#123;</div><div class="line">            <span class="keyword">if</span> (DEBUG_BROADCAST)  Slog.v(TAG,</div><div class="line">                    <span class="string">"App op "</span> + r.appOp + <span class="string">" not allowed for broadcast to uid "</span></div><div class="line">                    + filter.receiverList.uid + <span class="string">" pkg "</span> + filter.packageName);</div><div class="line">            skip = <span class="keyword">true</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">if</span> (!skip) &#123;</div><div class="line">        skip = !mService.mIntentFirewall.checkBroadcast(r.intent, r.callingUid,</div><div class="line">                r.callingPid, r.resolvedType, filter.receiverList.uid);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (filter.receiverList.app == <span class="keyword">null</span> || filter.receiverList.app.crashing) &#123;</div><div class="line">        Slog.w(TAG, <span class="string">"Skipping deliver ["</span> + mQueueName + <span class="string">"] "</span> + r+ <span class="string">" to "</span> + filter.receiverList + <span class="string">": process crashing"</span>);</div><div class="line">        skip = <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">if</span> (!skip) &#123;</div><div class="line">        <span class="comment">// If this is not being sent as an ordered broadcast, then we</span></div><div class="line">        <span class="comment">// don't want to touch the fields that keep track of the current</span></div><div class="line">        <span class="comment">// state of ordered broadcasts.</span></div><div class="line">        <span class="keyword">if</span> (ordered) &#123;<span class="comment">//false</span></div><div class="line">            r.receiver = filter.receiverList.receiver.asBinder();<span class="comment">//记录的是IIntentReceiver的Binder本地对象</span></div><div class="line">            r.curFilter = filter;</div><div class="line">            filter.receiverList.curBroadcast = r;</div><div class="line">            r.state = BroadcastRecord.CALL_IN_RECEIVE;</div><div class="line">            <span class="keyword">if</span> (filter.receiverList.app != <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="comment">// Bump hosting application to no longer be in background scheduling class.  Note that we can't do that if there</span></div><div class="line">                <span class="comment">// isn't an app...  but we can only be in that case for things that directly call the IActivityManager API, which</span></div><div class="line">                <span class="comment">// are already core system stuff so don't matter for this.</span></div><div class="line">                r.curApp = filter.receiverList.app;</div><div class="line">                filter.receiverList.app.curReceiver = r;</div><div class="line">                mService.updateOomAdjLocked(r.curApp, <span class="keyword">true</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">          <span class="comment">//filter.receiverList.app:ApplicationThread</span></div><div class="line">          <span class="comment">//filter.receiverList.receiver：</span></div><div class="line">            performReceiveLocked(filter.receiverList.app, filter.receiverList.receiver,</div><div class="line">                <span class="keyword">new</span> Intent(r.intent), r.resultCode, r.resultData,</div><div class="line">                r.resultExtras, r.ordered, r.initialSticky, r.userId);</div><div class="line">            <span class="keyword">if</span> (ordered) &#123;</div><div class="line">                r.state = BroadcastRecord.CALL_DONE_RECEIVE;</div><div class="line">            &#125;</div><div class="line">        &#125; <span class="keyword">catch</span> (RemoteException e) &#123;</div><div class="line">            Slog.w(TAG, <span class="string">"Failure sending broadcast "</span> + r.intent, e);</div><div class="line">            <span class="keyword">if</span> (ordered) &#123;</div><div class="line">                r.receiver = <span class="keyword">null</span>;</div><div class="line">                r.curFilter = <span class="keyword">null</span>;</div><div class="line">                filter.receiverList.curBroadcast = <span class="keyword">null</span>;</div><div class="line">                <span class="keyword">if</span> (filter.receiverList.app != <span class="keyword">null</span>) &#123;</div><div class="line">                    filter.receiverList.app.curReceiver = <span class="keyword">null</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="6-3-BroadcastQueue-performReceiveLocked"><a href="#6-3-BroadcastQueue-performReceiveLocked" class="headerlink" title="6.3 BroadcastQueue#performReceiveLocked"></a>6.3 BroadcastQueue#performReceiveLocked</h3><p>接着如果当前进程是存在的且已经启动，通过<code>ApplicationThread</code>来进行回调但实际上还是通过<code>IIntentReceiver</code>来回调，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">BroadcastQueue.<span class="function">java</span></div><div class="line"></div><div class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">performReceiveLocked</span><span class="params">(ProcessRecord app, IIntentReceiver receiver,</span></div><div class="line">        Intent intent, <span class="keyword">int</span> resultCode, String data, Bundle extras,</div><div class="line">        <span class="keyword">boolean</span> ordered, <span class="keyword">boolean</span> sticky, <span class="keyword">int</span> sendingUser) <span class="keyword">throws</span> RemoteException &#123;</div><div class="line">    <span class="comment">// Send the intent to the receiver asynchronously using one-way binder calls.</span></div><div class="line">    <span class="keyword">if</span> (app != <span class="keyword">null</span> &amp;&amp; app.thread != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="comment">// If we have an app thread, do the call through that so it is correctly ordered with other one-way calls.</span></div><div class="line">        app.thread.scheduleRegisteredReceiver(receiver, intent, resultCode,</div><div class="line">                data, extras, ordered, sticky, sendingUser, app.repProcState);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        receiver.performReceive(intent, resultCode, data, extras, ordered,</div><div class="line">                sticky, sendingUser);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="6-4-IIntentReceiver-performReceive"><a href="#6-4-IIntentReceiver-performReceive" class="headerlink" title="6.4 IIntentReceiver#performReceive"></a>6.4 IIntentReceiver#performReceive</h3><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">LoadedApk#ReceiverDispatcher#IIntentReceiver</div><div class="line"></div><div class="line">public void performReceive(Intent intent, int resultCode, String data,</div><div class="line">                    Bundle extras, boolean ordered, boolean sticky, int sendingUser) &#123;</div><div class="line">                //获取宿主ReceiverDispatcher</div><div class="line">                LoadedApk.ReceiverDispatcher rd = mDispatcher.get();</div><div class="line"></div><div class="line">                if (rd != null) &#123;</div><div class="line">                    rd.performReceive(intent, resultCode, data, extras,ordered, sticky, sendingUser);</div><div class="line">                &#125; else &#123;</div><div class="line">                    // The activity manager dispatched a broadcast to a registered</div><div class="line">                    // receiver in this process, but before it could be delivered the</div><div class="line">                    // receiver was unregistered.  Acknowledge the broadcast on its</div><div class="line">                    // behalf so that the system's broadcast sequence can continue.</div><div class="line">                    if (ActivityThread.DEBUG_BROADCAST) Slog.i(ActivityThread.TAG,"Finishing broadcast to unregistered receiver");</div><div class="line">                    IActivityManager mgr = ActivityManagerNative.getDefault();</div><div class="line">                    try &#123;</div><div class="line">                        if (extras != null) &#123;</div><div class="line">                            extras.setAllowFds(false);</div><div class="line">                        &#125;</div><div class="line">                        mgr.finishReceiver(this, resultCode, data, extras, false);</div><div class="line">                    &#125; catch (RemoteException e) &#123;</div><div class="line">                        Slog.w(ActivityThread.TAG, "Couldn't finish broadcast to unregistered receiver");</div><div class="line">                    &#125;</div><div class="line">                &#125;</div><div class="line">            &#125;</div></pre></td></tr></table></figure>
-<h3 id="6-5-ReceiverDispatcher-performReceive"><a href="#6-5-ReceiverDispatcher-performReceive" class="headerlink" title="6.5 ReceiverDispatcher#performReceive"></a>6.5 ReceiverDispatcher#performReceive</h3><p>构造<code>Args</code>封装成一个消息,<code>Args</code>继承自<code>PendingResult</code>实现了<code>Runnable</code>接口<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">LoadedApk#ReceiverDispatcher</div><div class="line"></div><div class="line">public void performReceive(Intent intent, int resultCode, String data,</div><div class="line">        Bundle extras, boolean ordered, boolean sticky, int sendingUser) &#123;</div><div class="line"></div><div class="line">    Args args = new Args(intent, resultCode, data, extras, ordered,sticky, sendingUser);</div><div class="line">    if (!mActivityThread.post(args)) &#123;</div><div class="line">        if (mRegistered &amp;&amp; ordered) &#123;</div><div class="line">            IActivityManager mgr = ActivityManagerNative.getDefault();</div><div class="line"></div><div class="line">            args.sendFinished(mgr);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="6-6-Args-run"><a href="#6-6-Args-run" class="headerlink" title="6.6 Args#run"></a>6.6 Args#run</h3><p>但是构造一个<code>Args</code>对象又有什么用？或者说<code>PendingResult</code>的作用是什么？这个<code>PendingResult</code>可以在<code>BroadcastReceiver#onReceive</code>方法中通过<code>goAsync</code>方法返回，表示的结果的状态，在一个广播处理完之后必须调用其<code>finish</code>方法（这个在回调<code>onReceiver</code>方法后会自动回调）,<code>finish</code>方法用来完成某个广播，对于一个已经处理完的广播，如果是有序广播，接收完之后需要向<code>AMS</code>发一个回包，以便<code>AMS</code>可以将这个有序广播发送给下一个广播接收者。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">final</span> <span class="class"><span class="keyword">class</span> <span class="title">Args</span> <span class="keyword">extends</span> <span class="title">BroadcastReceiver</span>.<span class="title">PendingResult</span> <span class="keyword">implements</span> <span class="title">Runnable</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Intent mCurIntent;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">boolean</span> mOrdered;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Args</span><span class="params">(Intent intent, <span class="keyword">int</span> resultCode, String resultData, Bundle resultExtras,</span></span></div><div class="line">            <span class="keyword">boolean</span> ordered, <span class="keyword">boolean</span> sticky, <span class="keyword">int</span> sendingUser) &#123;</div><div class="line">        <span class="keyword">super</span>(resultCode, resultData, resultExtras,</div><div class="line">                mRegistered ? TYPE_REGISTERED : TYPE_UNREGISTERED,</div><div class="line">                ordered, sticky, mIIntentReceiver.asBinder(), sendingUser);</div><div class="line">        mCurIntent = intent;</div><div class="line">        mOrdered = ordered;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> BroadcastReceiver receiver = mReceiver;<span class="comment">//具体注册的BroadcastReceiver，保存在ReceiverDispatcher成员变量</span></div><div class="line">        <span class="keyword">final</span> <span class="keyword">boolean</span> ordered = mOrdered;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">final</span> IActivityManager mgr = ActivityManagerNative.getDefault();</div><div class="line">        <span class="keyword">final</span> Intent intent = mCurIntent;</div><div class="line">        mCurIntent = <span class="keyword">null</span>;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (receiver == <span class="keyword">null</span> || mForgotten) &#123;</div><div class="line">            <span class="keyword">if</span> (mRegistered &amp;&amp; ordered) &#123;</div><div class="line">                sendFinished(mgr);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span>;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            ClassLoader cl =  mReceiver.getClass().getClassLoader();</div><div class="line">            intent.setExtrasClassLoader(cl);</div><div class="line">            setExtrasClassLoader(cl);</div><div class="line">            receiver.setPendingResult(<span class="keyword">this</span>);</div><div class="line">            receiver.onReceive(mContext, intent);<span class="comment">//回调具体的Receiver</span></div><div class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</div><div class="line">            <span class="keyword">if</span> (mRegistered &amp;&amp; ordered) &#123;</div><div class="line">                <span class="keyword">if</span> (ActivityThread.DEBUG_BROADCAST) Slog.i(ActivityThread.TAG,<span class="string">"Finishing failed broadcast to "</span> + mReceiver);</div><div class="line">                sendFinished(mgr);</div><div class="line">            &#125;</div><div class="line">              <span class="comment">//...</span></div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (receiver.getPendingResult() != <span class="keyword">null</span>) &#123;</div><div class="line">            finish();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      Android app sendBroadcast
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="app" scheme="https://austinxishou.github.io/tags/app/"/>
-    
-      <category term="sendBroadcast" scheme="https://austinxishou.github.io/tags/sendBroadcast/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>SEAndroid权限修改</title>
-    <link href="https://austinxishou.github.io/uncategorized/cj1fzsj46003i0kpxcmz5yyte/android/SEAndroid%E6%9D%83%E9%99%90%E4%BF%AE%E6%94%B9/"/>
-    <id>https://austinxishou.github.io/uncategorized/cj1fzsj46003i0kpxcmz5yyte/android/SEAndroid权限修改/</id>
-    <published>2017-03-29T05:39:55.224Z</published>
-    <updated>2017-03-29T05:47:19.110Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="权限修改"><a href="#权限修改" class="headerlink" title="权限修改"></a>权限修改</h2><h3 id="方法1-adb在线修改seLinux"><a href="#方法1-adb在线修改seLinux" class="headerlink" title="方法1: adb在线修改seLinux"></a>方法1: adb在线修改seLinux</h3><p> <code>Enforcing</code>(表示已打开)，<code>Permissive</code>（表示已关闭）</p>
-<pre><code>getenforce;  //获取当前seLinux状态
-setenforce 1;   //打开seLinux
-setenforce 0;   //关闭seLinux
-</code></pre><h3 id="方法2-从kernel中彻底关闭"><a href="#方法2-从kernel中彻底关闭" class="headerlink" title="方法2: 从kernel中彻底关闭"></a>方法2: 从kernel中彻底关闭</h3><p>修改<code>LINUX/android/kernel/arch/arm64/configs/xxx_defconfig</code>文件（xxx一般为手机产品名）， 去掉<code>CONFIG_SECURITY_SELINUX=y</code>的配置项</p>
-<h3 id="方法3-sepolicy中添加权限"><a href="#方法3-sepolicy中添加权限" class="headerlink" title="方法3: sepolicy中添加权限"></a>方法3: sepolicy中添加权限</h3><ul>
-<li><p>修改依据，通过指令<code>cat /proc/kmsg | grep denied</code>，或者kernel的Log中定位到标志性log。</p>
-</li>
-<li><p>修改步骤</p>
-<ul>
-<li><p>找相应的<strong>源类型.te</strong>文件，此文件可能的存放路径 (其中<strong>源类型</strong>见下方的标志性log格式) ：</p>
-<pre><code>LINUX/android/external/sepolicy
-LINUX/android/device/qcom/sepolicy/common
-</code></pre></li>
-<li><p>标志性log 格式</p>
-<pre><code>avc: denied  { 操作权限  }  for pid=7201  comm=“进程名”  scontext=u:r:源类型:s0  tcontext=u:r:目标类型:s0  tclass=访问类型 permissive=0
-</code></pre></li>
-<li><p>在相应<strong>源类型.te</strong>文件，添加如下格式的一行语句：(结尾别忘了分号)</p>
-<pre><code>格式：allow  源类型 目标类型:访问类型 {操作权限};
-</code></pre></li>
-</ul>
-</li>
-<li><p>实例</p>
-<ul>
-<li><p>Kernel Log</p>
-<pre><code>avc: denied {getattr read} for pid=7201 comm=&quot;xxx.xxx&quot; scontext=u:r:system_app:s0 tcontext=u:r:shell_data_file:s0 tclass=dir permissive=0
-</code></pre></li>
-<li><p>修改方案</p>
-<pre><code>在system_app.te文件中，添加下面语句：
-allow system_app shell_data_file:dir{getattr read};
-</code></pre></li>
-</ul>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      android security selinux
-    
-    </summary>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="security" scheme="https://austinxishou.github.io/tags/security/"/>
-    
-      <category term="selinux" scheme="https://austinxishou.github.io/tags/selinux/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>GithubPages+Hexo3.0搭建静态博客网页</title>
-    <link href="https://austinxishou.github.io/webdesign/cj1fzsj4m003l0kpxljmjf7i2/webdesign/GithubPages+Hexo3.0%E6%90%AD%E5%BB%BA%E9%9D%99%E6%80%81%E5%8D%9A%E5%AE%A2%E7%BD%91%E9%A1%B5/"/>
-    <id>https://austinxishou.github.io/webdesign/cj1fzsj4m003l0kpxljmjf7i2/webdesign/GithubPages+Hexo3.0搭建静态博客网页/</id>
-    <published>2017-03-29T01:27:40.078Z</published>
-    <updated>2017-04-01T02:55:37.578Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><p>Hexo 是一个轻量的静态博客框架。通过Hexo可以快速生成一个静态博客框架,仅需要几条命令就可以完成,相当方便。<br>而架设Hexo的环境更简单了 不需要lnmp/lamp这些繁琐复杂的环境 仅仅需要一个简单的http服务器即可使用 或者使用互联网上免费的页面托管服务</p>
-<p>比如Hexo的<a href="http://hexo.io" target="_blank" rel="external">官方网站</a>就是托管于github的pages服务上</p>
-<h2 id="Hexo配置方法"><a href="#Hexo配置方法" class="headerlink" title="Hexo配置方法"></a>Hexo配置方法</h2><p>进去之后加入hexo主程序和安装npm<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">hexo init</div><div class="line">npm install</div></pre></td></tr></table></figure></p>
-<h2 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h2><p>新建完成后，指定文件夹的目录如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── _config.yml</div><div class="line">├── package.json</div><div class="line">├── scaffolds</div><div class="line">├── source</div><div class="line">|   ├── _drafts</div><div class="line">|   └── _posts</div><div class="line">└── themes</div></pre></td></tr></table></figure></p>
-<p>_config.yml<br>网站的 配置 信息，您可以在此配置大部分的参数。</p>
-<p>package.json<br>应用程序的信息。EJS, Stylus 和 Markdown renderer 已默认安装，您可以自由移除。</p>
-<p>scaffolds<br>模版 文件夹。当您新建文章时，Hexo 会根据 scaffold 来建立文件。</p>
-<p>source<br>资源文件夹是存放用户资源的地方。除 posts 文件夹之外，开头命名为 (下划线)的文件 / 文件夹和隐藏的文件将会被忽略。Markdown 和 HTML 文件会被解析并放到 public 文件夹，而其他文件会被拷贝过去。</p>
-<p>themes<br>主题 文件夹。Hexo 会根据主题来生成静态页面。</p>
-<h3 id="Hexo全局配置"><a href="#Hexo全局配置" class="headerlink" title="Hexo全局配置"></a>Hexo全局配置</h3><p>用文本编辑器修改_config.yml这个文件 大致如下 只需要自行修改几个 其他保持默认即可</p>
-<p>通常需要修改站点名称 /URL格式 /归档设置 /disqus评论用户名 /部署配置 这几项就可以了 注意冒号后面都要添加一个半角空格 之后才是设置参数</p>
-<p>自定义域名设置 在 source 我文件夹下面新建 CNAME 文件 里面写入你的自定义域名 并设置您的dns配置cname方式到服务提供商的给的地址即可</p>
-<h3 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h3><p>source_dir 资源文件夹，这个文件夹用来存放内容。 source</p>
-<p>public_dir 公共文件夹，这个文件夹用于存放生成的站点文件。 public</p>
-<p>tag_dir 标签文件夹 tags</p>
-<p>archive_dir 归档文件夹 archives</p>
-<p>category_dir 分类文件夹 categories</p>
-<p>code_dir Include code 文件夹 downloads/code</p>
-<p>i18n_dir 国际化（i18n）文件夹 :lang</p>
-<p>skip_render 跳过指定文件的渲染，您可使用 glob 来配置路径。</p>
-<h3 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h3><h2 id="本地启动server"><a href="#本地启动server" class="headerlink" title="本地启动server"></a>本地启动server</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>可以观察命令行的输出，然后通过浏览器打开<a href="http://localhost:4000/，成功的情况下则会看到默认的欢迎页面。" target="_blank" rel="external">http://localhost:4000/，成功的情况下则会看到默认的欢迎页面。</a></p>
-<h2 id="部署到github-pages"><a href="#部署到github-pages" class="headerlink" title="部署到github pages"></a>部署到github pages</h2><p>Hexo 提供了快速方便的一键部署功能，让您只需一条命令就能将网站部署到服务器上。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
-<p>在开始之前，您必须先在 _config.yml 中修改参数，一个正确的部署配置中至少要有 type 参数，例如：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo: &lt;repository url&gt;</div><div class="line">  branch: [branch]</div><div class="line">  message: [message]</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">参数	描述</div><div class="line">repo	库（Repository）地址</div><div class="line">branch	分支名称。如果您使用的是 GitHub 或 GitCafe 的话，程序会尝试自动检测。</div><div class="line">message	自定义提交信息 (默认为 Site updated: &#123;&#123; now(&apos;YYYY-MM-DD HH:mm:ss&apos;) &#125;&#125;)</div></pre></td></tr></table></figure>
-<p>我的博客对应的参数设置为<br><figure class="highlight yaml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="attr">deploy:</span></div><div class="line"><span class="attr">  type:</span> <span class="string">git</span></div><div class="line"><span class="attr">  repo:</span> <span class="attr">https://github.com/austinxishou/austinxishou.github.io.git</span></div><div class="line"><span class="attr">  branch:</span> <span class="string">master</span></div><div class="line"><span class="attr">  name:</span> <span class="string">austinxishou</span></div><div class="line"><span class="attr">  email:</span> <span class="string">austinxishou@yahoo.com</span></div></pre></td></tr></table></figure></p>
-<p>安装 hexo-deployer-git</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install hexo-deployer-git --save</div></pre></td></tr></table></figure>
-<p>之后依次执行:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$ hexo clean</div><div class="line">$ hexo generate</div><div class="line">$ hexo deploy</div></pre></td></tr></table></figure></p>
-<p>上述命令只要Github的权限校验通过,基本都能成功;</p>
-<h2 id="hexo主题"><a href="#hexo主题" class="headerlink" title="hexo主题"></a>hexo主题</h2><p>收集主题</p>
-<ol>
-<li><a href="http://theme-next.iissnan.com/" target="_blank" rel="external">Next</a></li>
-<li><a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank" rel="external">Nidigo</a></li>
-</ol>
-<h2 id="写文章"><a href="#写文章" class="headerlink" title="写文章"></a>写文章</h2><h3 id="使用草稿"><a href="#使用草稿" class="headerlink" title="使用草稿"></a>使用草稿</h3><p>在 source/_drafts 文件夹中 创建的文章为草稿，默认情况下不生成；<br>可以显示草稿<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo --draft</div></pre></td></tr></table></figure></p>
-<h2 id="生成sitemap站点地图"><a href="#生成sitemap站点地图" class="headerlink" title="生成sitemap站点地图"></a>生成sitemap站点地图</h2><p><strong>安装插件</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-generator-sitemap --save</div><div class="line">npm install -g hexo-generator-baidu-sitemap --save</div></pre></td></tr></table></figure></p>
-<p><strong>修改_config.yml文件</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># auto sitemap</span></div><div class="line">sitemap:</div><div class="line">  path: sitemap.xml</div><div class="line">baidusitemap:</div><div class="line">  path: baidusitemap.xml</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      GithubPages+Hexo3.0搭建静态博客网页
-    
-    </summary>
-    
-      <category term="webdesign" scheme="https://austinxishou.github.io/categories/webdesign/"/>
-    
-    
-      <category term="Hexo" scheme="https://austinxishou.github.io/tags/Hexo/"/>
-    
-      <category term="webdesign" scheme="https://austinxishou.github.io/tags/webdesign/"/>
-    
-      <category term="github" scheme="https://austinxishou.github.io/tags/github/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android组件生命周期解析</title>
-    <link href="https://austinxishou.github.io/android/cj1fzsj4600370kpxn7doyazr/android/Android%E7%BB%84%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E8%A7%A3%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/android/cj1fzsj4600370kpxn7doyazr/android/Android组件生命周期解析/</id>
-    <published>2017-03-29T01:27:40.077Z</published>
-    <updated>2017-03-29T05:47:33.103Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Activity"><a href="#Activity" class="headerlink" title="Activity"></a>Activity</h2><p>在平时的应用开发中,接触最多的就是<code>activity</code>的生命周期。在生命周期回调方法中，您可以声明当用户离开并重新进入活动时，执行相应的代码行为。每一个回调工作，都应该执行特定动作，在正确的时间进行正确的工作并正确处理转换，才能够使应用程序更加健壮，更有效率。</p>
-<p>如果没有处理好<code>activity</code>的生命周期，则有可能导致各种异常:</p>
-<ol>
-<li>应用程序运行时被电话或者其他程序中断，导致崩溃；</li>
-<li>没有正确释放资源时,消耗宝贵的系统资源，甚至OOM。</li>
-<li>如果用户离开您的应用程序并在以后返回，则丢失用户的进度。</li>
-<li>屏幕在横向和纵向方向之间旋转时，可能会崩溃或丢失用户的进度。</li>
-</ol>
-<p>所以有必要深入一些，了解和掌握Activity的生命，下面先放一张activity的生命周期图：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/lifecycle/activity.png" alt="activity lifecycle" title="">
-                </div>
-                <div class="image-caption">activity lifecycle</div>
-            </figure>
-<h3 id="1-1-Activity状态"><a href="#1-1-Activity状态" class="headerlink" title="1.1 Activity状态"></a>1.1 Activity状态</h3><p>根据具体的应用的复杂性，可能不需要实现所有的生命周期方法。</p>
-<ul>
-<li><strong>创建 onCreate()：</strong><ul>
-<li>必须实现此回调，当系统首次创建活动时触发。</li>
-<li>在该方法中，执行基本的应用程序启动逻辑，该逻辑在整个活动的整个生命周期中应该只发生一次。</li>
-<li>例如，将数据绑定到列表，初始化后台线程，并实例化一些类范围变量。</li>
-<li>此方法接收参数savedInstanceState，该参数是包含Bundle 活动之前保存的状态的对象。如果活动从未存在，则该Bundle对象的值为null。
-　　</li>
-</ul>
-</li>
-<li><p><strong>开始 onStart()：</strong></p>
-<ul>
-<li>当活动进入“开始”状态时，系统将调用此回调。</li>
-<li>该方法是应用程序初始化维护UI的代码的位置。</li>
-<li>它也可以注册一个BroadcastReceiver 监视UI中响应的更改。</li>
-<li>该状态只是过渡状态，非常快速完成，与“创建”状态一样，活动不会保持在“已启动”状态。一旦这个回调结束，活动进入 Resumed状态，系统调用该 onResume()方法。</li>
-</ul>
-</li>
-<li><p><strong>恢复 onResume()：</strong></p>
-<ul>
-<li>这是应用程序与用户进行交互的状态。该应用程序停留在此状态，直到发生某些事情，将焦点从应用程序中移开。</li>
-<li>当发生中断事件时，活动进入暂停 状态，系统调用 onPause()回调。</li>
-<li>onResume状态说明activity在最上方，用户可以与它进行交互。所以那些仅在用户关注时才使用的组件应该在这个回调中初始化。</li>
-</ul>
-</li>
-</ul>
-<ul>
-<li><strong>暂停 onPause()：</strong><ul>
-<li>当前activity仍然是可见的。但被另一个activity处在最上方，最上方的activity是半透明的，或者是部分覆盖整个屏幕。被暂停的activity不会再接受用户的输入。</li>
-<li>动画和音乐播放Activity在暂停状态下不应该继续。</li>
-<li>进入暂停的时机有以下几种：<ul>
-<li>电话或者短信等系统中断；</li>
-<li>在多窗口模式中，切换到其他窗口；</li>
-<li>打开一个新的半透明活动（如对话框）;</li>
-</ul>
-</li>
-<li>当处于极度低内存的状态时，系统会杀掉该activity，释放相应资源。</li>
-<li>onPause()执行非常简短，并不一定有足够的时间执行保存操作。保存应用程序或用户数据不应该在这步骤实现；</li>
-</ul>
-</li>
-<li><p><strong>停止 onStop（）：</strong></p>
-<ul>
-<li>当前activity完全被隐藏，不被用户可见。可以认为是处于在后台。</li>
-<li>由于对用户不再可见，只要有内存的需要，系统就会杀掉该activity来释放资源。</li>
-<li>该状态由<code>onStop()</code>进入，或<code>onRestart()</code>或者<code>onCreate()</code>重新唤醒软件，或者被<code>onDestroy()</code>彻底死亡..</li>
-</ul>
-</li>
-<li><p><strong>销毁 onDestroy()：</strong></p>
-<ul>
-<li>在活动被销毁之前调用。这是活动收到的最后一个回调。</li>
-<li>在该回调中，释放上述所有回调中未被销毁的资源；</li>
-</ul>
-</li>
-</ul>
-<p>当acitivty处于暂停或者停止状态，系统可以通过<code>finish()</code>或 <code>android.os.Process.killProcess(android.os.Process.myPid())</code>来杀死其进程。当该activity再次被打开时(结束或杀死后)，需要重新创建，走一遍完整的流程。</p>
-<h3 id="1-2-Activities调用流程"><a href="#1-2-Activities调用流程" class="headerlink" title="1.2 Activities调用流程"></a>1.2 Activities调用流程</h3><p>当Activity A 启动 Activity B时，两个activity都有自个的生命周期。Activity A暂停或者停止，Activity B被创建。记住，在Activity B创建之前，Activity A并不会完全停止，流程如下：</p>
-<ol>
-<li>Activity A 进入onPause();</li>
-<li>Activity B 依次 onCreate(), onStart(), onResume()。（此时Activity B得到了用户焦点）</li>
-<li>如果Activity A不再可见，则进入onStop().</li>
-</ol>
-<h3 id="1-3-代码实践"><a href="#1-3-代码实践" class="headerlink" title="1.3 代码实践"></a>1.3 代码实践</h3><p>利用下面的<code>DemoActivity</code>代码，可亲自感受每一个阶段的状态。比如点返回键，home键，menu键等操作，可以借助通过logcat查看该activity到底处于哪种状态，这里就不说结果了，自己动手，丰衣足食。</p>
-<pre><code>import android.app.Activity;
-import android.os.Bundle;
-import android.util.Log;
-
-public class DemoActivity extends Activity {
-    private static final String TAG = &quot;demo&quot;;
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        Log.i(TAG,&quot;onCreate::The activity is being created.&quot;);
-    }
-    @Override
-    protected void onStart() {
-        super.onStart();
-        Log.i(TAG, &quot;onStart::The activity is about to become visible.&quot;);
-    }
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i(TAG, &quot;onResume::The activity has become visible.&quot;);
-    }
-    @Override
-    protected void onPause() {
-        super.onPause();
-        Log.i(TAG, &quot;onPause:: Another activity is taking focus.&quot;);
-    }
-    @Override
-    protected void onStop() {
-        super.onStop();
-        Log.i(TAG, &quot;onStop::The activity is no longer visible&quot;);
-    }
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        Log.i(TAG, &quot;onDestroy::The activity is about to be destroyed&quot;);
-    }
-}
-</code></pre><hr>
-<h2 id="Service"><a href="#Service" class="headerlink" title="Service"></a>Service</h2><p>理解activity的生命周期后，Service的生命周期也是大同小异，先看下Service的生命周期图：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/lifecycle/service.png" alt="service lifecycle" title="">
-                </div>
-                <div class="image-caption">service lifecycle</div>
-            </figure>
-<h3 id="2-1-启动方式："><a href="#2-1-启动方式：" class="headerlink" title="2.1  启动方式："></a>2.1  启动方式：</h3><p>service有两种启动方式：</p>
-<ul>
-<li>startService() 启动本地服务Local Service</li>
-<li>bindService() 启动远程服务Remote Service</li>
-</ul>
-<h3 id="2-2-生命周期"><a href="#2-2-生命周期" class="headerlink" title="2.2  生命周期"></a>2.2  生命周期</h3><p>两种不同的启动方式决定了Service具有两种生命周期的可能（并非互斥的两种）。</p>
-<ol>
-<li>start方式：onCreate()，onStartCommand()。onDestroy释放资源。</li>
-<li>bind方式： onCreate()，onBind()方法。需要所有client全部调用unbindService()才能将Service释放资源，等待系统回收。</li>
-</ol>
-<h3 id="2-3-代码实践"><a href="#2-3-代码实践" class="headerlink" title="2.3  代码实践"></a>2.3  代码实践</h3><p>利用下面的<code>DemoService</code>代码，通过logcat自行感受每一个阶段的状态与场景的关系。</p>
-<pre><code>import android.app.Service;
-import android.content.Intent;
-import android.os.IBinder;
-import android.util.Log;
-
-public class DemoService extends Service {
-    private static final String TAG = &quot;demo&quot;;
-
-    int mStartMode;       // service被杀掉的方式
-    IBinder mBinder;      // clients绑定接口
-    boolean mAllowRebind; // 是否允许onRebind
-
-    @Override
-    public void onCreate() {
-        Log.i(TAG,&quot;onCreate::The service is being created&quot;);
-    }
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i(TAG,&quot;onStartCommand::The service is starting&quot;);
-        return mStartMode;
-    }
-    @Override
-    public IBinder onBind(Intent intent) {
-        Log.i(TAG,&quot;onBind::A client is binding to the service&quot;);
-        return mBinder;
-    }
-    @Override
-    public boolean onUnbind(Intent intent) {
-        Log.i(TAG,&quot;onUnbind::All clients have unbound&quot;);
-        return mAllowRebind;
-    }
-    @Override
-    public void onRebind(Intent intent) {
-        Log.i(TAG,&quot;onRebind::A client rebind to the service &quot; +
-                &quot;after onUnbind() has already been called&quot;);
-    }
-    @Override
-    public void onDestroy() {
-        Log.i(TAG,&quot;onDestroy::The service is no longer used&quot;);
-    }
-}
-</code></pre>]]></content>
-    
-    <summary type="html">
-    
-      Android activity lifetime
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="activity" scheme="https://austinxishou.github.io/tags/activity/"/>
     
   </entry>
   
