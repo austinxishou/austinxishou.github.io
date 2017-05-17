@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-05-17T05:51:23.184Z</updated>
+  <updated>2017-05-17T10:41:38.013Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -14,6 +14,53 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>youtube-dl视频下载工具使用</title>
+    <link href="https://austinxishou.github.io/python/cj2sv20l20002cgpxs2dg2fjx/python/youtube-dl%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    <id>https://austinxishou.github.io/python/cj2sv20l20002cgpxs2dg2fjx/python/youtube-dl视频下载工具使用/</id>
+    <published>2017-05-17T06:33:46.349Z</published>
+    <updated>2017-05-17T10:41:38.013Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About-简介"></a>About-简介</h2><p>通常用于下载网站视频的工具有youtube-dl和You-Get;经过测试发现,下载国外视频用youtube-dl比较方便,下载国内视频用You-Get;</p>
+<p>不过,由于youtube-dl支持的是Python 2.6, 2.7, or 3.2+,相对来说会方便很多;</p>
+<p>这篇文章主要介绍youtube-dl 命令行工具的使用,以及如何在python代码中调用外部 youtube-dl 命令,执行下载操作;</p>
+<p><a href="https://yt-dl.org/" target="_blank" rel="external">youtube-dl官网</a><br><a href="https://github.com/rg3/youtube-dl" target="_blank" rel="external">youtube-dlGithub</a></p>
+<h2 id="Download-and-Install-下载安装"><a href="#Download-and-Install-下载安装" class="headerlink" title="Download and Install-下载安装"></a>Download and Install-下载安装</h2><ul>
+<li><p>方式一 下载Windows exe程序使用<br>  从官网下载<a href="http://rg3.github.io/youtube-dl/download.html" target="_blank" rel="external">youtube-dl.exe</a><br>  然后放在电脑的任意目录下即可使用;可以通过下面的命令来更新youtube-dl</p>
+</li>
+<li><p>方式二 直接使用命令行来安装<br>  在安装了Python之后,按Win+R键打开运行，输入cmd，再输入下面的代码即可自动下载安装youtube-dl</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install youtube-dl //直接安装youtube-dl</div><div class="line">pip install --upgrade youtube-dl //安装youtube-dl并更新</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Usage-使用"><a href="#Usage-使用" class="headerlink" title="Usage-使用"></a>Usage-使用</h2><p>命令格式为:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">youtube-dl [OPTIONS] URL [URL...]</div></pre></td></tr></table></figure>
+<p><strong> 常用的选项有:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">-h, --help                       打印帮助</div><div class="line">--version                        显示版本</div><div class="line">-U, --update                     升级</div><div class="line">-i, --ignore-errors              忽略错误继续执行下载操作</div><div class="line">--abort-on-error                 出现错误中断下载</div><div class="line">--dump-user-agent                显示当前的用户代理信息</div><div class="line">--list-extractors                显示所有的支持解析</div><div class="line">--extractor-descriptions         显示所有的支持解析的描述</div><div class="line">--force-generic-extractor        使用通用的解析器强制下载</div><div class="line">--default-search PREFIX          对未校验的链接使用默认的前缀</div><div class="line">--ignore-config                  忽略配置文件</div><div class="line">--config-location PATH           使用本地的配置文件</div><div class="line">--flat-playlist                  不解析播放列表,仅仅显示</div><div class="line">--mark-watched                   标记视频已看过</div><div class="line">--no-mark-watched                不标记已观看</div><div class="line">--no-color                       忽略颜色输出</div></pre></td></tr></table></figure>
+<p><strong> 网络 选项 </strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">--proxy URL                      使用指定的代理</div><div class="line">--socket-timeout SECONDS         设置超时时间</div><div class="line">--source-address IP              绑定客户端IP地址</div><div class="line"><span class="number">-4</span>, --force-ipv4                 设置所有链接为 IPv4</div><div class="line"><span class="number">-6</span>, --force-ipv6                 设置所有链接为 IPv6</div></pre></td></tr></table></figure>
+<p><strong> 视频选择 </strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">--playlist-start NUMBER          播放列表起始位置(默认为 <span class="number">1</span>)</div><div class="line">--playlist-end NUMBER            播放列表结束位置(默认为 最后)</div><div class="line">--playlist-items ITEM_SPEC       播放列表特定选项进行下载</div><div class="line">--match-title REGEX              只下载匹配相应标题的视频</div><div class="line">--reject-title REGEX             跳过已经看过的视频</div><div class="line">--max-downloads NUMBER           设置最大下载数量</div><div class="line">--min-filesize SIZE              不下载视频大小小于设定值的视频</div><div class="line">--max-filesize SIZE              不下载视频大小大于设定值的视频</div><div class="line">--date DATE                      只下载更新日期为DATE的视频</div><div class="line">--datebefore DATE                只下载更新日期早于DATE的视频</div><div class="line">--dateafter DATE                 只下载更新日期晚于DATE的视频</div><div class="line">--min-views COUNT                不下载视频数量小于设定值的视频</div><div class="line">--max-views COUNT                不下载视频数量大于设定值的视频</div><div class="line">--match-filter FILTER            设置通用的视频过滤器</div><div class="line">--no-playlist                    如果连接指向视频和播放列表,只下载视频</div><div class="line">--yes-playlist                   如果连接指向视频和播放列表,只下载播放列表</div><div class="line">--age-limit YEARS                只下载指定年份的视频</div><div class="line">--download-archive FILE          只下载archive文件中没有的视频</div><div class="line">--include-ads                    广告视频也一起下载</div></pre></td></tr></table></figure>
+<p><strong> 下载选项 </strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">-r, --limit-rate RATE            设置下载最大sulv</div><div class="line">-R, --retries RETRIES            最大的尝试次数</div><div class="line">--fragment-retries RETRIES       fragment窗口最大的尝试次数</div><div class="line">--skip-unavailable-fragments     跳过无效的fragment窗口</div><div class="line">--abort-on-unavailable-fragment  当某些窗口失效时,停止下载</div><div class="line">--buffer-size SIZE               设置下载缓存</div><div class="line">--no-resize-buffer               不要进行下载缓存的自适应</div><div class="line">--playlist-reverse               反向下载播放列表视频</div><div class="line">--playlist-random                随机下载播放列表视频</div><div class="line">--xattr-set-filesize             设置文件xattr属性大小</div><div class="line">--hls-prefer-native              使用HLS下载器替代 ffmpeg                                 </div><div class="line">--hls-prefer-ffmpeg              使用ffmpeg下载器替代HLS</div><div class="line">--external-downloader COMMAND    使用外部下载器,目前支持:</div><div class="line">                                 aria2c,avconv,axel,curl,ffmpeg,httpie,wget</div><div class="line">--external-downloader-args ARGS  设置外部下载器参数</div></pre></td></tr></table></figure></p>
+<p><strong> 文件系统选项 </strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">-a, --batch-file FILE            下载指定文件包含的url链接视频</div><div class="line">--id                             文件名使用视频ID值</div><div class="line">-o, --output TEMPLATE            设置输出临时文件名</div><div class="line">--autonumber-start NUMBER        指定开始数值<span class="keyword">for</span> %(autonumber)s(默认为<span class="number">1</span>)</div><div class="line">--restrict-filenames             限制文件名使用ASCII编码</div><div class="line">-w, --no-overwrites              不要覆盖文件</div><div class="line">-c, --<span class="keyword">continue</span>                   强制恢复下载文件</div><div class="line">--no-<span class="keyword">continue</span>                    不要恢复下载文件</div><div class="line">--no-part                        不要使用.part 文件 - 直接写入到输出文件</div><div class="line">--no-mtime                       不要使用最后的修改时间</div><div class="line">--write-description              输出视频描述到指定文件</div><div class="line">--write-info-json                输出视频元数据metadata 到.info.json 文件</div><div class="line">--write-annotations              输出视频标记信息到.annotations.xml 文件</div><div class="line">--load-info-json FILE            载入视频信息文件</div><div class="line">--cookies FILE                   缓存文件</div><div class="line">--cache-dir DIR                  指定缓存文件目录</div><div class="line">--no-cache-dir                   关闭文件系统缓存</div><div class="line">--rm-cache-dir                   删除所有文件系统缓存文件</div></pre></td></tr></table></figure></p>
+<p><strong> 缩略图选项 </strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">--write-thumbnail                下载缩略图</div><div class="line">--write-all-thumbnails           下载所有格式的缩略图</div><div class="line">--list-thumbnails                仅仅显示缩略图列表</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      youtube-dl视频下载工具使用
+    
+    </summary>
+    
+      <category term="python" scheme="https://austinxishou.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://austinxishou.github.io/tags/python/"/>
+    
+      <category term="youtube-dl" scheme="https://austinxishou.github.io/tags/youtube-dl/"/>
+    
+  </entry>
   
   <entry>
     <title>python多线程以及执行本地命令技术要点</title>
@@ -486,6 +533,36 @@
   </entry>
   
   <entry>
+    <title>游戏站推荐</title>
+    <link href="https://austinxishou.github.io/killtime/cj2skkokn004o18px82vunicb/killtime/game/"/>
+    <id>https://austinxishou.github.io/killtime/cj2skkokn004o18px82vunicb/killtime/game/</id>
+    <published>2017-05-12T02:16:41.518Z</published>
+    <updated>2017-05-12T02:34:12.758Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>拼命玩游戏 : <a href="http://wanga.me/" target="_blank" rel="external">http://wanga.me/</a></li>
+<li>ArmorGames : <a href="http://armorgames.com/" target="_blank" rel="external">http://armorgames.com/</a></li>
+<li>u77汉化 : <a href="http://www.u77.com/" target="_blank" rel="external">http://www.u77.com/</a></li>
+<li>taptap : <a href="https://www.taptap.com/" target="_blank" rel="external">https://www.taptap.com/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      游戏站推荐
+    
+    </summary>
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
+    
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/tags/killtime/"/>
+    
+      <category term="football" scheme="https://austinxishou.github.io/tags/football/"/>
+    
+  </entry>
+  
+  <entry>
     <title>老司机资源汇总</title>
     <link href="https://austinxishou.github.io/killtime/cj2skkokk004i18px4ood8sps/killtime/driver/"/>
     <id>https://austinxishou.github.io/killtime/cj2skkokk004i18px4ood8sps/killtime/driver/</id>
@@ -643,36 +720,6 @@
   </entry>
   
   <entry>
-    <title>游戏站推荐</title>
-    <link href="https://austinxishou.github.io/killtime/cj2skkokn004o18px82vunicb/killtime/game/"/>
-    <id>https://austinxishou.github.io/killtime/cj2skkokn004o18px82vunicb/killtime/game/</id>
-    <published>2017-05-12T02:16:41.518Z</published>
-    <updated>2017-05-12T02:34:12.758Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>拼命玩游戏 : <a href="http://wanga.me/" target="_blank" rel="external">http://wanga.me/</a></li>
-<li>ArmorGames : <a href="http://armorgames.com/" target="_blank" rel="external">http://armorgames.com/</a></li>
-<li>u77汉化 : <a href="http://www.u77.com/" target="_blank" rel="external">http://www.u77.com/</a></li>
-<li>taptap : <a href="https://www.taptap.com/" target="_blank" rel="external">https://www.taptap.com/</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      游戏站推荐
-    
-    </summary>
-    
-      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
-    
-    
-      <category term="killtime" scheme="https://austinxishou.github.io/tags/killtime/"/>
-    
-      <category term="football" scheme="https://austinxishou.github.io/tags/football/"/>
-    
-  </entry>
-  
-  <entry>
     <title>设计资源汇总</title>
     <link href="https://austinxishou.github.io/killtime/cj2skkokj004f18pxlvy8drct/killtime/design/"/>
     <id>https://austinxishou.github.io/killtime/cj2skkokj004f18pxlvy8drct/killtime/design/</id>
@@ -776,6 +823,80 @@
       <category term="killtime" scheme="https://austinxishou.github.io/tags/killtime/"/>
     
       <category term="ittech" scheme="https://austinxishou.github.io/tags/ittech/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pyinstaller打包可执行文件命令工具使用</title>
+    <link href="https://austinxishou.github.io/python-pyinstaller/cj2sv20lk000bcgpxevi13frl/python/pyinstaller%E6%89%93%E5%8C%85%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
+    <id>https://austinxishou.github.io/python-pyinstaller/cj2sv20lk000bcgpxevi13frl/python/pyinstaller打包可执行文件命令工具使用/</id>
+    <published>2017-05-08T01:32:43.870Z</published>
+    <updated>2017-05-17T06:37:20.057Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="简介安装与说明"><a href="#简介安装与说明" class="headerlink" title="简介安装与说明"></a>简介安装与说明</h2><p><a href="http://www.pyinstaller.org/" target="_blank" rel="external">pyinstall官网</a><br><a href="http://www.111cn.net/phper/python/122937.htm" target="_blank" rel="external">http://www.111cn.net/phper/python/122937.htm</a></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>命令格式为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyinstaller [options] script [script ...] | specfile</div></pre></td></tr></table></figure></p>
+<p>所以最基本的使用为:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyinstaller myscript.py</div></pre></td></tr></table></figure></p>
+<ul>
+<li>Writes myscript.spec in the same folder as the script.</li>
+<li>Creates a folder build in the same folder as the script if it does not exist.</li>
+<li>Writes some log files and working files in the build folder.</li>
+<li>Creates a folder dist in the same folder as the script if it does not exist.</li>
+<li>Writes the myscript executable folder in the dist folder.</li>
+</ul>
+<p>更深入的使用得配合各种选项和myscript.spec文件</p>
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><h3 id="Spec-文件"><a href="#Spec-文件" class="headerlink" title="Spec 文件"></a>Spec 文件</h3><h3 id="UPX压缩可执行包"><a href="#UPX压缩可执行包" class="headerlink" title="UPX压缩可执行包"></a>UPX压缩可执行包</h3><p>默认生成的python可执行文件有点大，可以通过upx程序进行压缩，upx程序的主页位于：<a href="https://upx.github.io/" target="_blank" rel="external">https://upx.github.io/</a> ，目前windows版的最新upx为upx391w.zip ，下载后，将其中的upx.exe文件放到C:\Python27目录下（python可执行程序的安装目录），再次执行的时候，可以跟上–upx进行压缩。默认存在时不指定也会进行压缩，生成exe文件时，在其日志中可以发现如下内容：</p>
+<p>###加密 python 可执行文件<br>Encrypting Python Bytecode</p>
+<h3 id="跨平台打包"><a href="#跨平台打包" class="headerlink" title="跨平台打包"></a>跨平台打包</h3><h3 id="windows-安装包的版本文件"><a href="#windows-安装包的版本文件" class="headerlink" title="windows 安装包的版本文件"></a>windows 安装包的版本文件</h3><p>pyi-grab_version 命令<br>pyi-grab_version executable_with_version_resource</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">--version-file=<span class="string">'file_version_info.txt'</span>,</div><div class="line">          --version-file file_version_info.txt,</div><div class="line">icon</div><div class="line">          icon=<span class="string">'news_xishou.ico'</span>,</div><div class="line"><span class="keyword">import</span> logging</div><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="number">1</span>/<span class="number">0</span></div><div class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">    logging.exception(<span class="string">"message"</span>)</div></pre></td></tr></table></figure>
+<h2 id="运行时信息"><a href="#运行时信息" class="headerlink" title="运行时信息"></a>运行时信息</h2><p>当应用运行时,有可能从以下三个地方获取可访问的文件:</p>
+<ol>
+<li>当前程序的文件夹内,比如我们添加的 Adding Data Files</li>
+<li>用户在使用时放置在程序文件夹内</li>
+<li>用户当前工作目录</li>
+</ol>
+<h3 id="使用-file-and-sys-MEIPASS"><a href="#使用-file-and-sys-MEIPASS" class="headerlink" title="使用 file and sys._MEIPASS"></a>使用 <strong>file</strong> and sys._MEIPASS</h3><p>在Python中,<code>__file__</code> 表示当前脚本文件的路径.当程序包文件运行时,加载器会设置sys.frozen变量和<br>把运行文件的绝对路径保存在 <code>sys._MEIPASS</code> 变量中;</p>
+<p>在 一个文件夹安装包的模式,这个路径指向文件夹;<br>在一个文件的模式中,这个路径指向 _MEIxxxxxx 临时文件夹</p>
+<h3 id="使用-sys-executable-and-sys-argv-0"><a href="#使用-sys-executable-and-sys-argv-0" class="headerlink" title="使用 sys.executable and sys.argv[0]"></a>使用 sys.executable and sys.argv[0]</h3><p>在 python 运行时, sys.executable 表示当前程序的路径,一般为python解释的路径,如:<br>C:\Python27\python.exe</p>
+<p>但是在 安装包运行,虽然也表示运行程序的路径,但已经不是 python解释器的路径,而是程序加载器<br>bootloader<br>所以这个变量提供了一个可靠的路径标识当前用户使用的路径位置;</p>
+<p>当用户是使用快捷键运行时,sys.argv[0]标识快捷键的位置,sys.executable仍然是可执行文件真实存在的位置</p>
+<p>当需要提供不同快捷键运行不同功能时,就可以使用该参数<br>os.path.basename(sys.argv[0])</p>
+<p>示例程序<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python3</span></div><div class="line"><span class="keyword">import</span> sys, os</div><div class="line">frozen = <span class="string">'not'</span></div><div class="line"><span class="keyword">if</span> getattr(sys, <span class="string">'frozen'</span>, <span class="keyword">False</span>):</div><div class="line">        <span class="comment"># we are running in a bundle</span></div><div class="line">        frozen = <span class="string">'ever so'</span></div><div class="line">        bundle_dir = sys._MEIPASS</div><div class="line"><span class="keyword">else</span>:</div><div class="line">        <span class="comment"># we are running in a normal Python environment</span></div><div class="line">        bundle_dir = os.path.dirname(os.path.abspath(__file__))</div><div class="line">print( <span class="string">'we are'</span>,frozen,<span class="string">'frozen'</span>)</div><div class="line">print( <span class="string">'bundle dir is'</span>, bundle_dir )</div><div class="line">print( <span class="string">'sys.argv[0] is'</span>, sys.argv[<span class="number">0</span>] )</div><div class="line">print( <span class="string">'sys.executable is'</span>, sys.executable )</div><div class="line">print( <span class="string">'os.getcwd is'</span>, os.getcwd() )</div></pre></td></tr></table></figure></p>
+<h3 id="LD-LIBRARY-PATH-LIBPATH-considerations"><a href="#LD-LIBRARY-PATH-LIBPATH-considerations" class="headerlink" title="LD_LIBRARY_PATH / LIBPATH considerations"></a>LD_LIBRARY_PATH / LIBPATH considerations</h3><p>在类Unix系统中,表示库搜索路径</p>
+<h2 id="使用-Spec-文件"><a href="#使用-Spec-文件" class="headerlink" title="使用 Spec 文件"></a>使用 Spec 文件</h2><p>使用spec文件的场景:</p>
+<ol>
+<li>打包数据文件</li>
+<li>加载运行时库文件</li>
+<li>增加Python运行时配置参数</li>
+<li>打包跨程序的安装包</li>
+</ol>
+<p>单独生成spec文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyi-makespec options name.py [other scripts ...]</div></pre></td></tr></table></figure></p>
+<p>当生成并修改好spec文件后,运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyinstaller options name.spec</div></pre></td></tr></table></figure></p>
+<p>当你使用spec文件时,绝大多数的选项参数已经在spec文件中给出,这些参数不会改变;也就说你在命令行中给出的选项参数会被spec文件的参数覆盖,不起作用</p>
+<p>只有下述几个参数才是有意义的<br>–upx-dir=<br>–distpath=<br>–workpath=<br>–noconfirm<br>–ascii</p>
+<h3 id="spec-文件的结构"><a href="#spec-文件的结构" class="headerlink" title="spec 文件的结构"></a>spec 文件的结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">block_cipher = None</div><div class="line">a = Analysis([&apos;minimal.py&apos;],</div><div class="line">     pathex=[&apos;/Developer/PItests/minimal&apos;],</div><div class="line">     binaries=None,</div><div class="line">     datas=None,</div><div class="line">     hiddenimports=[],</div><div class="line">     hookspath=None,</div><div class="line">     runtime_hooks=None,</div><div class="line">     excludes=None,</div><div class="line">     cipher=block_cipher)</div><div class="line">pyz = PYZ(a.pure, a.zipped_data,</div><div class="line">     cipher=block_cipher)</div><div class="line">exe = EXE(pyz,... )</div><div class="line">coll = COLLECT(...)</div></pre></td></tr></table></figure>
+<p>由四部分组成: Analysis, PYZ, EXE and COLLECT.</p>
+<h3 id="向压缩包中添加文件"><a href="#向压缩包中添加文件" class="headerlink" title="向压缩包中添加文件"></a>向压缩包中添加文件</h3><p>添加文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">added_files = [</div><div class="line">         ( &apos;/mygame/sfx/*.mp3&apos;, &apos;sfx&apos; ),</div><div class="line">         ( &apos;src/README.txt&apos;, &apos;.&apos; )</div><div class="line">         ]</div><div class="line">    a = Analysis(...</div><div class="line">         datas = added_files,</div><div class="line">         ...</div><div class="line">         )</div></pre></td></tr></table></figure>
+<p>可以添加整个文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">added_files = [</div><div class="line">         ( &apos;/mygame/data&apos;, &apos;data&apos; ),</div><div class="line">         ( &apos;/mygame/sfx/*.mp3&apos;, &apos;sfx&apos; ),</div><div class="line">         ( &apos;src/README.txt&apos;, &apos;.&apos; )</div><div class="line">         ]</div></pre></td></tr></table></figure></p>
+<p>/mygame/data整个文件夹复制到data目录</p>
+<h3 id="在模块中使用-data文件"><a href="#在模块中使用-data文件" class="headerlink" title="在模块中使用 data文件"></a>在模块中使用 data文件</h3><p>pkgutils.get_data()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import pkgutil</div><div class="line">help_bin = pkgutil.get_data( &apos;helpmod&apos;, &apos;help_data.txt&apos; )</div></pre></td></tr></table></figure>
+<p>添加可执行文件</p>
+<h3 id="增加Python运行时参数"><a href="#增加Python运行时参数" class="headerlink" title="增加Python运行时参数"></a>增加Python运行时参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">v to write a message to stdout each time a module is initialized.</div><div class="line">u for unbuffered stdio.</div><div class="line">W and an option to change warning behavior: W ignore or W once or W error.</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      pyinstaller打包可执行文件命令工具使用
+    
+    </summary>
+    
+      <category term="python pyinstaller" scheme="https://austinxishou.github.io/categories/python-pyinstaller/"/>
+    
+    
+      <category term="python" scheme="https://austinxishou.github.io/tags/python/"/>
+    
+      <category term="pyinstaller" scheme="https://austinxishou.github.io/tags/pyinstaller/"/>
     
   </entry>
   
@@ -1277,162 +1398,6 @@
       <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
     
       <category term="OTA" scheme="https://austinxishou.github.io/tags/OTA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android优化OTA包大小和开机启动时间</title>
-    <link href="https://austinxishou.github.io/android/cj2skkok8003n18pxwoc57o24/android/Android%E4%BC%98%E5%8C%96OTA%E5%8C%85%E5%A4%A7%E5%B0%8F%E5%92%8C%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E6%97%B6%E9%97%B4/"/>
-    <id>https://austinxishou.github.io/android/cj2skkok8003n18pxwoc57o24/android/Android优化OTA包大小和开机启动时间/</id>
-    <published>2017-04-12T06:21:18.535Z</published>
-    <updated>2017-04-12T06:45:12.227Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="问题说明"><a href="#问题说明" class="headerlink" title="问题说明"></a>问题说明</h2><p>在Android 升级到 5.0 (Lollipop/L)之后，虚拟机实例换成了ART，这加快了应用运行时的速度，但是在系统升级中却引入了一些不便之处：</p>
-<ol>
-<li>在生成升级包时，因为ART采用了预编译优化功能，会把 APK 及JAR等通过dex2ota预编译成odex文件，这样极大的增加了升级包的大小，动辄上G的大小不方便用户的下载和网络的传播；</li>
-<li>如果不进行预编译优化，则这部分操作会转移到刷机完成后第一次开机时间，十几分钟甚至更多的时间，让用户不确认是否升级出问题；</li>
-</ol>
-<h2 id="预编译配置-兼顾大小和时间"><a href="#预编译配置-兼顾大小和时间" class="headerlink" title="预编译配置-兼顾大小和时间"></a>预编译配置-兼顾大小和时间</h2><p>上述问题，Android系统设计者，早已考虑周全，尤其是针对存储空间有限的设备，提供了丰富的编译配置选项，方便开发者根据自己实际情况进行针对性的配置修改；</p>
-<p>下面就针对这些配置选项进行说明和标记，方便后续开发人员参考；</p>
-<h3 id="打开odex编译优化"><a href="#打开odex编译优化" class="headerlink" title="打开odex编译优化"></a>打开odex编译优化</h3><p>首先，可以完全关闭预编译优化功能，跟dalvik虚拟机时代的升级包相同：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">product BoardConfig.mk 文件中，添加编译变量： WITH_DEXPREOPT := true</div></pre></td></tr></table></figure></p>
-<p>当然，这样的结果就是升级包小了，第一次开机时间极其慢；</p>
-<h3 id="预编译的包不进行优化"><a href="#预编译的包不进行优化" class="headerlink" title="预编译的包不进行优化"></a>预编译的包不进行优化</h3><p>预编译的包是指那些在模块编译文件中指定为：include $(BUILD_PREBUILT) 的APK和JAR包等，这在升级包中占了一大部门；<br>DONT_DEXPREOPT_PREBUILTS  变量就可以配置这部门代码是否进行预编译优化；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DONT_DEXPREOPT_PREBUILTS := true 后，编译系统将会阻止 prebuild 包的odex优化；</div></pre></td></tr></table></figure></p>
-<h3 id="只进行BOOT-img-优化"><a href="#只进行BOOT-img-优化" class="headerlink" title="只进行BOOT.img 优化"></a>只进行BOOT.img 优化</h3><p>Android启动过程中，boot.img包含了大部分底层系统的启动和初始化，主要包含在boot.art文件中；<br>使用 WITH_DEXPREOPT_BOOT_IMG_ONLY 编译变量，可以控制编译系统只进行boot.img的优化；<br>使能该变量后，将会大量节省system分区的大小，但同时意味着所有的app都需要在第一次重启的时候进行odex优化；</p>
-<p>所以最好是通过 DONT_DEXPREOPT_PREBUILTS 进行更精确的控制；</p>
-<h3 id="LOCAL-DEX-PREOPT-编译变量使用"><a href="#LOCAL-DEX-PREOPT-编译变量使用" class="headerlink" title="LOCAL_DEX_PREOPT 编译变量使用"></a>LOCAL_DEX_PREOPT 编译变量使用</h3><p>每个app应用，可以通过该编译变量进行控制是否进行odex优化；<br>在 app’s Android.mk，进行变量赋值 LOCAL_DEX_PREOPT := false</p>
-<h3 id="PRODUCT-DEXPREOPT-编译变量使用"><a href="#PRODUCT-DEXPREOPT-编译变量使用" class="headerlink" title="PRODUCT_DEXPREOPT 编译变量使用"></a>PRODUCT_DEX<em>PREOPT</em> 编译变量使用</h3><p>在 post-L 发行版本之后，添加了这个系列的编译变量，进行更深入控制预编译的优化；</p>
-<ol>
-<li>PRODUCT_DEX_PREOPT_BOOT_FLAGS          传递参数给 dex2oat 命令，控制boot.img的编译</li>
-<li>PRODUCT_DEX_PREOPT_DEFAULT_FLAGS     传递默认参数给 dex2oat 命令，控制除了 boot.img的编译，即jar包和apk文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(call add-product-dex-preopt-module-config,services,--compiler-filter=space)</div></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>或者 直接关闭模块的预编译优化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(call add-product-dex-preopt-module-config,Calculator,disable)</div></pre></td></tr></table></figure></p>
-<h3 id="Android-7-0-之后的优化"><a href="#Android-7-0-之后的优化" class="headerlink" title="Android 7.0 之后的优化"></a>Android 7.0 之后的优化</h3><p>7.0后，系统可以分为A/B两个分区，OTA升级以及APK的优化不影响用户前台的正常使用，这样既减小了升级包的大小，又提升了第一次开机速度；</p>
-<h3 id="预加载类文件"><a href="#预加载类文件" class="headerlink" title="预加载类文件"></a>预加载类文件</h3><p>预加载类会由zygote统一初始化，这样使后续使用到这些类的app开启速度加快；但是预加载类的使用在实际项目中要非常注意，需要仔细评估后确认权衡值，太多的预加载类会导致一些不常用的类消耗宝贵的内存资源，相反则会导致常用的类在不同应用中独立加载，各自有一个备份，既减慢应用开启速度，也是浪费内存；</p>
-<p>预加载类的定义列表，默认放置在 frameworks/base/preloaded-classes ，也可以在产品的devic.mk中添加自行定义的预加载列表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PRODUCT_COPY_FILES += &lt;filename&gt;:system/etc/preloaded-classes</div></pre></td></tr></table></figure></p>
-<h3 id="编译类列表"><a href="#编译类列表" class="headerlink" title="编译类列表"></a>编译类列表</h3><p>结合 PRODUCT_DEX_PREOPT_BOOT_FLAGS 和 compiled-classes 可以控制编译系统是否在预编译优化中编译这些类；<br>不过上述列表只能定义启动类的一个子集，适合用于那些存储空间非常有限，不能全局优化编译整个boot.img 分区的设备，所以对我们来说并不适合；</p>
-]]></content>
-    
-    <summary type="html">
-    
-      Android 优化OTA包大小和开机启动时间 升级包大小优化 升级开机时间优化 odex
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="odex" scheme="https://austinxishou.github.io/tags/odex/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android-OTA(四)Recovery二次开发</title>
-    <link href="https://austinxishou.github.io/android/cj2skkoka003r18pxxgpxczpi/android/Android-OTA(%E5%9B%9B)Recovery%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/"/>
-    <id>https://austinxishou.github.io/android/cj2skkoka003r18pxxgpxczpi/android/Android-OTA(四)Recovery二次开发/</id>
-    <published>2017-04-12T06:17:58.664Z</published>
-    <updated>2017-04-17T02:06:25.241Z</updated>
-    
-    <content type="html"><![CDATA[<h3 id="main-函数"><a href="#main-函数" class="headerlink" title="main 函数"></a>main 函数</h3><p>从main入口函数分析recovery的主要源码：</p>
-<p><strong>输出重定向</strong></p>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    redirect_stdio(TEMPORARY_LOG_FILE);</div><div class="line">    //redirect log to serial output</div><div class="line">#ifdef LogToSerial</div><div class="line">    freopen(&quot;/dev/ttyFIQ0&quot;, &quot;a&quot;, stdout); setbuf(stdout, NULL);</div><div class="line">    freopen(&quot;/dev/ttyFIQ0&quot;, &quot;a&quot;, stderr); setbuf(stderr, NULL);</div><div class="line">#endif</div></pre></td></tr></table></figure>
-<p>这部分代码很容易理解，主要作用是输出log到/tem/recovery.log文件中</p>
-<p><strong>执行adb sideload分支</strong></p>
-<hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">if (argc == 2 &amp;&amp; strcmp(argv[1], &quot;--adbd&quot;) == 0) &#123;</div><div class="line">    adb_main(0, DEFAULT_ADB_PORT);</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>判断命令行参数是否为–adbd，并执行adb_main函数，这部分代码在后续adb_install.cpp中分析；</p>
-<p><strong>填充fstab结构体</strong></p>
-<hr>
-<p>在main函数中调用 load_volume_table()，读取/etc/recovery.emmc.fstab文件内容，并填充fstab结构体，但是并没有执行挂载操作：<br>load_volume_table函数在roots.cpp文件中，也是很容易理解：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">void load_volume_table()</div><div class="line">&#123;</div><div class="line">	...</div><div class="line">	int emmcState = getEmmcState();//判断是否为emmc设备</div><div class="line">    if(emmcState) &#123;</div><div class="line">		fstab = fs_mgr_read_fstab(&quot;/etc/recovery.emmc.fstab&quot;);</div><div class="line">	&#125;else &#123;</div><div class="line">    	fstab = fs_mgr_read_fstab(&quot;/etc/recovery.fstab&quot;);</div><div class="line">	&#125;</div><div class="line">	...</div><div class="line">	//读取文件中每个条目内容，填充fstab结构体</div><div class="line">    ret = fs_mgr_add_entry(fstab, &quot;/tmp&quot;, &quot;ramdisk&quot;, &quot;ramdisk&quot;);</div><div class="line">	...</div><div class="line">	//日志打印fstable信息</div><div class="line">    printf(&quot;recovery filesystem table\n&quot;);</div><div class="line">    printf(&quot;=========================\n&quot;);</div><div class="line">    for (i = 0; i &lt; fstab-&gt;num_entries; ++i) &#123;</div><div class="line">        Volume* v = &amp;fstab-&gt;recs[i];</div><div class="line">        printf(&quot;  %d %s %s %s %lld\n&quot;, i, v-&gt;mount_point, v-&gt;fs_type,</div><div class="line">               v-&gt;blk_device, v-&gt;length);</div><div class="line">    &#125;</div><div class="line">    printf(&quot;\n&quot;);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p><strong>读取控制参数</strong><br>recovery 和 bootloader 必须通过内存的一个特定分区，才能进行相互的通信，这个分区一般是/misc；<br>对应的信息数据结构体为bootloader_message；<br>参照源码中bootloader_message  的注释</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">struct bootloader_message &#123;</div><div class="line">    char command[32];//bootloader 启动时读取改数据，决定是否进入recovery模式</div><div class="line">    char status[32];//由bootloader进行更新，标识升级的结果；</div><div class="line">    char recovery[768];//由Android系统进行写入，recovery从中读取信息；</div><div class="line">    char stage[32];</div><div class="line">    char reserved[224];</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>recovery 根据命令行参数，再从/misc分区中解析出对应的参数，进行后续的操作，具体的调用函数为get_args(&amp;argc, &amp;argv);</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">static void</div><div class="line">get_args(int *argc, char ***argv) &#123;</div><div class="line">    struct bootloader_message boot;//参数结构体</div><div class="line">    memset(&amp;boot, 0, sizeof(boot));</div><div class="line">    get_bootloader_message(&amp;boot);  // 具体的读取信息的函数，可能为空的情况</div><div class="line">    stage = strndup(boot.stage, sizeof(boot.stage));</div><div class="line">	...</div><div class="line">	</div><div class="line">	 // 如果上述情况为空，则从/cache/recovery/command获取参数，其中COMMAND_FILE=/cache/recovery/command</div><div class="line">    if (*argc &lt;= 1) &#123;</div><div class="line">        FILE *fp = fopen_path(COMMAND_FILE, &quot;r&quot;);</div><div class="line">        if (fp != NULL) &#123;</div><div class="line">            char *token;</div><div class="line">            char *argv0 = (*argv)[0];</div><div class="line">            *argv = (char **) malloc(sizeof(char *) * MAX_ARGS);</div><div class="line">            (*argv)[0] = argv0;  // use the same program name</div><div class="line"></div><div class="line">            char buf[MAX_ARG_LENGTH];</div><div class="line">            for (*argc = 1; *argc &lt; MAX_ARGS; ++*argc) &#123;</div><div class="line">                if (!fgets(buf, sizeof(buf), fp)) break;</div><div class="line">                token = strtok(buf, &quot;\r\n&quot;);</div><div class="line">                if (token != NULL) &#123;</div><div class="line">                    (*argv)[*argc] = strdup(token);  // Strip newline.</div><div class="line">                &#125; else &#123;</div><div class="line">                    --*argc;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            check_and_fclose(fp, COMMAND_FILE);</div><div class="line">            LOGI(&quot;Got arguments from %s\n&quot;, COMMAND_FILE);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">	//把从/cache/recovery/command获取参数重新写回到/misc分区</div><div class="line">    // --&gt; write the arguments we have back into the bootloader control block</div><div class="line">    // always boot into recovery after this (until finish_recovery() is called)</div><div class="line">    strlcpy(boot.command, &quot;boot-recovery&quot;, sizeof(boot.command));</div><div class="line">    strlcpy(boot.recovery, &quot;recovery\n&quot;, sizeof(boot.recovery));</div><div class="line">    int i;</div><div class="line">    for (i = 1; i &lt; *argc; ++i) &#123;</div><div class="line">        strlcat(boot.recovery, (*argv)[i], sizeof(boot.recovery));</div><div class="line">        strlcat(boot.recovery, &quot;\n&quot;, sizeof(boot.recovery));</div><div class="line">    &#125;</div><div class="line">    set_bootloader_message(&amp;boot);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p><strong>解析命令行参数</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line">  while ((arg = getopt_long(argc, argv, &quot;&quot;, OPTIONS, NULL)) != -1) &#123;</div><div class="line">      switch (arg) &#123;</div><div class="line">      case &apos;f&apos;: factory_mode = optarg; bFactoryMode = true; break;</div><div class="line">      case &apos;i&apos;: send_intent = optarg; break;</div><div class="line">      case &apos;u&apos;: update_package = optarg; break;</div><div class="line">      case &apos;w&apos;: should_wipe_data = true; break;</div><div class="line">case &apos;k&apos;:  update_rkimage = optarg;break;</div><div class="line">      case &apos;c&apos;: should_wipe_cache = true; break;</div><div class="line">      case &apos;t&apos;: show_text = true; break;</div><div class="line">      case &apos;s&apos;: sideload = true; break;</div><div class="line">      case &apos;a&apos;: sideload = true; sideload_auto_reboot = true; break;</div><div class="line">      case &apos;x&apos;: just_exit = true; break;</div><div class="line">      case &apos;l&apos;: locale = optarg; break;</div><div class="line">      case &apos;g&apos;: &#123;</div><div class="line">          if (stage == NULL || *stage == &apos;\0&apos;) &#123;</div><div class="line">              char buffer[20] = &quot;1/&quot;;</div><div class="line">              strncat(buffer, optarg, sizeof(buffer)-3);</div><div class="line">              stage = strdup(buffer);</div><div class="line">          &#125;</div><div class="line">          break;</div><div class="line">      &#125;</div><div class="line">      case &apos;f&apos;+&apos;w&apos;: //fw_update</div><div class="line">          if((optarg)&amp;&amp;(!sdboot_update_package))&#123;</div><div class="line">          sdboot_update_package = strdup(optarg);</div><div class="line">          &#125;</div><div class="line">          break;</div><div class="line">      case &apos;d&apos;: //demo_copy</div><div class="line">          if((optarg)&amp;&amp;(! demo_copy_path))&#123;</div><div class="line">              demo_copy_path = strdup(optarg);</div><div class="line">          &#125;</div><div class="line">          break;</div><div class="line">      case &apos;p&apos;: shutdown_after = true; break;</div><div class="line">      case &apos;r&apos;: reason = optarg; break;</div><div class="line">      case &apos;w&apos;+&apos;a&apos;: &#123; should_wipe_all = should_wipe_data = should_wipe_cache = true;show_text = true;&#125; break;</div><div class="line">      case &apos;?&apos;:</div><div class="line">          LOGE(&quot;Invalid command argument\n&quot;);</div><div class="line">          continue;</div><div class="line">      &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
-<p>这部分代码很简单，就是通过getopt_long进行命令行参数的解析并赋值；</p>
-<p><strong>显示界面和功能选项</strong></p>
-<p>接下来就是创建device，显示对应UI界面和功能选项；</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">   Device* device = make_device();//可以自己实现一个设备</div><div class="line">   ui = device-&gt;GetUI();</div><div class="line">   gCurrentUI = ui;//赋值ui界面</div><div class="line"></div><div class="line">   ui-&gt;SetLocale(locale);//获取归属地信息</div><div class="line">   ui-&gt;Init();//初始化，可以重载，在init中实现相应功能</div><div class="line">ui-&gt;SetStage(st_cur, st_max);</div><div class="line">ui-&gt;SetBackground(RecoveryUI::NONE);</div></pre></td></tr></table></figure>
-<p><strong>进行分区挂载操作</strong><br>ensure_path_mounted<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div></pre></td><td class="code"><pre><div class="line">int ensure_path_mounted(const char* path) &#123;</div><div class="line">	...</div><div class="line">    Volume* v = volume_for_path(path);//根据路径名获取分区信息</div><div class="line">	...</div><div class="line">    int result;</div><div class="line">    result = scan_mounted_volumes();</div><div class="line"></div><div class="line">    const MountedVolume* mv =</div><div class="line">        find_mounted_volume_by_mount_point(v-&gt;mount_point);//根据挂载点，获取已挂载分区的信息，如果不为空，说明已经成功挂载</div><div class="line">    if (mv) &#123;</div><div class="line">        // volume is already mounted</div><div class="line">        return 0;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    result = mkdir(v-&gt;mount_point, 0755);  // 创建对应目录，确保目录存在，也有可能目录已经存在</div><div class="line">    if (result!=0)</div><div class="line">    &#123;</div><div class="line">		printf(&quot;failed to create %s dir,err=%s!\n&quot;,v-&gt;mount_point,strerror(errno));</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	// 根据文件系统类型，执行mount操作</div><div class="line">    if (strcmp(v-&gt;fs_type, &quot;yaffs2&quot;) == 0) &#123;</div><div class="line">        // mount an MTD partition as a YAFFS2 filesystem.</div><div class="line">        mtd_scan_partitions();</div><div class="line">        const MtdPartition* partition;</div><div class="line">        partition = mtd_find_partition_by_name(v-&gt;blk_device);</div><div class="line">        if (partition == NULL) &#123;</div><div class="line">            LOGE(&quot;failed to find \&quot;%s\&quot; partition to mount at \&quot;%s\&quot;\n&quot;,</div><div class="line">                 v-&gt;blk_device, v-&gt;mount_point);</div><div class="line">            return -1;</div><div class="line">        &#125;</div><div class="line">        return mtd_mount_partition(partition, v-&gt;mount_point, v-&gt;fs_type, 0);</div><div class="line">    &#125; else if (strcmp(v-&gt;fs_type, &quot;ext4&quot;) == 0 ||</div><div class="line">               strcmp(v-&gt;fs_type, &quot;ext3&quot;) == 0) &#123;</div><div class="line">        result = mount(v-&gt;blk_device, v-&gt;mount_point, v-&gt;fs_type,</div><div class="line">                       MS_NOATIME | MS_NODEV | MS_NODIRATIME, &quot;&quot;);</div><div class="line">        if (result == 0) return 0;</div><div class="line"></div><div class="line">        LOGE(&quot;failed to mount %s %s (%s)\n&quot;, v-&gt;mount_point, v-&gt;blk_device, strerror(errno));</div><div class="line">        return -1;</div><div class="line">    &#125; else if (strcmp(v-&gt;fs_type, &quot;vfat&quot;) == 0) &#123;</div><div class="line">        result = mount(v-&gt;blk_device, v-&gt;mount_point, v-&gt;fs_type,</div><div class="line">                       MS_NOATIME | MS_NODEV | MS_NODIRATIME, &quot;shortname=mixed,utf8&quot;);</div><div class="line">        if (result == 0) return 0;</div><div class="line"></div><div class="line">        LOGW(&quot;trying mount %s to ntfs\n&quot;, v-&gt;blk_device);</div><div class="line">		result = mount(v-&gt;blk_device, v-&gt;mount_point, &quot;ntfs&quot;,</div><div class="line">						   MS_NOATIME | MS_NODEV | MS_NODIRATIME, &quot;&quot;);</div><div class="line">		if (result == 0) return 0;</div><div class="line"></div><div class="line">		char *sec_dev = v-&gt;fs_options;</div><div class="line">		if(sec_dev != NULL) &#123;</div><div class="line">			char *temp = strchr(sec_dev, &apos;,&apos;);</div><div class="line">			if(temp) &#123;</div><div class="line">				temp[0] = &apos;\0&apos;;</div><div class="line">			&#125;</div><div class="line"></div><div class="line">			result = mount(sec_dev, v-&gt;mount_point, v-&gt;fs_type,</div><div class="line">								   MS_NOATIME | MS_NODEV | MS_NODIRATIME, &quot;shortname=mixed,utf8&quot;);</div><div class="line">			if (result == 0) return 0;</div><div class="line"></div><div class="line">			LOGW(&quot;trying mount %s to ntfs\n&quot;, sec_dev);</div><div class="line">			result = mount(sec_dev, v-&gt;mount_point, &quot;ntfs&quot;,</div><div class="line">							   MS_NOATIME | MS_NODEV | MS_NODIRATIME, &quot;&quot;);</div><div class="line">			if (result == 0) return 0;</div><div class="line">		&#125;</div><div class="line"></div><div class="line">        LOGE(&quot;failed to mount %s (%s)\n&quot;, v-&gt;mount_point, strerror(errno));</div><div class="line">        return -1;</div><div class="line">    &#125;else if (strcmp(v-&gt;fs_type, &quot;ntfs&quot;) == 0) &#123;</div><div class="line">		LOGW(&quot;trying mount %s to ntfs\n&quot;, v-&gt;blk_device);</div><div class="line">		result = mount(v-&gt;blk_device, v-&gt;mount_point, &quot;ntfs&quot;,</div><div class="line">						   MS_NOATIME | MS_NODEV | MS_NODIRATIME, &quot;&quot;);</div><div class="line">		if (result == 0) return 0;</div><div class="line"></div><div class="line">        LOGE(&quot;failed to mount %s (%s)\n&quot;, v-&gt;mount_point, strerror(errno));</div><div class="line">        return -1;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    LOGE(&quot;unknown fs_type \&quot;%s\&quot; for %s\n&quot;, v-&gt;fs_type, v-&gt;mount_point);</div><div class="line">    return -1;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h2 id="界面定制"><a href="#界面定制" class="headerlink" title="界面定制"></a>界面定制</h2><h3 id="实现Recovery-UI"><a href="#实现Recovery-UI" class="headerlink" title="实现Recovery UI"></a>实现Recovery UI</h3><p>在自己的设备目录下：device/vendor/recovery/recovery_ui.cpp</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#include &lt;linux/input.h&gt;</div><div class="line">#include &lt;sys/stat.h&gt;</div><div class="line">#include &lt;errno.h&gt;</div><div class="line">#include &lt;string.h&gt;</div><div class="line"></div><div class="line">#include &quot;common.h&quot;</div><div class="line">#include &quot;device.h&quot;</div><div class="line">#include &quot;screen_ui.h&quot;</div></pre></td></tr></table></figure>
-<h3 id="实现头部显示和列表项"><a href="#实现头部显示和列表项" class="headerlink" title="实现头部显示和列表项"></a>实现头部显示和列表项</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">const char* HEADERS[] = &#123; &quot;Volume up/down to move highlight;&quot;,</div><div class="line">                         &quot;power button to select.&quot;,</div><div class="line">                         &quot;&quot;,</div><div class="line">                         NULL &#125;;</div><div class="line"></div><div class="line">const char* ITEMS[] =&#123; &quot;reboot system now&quot;,</div><div class="line">                       //&quot;apply update from ADB&quot;,</div><div class="line">                       &quot;apply update from external storage&quot;,</div><div class="line">                       &quot;update rkimage from external storage&quot;,</div><div class="line">                       &quot;apply update from cache&quot;,</div><div class="line">                       &quot;wipe data/factory reset&quot;,</div><div class="line">                       &quot;wipe cache partition&quot;,</div><div class="line">                       &quot;recovery system from backup&quot;,</div><div class="line">                       NULL &#125;;</div></pre></td></tr></table></figure>
-<h3 id="实现ScreenRecoveryUI"><a href="#实现ScreenRecoveryUI" class="headerlink" title="实现ScreenRecoveryUI"></a>实现ScreenRecoveryUI</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">class DeviceUI : public ScreenRecoveryUI &#123;</div><div class="line">  public:</div><div class="line">	DeviceUI () :</div><div class="line">        consecutive_power_keys(0) &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">	//实现自己的识别key类型的功能，可以为不同的输入设备适配recovery功能</div><div class="line">    virtual KeyAction CheckKey(int key) &#123;</div><div class="line">        if (IsKeyPressed(KEY_POWER) &amp;&amp; key == KEY_VOLUMEUP) &#123;</div><div class="line">            return TOGGLE;</div><div class="line">        &#125;</div><div class="line">        if (key == KEY_POWER) &#123;</div><div class="line">            ++consecutive_power_keys;</div><div class="line">            if (consecutive_power_keys &gt;= 7) &#123;</div><div class="line">                return REBOOT;</div><div class="line">            &#125;</div><div class="line">        &#125; else &#123;</div><div class="line">            consecutive_power_keys = 0;</div><div class="line">        &#125;</div><div class="line">        return ENQUEUE;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  private:</div><div class="line">    int consecutive_power_keys;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<h3 id="实现设备类"><a href="#实现设备类" class="headerlink" title="实现设备类"></a>实现设备类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line">class MyDevice : public Device &#123;</div><div class="line">  public:</div><div class="line">	RkDevice() :</div><div class="line">        ui(new DeviceUI ) &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    RecoveryUI* GetUI() &#123; return ui; &#125;</div><div class="line"></div><div class="line">    int HandleMenuKey(int key_code, int visible) &#123;</div><div class="line">        if (visible) &#123;</div><div class="line">            switch (key_code) &#123;</div><div class="line">              case KEY_DOWN:</div><div class="line">              case KEY_VOLUMEDOWN:</div><div class="line">                return kHighlightDown;</div><div class="line"></div><div class="line">              case KEY_UP:</div><div class="line">              case KEY_VOLUMEUP:</div><div class="line">                return kHighlightUp;</div><div class="line"></div><div class="line">              case KEY_ENTER:</div><div class="line">              case KEY_POWER:</div><div class="line">                return kInvokeItem;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return kNoAction;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    BuiltinAction InvokeMenuItem(int menu_position) &#123;</div><div class="line">        switch (menu_position) &#123;</div><div class="line">          case 0: return REBOOT;</div><div class="line">          //case 1: return APPLY_ADB_SIDELOAD;</div><div class="line">          case 1: return APPLY_EXT;</div><div class="line">          case 2: return APPLY_INT_RKIMG;</div><div class="line">          case 3: return APPLY_CACHE;</div><div class="line">          case 4: return WIPE_DATA;</div><div class="line">          case 5: return WIPE_CACHE;</div><div class="line">          case 6: return RECOVER_SYSTEM;</div><div class="line">          default: return NO_ACTION;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    const char* const* GetMenuHeaders() &#123; return HEADERS; &#125;</div><div class="line">    const char* const* GetMenuItems() &#123; return ITEMS; &#125;</div><div class="line"></div><div class="line">  private:</div><div class="line">    RecoveryUI* ui;</div><div class="line">&#125;;</div><div class="line"></div><div class="line">//创建自己实现的设备</div><div class="line">Device* make_device() &#123;</div><div class="line">    return new MyDevice ;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="添加编译实现"><a href="#添加编译实现" class="headerlink" title="添加编译实现"></a>添加编译实现</h3><p>主要是覆盖TARGET_RECOVERY_UI_LIB，输出到/out/…./recovery/root目录下：</p>
-<p>Android.mk<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">LOCAL_PATH := $(call my-dir)</div><div class="line">include $(CLEAR_VARS)</div><div class="line"></div><div class="line">LOCAL_MODULE_TAGS := eng</div><div class="line">LOCAL_C_INCLUDES += bootable/recovery</div><div class="line">LOCAL_SRC_FILES := recovery_ui.cpp</div><div class="line"></div><div class="line"># should match TARGET_RECOVERY_UI_LIB set in BoardConfig.mk</div><div class="line">LOCAL_MODULE := librecovery_ui_$(TARGET_PRODUCT)</div><div class="line"></div><div class="line">include $(BUILD_STATIC_LIBRARY)</div></pre></td></tr></table></figure></p>
-<h2 id="recovery-二次开发"><a href="#recovery-二次开发" class="headerlink" title="recovery 二次开发"></a>recovery 二次开发</h2><h3 id="代码结构："><a href="#代码结构：" class="headerlink" title="代码结构："></a>代码结构：</h3><ol>
-<li><p>bootable/recovery<br>Recovery主程序代码，其中recovery.cpp是入口，rkimage.cpp处理update.img升级流程，updater/install.c处理ota update.zip包升级流程。</p>
-</li>
-<li><p>build/tools/releasetools/<br>Ota升级包编译的python脚本，控制完整包与差异包的生成。</p>
-</li>
-<li><p>build/tools/drmsigntool/<br>如果开启drm，生成ota包时对boot.img进行签名，使用build/target/product/security/private.key，<br>保证进行ota升级后drm功能还能正常使用。</p>
-</li>
-<li><p>build/tools/mkparameter/<br>编译ota包时打包可升级的parameter的工具。</p>
-</li>
-<li><p>build/tools/remkloader/<br>编译ota包时打包可升级的loader的工具。</p>
-</li>
-<li><p>build/target/product/security/<br>编译ota包时签名使用的密钥</p>
-</li>
-<li><p>device/rockchip/rksdk/recovery/<br>Recovery菜单及按键定制</p>
-</li>
-<li><p>device/rockchip/rksdk/loader/<br>将需要升级的loader放在该目录下，可以打包到ota升级包中。</p>
-</li>
-<li><p>device/rockchip/rksdk/parameter/<br>将需要升级的parameter放在该目录下，可以打包到ota升级包中。</p>
-</li>
-<li><p>out/target/product/rk3188/obj/PACKAGING/target_files_intermediates/<br>Ota升级包编译生成的素材包，要做差异包必须保存该素材包。</p>
-</li>
-</ol>
-<h3 id="板级配置"><a href="#板级配置" class="headerlink" title="板级配置"></a>板级配置</h3><blockquote>
-<p>Recovery 一些宏配置开关在device/rockchip/rk30sdk/BoardConfig.mk</p>
-</blockquote>
-<ol>
-<li><p>BOARD_HAS_FLIPPED_SCREEN := true</p>
-<blockquote>
-<p>针对lcd装反的情况可以强制recovery ui旋转180°</p>
-</blockquote>
-</li>
-<li><p>TARGET_RECOVERY_UI_LIB ?= librecovery_ui_rk30sdk</p>
-<blockquote>
-<p>自定义recovery菜单与按键实现。</p>
-</blockquote>
-</li>
-<li><p>TARGET_USERIMAGES_USE_EXT4 ?= true</p>
-<blockquote>
-<p>Recovery支持ext4 文件系统</p>
-</blockquote>
-</li>
-<li><p>RECOVERY_UPDATEIMG_RSA_CHECK ?= false</p>
-<blockquote>
-<p>Update.img在升级时进行drm签名校验，防止第三方非法固件升级。Update.img必须使用secureboot工具签名，并勾选sign check复选框。</p>
-</blockquote>
-</li>
-<li><p>RECOVERY_BOARD_ID ?= false</p>
-<blockquote>
-<p>一种根据烧录Boardid 串号实现一种固件支持不同硬件不同国家定制的one image方案，该方案支持google 的ota 完整升级和差异升级。</p>
-</blockquote>
-</li>
-</ol>
-<h2 id="脚本文件命令以及解析"><a href="#脚本文件命令以及解析" class="headerlink" title="脚本文件命令以及解析"></a>脚本文件命令以及解析</h2><p>升级脚本文件解析,</p>
-<h3 id="try-update-binary"><a href="#try-update-binary" class="headerlink" title="try_update_binary"></a>try_update_binary</h3><p>主要命令有<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">progress &lt;frac&gt; &lt;secs&gt;</div><div class="line">set_progress &lt;frac&gt;</div><div class="line">firmware &lt;<span class="string">"hboot"</span>|<span class="string">"radio"</span>&gt; &lt;filename&gt;</div><div class="line">ui_print &lt;<span class="built_in">string</span>&gt;</div><div class="line">wipe_cache</div><div class="line">clear_display</div><div class="line">enable_reboot</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      Android Recovery 源码解析和界面定制 recovery二次开发
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="Recovery" scheme="https://austinxishou.github.io/tags/Recovery/"/>
     
   </entry>
   
