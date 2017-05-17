@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-05-17T03:54:41.202Z</updated>
+  <updated>2017-05-17T05:50:09.968Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -17,47 +17,36 @@
   
   <entry>
     <title>python多线程以及执行本地命令技术要点</title>
-    <link href="https://austinxishou.github.io/python/cj2sjytev000imopxj19xc6ag/python/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BB%A5%E5%8F%8A%E6%89%A7%E8%A1%8C%E6%9C%AC%E5%9C%B0%E5%91%BD%E4%BB%A4%E6%8A%80%E6%9C%AF%E8%A6%81%E7%82%B9/"/>
-    <id>https://austinxishou.github.io/python/cj2sjytev000imopxj19xc6ag/python/python多线程以及执行本地命令技术要点/</id>
+    <link href="https://austinxishou.github.io/python/cj2sk3ufz005ajcpxbv8actga/python/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BB%A5%E5%8F%8A%E6%89%A7%E8%A1%8C%E6%9C%AC%E5%9C%B0%E5%91%BD%E4%BB%A4%E6%8A%80%E6%9C%AF%E8%A6%81%E7%82%B9/"/>
+    <id>https://austinxishou.github.io/python/cj2sk3ufz005ajcpxbv8actga/python/python多线程以及执行本地命令技术要点/</id>
     <published>2017-05-17T03:18:42.782Z</published>
-    <updated>2017-05-17T03:54:41.202Z</updated>
+    <updated>2017-05-17T05:50:09.968Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="subprocess-About-简介"><a href="#subprocess-About-简介" class="headerlink" title="subprocess-About-简介"></a>subprocess-About-简介</h2><blockquote>
-<p>subprocess模块用来创建新的进程，连接到其stdin、stdout、stderr管道并获取它们的返回码。<br>    subprocess模块的出现是为了替代旧模块及函数：os.system、os.spawn<em>、os.popen</em>、popen2.<em>、commands.</em>。<br>    强烈建议POSIX用户（Linux、BSD等）安装并使用较新的subprocess32模块，而不是Python 2.7自带的subprocess。</p>
-<p>推荐用户使用call、check_call和check_output这三个快捷函数，在无法满足需求的时候才使用更高级的Popen接口。</p>
-</blockquote>
-<h2 id="subprocess-call-调用"><a href="#subprocess-call-调用" class="headerlink" title="subprocess.call-调用"></a>subprocess.call-调用</h2><blockquote>
-<p>call函数可以认为是对popen和wait的分装，直接对call函数传入要执行的命令行，将命令行的退出code返回。</p>
-<p>运行由args参数提供的命令，等待命令执行结束并返回返回码。args参数由字符串形式提供且有多个命令参数时，<br>    需要提供shell=True参数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">subprocess.call(args, *, stdin= <span class="keyword">None</span>, stdout = <span class="keyword">None</span>, stderr = <span class="keyword">None</span>, shell = <span class="keyword">False</span>)</div></pre></td></tr></table></figure></p>
+    <content type="html"><![CDATA[<h2 id="subprocess-About-简介"><a href="#subprocess-About-简介" class="headerlink" title="subprocess-About-简介"></a>subprocess-About-简介</h2><p><code>subprocess</code> 模块用来创建新的进程，连接到其stdin、stdout、stderr管道并获取它们的返回码。</p>
+<p>subprocess模块的出现是为了替代旧模块及函数：<code>os.system</code>、<code>os.spawn*</code>、<code>os.popen*</code>、<code>popen2.*</code>、<code>commands.*</code>。</p>
+<p>强烈建议POSIX用户（Linux、BSD等）安装并使用较新的<code>subprocess32</code>模块，而不是Python 2.7自带的subprocess。</p>
+<p>推荐用户使用<code>call</code>、<code>check_call</code>和<code>check_output</code>这三个快捷函数，在无法满足需求的时候才使用更高级的<code>Popen</code>接口。</p>
+<h2 id="subprocess-call-调用"><a href="#subprocess-call-调用" class="headerlink" title="subprocess.call-调用"></a>subprocess.call-调用</h2><p>call函数可以认为是对<code>popen</code>和<code>wait</code>的分装，直接对<code>call</code>函数传入要执行的命令行，将命令行的退出code返回。</p>
+<p>运行由<code>args</code>参数提供的命令，等待命令执行结束并返回返回码。args参数由字符串形式提供且有多个命令参数时，</p>
+<p>需要提供<code>shell=True</code>参数：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">subprocess.call(args, *, stdin= <span class="keyword">None</span>, stdout = <span class="keyword">None</span>, stderr = <span class="keyword">None</span>, shell = <span class="keyword">False</span>)</div></pre></td></tr></table></figure>
+<blockquote>
 <p>注意不要为stdout和stderr参数赋值subprocess.PIPE，如果子进程输出量较多会造成死锁，这两个参数可以赋值为subprocess.STDOUT打印到屏幕或者赋值为一个文件对象将输出写入文件：</p>
 </blockquote>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//test.py-示例</div><div class="line"><span class="keyword">import</span> subprocess <span class="keyword">as</span> sp</div><div class="line">sp.call(<span class="string">'python run.py'</span>, shell = <span class="keyword">True</span>, stdin=open(<span class="string">'fake_input'</span>, <span class="string">'r'</span>), stdout=open(<span class="string">'result'</span>, <span class="string">'w'</span>))</div></pre></td></tr></table></figure>
-<h2 id="subprocess-check-call-调用返回确认"><a href="#subprocess-check-call-调用返回确认" class="headerlink" title="subprocess.check_call-调用返回确认"></a>subprocess.check_call-调用返回确认</h2><blockquote>
-<p>与call方法类似，不同在于如果命令行执行成功，check_call返回返回码0，否则抛出subprocess.CalledProcessError异常。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">subprocess.check_call(args, *, stdin = <span class="keyword">None</span>, stdout = <span class="keyword">None</span>, stderr = <span class="keyword">None</span>, shell = <span class="keyword">False</span>)</div></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="subprocess-check-output-调用输出确认"><a href="#subprocess-check-output-调用输出确认" class="headerlink" title="subprocess.check_output-调用输出确认"></a>subprocess.check_output-调用输出确认</h2><blockquote>
-<p>在子进程执行命令，以字符串形式返回执行结果的输出。如果子进程退出码不是0，抛出subprocess.CalledProcessError异常，异常的output字段包含错误输出：</p>
-</blockquote>
+<h2 id="subprocess-check-call-调用返回确认"><a href="#subprocess-check-call-调用返回确认" class="headerlink" title="subprocess.check_call-调用返回确认"></a>subprocess.check_call-调用返回确认</h2><p>与call方法类似，不同在于如果命令行执行成功，<code>check_call</code>返回返回码0，否则抛出subprocess.CalledProcessError异常。 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">subprocess.check_call(args, *, stdin = <span class="keyword">None</span>, stdout = <span class="keyword">None</span>, stderr = <span class="keyword">None</span>, shell = <span class="keyword">False</span>)</div></pre></td></tr></table></figure>
+<h2 id="subprocess-check-output-调用输出确认"><a href="#subprocess-check-output-调用输出确认" class="headerlink" title="subprocess.check_output-调用输出确认"></a>subprocess.check_output-调用输出确认</h2><p>在子进程执行命令，以字符串形式返回执行结果的输出。如果子进程退出码不是0，抛出subprocess.CalledProcessError异常，异常的output字段包含错误输出：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">subprocess.check_output(args, *, stdin = <span class="keyword">None</span>, stderr = <span class="keyword">None</span>, shell = <span class="keyword">False</span>, universal_newlines = <span class="keyword">False</span>)</div></pre></td></tr></table></figure>
-<h2 id="subprocess-Popen-管道调用"><a href="#subprocess-Popen-管道调用" class="headerlink" title="subprocess.Popen 管道调用"></a>subprocess.Popen 管道调用</h2><h3 id="开启新进程"><a href="#开启新进程" class="headerlink" title="开启新进程"></a>开启新进程</h3><blockquote>
-<p>Popen启动新的进程与父进程并行执行，默认父进程不等待新进程结束。</p>
-</blockquote>
+<h2 id="subprocess-Popen-管道调用"><a href="#subprocess-Popen-管道调用" class="headerlink" title="subprocess.Popen 管道调用"></a>subprocess.Popen 管道调用</h2><h3 id="开启新进程"><a href="#开启新进程" class="headerlink" title="开启新进程"></a>开启新进程</h3><p>Popen启动新的进程与父进程并行执行，默认父进程不等待新进程结束。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestPopen</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  p=subprocess.Popen(<span class="string">"dir"</span>,shell=<span class="keyword">True</span>)</div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">250</span>) :</div><div class="line">    <span class="keyword">print</span> (<span class="string">"other things"</span>)</div></pre></td></tr></table></figure>
-<h3 id="等待子进程结束"><a href="#等待子进程结束" class="headerlink" title="等待子进程结束"></a>等待子进程结束</h3><blockquote>
-<p>  p.wait函数使得父进程等待新创建的进程运行结束，然后再继续父进程的其他任务。<br>    且此时可以在p.returncode中得到新进程的返回值。</p>
-</blockquote>
+<h3 id="等待子进程结束"><a href="#等待子进程结束" class="headerlink" title="等待子进程结束"></a>等待子进程结束</h3><p><code>p.wait</code>函数使得父进程等待新创建的进程运行结束，然后再继续父进程的其他任务。且此时可以在<code>p.returncode</code>中得到新进程的返回值。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestWait</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  <span class="keyword">import</span> datetime</div><div class="line">  <span class="keyword">print</span> (datetime.datetime.now())</div><div class="line">  p=subprocess.Popen(<span class="string">"sleep 10"</span>,shell=<span class="keyword">True</span>)</div><div class="line">  p.wait()</div><div class="line">  <span class="keyword">print</span> (p.returncode)</div><div class="line">  <span class="keyword">print</span> (datetime.datetime.now())</div></pre></td></tr></table></figure>
-<h3 id="poll等待"><a href="#poll等待" class="headerlink" title="poll等待"></a>poll等待</h3><blockquote>
-<p>p.poll函数可以用来检测新创建的进程是否结束。</p>
-</blockquote>
+<h3 id="poll等待"><a href="#poll等待" class="headerlink" title="poll等待"></a>poll等待</h3><p><code>p.poll</code>函数可以用来检测新创建的进程是否结束。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestPoll</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  <span class="keyword">import</span> datetime</div><div class="line">  <span class="keyword">import</span> time</div><div class="line">  <span class="keyword">print</span> (datetime.datetime.now())</div><div class="line">  p=subprocess.Popen(<span class="string">"sleep 10"</span>,shell=<span class="keyword">True</span>)</div><div class="line">  t = <span class="number">1</span></div><div class="line">  <span class="keyword">while</span>(t &lt;= <span class="number">5</span>):</div><div class="line">    time.sleep(<span class="number">1</span>)</div><div class="line">    p.poll()</div><div class="line">    <span class="keyword">print</span> (p.returncode)</div><div class="line">    t+=<span class="number">1</span></div><div class="line">  <span class="keyword">print</span> (datetime.datetime.now())</div></pre></td></tr></table></figure>
-<h3 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h3><blockquote>
-<p>p.kill或p.terminate用来结束创建的新进程，在windows系统上相当于调用TerminateProcess()，在posix系统上相当于发送信号SIGTERM和SIGKILL。</p>
-</blockquote>
+<h3 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h3><p><code>p.kill</code>或<code>p.terminate</code>用来结束创建的新进程，在windows系统上相当于调用<code>TerminateProcess()</code>，在posix系统上相当于发送信号SIGTERM和SIGKILL。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestKillAndTerminate</span><span class="params">()</span>:</span></div><div class="line">    p=subprocess.Popen(<span class="string">"notepad.exe"</span>)</div><div class="line">    t = <span class="number">1</span></div><div class="line">    <span class="keyword">while</span>(t &lt;= <span class="number">5</span>):</div><div class="line">      time.sleep(<span class="number">1</span>)</div><div class="line">      t +=<span class="number">1</span></div><div class="line">    p.kill()</div><div class="line">    <span class="comment">#p.terminate()</span></div><div class="line">    <span class="keyword">print</span> (<span class="string">"new process was killed"</span>)</div></pre></td></tr></table></figure>
-<h3 id="与子进程交互"><a href="#与子进程交互" class="headerlink" title="与子进程交互"></a>与子进程交互</h3><blockquote>
-<p>p.communicate可以与新进程交互，但是必须要在popen构造时候将管道重定向。</p>
-</blockquote>
+<h3 id="与子进程交互"><a href="#与子进程交互" class="headerlink" title="与子进程交互"></a>与子进程交互</h3><p><code>p.communicate</code>可以与新进程交互，但是必须要在popen构造时候将管道重定向。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestCommunicate</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  cmd = <span class="string">"dir"</span></div><div class="line">  p=subprocess.Popen(cmd, shell=<span class="keyword">True</span>, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)</div><div class="line">  (stdoutdata, stderrdata) = p.communicate()</div><div class="line">  </div><div class="line">  <span class="keyword">if</span> p.returncode != <span class="number">0</span>:</div><div class="line">        <span class="keyword">print</span> (cmd + <span class="string">"error !"</span>)</div><div class="line">  <span class="comment">#defaultly the return stdoutdata is bytes, need convert to str and utf8</span></div><div class="line">  <span class="keyword">for</span> r <span class="keyword">in</span> str(stdoutdata,encoding=<span class="string">'utf8'</span> ).split(<span class="string">"\n"</span>):</div><div class="line">    <span class="keyword">print</span> (r)</div><div class="line">  <span class="keyword">print</span> (p.returncode)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestCommunicate2</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  cmd = <span class="string">"dir"</span></div><div class="line">  <span class="comment">#universal_newlines=True, it means by text way to open stdout and stderr</span></div><div class="line">  p = subprocess.Popen(cmd, shell=<span class="keyword">True</span>, universal_newlines=<span class="keyword">True</span>, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)</div><div class="line">  curline = p.stdout.readline()</div><div class="line">  <span class="keyword">while</span>(curline != <span class="string">""</span>):</div><div class="line">        <span class="keyword">print</span> (curline)</div><div class="line">        curline = p.stdout.readline()</div><div class="line">  p.wait()</div><div class="line">  <span class="keyword">print</span> (p.returncode)</div></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
@@ -77,8 +66,8 @@
   
   <entry>
     <title>python结巴分词jieba技术集成应用说明</title>
-    <link href="https://austinxishou.github.io/python/cj2sjytex000kmopx629agtom/python/python%E7%BB%93%E5%B7%B4%E5%88%86%E8%AF%8Djieba%E6%8A%80%E6%9C%AF%E9%9B%86%E6%88%90%E5%BA%94%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
-    <id>https://austinxishou.github.io/python/cj2sjytex000kmopx629agtom/python/python结巴分词jieba技术集成应用说明/</id>
+    <link href="https://austinxishou.github.io/python/cj2sk3ufy0057jcpx2ani13t1/python/python%E7%BB%93%E5%B7%B4%E5%88%86%E8%AF%8Djieba%E6%8A%80%E6%9C%AF%E9%9B%86%E6%88%90%E5%BA%94%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
+    <id>https://austinxishou.github.io/python/cj2sk3ufy0057jcpx2ani13t1/python/python结巴分词jieba技术集成应用说明/</id>
     <published>2017-05-17T01:43:11.910Z</published>
     <updated>2017-05-17T02:03:35.877Z</updated>
     
@@ -170,8 +159,8 @@
   
   <entry>
     <title>在线工具类网站</title>
-    <link href="https://austinxishou.github.io/killtime/cj2l840xk000l5opxp4bz0u29/killtime/tools/"/>
-    <id>https://austinxishou.github.io/killtime/cj2l840xk000l5opxp4bz0u29/killtime/tools/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2sk3ufw0050jcpxecaxhyot/killtime/tools/"/>
+    <id>https://austinxishou.github.io/killtime/cj2sk3ufw0050jcpxecaxhyot/killtime/tools/</id>
     <published>2017-05-12T02:16:41.523Z</published>
     <updated>2017-05-12T02:26:43.950Z</updated>
     
@@ -270,8 +259,8 @@
   
   <entry>
     <title>软件及源码仓库收集</title>
-    <link href="https://austinxishou.github.io/killtime/cj2l840xi000j5opx6rgt5wv5/killtime/soft_site/"/>
-    <id>https://austinxishou.github.io/killtime/cj2l840xi000j5opx6rgt5wv5/killtime/soft_site/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2sk3ufv004wjcpxnpsiyc8o/killtime/soft_site/"/>
+    <id>https://austinxishou.github.io/killtime/cj2sk3ufv004wjcpxnpsiyc8o/killtime/soft_site/</id>
     <published>2017-05-12T02:16:41.522Z</published>
     <updated>2017-05-12T07:59:43.030Z</updated>
     
@@ -346,8 +335,8 @@
   
   <entry>
     <title>找资源</title>
-    <link href="https://austinxishou.github.io/killtime/cj2l840x6000f5opxj5ytl0wb/killtime/search/"/>
-    <id>https://austinxishou.github.io/killtime/cj2l840x6000f5opxj5ytl0wb/killtime/search/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2sk3ufu004sjcpx2iwjfci9/killtime/search/"/>
+    <id>https://austinxishou.github.io/killtime/cj2sk3ufu004sjcpx2iwjfci9/killtime/search/</id>
     <published>2017-05-12T02:16:41.521Z</published>
     <updated>2017-05-12T02:25:02.429Z</updated>
     
@@ -398,8 +387,8 @@
   
   <entry>
     <title>电影资源汇总</title>
-    <link href="https://austinxishou.github.io/killtime/cj2l840x4000e5opx152r88xj/killtime/movie/"/>
-    <id>https://austinxishou.github.io/killtime/cj2l840x4000e5opx152r88xj/killtime/movie/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2sk3ufr004pjcpxq1b54wu7/killtime/movie/"/>
+    <id>https://austinxishou.github.io/killtime/cj2sk3ufr004pjcpxq1b54wu7/killtime/movie/</id>
     <published>2017-05-12T02:16:41.519Z</published>
     <updated>2017-05-12T02:23:28.103Z</updated>
     
@@ -498,8 +487,8 @@
   
   <entry>
     <title>游戏站推荐</title>
-    <link href="https://austinxishou.github.io/killtime/cj2l840x2000d5opxypwkjfhg/killtime/game/"/>
-    <id>https://austinxishou.github.io/killtime/cj2l840x2000d5opxypwkjfhg/killtime/game/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2sk3ufp004kjcpxn40u1gue/killtime/game/"/>
+    <id>https://austinxishou.github.io/killtime/cj2sk3ufp004kjcpxn40u1gue/killtime/game/</id>
     <published>2017-05-12T02:16:41.518Z</published>
     <updated>2017-05-12T02:34:12.758Z</updated>
     
@@ -528,8 +517,8 @@
   
   <entry>
     <title>老司机资源汇总</title>
-    <link href="https://austinxishou.github.io/killtime/cj2l840wr000a5opxhjwobsby/killtime/driver/"/>
-    <id>https://austinxishou.github.io/killtime/cj2l840wr000a5opxhjwobsby/killtime/driver/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2sk3ufo004gjcpxedghz7dg/killtime/driver/"/>
+    <id>https://austinxishou.github.io/killtime/cj2sk3ufo004gjcpxedghz7dg/killtime/driver/</id>
     <published>2017-05-12T02:16:41.518Z</published>
     <updated>2017-05-12T02:21:51.509Z</updated>
     
@@ -685,8 +674,8 @@
   
   <entry>
     <title>设计资源汇总</title>
-    <link href="https://austinxishou.github.io/killtime/cj2l840wp00085opx0u9exkmb/killtime/design/"/>
-    <id>https://austinxishou.github.io/killtime/cj2l840wp00085opx0u9exkmb/killtime/design/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2sk3ufn004djcpxx99her5h/killtime/design/"/>
+    <id>https://austinxishou.github.io/killtime/cj2sk3ufn004djcpxx99her5h/killtime/design/</id>
     <published>2017-05-12T02:16:41.517Z</published>
     <updated>2017-05-12T02:21:02.414Z</updated>
     
@@ -749,8 +738,8 @@
   
   <entry>
     <title>IT技术站点收集</title>
-    <link href="https://austinxishou.github.io/killtime/cj2lgy9z60000sopx7g9vdzhf/killtime/ittech_site/"/>
-    <id>https://austinxishou.github.io/killtime/cj2lgy9z60000sopx7g9vdzhf/killtime/ittech_site/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2sk3ufq004mjcpxfh8kw6sg/killtime/ittech_site/"/>
+    <id>https://austinxishou.github.io/killtime/cj2sk3ufq004mjcpxfh8kw6sg/killtime/ittech_site/</id>
     <published>2017-05-12T02:16:41.513Z</published>
     <updated>2017-05-12T06:35:02.465Z</updated>
     
@@ -792,8 +781,8 @@
   
   <entry>
     <title>Android 冻结APP</title>
-    <link href="https://austinxishou.github.io/android/cj29uf5ph0000zopxa5jy1cqz/android/Android%20%E5%86%BB%E7%BB%93%E4%B8%8D%E5%B8%B8%E7%94%A8%E7%9A%84app/"/>
-    <id>https://austinxishou.github.io/android/cj29uf5ph0000zopxa5jy1cqz/android/Android 冻结不常用的app/</id>
+    <link href="https://austinxishou.github.io/android/cj2sk3uf50031jcpxzjkr9fbn/android/Android%20%E5%86%BB%E7%BB%93%E4%B8%8D%E5%B8%B8%E7%94%A8%E7%9A%84app/"/>
+    <id>https://austinxishou.github.io/android/cj2sk3uf50031jcpxzjkr9fbn/android/Android 冻结不常用的app/</id>
     <published>2017-05-04T03:07:12.925Z</published>
     <updated>2017-05-04T03:18:20.887Z</updated>
     
@@ -827,8 +816,8 @@
   
   <entry>
     <title>python 多线程实践</title>
-    <link href="https://austinxishou.github.io/python/cj29tr79i0006fkpxmknjd74o/python/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
-    <id>https://austinxishou.github.io/python/cj29tr79i0006fkpxmknjd74o/python/python多线程实践/</id>
+    <link href="https://austinxishou.github.io/python/cj2sk3ufx0053jcpxovisjcsa/python/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
+    <id>https://austinxishou.github.io/python/cj2sk3ufx0053jcpxovisjcsa/python/python多线程实践/</id>
     <published>2017-05-04T01:43:52.969Z</published>
     <updated>2017-05-04T03:02:41.990Z</updated>
     
@@ -865,8 +854,8 @@
   
   <entry>
     <title>Android-OTA(四) updater功能解析</title>
-    <link href="https://austinxishou.github.io/android/cj1hopnwb0000kkpxjlyt3iyd/android/Android-OTA(%E5%9B%9B)%20updater%E5%8A%9F%E8%83%BD%E8%A7%A3%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/android/cj1hopnwb0000kkpxjlyt3iyd/android/Android-OTA(四) updater功能解析/</id>
+    <link href="https://austinxishou.github.io/android/cj2sk3uf9003bjcpx179w1ygy/android/Android-OTA(%E5%9B%9B)%20updater%E5%8A%9F%E8%83%BD%E8%A7%A3%E6%9E%90/"/>
+    <id>https://austinxishou.github.io/android/cj2sk3uf9003bjcpx179w1ygy/android/Android-OTA(四) updater功能解析/</id>
     <published>2017-04-14T09:12:59.419Z</published>
     <updated>2017-04-14T10:06:30.928Z</updated>
     
@@ -936,8 +925,8 @@
   
   <entry>
     <title>Android-OTA(三) recovery 功能解析</title>
-    <link href="https://austinxishou.github.io/android/cj1hl960a0001pgpxwqpxtw16/android/Android-OTA(%E4%B8%89)recovery%E5%8A%9F%E8%83%BD%E8%A7%A3%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/android/cj1hl960a0001pgpxwqpxtw16/android/Android-OTA(三)recovery功能解析/</id>
+    <link href="https://austinxishou.github.io/android/cj2sk3uf70035jcpx10a7i5s7/android/Android-OTA(%E4%B8%89)recovery%E5%8A%9F%E8%83%BD%E8%A7%A3%E6%9E%90/"/>
+    <id>https://austinxishou.github.io/android/cj2sk3uf70035jcpx10a7i5s7/android/Android-OTA(三)recovery功能解析/</id>
     <published>2017-04-14T03:45:15.978Z</published>
     <updated>2017-04-14T09:10:58.869Z</updated>
     
@@ -1074,8 +1063,8 @@
   
   <entry>
     <title>Android-OTA(二)ota_from_target_files命令解析</title>
-    <link href="https://austinxishou.github.io/android/cj1hl960a0003pgpx0z33z1lg/android/Android-OTA(%E4%BA%8C)ota_from_target_files%E5%91%BD%E4%BB%A4%E8%A7%A3%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/android/cj1hl960a0003pgpx0z33z1lg/android/Android-OTA(二)ota_from_target_files命令解析/</id>
+    <link href="https://austinxishou.github.io/android/cj2sk3uf80038jcpx5dpfarfv/android/Android-OTA(%E4%BA%8C)ota_from_target_files%E5%91%BD%E4%BB%A4%E8%A7%A3%E6%9E%90/"/>
+    <id>https://austinxishou.github.io/android/cj2sk3uf80038jcpx5dpfarfv/android/Android-OTA(二)ota_from_target_files命令解析/</id>
     <published>2017-04-14T03:25:29.926Z</published>
     <updated>2017-04-14T03:42:35.136Z</updated>
     
@@ -1120,8 +1109,8 @@
   
   <entry>
     <title>Android Studio中使用ButterKnife注解框架</title>
-    <link href="https://austinxishou.github.io/android/cj1fzsj3r002s0kpxoxf3ks7c/android/AndroidStudio%E4%B8%AD%E4%BD%BF%E7%94%A8ButterKnife%E6%B3%A8%E8%A7%A3%E6%A1%86%E6%9E%B6/"/>
-    <id>https://austinxishou.github.io/android/cj1fzsj3r002s0kpxoxf3ks7c/android/AndroidStudio中使用ButterKnife注解框架/</id>
+    <link href="https://austinxishou.github.io/android/cj2sk3ufd003ljcpx3f1705ro/android/AndroidStudio%E4%B8%AD%E4%BD%BF%E7%94%A8ButterKnife%E6%B3%A8%E8%A7%A3%E6%A1%86%E6%9E%B6/"/>
+    <id>https://austinxishou.github.io/android/cj2sk3ufd003ljcpx3f1705ro/android/AndroidStudio中使用ButterKnife注解框架/</id>
     <published>2017-04-13T03:38:02.387Z</published>
     <updated>2017-04-13T05:56:30.978Z</updated>
     
@@ -1191,8 +1180,8 @@
   
   <entry>
     <title>Android工程编译错误集锦</title>
-    <link href="https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/"/>
-    <id>https://austinxishou.github.io/android/cj2a7pbix0001swpxmedpxfs7/android/Android工程编译错误集锦/</id>
+    <link href="https://austinxishou.github.io/android/cj2sk3ufg003sjcpxtn93ifp6/android/Android%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/"/>
+    <id>https://austinxishou.github.io/android/cj2sk3ufg003sjcpxtn93ifp6/android/Android工程编译错误集锦/</id>
     <published>2017-04-13T01:48:54.373Z</published>
     <updated>2017-05-05T02:10:20.568Z</updated>
     
@@ -1269,8 +1258,8 @@
   
   <entry>
     <title>Android OTA升级测试以及问题汇总</title>
-    <link href="https://austinxishou.github.io/android/cj1fzsj3b002a0kpxlnd8va6w/android/Android%20OTA%E5%8D%87%E7%BA%A7%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
-    <id>https://austinxishou.github.io/android/cj1fzsj3b002a0kpxlnd8va6w/android/Android OTA升级测试以及问题汇总/</id>
+    <link href="https://austinxishou.github.io/android/cj2sk3uf3002yjcpxgrkeoecs/android/Android%20OTA%E5%8D%87%E7%BA%A7%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>https://austinxishou.github.io/android/cj2sk3uf3002yjcpxgrkeoecs/android/Android OTA升级测试以及问题汇总/</id>
     <published>2017-04-12T07:13:17.361Z</published>
     <updated>2017-04-12T07:13:17.382Z</updated>
     
@@ -1293,8 +1282,8 @@
   
   <entry>
     <title>Android优化OTA包大小和开机启动时间</title>
-    <link href="https://austinxishou.github.io/android/cj1fzsj3r002w0kpx1izsx79u/android/Android%E4%BC%98%E5%8C%96OTA%E5%8C%85%E5%A4%A7%E5%B0%8F%E5%92%8C%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E6%97%B6%E9%97%B4/"/>
-    <id>https://austinxishou.github.io/android/cj1fzsj3r002w0kpx1izsx79u/android/Android优化OTA包大小和开机启动时间/</id>
+    <link href="https://austinxishou.github.io/android/cj2sk3ufc003ijcpxdyomguuf/android/Android%E4%BC%98%E5%8C%96OTA%E5%8C%85%E5%A4%A7%E5%B0%8F%E5%92%8C%E5%BC%80%E6%9C%BA%E5%90%AF%E5%8A%A8%E6%97%B6%E9%97%B4/"/>
+    <id>https://austinxishou.github.io/android/cj2sk3ufc003ijcpxdyomguuf/android/Android优化OTA包大小和开机启动时间/</id>
     <published>2017-04-12T06:21:18.535Z</published>
     <updated>2017-04-12T06:45:12.227Z</updated>
     
@@ -1341,8 +1330,8 @@
   
   <entry>
     <title>Android-OTA(四)Recovery二次开发</title>
-    <link href="https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(%E5%9B%9B)Recovery%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/"/>
-    <id>https://austinxishou.github.io/android/cj1hl960a0007pgpxevrl423o/android/Android-OTA(四)Recovery二次开发/</id>
+    <link href="https://austinxishou.github.io/android/cj2sk3ufa003ejcpxe6yte1e2/android/Android-OTA(%E5%9B%9B)Recovery%E4%BA%8C%E6%AC%A1%E5%BC%80%E5%8F%91/"/>
+    <id>https://austinxishou.github.io/android/cj2sk3ufa003ejcpxe6yte1e2/android/Android-OTA(四)Recovery二次开发/</id>
     <published>2017-04-12T06:17:58.664Z</published>
     <updated>2017-04-17T02:06:25.241Z</updated>
     
