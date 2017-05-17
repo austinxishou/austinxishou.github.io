@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-05-12T02:26:43.950Z</updated>
+  <updated>2017-05-17T03:54:41.202Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -14,6 +14,159 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>python多线程以及执行本地命令技术要点</title>
+    <link href="https://austinxishou.github.io/python/cj2sjytev000imopxj19xc6ag/python/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BB%A5%E5%8F%8A%E6%89%A7%E8%A1%8C%E6%9C%AC%E5%9C%B0%E5%91%BD%E4%BB%A4%E6%8A%80%E6%9C%AF%E8%A6%81%E7%82%B9/"/>
+    <id>https://austinxishou.github.io/python/cj2sjytev000imopxj19xc6ag/python/python多线程以及执行本地命令技术要点/</id>
+    <published>2017-05-17T03:18:42.782Z</published>
+    <updated>2017-05-17T03:54:41.202Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="subprocess-About-简介"><a href="#subprocess-About-简介" class="headerlink" title="subprocess-About-简介"></a>subprocess-About-简介</h2><blockquote>
+<p>subprocess模块用来创建新的进程，连接到其stdin、stdout、stderr管道并获取它们的返回码。<br>    subprocess模块的出现是为了替代旧模块及函数：os.system、os.spawn<em>、os.popen</em>、popen2.<em>、commands.</em>。<br>    强烈建议POSIX用户（Linux、BSD等）安装并使用较新的subprocess32模块，而不是Python 2.7自带的subprocess。</p>
+<p>推荐用户使用call、check_call和check_output这三个快捷函数，在无法满足需求的时候才使用更高级的Popen接口。</p>
+</blockquote>
+<h2 id="subprocess-call-调用"><a href="#subprocess-call-调用" class="headerlink" title="subprocess.call-调用"></a>subprocess.call-调用</h2><blockquote>
+<p>call函数可以认为是对popen和wait的分装，直接对call函数传入要执行的命令行，将命令行的退出code返回。</p>
+<p>运行由args参数提供的命令，等待命令执行结束并返回返回码。args参数由字符串形式提供且有多个命令参数时，<br>    需要提供shell=True参数：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">subprocess.call(args, *, stdin= <span class="keyword">None</span>, stdout = <span class="keyword">None</span>, stderr = <span class="keyword">None</span>, shell = <span class="keyword">False</span>)</div></pre></td></tr></table></figure></p>
+<p>注意不要为stdout和stderr参数赋值subprocess.PIPE，如果子进程输出量较多会造成死锁，这两个参数可以赋值为subprocess.STDOUT打印到屏幕或者赋值为一个文件对象将输出写入文件：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//test.py-示例</div><div class="line"><span class="keyword">import</span> subprocess <span class="keyword">as</span> sp</div><div class="line">sp.call(<span class="string">'python run.py'</span>, shell = <span class="keyword">True</span>, stdin=open(<span class="string">'fake_input'</span>, <span class="string">'r'</span>), stdout=open(<span class="string">'result'</span>, <span class="string">'w'</span>))</div></pre></td></tr></table></figure>
+<h2 id="subprocess-check-call-调用返回确认"><a href="#subprocess-check-call-调用返回确认" class="headerlink" title="subprocess.check_call-调用返回确认"></a>subprocess.check_call-调用返回确认</h2><blockquote>
+<p>与call方法类似，不同在于如果命令行执行成功，check_call返回返回码0，否则抛出subprocess.CalledProcessError异常。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">subprocess.check_call(args, *, stdin = <span class="keyword">None</span>, stdout = <span class="keyword">None</span>, stderr = <span class="keyword">None</span>, shell = <span class="keyword">False</span>)</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="subprocess-check-output-调用输出确认"><a href="#subprocess-check-output-调用输出确认" class="headerlink" title="subprocess.check_output-调用输出确认"></a>subprocess.check_output-调用输出确认</h2><blockquote>
+<p>在子进程执行命令，以字符串形式返回执行结果的输出。如果子进程退出码不是0，抛出subprocess.CalledProcessError异常，异常的output字段包含错误输出：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">subprocess.check_output(args, *, stdin = <span class="keyword">None</span>, stderr = <span class="keyword">None</span>, shell = <span class="keyword">False</span>, universal_newlines = <span class="keyword">False</span>)</div></pre></td></tr></table></figure>
+<h2 id="subprocess-Popen-管道调用"><a href="#subprocess-Popen-管道调用" class="headerlink" title="subprocess.Popen 管道调用"></a>subprocess.Popen 管道调用</h2><h3 id="开启新进程"><a href="#开启新进程" class="headerlink" title="开启新进程"></a>开启新进程</h3><blockquote>
+<p>Popen启动新的进程与父进程并行执行，默认父进程不等待新进程结束。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestPopen</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  p=subprocess.Popen(<span class="string">"dir"</span>,shell=<span class="keyword">True</span>)</div><div class="line">  <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">250</span>) :</div><div class="line">    <span class="keyword">print</span> (<span class="string">"other things"</span>)</div></pre></td></tr></table></figure>
+<h3 id="等待子进程结束"><a href="#等待子进程结束" class="headerlink" title="等待子进程结束"></a>等待子进程结束</h3><blockquote>
+<p>  p.wait函数使得父进程等待新创建的进程运行结束，然后再继续父进程的其他任务。<br>    且此时可以在p.returncode中得到新进程的返回值。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestWait</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  <span class="keyword">import</span> datetime</div><div class="line">  <span class="keyword">print</span> (datetime.datetime.now())</div><div class="line">  p=subprocess.Popen(<span class="string">"sleep 10"</span>,shell=<span class="keyword">True</span>)</div><div class="line">  p.wait()</div><div class="line">  <span class="keyword">print</span> (p.returncode)</div><div class="line">  <span class="keyword">print</span> (datetime.datetime.now())</div></pre></td></tr></table></figure>
+<h3 id="poll等待"><a href="#poll等待" class="headerlink" title="poll等待"></a>poll等待</h3><blockquote>
+<p>p.poll函数可以用来检测新创建的进程是否结束。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestPoll</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  <span class="keyword">import</span> datetime</div><div class="line">  <span class="keyword">import</span> time</div><div class="line">  <span class="keyword">print</span> (datetime.datetime.now())</div><div class="line">  p=subprocess.Popen(<span class="string">"sleep 10"</span>,shell=<span class="keyword">True</span>)</div><div class="line">  t = <span class="number">1</span></div><div class="line">  <span class="keyword">while</span>(t &lt;= <span class="number">5</span>):</div><div class="line">    time.sleep(<span class="number">1</span>)</div><div class="line">    p.poll()</div><div class="line">    <span class="keyword">print</span> (p.returncode)</div><div class="line">    t+=<span class="number">1</span></div><div class="line">  <span class="keyword">print</span> (datetime.datetime.now())</div></pre></td></tr></table></figure>
+<h3 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h3><blockquote>
+<p>p.kill或p.terminate用来结束创建的新进程，在windows系统上相当于调用TerminateProcess()，在posix系统上相当于发送信号SIGTERM和SIGKILL。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestKillAndTerminate</span><span class="params">()</span>:</span></div><div class="line">    p=subprocess.Popen(<span class="string">"notepad.exe"</span>)</div><div class="line">    t = <span class="number">1</span></div><div class="line">    <span class="keyword">while</span>(t &lt;= <span class="number">5</span>):</div><div class="line">      time.sleep(<span class="number">1</span>)</div><div class="line">      t +=<span class="number">1</span></div><div class="line">    p.kill()</div><div class="line">    <span class="comment">#p.terminate()</span></div><div class="line">    <span class="keyword">print</span> (<span class="string">"new process was killed"</span>)</div></pre></td></tr></table></figure>
+<h3 id="与子进程交互"><a href="#与子进程交互" class="headerlink" title="与子进程交互"></a>与子进程交互</h3><blockquote>
+<p>p.communicate可以与新进程交互，但是必须要在popen构造时候将管道重定向。</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestCommunicate</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  cmd = <span class="string">"dir"</span></div><div class="line">  p=subprocess.Popen(cmd, shell=<span class="keyword">True</span>, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)</div><div class="line">  (stdoutdata, stderrdata) = p.communicate()</div><div class="line">  </div><div class="line">  <span class="keyword">if</span> p.returncode != <span class="number">0</span>:</div><div class="line">        <span class="keyword">print</span> (cmd + <span class="string">"error !"</span>)</div><div class="line">  <span class="comment">#defaultly the return stdoutdata is bytes, need convert to str and utf8</span></div><div class="line">  <span class="keyword">for</span> r <span class="keyword">in</span> str(stdoutdata,encoding=<span class="string">'utf8'</span> ).split(<span class="string">"\n"</span>):</div><div class="line">    <span class="keyword">print</span> (r)</div><div class="line">  <span class="keyword">print</span> (p.returncode)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestCommunicate2</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  cmd = <span class="string">"dir"</span></div><div class="line">  <span class="comment">#universal_newlines=True, it means by text way to open stdout and stderr</span></div><div class="line">  p = subprocess.Popen(cmd, shell=<span class="keyword">True</span>, universal_newlines=<span class="keyword">True</span>, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)</div><div class="line">  curline = p.stdout.readline()</div><div class="line">  <span class="keyword">while</span>(curline != <span class="string">""</span>):</div><div class="line">        <span class="keyword">print</span> (curline)</div><div class="line">        curline = p.stdout.readline()</div><div class="line">  p.wait()</div><div class="line">  <span class="keyword">print</span> (p.returncode)</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      python多线程以及执行本地命令技术要点  Run Shell Commands in Python
+    
+    </summary>
+    
+      <category term="python" scheme="https://austinxishou.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://austinxishou.github.io/tags/python/"/>
+    
+      <category term="scrapy" scheme="https://austinxishou.github.io/tags/scrapy/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>python结巴分词jieba技术集成应用说明</title>
+    <link href="https://austinxishou.github.io/python/cj2sjytex000kmopx629agtom/python/python%E7%BB%93%E5%B7%B4%E5%88%86%E8%AF%8Djieba%E6%8A%80%E6%9C%AF%E9%9B%86%E6%88%90%E5%BA%94%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
+    <id>https://austinxishou.github.io/python/cj2sjytex000kmopx629agtom/python/python结巴分词jieba技术集成应用说明/</id>
+    <published>2017-05-17T01:43:11.910Z</published>
+    <updated>2017-05-17T02:03:35.877Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="About-简介说明"><a href="#About-简介说明" class="headerlink" title="About-简介说明"></a>About-简介说明</h2><p><a href="https://github.com/fxsjy/jieba/" target="_blank" rel="external">jieba-Github</a></p>
+<p>结巴支持三种分词模式:</p>
+<ol>
+<li>精确模式，试图将句子最精确地切开，适合文本分析； </li>
+<li>全模式，把句子中所有的可以成词的词语都扫描出来, 速度非常快，但是不能解决歧义； </li>
+<li>搜索引擎模式，在精确模式的基础上，对长词再次切分，提高召回率，适合用于搜索引擎分词。</li>
+</ol>
+<p>结巴支持繁体分词</p>
+<p>结巴支持自定义词典</p>
+<p><strong>算法实现简析</strong></p>
+<blockquote>
+<p>基于Trie树结构实现高效的词图扫描，生成句子中汉字所有可能成词情况所构成的有向无环图（DAG)<br>采用了动态规划查找最大概率路径, 找出基于词频的最大切分组合<br>对于未登录词，采用了基于汉字成词能力的HMM模型，使用了Viterbi算法</p>
+</blockquote>
+<h2 id="Install-安装"><a href="#Install-安装" class="headerlink" title="Install-安装"></a>Install-安装</h2><p><strong> Python 2.x 下的安装 </strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pip install jieba</div></pre></td></tr></table></figure>
+<p>或者进行下载后自行引入;</p>
+<p><strong> Python 3.x 下的安装 </strong></p>
+<blockquote>
+<p>  目前master分支是只支持Python2.x 的<br>  Python3.x 版本的分支也已经基本可用： <a href="https://github.com/fxsjy/jieba/tree/jieba3k" target="_blank" rel="external">https://github.com/fxsjy/jieba/tree/jieba3k</a></p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git <span class="built_in">clone</span> https://github.com/fxsjy/jieba.git  </div><div class="line">git checkout jieba3k  </div><div class="line">python setup.py install</div></pre></td></tr></table></figure>
+<h2 id="Usage-应用"><a href="#Usage-应用" class="headerlink" title="Usage-应用"></a>Usage-应用</h2><h3 id="分词"><a href="#分词" class="headerlink" title="分词"></a>分词</h3><p><strong>函数: jieba.cut</strong></p>
+<blockquote>
+<p>jieba.cut方法接受两个输入参数: </p>
+<pre><code>+ 1) 第一个参数为需要分词的字符串 
++ 2）cut_all参数用来控制是否采用全模式
+</code></pre><p>jieba.cut_for_search方法接受一个参数：</p>
+<pre><code>+ 需要分词的字符串,该方法适合用于搜索引擎构建倒排索引的分词，粒度比较细 
+</code></pre><p>注意：待分词的字符串可以是gbk字符串、utf-8字符串或者unicode </p>
+<p> jieba.cut以及jieba.cut_for_search返回的结构都是一个可迭代的generator，可以使用for循环来获得分词后得到的每一个词语(unicode)，也可以用list(jieba.cut(…))转化为list</p>
+</blockquote>
+<p><strong> 代码示例 </strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#encoding=utf-8  </span></div><div class="line"><span class="keyword">import</span> jieba  </div><div class="line">seg_list = jieba.cut(<span class="string">"我来到北京清华大学"</span>, cut_all=<span class="keyword">True</span>)  </div><div class="line"><span class="keyword">print</span> <span class="string">"Full Mode:"</span>, <span class="string">"/ "</span>.join(seg_list)  <span class="comment"># 全模式  </span></div><div class="line">seg_list = jieba.cut(<span class="string">"我来到北京清华大学"</span>, cut_all=<span class="keyword">False</span>)  </div><div class="line"><span class="keyword">print</span> <span class="string">"Default Mode:"</span>, <span class="string">"/ "</span>.join(seg_list)  <span class="comment"># 精确模式  </span></div><div class="line">seg_list = jieba.cut(<span class="string">"他来到了网易杭研大厦"</span>)  <span class="comment"># 默认是精确模式  </span></div><div class="line"><span class="keyword">print</span> <span class="string">", "</span>.join(seg_list)  </div><div class="line">seg_list = jieba.cut_for_search(<span class="string">"小明硕士毕业于中国科学院计算所，后在日本京都大学深造"</span>)  <span class="comment"># 搜索引擎模式  </span></div><div class="line"><span class="keyword">print</span> <span class="string">", "</span>.join(seg_list)</div></pre></td></tr></table></figure></p>
+<p>输出为:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Output: </div><div class="line">【全模式】: 我/ 来到/ 北京/ 清华/ 清华大学/ 华大/ 大学 </div><div class="line">【精确模式】: 我/ 来到/ 北京/ 清华大学 </div><div class="line">【新词识别】：他, 来到, 了, 网易, 杭研, 大厦    (此处，“杭研”并没有在词典中，但是也被Viterbi算法识别出来了) </div><div class="line">【搜索引擎模式】： 小明, 硕士, 毕业, 于, 中国, 科学, 学院, 科学院, 中国科学院, 计算, 计算所, 后, 在, 日本, 京都, 大学, 日本京都大学, 深造</div></pre></td></tr></table></figure></p>
+<h3 id="添加自定义词典"><a href="#添加自定义词典" class="headerlink" title="添加自定义词典"></a>添加自定义词典</h3><blockquote>
+<p>开发者可以指定自己自定义的词典，以便包含jieba词库里没有的词。虽然jieba有新词识别能力，但是自行添加新词可以保证更高的正确率 </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jieba.load_userdict(file_name) <span class="comment"># file_name为自定义词典的路径</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>词典格式和dict.txt一样，一个词占一行；每一行分三部分，一部分为词语，另一部分为词频，最后为词性（可省略），用空格隔开<br>范例：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">自定义词典：</div><div class="line">云计算 5  </div><div class="line">李小福 2 nr  </div><div class="line">创新办 3 i  </div><div class="line">easy_install 3 eng  </div><div class="line">好用 300  </div><div class="line">韩玉赏鉴 3 nz</div></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">#encoding=utf-8  </span></div><div class="line"><span class="keyword">import</span> sys  </div><div class="line">sys.path.append(<span class="string">"../"</span>)  </div><div class="line"><span class="keyword">import</span> jieba  </div><div class="line">jieba.load_userdict(<span class="string">"userdict.txt"</span>)  </div><div class="line"><span class="keyword">import</span> jieba.posseg <span class="keyword">as</span> pseg  </div><div class="line">  </div><div class="line">test_sent = <span class="string">"李小福是创新办主任也是云计算方面的专家;"</span>  </div><div class="line">test_sent += <span class="string">"例如我输入一个带“韩玉赏鉴”的标题，在自定义词库中也增加了此词为N类型"</span>  </div><div class="line">words = jieba.cut(test_sent)  </div><div class="line"><span class="keyword">for</span> w <span class="keyword">in</span> words:  </div><div class="line"><span class="keyword">print</span> w  </div><div class="line">  </div><div class="line">result = pseg.cut(test_sent)  </div><div class="line">  </div><div class="line"><span class="keyword">for</span> w <span class="keyword">in</span> result:  </div><div class="line"><span class="keyword">print</span> w.word, <span class="string">"/"</span>, w.flag, <span class="string">", "</span>,  </div><div class="line">  </div><div class="line"><span class="keyword">print</span> <span class="string">"\n========"</span>  </div><div class="line">  </div><div class="line">terms = jieba.cut(<span class="string">'easy_install is great'</span>)  </div><div class="line"><span class="keyword">for</span> t <span class="keyword">in</span> terms:  </div><div class="line">    <span class="keyword">print</span> t  </div><div class="line"><span class="keyword">print</span> <span class="string">'-------------------------'</span>  </div><div class="line">terms = jieba.cut(<span class="string">'python 的正则表达式是好用的'</span>)  </div><div class="line"><span class="keyword">for</span> t <span class="keyword">in</span> terms:  </div><div class="line">    <span class="keyword">print</span> t</div></pre></td></tr></table></figure>
+<blockquote>
+<p>之前： 李小福 / 是 / 创新 / 办 / 主任 / 也 / 是 / 云 / 计算 / 方面 / 的 / 专家 / 加载自定义词库后： 李小福 / 是 / 创新办 / 主任 / 也 / 是 / 云计算 / 方面 / 的 / 专家 /<br>“通过用户自定义词典来增强歧义纠错能力” </p>
+</blockquote>
+<h3 id="关键词提取"><a href="#关键词提取" class="headerlink" title="关键词提取"></a>关键词提取</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jieba.analyse.extract_tags(sentence,topK) <span class="comment">#需要先import jieba.analyse</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>说明<br>    setence为待提取的文本<br>    topK为返回几个TF/IDF权重最大的关键词，默认值为20 </p>
+</blockquote>
+<p><strong> 代码示例 （关键词提取） </strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sys  </div><div class="line">sys.path.append(<span class="string">'../'</span>)  </div><div class="line">  </div><div class="line"><span class="keyword">import</span> jieba  </div><div class="line"><span class="keyword">import</span> jieba.analyse  </div><div class="line"><span class="keyword">from</span> optparse <span class="keyword">import</span> OptionParser  </div><div class="line">  </div><div class="line">USAGE = <span class="string">"usage: python extract_tags.py [file name] -k [top k]"</span>  </div><div class="line">  </div><div class="line">parser = OptionParser(USAGE)  </div><div class="line">parser.add_option(<span class="string">"-k"</span>, dest=<span class="string">"topK"</span>)  </div><div class="line">opt, args = parser.parse_args()  </div><div class="line">  </div><div class="line">‘’‘  </div><div class="line"><span class="keyword">if</span> len(args) &lt; <span class="number">1</span>:  </div><div class="line">    <span class="keyword">print</span> USAGE  </div><div class="line">    sys.exit(<span class="number">1</span>)  </div><div class="line">  </div><div class="line">file_name = args[<span class="number">0</span>]  </div><div class="line">’‘’  </div><div class="line">file_name=<span class="string">u"D:XXX/xx/xx.txt"</span>  </div><div class="line"><span class="keyword">if</span> opt.topK <span class="keyword">is</span> <span class="keyword">None</span>:  </div><div class="line">    topK = <span class="number">10</span>  </div><div class="line"><span class="keyword">else</span>:  </div><div class="line">    topK = int(opt.topK)  </div><div class="line">  </div><div class="line">content = open(file_name, <span class="string">'rb'</span>).read()  </div><div class="line">  </div><div class="line">tags = jieba.analyse.extract_tags(content, topK=topK)  </div><div class="line">  </div><div class="line"><span class="keyword">print</span> <span class="string">","</span>.join(tags)</div></pre></td></tr></table></figure></p>
+<h3 id="词性标注"><a href="#词性标注" class="headerlink" title="词性标注"></a>词性标注</h3><blockquote>
+<p>标注句子分词后每个词的词性，采用和ictclas兼容的标记法 </p>
+</blockquote>
+<p><strong> 用法示例 </strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">import</span> jieba.posseg <span class="keyword">as</span> pseg  </div><div class="line"><span class="meta">&gt;&gt;&gt; </span>words = pseg.cut(<span class="string">"我爱北京天安门"</span>)  </div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> w <span class="keyword">in</span> words:  </div><div class="line"><span class="meta">... </span>   <span class="keyword">print</span> w.word, w.flag  </div><div class="line"><span class="meta">... </span> </div><div class="line">我 r  </div><div class="line">爱 v  </div><div class="line">北京 ns  </div><div class="line">天安门 ns</div></pre></td></tr></table></figure></p>
+<h3 id="并行分词"><a href="#并行分词" class="headerlink" title="并行分词"></a>并行分词</h3><blockquote>
+<p>原理：将目标文本按行分隔后，把各行文本分配到多个python进程并行分词，然后归并结果，从而获得分词速度的可观提升基于python自带的multiprocessing模块，目前暂不支持windows </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">jieba.enable_parallel(<span class="number">4</span>) <span class="comment"># 开启并行分词模式，参数为并行进程数  </span></div><div class="line">jieba.disable_parallel() <span class="comment"># 关闭并行分词模式</span></div></pre></td></tr></table></figure>
+<p><strong> 用法示例 </strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2  </div><div class="line"><span class="keyword">import</span> sys,time  </div><div class="line"><span class="keyword">import</span> sys  </div><div class="line">sys.path.append(<span class="string">"../../"</span>)  </div><div class="line"><span class="keyword">import</span> jieba  </div><div class="line">jieba.enable_parallel(<span class="number">4</span>)  </div><div class="line">  </div><div class="line">url = sys.argv[<span class="number">1</span>]  </div><div class="line">content = open(url,<span class="string">"rb"</span>).read()  </div><div class="line">t1 = time.time()  </div><div class="line">words = list(jieba.cut(content))  </div><div class="line">  </div><div class="line">t2 = time.time()  </div><div class="line">tm_cost = t2-t1  </div><div class="line">  </div><div class="line">log_f = open(<span class="string">"1.log"</span>,<span class="string">"wb"</span>)  </div><div class="line"><span class="keyword">for</span> w <span class="keyword">in</span> words:  </div><div class="line"><span class="keyword">print</span> &gt;&gt; log_f, w.encode(<span class="string">"utf-8"</span>), <span class="string">"/"</span> ,  </div><div class="line">  </div><div class="line"><span class="keyword">print</span> <span class="string">'speed'</span> , len(content)/tm_cost, <span class="string">" bytes/second"</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>实验结果：在4核3.4GHz Linux机器上，对金庸全集进行精确分词，获得了1MB/s的速度，是单进程版的3.3倍。<br>其他词典</p>
+<p>占用内存较小的词典文件 <a href="https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.small" target="_blank" rel="external">https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.small</a><br>    支持繁体分词更好的词典文件 <a href="https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.big" target="_blank" rel="external">https://github.com/fxsjy/jieba/raw/master/extra_dict/dict.txt.big</a> 下载你所需要的词典，然后覆盖jieba/dict.txt 即可或者用jieba.set_dictionary(‘data/dict.txt.big’)</p>
+<p>模块初始化机制的改变:lazy load （从0.28版本开始）<br>jieba采用延迟加载，”import jieba”不会立即触发词典的加载，一旦有必要才开始加载词典构建trie。如果你想手工初始jieba，也可以手动初始化。</p>
+</blockquote>
+<h3 id="Tokenize：返回词语在原文的起始位置"><a href="#Tokenize：返回词语在原文的起始位置" class="headerlink" title="Tokenize：返回词语在原文的起始位置"></a>Tokenize：返回词语在原文的起始位置</h3><blockquote>
+<p>注意，输入参数只接受unicode</p>
+</blockquote>
+<h3 id="ChineseAnalyzer-for-Whoosh搜索引擎"><a href="#ChineseAnalyzer-for-Whoosh搜索引擎" class="headerlink" title="ChineseAnalyzer for Whoosh搜索引擎"></a>ChineseAnalyzer for Whoosh搜索引擎</h3><blockquote>
+<p>引用： from jieba.analyse import ChineseAnalyzer<br>用法示例：<a href="https://github.com/fxsjy/jieba/blob/master/test/test_whoosh.py" target="_blank" rel="external">https://github.com/fxsjy/jieba/blob/master/test/test_whoosh.py</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      python 分词 jieba
+    
+    </summary>
+    
+      <category term="python" scheme="https://austinxishou.github.io/categories/python/"/>
+    
+    
+      <category term="python" scheme="https://austinxishou.github.io/tags/python/"/>
+    
+      <category term="jieba" scheme="https://austinxishou.github.io/tags/jieba/"/>
+    
+  </entry>
   
   <entry>
     <title>在线工具类网站</title>
@@ -120,7 +273,7 @@
     <link href="https://austinxishou.github.io/killtime/cj2l840xi000j5opx6rgt5wv5/killtime/soft_site/"/>
     <id>https://austinxishou.github.io/killtime/cj2l840xi000j5opx6rgt5wv5/killtime/soft_site/</id>
     <published>2017-05-12T02:16:41.522Z</published>
-    <updated>2017-05-12T06:00:01.296Z</updated>
+    <updated>2017-05-12T07:59:43.030Z</updated>
     
     <content type="html"><![CDATA[<h2 id="通用软件墙网站"><a href="#通用软件墙网站" class="headerlink" title="通用软件墙网站"></a>通用软件墙网站</h2><ul>
 <li><a href="http://www.appinn.com/" target="_blank" rel="external">小众软件</a></li>
@@ -154,6 +307,7 @@
 <li><a href="http://down.chinaz.com/" target="_blank" rel="external">站长下载</a></li>
 <li><a href="http://bbs.52codes.net/forum.php" target="_blank" rel="external">吾爱源码网</a></li>
 <li><a href="https://www.freehao123.com/" target="_blank" rel="external">免费资源部落</a></li>
+<li><a href="http://www.92kaifa.com/" target="_blank" rel="external">就爱开发</a></li>
 </ul>
 <h2 id="平台收集"><a href="#平台收集" class="headerlink" title="平台收集"></a>平台收集</h2><ul>
 <li><a href="https://zb.oschina.net/projects" target="_blank" rel="external">oschina项目大厅</a></li>
@@ -1290,100 +1444,6 @@
       <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
     
       <category term="Recovery" scheme="https://austinxishou.github.io/tags/Recovery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android OTA (一) 升级包编译制作</title>
-    <link href="https://austinxishou.github.io/android/cj1hl95zv0000pgpxraz1yd5r/android/Android-OTA(%E4%B8%80)%E5%8D%87%E7%BA%A7%E5%8C%85%E7%BC%96%E8%AF%91%E5%88%B6%E4%BD%9C/"/>
-    <id>https://austinxishou.github.io/android/cj1hl95zv0000pgpxraz1yd5r/android/Android-OTA(一)升级包编译制作/</id>
-    <published>2017-04-12T03:55:40.770Z</published>
-    <updated>2017-04-14T03:24:21.003Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="OTA完整包生成方法"><a href="#OTA完整包生成方法" class="headerlink" title="OTA完整包生成方法"></a>OTA完整包生成方法</h2><blockquote>
-<p>OTA完整包可用于T卡本地升级和OTA在线升级。OTA完整包包含完整的system、recovery.和boot.img。<br><strong>发布一个版本固件正确顺序：</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">make -j4</div><div class="line">make otapackage</div><div class="line">./mkimage.sh ota</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>即可获得：out/target/product/{product_name}/ {product_name}-ota-eng.{uid}.zip</p>
-<blockquote>
-<p>注意：发布固件必须使用./mkimage.sh ota，将boot与kernel打包，不需要单独烧kernel，如果量产固件是分开的，将会影响后面差异包升级，除非你不需要用差异升级！</p>
-<p>在out/target/product/rk3288/目录下会生成ota完整包rk3288-ota-eng.root.zip，改名成<br>update.zip即可拷贝到T卡或内置flash中进行固件升级。</p>
-</blockquote>
-<h2 id="OTA差异包生成方法"><a href="#OTA差异包生成方法" class="headerlink" title="OTA差异包生成方法"></a>OTA差异包生成方法</h2><blockquote>
-<p>OTA差异包只有差异内容，包大小比较小，主要用于OTA在线升级，也可T卡本地升级。OTA差异包制作需要特殊的编译进行手动制作。</p>
-</blockquote>
-<ol>
-<li>首先发布v1版本的固件，生成v1版本的完整包</li>
-<li>保存out/target/product/rk3288/obj/PACKAGING/target_files_intermediates/rk3288-target_files-eng.root.zip 为rk3288-target_files-v1.zip，作为v1版本的基础素材包。</li>
-<li>修改kernel代码或者android代码，发布v2版本固件，生成v2版本完整包</li>
-<li>保存out/target/product/rk3288/obj/PACKAGING/target_files_intermediates/rk3288-target_files-eng.root.zip 为rk3288-target_files-v2.zip，作为v2版本的基础素材包。</li>
-<li>生成v1-v2的差异升级包：./build/tools/releasetools/ota_from_target_files  -v  -i  rk3288-target_files-v1.zip -p  out/host/linux-x86  -k build/target/product/security/testkey  rk3288-target_files-v2.zip out/target/product/rk3288/rk3288-v1-v2.zip</li>
-<li>最后生成的ota差异包</li>
-</ol>
-<h2 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h2><p>编译主要分两步，</p>
-<ol>
-<li>会准备一个包，其中包含升级需要的内容(原材料)，比如，system 目录。</li>
-<li>运行python 脚本 ./build/tools/releasetools/ota_from_target_files，以步骤一准备的ZIP包作为输入，最终生成需要的升级包。</li>
-</ol>
-<h3 id="第一步-填充所需要的材料"><a href="#第一步-填充所需要的材料" class="headerlink" title="第一步:填充所需要的材料"></a>第一步:填充所需要的材料</h3><p>Makefile 依赖<br>otapackage 是一个伪目标<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">.PHONY: otapackage</div><div class="line">otapackage: $(INTERNAL_OTA_PACKAGE_TARGET)</div></pre></td></tr></table></figure></p>
-<h4 id="RECOVERY目录下的组件"><a href="#RECOVERY目录下的组件" class="headerlink" title="RECOVERY目录下的组件"></a>RECOVERY目录下的组件</h4><p>填充 RECOVERY 子目录的内容。用于生成recovery.img。包括：kernel 的image, recovery 根文件系统的 image, recovery 根文件系统的内容</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@<span class="comment"># Components of the recovery image   </span></div><div class="line">$(hide) mkdir -p $(zip_root)/RECOVERY //创建中间包中的RECOVERY目录</div><div class="line">$(hide) $(call package_files-copy-root, \</div><div class="line">	$(TARGET_RECOVERY_ROOT_OUT),$(zip_root)/RECOVERY/RAMDISK)</div><div class="line"></div><div class="line">//拷贝相关分区文件到 RECOVERY 目录</div><div class="line">1. $(ACP) $(INSTALLED_KERNEL_TARGET) $(zip_root)/RECOVERY/kernel</div><div class="line">2. $(ACP) $(INSTALLED_2NDBOOTLOADER_TARGET) $(zip_root)/RECOVERY/second</div><div class="line">3. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_CMDLINE)</span>"</span> &gt; $(zip_root)/RECOVERY/cmdline</div><div class="line">4. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_BASE)</span>"</span> &gt; $(zip_root)/RECOVERY/base</div><div class="line">5. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_PAGESIZE)</span>"</span> &gt; $(zip_root)/RECOVERY/pagesize</div></pre></td></tr></table></figure>
-<h4 id="BOOT-目录下的组件"><a href="#BOOT-目录下的组件" class="headerlink" title="BOOT 目录下的组件"></a>BOOT 目录下的组件</h4><p>填充 BOOT子目录的内容，用于生成boot.img。和 RECOVERY目录类似，包括：kernel 的image,根文件系统的 image,根文件系统的内容：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">@<span class="comment"># Components of the boot image</span></div><div class="line">$(hide) mkdir -p $(zip_root)/BOOT</div><div class="line">$(hide) $(call package_files-copy-root, \</div><div class="line">	$(TARGET_ROOT_OUT),$(zip_root)/BOOT/RAMDISK)</div><div class="line"></div><div class="line">1. $(ACP) $(INSTALLED_KERNEL_TARGET) $(zip_root)/BOOT/kernel</div><div class="line">2. $(ACP) $(INSTALLED_2NDBOOTLOADER_TARGET) $(zip_root)/BOOT/second</div><div class="line">3. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_CMDLINE)</span>"</span> &gt; $(zip_root)/BOOT/cmdline</div><div class="line">4. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_BASE)</span>"</span> &gt; $(zip_root)/BOOT/base</div><div class="line">5. <span class="built_in">echo</span> <span class="string">"<span class="variable">$(BOARD_KERNEL_PAGESIZE)</span>"</span> &gt; $(zip_root)/BOOT/pagesize</div><div class="line">6.</div></pre></td></tr></table></figure>
-<h4 id="RADIO-目录下的组件"><a href="#RADIO-目录下的组件" class="headerlink" title="RADIO 目录下的组件"></a>RADIO 目录下的组件</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">$(hide) $(foreach t,$(INSTALLED_RADIOIMAGE_TARGET),\</div><div class="line">            mkdir -p $(zip_root)/RADIO; \</div><div class="line">            $(ACP) $(t) $(zip_root)/RADIO/$(notdir $(t));)</div></pre></td></tr></table></figure>
-<h4 id="BOOTLOADER-组件内容"><a href="#BOOTLOADER-组件内容" class="headerlink" title="BOOTLOADER 组件内容"></a>BOOTLOADER 组件内容</h4><p>BOOTLOADER 需要提供之前使用的 BOOTLOADER 和 新的 BOOTLOADER 文件 以及 MISC 分区文件<br>之前使用的BOOTLOADER 放置在目录：$(TARGET_DEVICE_DIR)/ota/loader/RK<em>Loader</em>.bin)<br>新的 BOOTLOADER 文件 放置在目录：$(PRODUCT_OUT)/RKLoader_new.bin<br>MISC 分区文件  放置在目录：$(TARGET_DEVICE_DIR)/ota/loader/misc_loadercmd.img</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">ifeq ($(INSTALLED_LOADER_TARGET),)</div><div class="line">	$(info No RK Loader <span class="keyword">for</span> TARGET_DEVICE $(TARGET_DEVICE) to otapackage) //不需要更新BOOTLOADER</div><div class="line"><span class="keyword">else</span></div><div class="line">	@<span class="comment"># Contents of the rk loader bin</span></div><div class="line">	$(hide) mkdir -p $(zip_root)/LOADER</div><div class="line">	$(hide) $(HOST_OUT_EXECUTABLES)/remkloader <span class="string">'$(INSTALLED_LOADER_TARGET)'</span> $(INSTALLED_NEW_LOADER_TARGET)</div><div class="line">	$(hide) cat $(INSTALLED_LOADER_MISC_TARGET) $(INSTALLED_NEW_LOADER_TARGET) &gt; $(zip_root)/LOADER/RKLoader.img </div><div class="line">endif</div></pre></td></tr></table></figure>
-<h4 id="Parameter-组件内容"><a href="#Parameter-组件内容" class="headerlink" title="Parameter 组件内容"></a>Parameter 组件内容</h4><p>parameter 需要放置在 $(TARGET_DEVICE_DIR)/ota/parameter/parameter*) 目录中<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">ifeq ($(INSTALLED_PARAMETER_TARGET),)</div><div class="line">	$(info No parameter <span class="keyword">for</span> TARGET_DEVICE $(TARGET_DEVICE) to otapackage) //不需要更新Parameter</div><div class="line"><span class="keyword">else</span></div><div class="line">	$(hide) rm -rf $(zip_root)/PARAMETER</div><div class="line">	$(hide) mkdir -p $(zip_root)/PARAMETER</div><div class="line">	$(hide) $(HOST_OUT_EXECUTABLES)/mkparameter <span class="string">'$(INSTALLED_PARAMETER_TARGET)'</span> $(zip_root)/PARAMETER/parameter</div><div class="line">endif</div></pre></td></tr></table></figure></p>
-<h4 id="常规的system-以及-data-分区内容"><a href="#常规的system-以及-data-分区内容" class="headerlink" title="常规的system 以及 data 分区内容"></a>常规的system 以及 data 分区内容</h4><p>填充 SYSTEM子目录的内容。 这是升级的主要内容。<br>生成 META/filesystem_config.txt 并将其加入到 zip 包中。该文件保存了 system 目录下各目录、文件的权限及 owner</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@<span class="comment"># Contents of the system image</span></div><div class="line">$(hide) $(call package_files-copy-root, \</div><div class="line">	$(SYSTEMIMAGE_SOURCE_DIR),$(zip_root)/SYSTEM)</div><div class="line">@<span class="comment"># Contents of the data image</span></div><div class="line">$(hide) $(call package_files-copy-root, \</div><div class="line">	$(TARGET_OUT_DATA),$(zip_root)/DATA)</div></pre></td></tr></table></figure>
-<h4 id="供应商定制相关内容"><a href="#供应商定制相关内容" class="headerlink" title="供应商定制相关内容"></a>供应商定制相关内容</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">ifdef BOARD_VENDORIMAGE_FILE_SYSTEM_TYPE</div><div class="line">	@<span class="comment"># Contents of the vendor image</span></div><div class="line">	$(hide) $(call package_files-copy-root, \</div><div class="line">		$(TARGET_OUT_VENDOR),$(zip_root)/VENDOR)</div><div class="line">endif</div></pre></td></tr></table></figure>
-<h3 id="第二步-ota-from-target-files-命令执行"><a href="#第二步-ota-from-target-files-命令执行" class="headerlink" title="第二步:ota_from_target_files 命令执行"></a>第二步:ota_from_target_files 命令执行</h3><p>核心是一个python脚本: ota_from_target_files, 它以前一步骤生成的ZIP包作为输入，生成可用于OTA升级的zip包。<br>生成的完整升级包会存放在out\target\product[project-name]\目录下</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">INTERNAL_OTA_PACKAGE_TARGET :<span class="comment"># $(PRODUCT_OUT)/$(name).zip</span></div><div class="line">$(INTERNAL_OTA_PACKAGE_TARGET): KEY_CERT_PAIR :<span class="comment"># $(DEFAULT_KEY_CERT_PAIR) 签名</span></div><div class="line">$(INTERNAL_OTA_PACKAGE_TARGET): $(BUILT_TARGET_FILES_PACKAGE) $(DISTTOOLS)                                                                  </div><div class="line">     @<span class="built_in">echo</span> <span class="string">"Package OTA: <span class="variable">$@</span>"</span></div><div class="line">     $(hide) PATH<span class="comment">#$(foreach p,$(INTERNAL_USERIMAGES_BINARY_PATHS),$(p):)$$PATH MKBOOTIMG#$(MKBOOTIMG) \</span></div><div class="line">        ./build/tools/releasetools/ota_from_target_files -v \</div><div class="line">        -p $(HOST_OUT) \</div><div class="line">        -k $(KEY_CERT_PAIR) \</div><div class="line">        $(<span class="keyword">if</span> $(OEM_OTA_CONFIG), -o $(OEM_OTA_CONFIG)) \</div><div class="line">        $(BUILT_TARGET_FILES_PACKAGE) <span class="variable">$@</span></div></pre></td></tr></table></figure>
-<h4 id="生成中间包"><a href="#生成中间包" class="headerlink" title="生成中间包"></a>生成中间包</h4><p>生成的中间包存放在out/target/product/[project-name]/obj/PACKAGING/target_files_intermediates/目录下,该文件可用于创建差分升级包以及全量包<br>源码中的英文注释为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">A zip of the directories that map to the target filesystem.</div><div class="line">This zip can be used to create an OTA package or filesystem image as a post-build step.</div></pre></td></tr></table></figure></p>
-<p>中间包宏变量为： BUILT_TARGET_FILES_PACKAGE<br>部分代码为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line">intermediates :<span class="comment"># $(call intermediates-dir-for,PACKAGING,target_files) //定义目录</span></div><div class="line">BUILT_TARGET_FILES_PACKAGE :<span class="comment"># $(intermediates)/$(name).zip  //宏变量赋值</span></div><div class="line">$(BUILT_TARGET_FILES_PACKAGE): intermediates :<span class="comment"># $(intermediates) //定义依赖</span></div><div class="line">$(BUILT_TARGET_FILES_PACKAGE): \</div><div class="line">        zip_root :<span class="comment"># $(intermediates)/$(name) //定义依赖</span></div><div class="line">... //省略一部分依赖说明</div><div class="line">		</div><div class="line"><span class="comment"># Depending on the various images guarantees that the underlying</span></div><div class="line"><span class="comment"># directories are up-to-date.</span></div><div class="line">$(BUILT_TARGET_FILES_PACKAGE): \</div><div class="line">		$(INSTALLED_BOOTIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_RADIOIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_LOADER_TARGET) \</div><div class="line">		$(INSTALLED_PARAMETER_TARGET) \</div><div class="line">		$(INSTALLED_RECOVERYIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_SYSTEMIMAGE) \</div><div class="line">		$(INSTALLED_USERDATAIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_CACHEIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_VENDORIMAGE_TARGET) \</div><div class="line">		$(INSTALLED_ANDROID_INFO_TXT_TARGET) \</div><div class="line">		$(SELINUX_FC) \</div><div class="line">		$(built_ota_tools) \</div><div class="line">		$(APKCERTS_FILE) \</div><div class="line">		$(HOST_OUT_EXECUTABLES)/fs_config \</div><div class="line">		| $(ACP)</div><div class="line">上述依赖主要定义各个分区系统的文件</div><div class="line"></div><div class="line">//之后执行命令</div><div class="line">	@<span class="built_in">echo</span> <span class="string">"Package target files: <span class="variable">$@</span>"</span>  //打印日志</div><div class="line">	$(hide) rm -rf <span class="variable">$@</span> $(zip_root) //删除原有文件目录</div><div class="line">	$(hide) mkdir -p $(dir <span class="variable">$@</span>) $(zip_root) //重新创建目录</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      Android OTA升级 updater updater-script
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="OTA" scheme="https://austinxishou.github.io/tags/OTA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>RK3288平台img包解压修改</title>
-    <link href="https://austinxishou.github.io/android/cj1fzsj46003b0kpxy0t31dsx/android/RK3288%E5%B9%B3%E5%8F%B0img%E5%8C%85%E8%A7%A3%E5%8E%8B%E4%BF%AE%E6%94%B9/"/>
-    <id>https://austinxishou.github.io/android/cj1fzsj46003b0kpxy0t31dsx/android/RK3288平台img包解压修改/</id>
-    <published>2017-04-12T03:26:38.078Z</published>
-    <updated>2017-04-12T04:00:52.137Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="解压update-img"><a href="#解压update-img" class="headerlink" title="解压update.img"></a>解压update.img</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">./rkImageMaker -unpack update.img output </div><div class="line"> ./afptool -unpack output/firmware.img output</div></pre></td></tr></table></figure>
-<h2 id="解压-system-img"><a href="#解压-system-img" class="headerlink" title="解压 system.img"></a>解压 system.img</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">mount -o loop Image/system.img /mnt/system</div><div class="line">umount /mnt/system</div><div class="line"></div><div class="line">//增加 128M 的空间</div><div class="line">dd <span class="keyword">if</span>=/dev/zero bs=1M count=128 &gt;&gt; Image/system.img</div><div class="line"></div><div class="line">//扩展文件系统信息</div><div class="line">e2fsck <span class="_">-f</span> Image/system.img</div><div class="line">resize2fs Image/system.img</div></pre></td></tr></table></figure>
-<h2 id="解压boot-img"><a href="#解压boot-img" class="headerlink" title="解压boot.img"></a>解压boot.img</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./rkunpack boot.img </div><div class="line">mkdir boot-extracted</div><div class="line"><span class="built_in">cd</span> boot-extracted</div><div class="line">cat ../boot.img-raw | gunzip | cpio -i</div></pre></td></tr></table></figure>
-<h2 id="解压resource-img"><a href="#解压resource-img" class="headerlink" title="解压resource.img"></a>解压resource.img</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">resource_tool --unpack --image=resource.img Myresource</div><div class="line">//dtb 反编译成dts</div><div class="line">./dtc -I dtb -O dts rk-kernel.dtb &gt; my-rk-kernel.dts</div><div class="line">//单独编译dts</div><div class="line">./dtc -I dtS -O dtB &gt; rk-kernel.dts</div></pre></td></tr></table></figure>
-<h2 id="打包-boot-img"><a href="#打包-boot-img" class="headerlink" title="打包 boot.img"></a>打包 boot.img</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">find . | cpio -o -H newc | gzip &gt; ../opinions-on-teclast-p90hdst-boot.img</div><div class="line">rkcrc -k <span class="built_in">test</span>-boot.img newboot.img</div></pre></td></tr></table></figure>
-<h2 id="imgRePackerRK-105-工具"><a href="#imgRePackerRK-105-工具" class="headerlink" title="imgRePackerRK_105 工具"></a>imgRePackerRK_105 工具</h2><p><a href="http://pan.baidu.com/s/1i4LKdZB" target="_blank" rel="external"><strong>imgRePackerRK_105百度云下载</strong></a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      RK3288平台img包解压修改 解压update.img 解压system.img  解压boot.img 解压resource.img 打包boot.img
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="app" scheme="https://austinxishou.github.io/tags/app/"/>
     
   </entry>
   
