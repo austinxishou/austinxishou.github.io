@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-05-18T07:10:27.143Z</updated>
+  <updated>2017-05-18T08:32:24.917Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://austinxishou.github.io/2017/05/18/webdesign/hexo-plugin/"/>
     <id>https://austinxishou.github.io/2017/05/18/webdesign/hexo-plugin/</id>
     <published>2017-05-18T06:53:47.598Z</published>
-    <updated>2017-05-18T07:10:27.143Z</updated>
+    <updated>2017-05-18T08:32:24.917Z</updated>
     
     <content type="html"><![CDATA[<h2 id="Hexo七牛同步插件"><a href="#Hexo七牛同步插件" class="headerlink" title="Hexo七牛同步插件"></a>Hexo七牛同步插件</h2><p><a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="external">Hexo七牛同步插件</a></p>
 <p><strong> 简介 </strong><br>这是一个hexo插件， 可以让你在文档中入嵌存储在七牛上的图片、JS、CSS类型的静态文件。</p>
@@ -30,7 +30,10 @@
 <h2 id="百度链接自动提交"><a href="#百度链接自动提交" class="headerlink" title="百度链接自动提交"></a>百度链接自动提交</h2><p><a href="https://github.com/xuanmiaog/hexo-baidu-url-push" target="_blank" rel="external">hexo-baidu-url-push</a></p>
 <p><strong> 简介 </strong><br>自动推送是百度站长平台为提高站点新增网页发现速度推出的工具，安装自动推送JS代码的网页，在页面被访问时，页面URL将立即被推送给百度。</p>
 <h2 id="百度链接主动推送"><a href="#百度链接主动推送" class="headerlink" title="百度链接主动推送"></a>百度链接主动推送</h2><p><a href="https://github.com/huiwang/hexo-baidu-url-submit" target="_blank" rel="external">hexo-baidu-url-submit</a></p>
-<p><strong> 简介 </strong><br>主动推送Hexo博客新链接至百度搜索引擎，解决百度爬虫被禁止访问的问题，提升网站收录质量和速度。<script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);<br>})();<br></script></p>
+<p><strong> 简介 </strong><br>主动推送Hexo博客新链接至百度搜索引擎，解决百度爬虫被禁止访问的问题，提升网站收录质量和速度。<script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
+<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
+document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
+</code></pre><p>})();<br></script></p>
 ]]></content>
     
     <summary type="html">
@@ -83,13 +86,16 @@
     var bp = document.createElement('script');
     var curProtocol = window.location.protocol.split(':')[0];
     if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
     }
     else {
         bp.src = 'http://push.zhanzhang.baidu.com/push.js';
     }
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 })();
 </script>
 ]]></content>
@@ -141,7 +147,10 @@
 <h3 id="结束进程"><a href="#结束进程" class="headerlink" title="结束进程"></a>结束进程</h3><p><code>p.kill</code>或<code>p.terminate</code>用来结束创建的新进程，在windows系统上相当于调用<code>TerminateProcess()</code>，在posix系统上相当于发送信号SIGTERM和SIGKILL。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestKillAndTerminate</span><span class="params">()</span>:</span></div><div class="line">    p=subprocess.Popen(<span class="string">"notepad.exe"</span>)</div><div class="line">    t = <span class="number">1</span></div><div class="line">    <span class="keyword">while</span>(t &lt;= <span class="number">5</span>):</div><div class="line">      time.sleep(<span class="number">1</span>)</div><div class="line">      t +=<span class="number">1</span></div><div class="line">    p.kill()</div><div class="line">    <span class="comment">#p.terminate()</span></div><div class="line">    <span class="keyword">print</span> (<span class="string">"new process was killed"</span>)</div></pre></td></tr></table></figure>
 <h3 id="与子进程交互"><a href="#与子进程交互" class="headerlink" title="与子进程交互"></a>与子进程交互</h3><p><code>p.communicate</code>可以与新进程交互，但是必须要在popen构造时候将管道重定向。</p>
-<p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestCommunicate</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  cmd = <span class="string">"dir"</span></div><div class="line">  p=subprocess.Popen(cmd, shell=<span class="keyword">True</span>, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)</div><div class="line">  (stdoutdata, stderrdata) = p.communicate()</div><div class="line">  </div><div class="line">  <span class="keyword">if</span> p.returncode != <span class="number">0</span>:</div><div class="line">        <span class="keyword">print</span> (cmd + <span class="string">"error !"</span>)</div><div class="line">  <span class="comment">#defaultly the return stdoutdata is bytes, need convert to str and utf8</span></div><div class="line">  <span class="keyword">for</span> r <span class="keyword">in</span> str(stdoutdata,encoding=<span class="string">'utf8'</span> ).split(<span class="string">"\n"</span>):</div><div class="line">    <span class="keyword">print</span> (r)</div><div class="line">  <span class="keyword">print</span> (p.returncode)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestCommunicate2</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  cmd = <span class="string">"dir"</span></div><div class="line">  <span class="comment">#universal_newlines=True, it means by text way to open stdout and stderr</span></div><div class="line">  p = subprocess.Popen(cmd, shell=<span class="keyword">True</span>, universal_newlines=<span class="keyword">True</span>, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)</div><div class="line">  curline = p.stdout.readline()</div><div class="line">  <span class="keyword">while</span>(curline != <span class="string">""</span>):</div><div class="line">        <span class="keyword">print</span> (curline)</div><div class="line">        curline = p.stdout.readline()</div><div class="line">  p.wait()</div><div class="line">  <span class="keyword">print</span> (p.returncode)</div></pre></td></tr></table></figure><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);<br>})();<br></script></p>
+<p><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestCommunicate</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  cmd = <span class="string">"dir"</span></div><div class="line">  p=subprocess.Popen(cmd, shell=<span class="keyword">True</span>, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)</div><div class="line">  (stdoutdata, stderrdata) = p.communicate()</div><div class="line">  </div><div class="line">  <span class="keyword">if</span> p.returncode != <span class="number">0</span>:</div><div class="line">        <span class="keyword">print</span> (cmd + <span class="string">"error !"</span>)</div><div class="line">  <span class="comment">#defaultly the return stdoutdata is bytes, need convert to str and utf8</span></div><div class="line">  <span class="keyword">for</span> r <span class="keyword">in</span> str(stdoutdata,encoding=<span class="string">'utf8'</span> ).split(<span class="string">"\n"</span>):</div><div class="line">    <span class="keyword">print</span> (r)</div><div class="line">  <span class="keyword">print</span> (p.returncode)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">TestCommunicate2</span><span class="params">()</span>:</span></div><div class="line">  <span class="keyword">import</span> subprocess</div><div class="line">  cmd = <span class="string">"dir"</span></div><div class="line">  <span class="comment">#universal_newlines=True, it means by text way to open stdout and stderr</span></div><div class="line">  p = subprocess.Popen(cmd, shell=<span class="keyword">True</span>, universal_newlines=<span class="keyword">True</span>, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)</div><div class="line">  curline = p.stdout.readline()</div><div class="line">  <span class="keyword">while</span>(curline != <span class="string">""</span>):</div><div class="line">        <span class="keyword">print</span> (curline)</div><div class="line">        curline = p.stdout.readline()</div><div class="line">  p.wait()</div><div class="line">  <span class="keyword">print</span> (p.returncode)</div></pre></td></tr></table></figure><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
+<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
+document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
+</code></pre><p>})();<br></script></p>
 ]]></content>
     
     <summary type="html">
@@ -240,13 +249,16 @@
     var bp = document.createElement('script');
     var curProtocol = window.location.protocol.split(':')[0];
     if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
     }
     else {
         bp.src = 'http://push.zhanzhang.baidu.com/push.js';
     }
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 })();
 </script>
 ]]></content>
@@ -347,18 +359,22 @@
 <li>方糖收微信消息:<a href="http://sc.ftqq.com/3.version" target="_blank" rel="external">http://sc.ftqq.com/3.version</a></li>
 <li>随机生成美国身份: <a href="http://www.haoweichi.com/Index/random" target="_blank" rel="external">http://www.haoweichi.com/Index/random</a></li>
 <li><ul>
-<li>前端预处理器语言图形编译工具: <a href="http://koala-app.com/index-zh.html" target="_blank" rel="external">http://koala-app.com/index-zh.html</a><script>
+<li><p>前端预处理器语言图形编译工具: <a href="http://koala-app.com/index-zh.html" target="_blank" rel="external">http://koala-app.com/index-zh.html</a></p>
+<script>
 (function(){
 var bp = document.createElement('script');
 var curProtocol = window.location.protocol.split(':')[0];
 if (curProtocol === 'https') {
-    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
 }
 else {
     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
 }
 var s = document.getElementsByTagName("script")[0];
 s.parentNode.insertBefore(bp, s);
+
+var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 })();
 </script>
 </li>
@@ -437,18 +453,22 @@ s.parentNode.insertBefore(bp, s);
 </li>
 </ul>
 <h2 id="通用站长平台"><a href="#通用站长平台" class="headerlink" title="通用站长平台"></a>通用站长平台</h2><ul>
-<li><a href="http://www.szw86.com" target="_blank" rel="external">首赚网</a><script>
+<li><p><a href="http://www.szw86.com" target="_blank" rel="external">首赚网</a></p>
+<script>
 (function(){
   var bp = document.createElement('script');
   var curProtocol = window.location.protocol.split(':')[0];
   if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
   }
   else {
       bp.src = 'http://push.zhanzhang.baidu.com/push.js';
   }
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(bp, s);
+
+  var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+  document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 })();
 </script>
 </li>
@@ -505,9 +525,13 @@ s.parentNode.insertBefore(bp, s);
 <li>bt1024:  <a href="http://www.bt1024.net/" target="_blank" rel="external">http://www.bt1024.net/</a></li>
 </ul>
 <h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><ul>
-<li>龙轩导航 : <a href="http://ilxdh.com/" target="_blank" rel="external">http://ilxdh.com/</a><script><br>(function(){<br>  var bp = document.createElement(‘script’);<br>  var curProtocol = window.location.protocol.split(‘:’)[0];<br>  if (curProtocol === ‘https’) {<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;        
-</code></pre>  }<br>  else {<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
-</code></pre>  }<br>  var s = document.getElementsByTagName(“script”)[0];<br>  s.parentNode.insertBefore(bp, s);<br>})();<br></script></li>
+<li><p>龙轩导航 : <a href="http://ilxdh.com/" target="_blank" rel="external">http://ilxdh.com/</a><script><br>(function(){<br>  var bp = document.createElement(‘script’);<br>  var curProtocol = window.location.protocol.split(‘:’)[0];<br>  if (curProtocol === ‘https’) {</p>
+<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;       
+</code></pre><p>  }<br>  else {</p>
+<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
+</code></pre><p>  }<br>  var s = document.getElementsByTagName(“script”)[0];<br>  s.parentNode.insertBefore(bp, s);</p>
+<p>  var sozzsrc = (document.location.protocol == “http:”) ? “<a href="http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a">http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a</a>“;<br>  document.write(‘<script src="' + sozzsrc + '" id="sozz">&lt;\/script&gt;’);<br>})();<br></script></p>
+</li>
 </ul>
 ]]></content>
     
@@ -607,18 +631,22 @@ s.parentNode.insertBefore(bp, s);
 <li>央视网–公开课：<a href="http://opencla.cntv.cn/" target="_blank" rel="external">http://opencla.cntv.cn/</a></li>
 <li>爱课堂：<a href="http://www.icourses.cn/home/" target="_blank" rel="external">http://www.icourses.cn/home/</a></li>
 <li>MOOC中国：<a href="http://www.mooc.cn/" target="_blank" rel="external">http://www.mooc.cn/</a></li>
-<li>超星公开课：<a href="http://openv.chaoxing.com/" target="_blank" rel="external">http://openv.chaoxing.com/</a><script>
+<li><p>超星公开课：<a href="http://openv.chaoxing.com/" target="_blank" rel="external">http://openv.chaoxing.com/</a></p>
+<script>
 (function(){
   var bp = document.createElement('script');
   var curProtocol = window.location.protocol.split(':')[0];
   if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
   }
   else {
       bp.src = 'http://push.zhanzhang.baidu.com/push.js';
   }
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(bp, s);
+
+  var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+  document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 })();
 </script>
 </li>
@@ -635,50 +663,6 @@ s.parentNode.insertBefore(bp, s);
     
     
       <category term="video" scheme="https://austinxishou.github.io/tags/video/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>游戏站推荐</title>
-    <link href="https://austinxishou.github.io/2017/05/12/killtime/game-resource-collection/"/>
-    <id>https://austinxishou.github.io/2017/05/12/killtime/game-resource-collection/</id>
-    <published>2017-05-12T02:16:41.518Z</published>
-    <updated>2017-05-12T02:34:12.758Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>拼命玩游戏 : <a href="http://wanga.me/" target="_blank" rel="external">http://wanga.me/</a></li>
-<li>ArmorGames : <a href="http://armorgames.com/" target="_blank" rel="external">http://armorgames.com/</a></li>
-<li>u77汉化 : <a href="http://www.u77.com/" target="_blank" rel="external">http://www.u77.com/</a></li>
-<li>taptap : <a href="https://www.taptap.com/" target="_blank" rel="external">https://www.taptap.com/</a><script>
-(function(){
-  var bp = document.createElement('script');
-  var curProtocol = window.location.protocol.split(':')[0];
-  if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-  }
-  else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-  }
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(bp, s);
-})();
-</script>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      游戏站推荐
-    
-    </summary>
-    
-      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
-    
-    
-      <category term="killtime" scheme="https://austinxishou.github.io/tags/killtime/"/>
-    
-      <category term="football" scheme="https://austinxishou.github.io/tags/football/"/>
     
   </entry>
   
@@ -822,18 +806,22 @@ s.parentNode.insertBefore(bp, s);
 <li>绝对领域 : <a href="http://www.jdlingyu.moe/" target="_blank" rel="external">http://www.jdlingyu.moe/</a></li>
 <li>骨感女穿包臀裙:<a href="https://www.douban.com/photos/album/1632810621/" target="_blank" rel="external">https://www.douban.com/photos/album/1632810621/</a></li>
 <li>别总是在我背后:<a href="https://www.douban.com/people/56491865/" target="_blank" rel="external">https://www.douban.com/people/56491865/</a></li>
-<li>看bilibili:<a href="http://www.kanbilibili.com/" target="_blank" rel="external">http://www.kanbilibili.com/</a><script>
+<li><p>看bilibili:<a href="http://www.kanbilibili.com/" target="_blank" rel="external">http://www.kanbilibili.com/</a></p>
+<script>
 (function(){
   var bp = document.createElement('script');
   var curProtocol = window.location.protocol.split(':')[0];
   if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
   }
   else {
       bp.src = 'http://push.zhanzhang.baidu.com/push.js';
   }
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(bp, s);
+
+  var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+  document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 })();
 </script>
 </li>
@@ -850,6 +838,54 @@ s.parentNode.insertBefore(bp, s);
     
     
       <category term="driver" scheme="https://austinxishou.github.io/tags/driver/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>游戏站推荐</title>
+    <link href="https://austinxishou.github.io/2017/05/12/killtime/game-resource-collection/"/>
+    <id>https://austinxishou.github.io/2017/05/12/killtime/game-resource-collection/</id>
+    <published>2017-05-12T02:16:41.518Z</published>
+    <updated>2017-05-12T02:34:12.758Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>拼命玩游戏 : <a href="http://wanga.me/" target="_blank" rel="external">http://wanga.me/</a></li>
+<li>ArmorGames : <a href="http://armorgames.com/" target="_blank" rel="external">http://armorgames.com/</a></li>
+<li>u77汉化 : <a href="http://www.u77.com/" target="_blank" rel="external">http://www.u77.com/</a></li>
+<li><p>taptap : <a href="https://www.taptap.com/" target="_blank" rel="external">https://www.taptap.com/</a></p>
+<script>
+(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+  }
+  else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+
+  var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+  document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      游戏站推荐
+    
+    </summary>
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
+    
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/tags/killtime/"/>
+    
+      <category term="football" scheme="https://austinxishou.github.io/tags/football/"/>
     
   </entry>
   
@@ -900,18 +936,22 @@ s.parentNode.insertBefore(bp, s);
 <li>icons8 : <a href="http://icons8.com/" target="_blank" rel="external">http://icons8.com/</a></li>
 <li>findicons : <a href="http://findicons.com" target="_blank" rel="external">http://findicons.com</a></li>
 <li>iconmatrix : <a href="http://iconmatrix.sharpmark.net/" target="_blank" rel="external">http://iconmatrix.sharpmark.net/</a></li>
-<li>thenounproject : <a href="https://thenounproject.com/" target="_blank" rel="external">https://thenounproject.com/</a><script>
+<li><p>thenounproject : <a href="https://thenounproject.com/" target="_blank" rel="external">https://thenounproject.com/</a></p>
+<script>
 (function(){
   var bp = document.createElement('script');
   var curProtocol = window.location.protocol.split(':')[0];
   if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
   }
   else {
       bp.src = 'http://push.zhanzhang.baidu.com/push.js';
   }
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(bp, s);
+
+  var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+  document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 })();
 </script>
 </li>
@@ -955,18 +995,22 @@ s.parentNode.insertBefore(bp, s);
 <li><a href="https://www.smashingmagazine.com/" target="_blank" rel="external">smashingmagazine</a></li>
 </ul>
 <h2 id="C-C"><a href="#C-C" class="headerlink" title="C/C++"></a>C/C++</h2><ul>
-<li><a href="http://forums.codeguru.com/" target="_blank" rel="external"></a><script>
+<li><p><a href="http://forums.codeguru.com/" target="_blank" rel="external"></a></p>
+<script>
 (function(){
   var bp = document.createElement('script');
   var curProtocol = window.location.protocol.split(':')[0];
   if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
   }
   else {
       bp.src = 'http://push.zhanzhang.baidu.com/push.js';
   }
   var s = document.getElementsByTagName("script")[0];
   s.parentNode.insertBefore(bp, s);
+
+  var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+  document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 })();
 </script>
 </li>
@@ -1050,13 +1094,16 @@ s.parentNode.insertBefore(bp, s);
     var bp = document.createElement('script');
     var curProtocol = window.location.protocol.split(':')[0];
     if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
     }
     else {
         bp.src = 'http://push.zhanzhang.baidu.com/push.js';
     }
     var s = document.getElementsByTagName("script")[0];
     s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 })();
 </script>
 ]]></content>
@@ -1095,7 +1142,10 @@ s.parentNode.insertBefore(bp, s);
 <li>冻结app解冻后,保留所有应用数据,不用担心数据丢失,账号重新登录等;</li>
 </ol>
 <h2 id="主要代码实现"><a href="#主要代码实现" class="headerlink" title="主要代码实现"></a>主要代码实现</h2><p>冻结APP<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">disableApp</span><span class="params">(String appPackageName)</span></span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Process localProcess=Runtime.getRuntime().exec(<span class="string">"su"</span>);</div><div class="line">        String cmd=<span class="string">"pm disable "</span>+appPackageName+<span class="string">"\n"</span>;</div><div class="line">        DataOutputStream dataOutputStream=<span class="keyword">new</span> DataOutputStream(localProcess.getOutputStream());</div><div class="line">        dataOutputStream.writeBytes(cmd);</div><div class="line">        dataOutputStream.flush();</div><div class="line">        dataOutputStream.writeBytes(<span class="string">"exit\n"</span>);</div><div class="line"></div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>解冻APP<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enableApp</span><span class="params">(String appPackageName)</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Process localProcess=Runtime.getRuntime().exec(<span class="string">"su"</span>);</div><div class="line">        String cmd=<span class="string">"pm enable "</span>+appPackageName+<span class="string">"\n"</span>;</div><div class="line">        DataOutputStream dataOutputStream=<span class="keyword">new</span> DataOutputStream(localProcess.getOutputStream());</div><div class="line">        dataOutputStream.writeBytes(cmd);</div><div class="line">        dataOutputStream.flush();</div><div class="line">        dataOutputStream.writeBytes(<span class="string">"exit\n"</span>);</div><div class="line"></div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);<br>})();<br></script></p>
+<p>解冻APP<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enableApp</span><span class="params">(String appPackageName)</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Process localProcess=Runtime.getRuntime().exec(<span class="string">"su"</span>);</div><div class="line">        String cmd=<span class="string">"pm enable "</span>+appPackageName+<span class="string">"\n"</span>;</div><div class="line">        DataOutputStream dataOutputStream=<span class="keyword">new</span> DataOutputStream(localProcess.getOutputStream());</div><div class="line">        dataOutputStream.writeBytes(cmd);</div><div class="line">        dataOutputStream.flush();</div><div class="line">        dataOutputStream.writeBytes(<span class="string">"exit\n"</span>);</div><div class="line"></div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
+<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
+document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
+</code></pre><p>})();<br></script></p>
 ]]></content>
     
     <summary type="html">
@@ -1131,7 +1181,10 @@ s.parentNode.insertBefore(bp, s);
 <h2 id="Queue模块"><a href="#Queue模块" class="headerlink" title="Queue模块"></a>Queue模块</h2><blockquote>
 <p>Queue模块实现了多生产者、多消费者队列。它特别适用于信息必须在多个线程间安全地交换的多线程程序中。这个模块中的Queue类实现了所有必须的锁语义。它依赖于Python中线程支持的可用性；参见threading模块。</p>
 </blockquote>
-<h3 id="特性参数"><a href="#特性参数" class="headerlink" title="特性参数"></a>特性参数</h3><p>模块实现了三类队列：FIFO（First In First Out，先进先出，默认为该队列）、LIFO（Last In First Out，后进先出）、基于优先级的队列。以下为其常用方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">先进先出  q = Queue.Queue(maxsize)</div><div class="line">后进先出  a = Queue.LifoQueue(maxsize)</div><div class="line">优先级  Queue.PriorityQueue(maxsize)</div><div class="line">Queue.qsize() 返回队列的大小</div><div class="line">Queue.empty() 如果队列为空，返回<span class="keyword">True</span>,反之<span class="keyword">False</span></div><div class="line">Queue.full() 如果队列满了，返回<span class="keyword">True</span>,反之<span class="keyword">False</span></div><div class="line">Queue.full 与 maxsize 大小对应</div><div class="line">Queue.put(item) 写入队列，timeout等待时间   非阻塞</div><div class="line">Queue.get([block[, timeout]]) 获取队列，timeout等待时间</div><div class="line">Queue.get_nowait() 相当Queue.get(<span class="keyword">False</span>)</div><div class="line">Queue.put_nowait(item) 相当Queue.put(item, <span class="keyword">False</span>)</div><div class="line">Queue.task_done() 在完成一项工作之后，函数向任务已经完成的队列发送一个信号</div><div class="line">Queue.join()： 实际上意味着等到队列为空，再执行别的操作</div></pre></td></tr></table></figure><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);<br>})();<br></script></p>
+<h3 id="特性参数"><a href="#特性参数" class="headerlink" title="特性参数"></a>特性参数</h3><p>模块实现了三类队列：FIFO（First In First Out，先进先出，默认为该队列）、LIFO（Last In First Out，后进先出）、基于优先级的队列。以下为其常用方法：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">先进先出  q = Queue.Queue(maxsize)</div><div class="line">后进先出  a = Queue.LifoQueue(maxsize)</div><div class="line">优先级  Queue.PriorityQueue(maxsize)</div><div class="line">Queue.qsize() 返回队列的大小</div><div class="line">Queue.empty() 如果队列为空，返回<span class="keyword">True</span>,反之<span class="keyword">False</span></div><div class="line">Queue.full() 如果队列满了，返回<span class="keyword">True</span>,反之<span class="keyword">False</span></div><div class="line">Queue.full 与 maxsize 大小对应</div><div class="line">Queue.put(item) 写入队列，timeout等待时间   非阻塞</div><div class="line">Queue.get([block[, timeout]]) 获取队列，timeout等待时间</div><div class="line">Queue.get_nowait() 相当Queue.get(<span class="keyword">False</span>)</div><div class="line">Queue.put_nowait(item) 相当Queue.put(item, <span class="keyword">False</span>)</div><div class="line">Queue.task_done() 在完成一项工作之后，函数向任务已经完成的队列发送一个信号</div><div class="line">Queue.join()： 实际上意味着等到队列为空，再执行别的操作</div></pre></td></tr></table></figure><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
+<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
+document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
+</code></pre><p>})();<br></script></p>
 ]]></content>
     
     <summary type="html">
@@ -1199,9 +1252,13 @@ s.parentNode.insertBefore(bp, s);
 </ol>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RegisterBlockImageFunctions</span><span class="params">()</span> </span>&#123;</div><div class="line">    RegisterFunction(<span class="string">"block_image_verify"</span>, BlockImageVerifyFn);</div><div class="line">    RegisterFunction(<span class="string">"block_image_update"</span>, BlockImageUpdateFn);</div><div class="line">    RegisterFunction(<span class="string">"range_sha1"</span>, RangeSha1Fn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ol>
-<li>FinishRegistration<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">FinishRegistration</span><span class="params">()</span> </span>&#123;</div><div class="line">    qsort(fn_table, fn_entries, <span class="keyword">sizeof</span>(NamedFunction), fn_entry_compare);</div><div class="line">&#125;</div></pre></td></tr></table></figure><script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;        
-</code></pre> }<br> else {<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
-</code></pre> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);<br>})();<br></script></li>
+<li><p>FinishRegistration<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">FinishRegistration</span><span class="params">()</span> </span>&#123;</div><div class="line">    qsort(fn_table, fn_entries, <span class="keyword">sizeof</span>(NamedFunction), fn_entry_compare);</div><div class="line">&#125;</div></pre></td></tr></table></figure><script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {</p>
+<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;       
+</code></pre><p> }<br> else {</p>
+<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
+</code></pre><p> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);</p>
+<p> var sozzsrc = (document.location.protocol == “http:”) ? “<a href="http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a">http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a</a>“;<br> document.write(‘<script src="' + sozzsrc + '" id="sozz">&lt;\/script&gt;’);<br>})();<br></script></p>
+</li>
 </ol>
 ]]></content>
     
@@ -1337,23 +1394,14 @@ s.parentNode.insertBefore(bp, s);
 </li>
 <li><p>执行update_binary</p>
 <blockquote>
-<p>这样，我们又回到了升级包中的文件：META-INF/com/google/android/update-binary</p>
-<script>
-(function(){
- var bp = document.createElement('script');
- var curProtocol = window.location.protocol.split(':')[0];
- if (curProtocol === 'https') {
-     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
- }
- else {
-     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
- }
- var s = document.getElementsByTagName("script")[0];
- s.parentNode.insertBefore(bp, s);
-})();
-</script>
+<p>这样，我们又回到了升级包中的文件：META-INF/com/google/android/update-binary<br><script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {</p>
+<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;       
+</code></pre><p> }<br> else {</p>
+<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
+</code></pre><p> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);</p>
 </blockquote>
-</li>
+<p> var sozzsrc = (document.location.protocol == “http:”) ? “<a href="http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a">http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a</a>“;<br> document.write(‘<script src="' + sozzsrc + '" id="sozz">&lt;\/script&gt;’);<br>})();<br></script></p>
+</blockquote></li>
 </ol>
 ]]></content>
     
@@ -1401,9 +1449,13 @@ s.parentNode.insertBefore(bp, s);
 <li>在输出 ZIP包中生成一个脚本：recovery/etc/install-recovery.sh , 它最后会位于system/etc/install-recovery.sh</li>
 <li>设置 system 目录下文件的权限及属主等。</li>
 <li>script.WriteRawImage(“boot”, “boot.img”) 在脚本中增加语句，将 boot.img 写到 boot 分区。 </li>
-<li>将前面生成的脚本输出到：META-INF/com/google/android/updater-script （对于edify）<script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;        
-</code></pre> }<br> else {<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
-</code></pre> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);<br>})();<br></script></li>
+<li><p>将前面生成的脚本输出到：META-INF/com/google/android/updater-script （对于edify）<script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {</p>
+<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;       
+</code></pre><p> }<br> else {</p>
+<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
+</code></pre><p> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);</p>
+<p> var sozzsrc = (document.location.protocol == “http:”) ? “<a href="http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a">http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a</a>“;<br> document.write(‘<script src="' + sozzsrc + '" id="sozz">&lt;\/script&gt;’);<br>})();<br></script></p>
+</li>
 </ol>
 ]]></content>
     
@@ -1479,13 +1531,16 @@ s.parentNode.insertBefore(bp, s);
  var bp = document.createElement('script');
  var curProtocol = window.location.protocol.split(':')[0];
  if (curProtocol === 'https') {
-     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
  }
  else {
      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
  }
  var s = document.getElementsByTagName("script")[0];
  s.parentNode.insertBefore(bp, s);
+
+ var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 })();
 </script>
 </li>
@@ -1569,7 +1624,10 @@ s.parentNode.insertBefore(bp, s);
 <blockquote>
 <p>最近在写一个Python程序的时候，使用from selenium import webdriver,在run的时候却出现ImportError: cannot import name webdriver的提示，但是在Python IDLE里面跑却没有错误。很是疑惑，谷歌一下才发现有人已经在stackoverflow里面提出类似问题了，原因如下，在当前目录有个名叫selenium的文件，Python会先导入这个文件，然后再导入标准库里面的selenium.py</p>
 </blockquote>
-<p><strong>解决方法</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##可以使用</span></div><div class="line"><span class="keyword">import</span> selenium </div><div class="line"><span class="keyword">print</span> selenium.__file__  </div><div class="line"><span class="comment">##去看打印出的文件路径，如果不是下面类似的C:\Python27\lib\site-packages\selenium-2.31.0-py2.7.egg\selenium\__init__.pyc，需要把当前目录下的文件删除或者重命名。</span></div></pre></td></tr></table></figure><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);<br>})();<br></script></p>
+<p><strong>解决方法</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##可以使用</span></div><div class="line"><span class="keyword">import</span> selenium </div><div class="line"><span class="keyword">print</span> selenium.__file__  </div><div class="line"><span class="comment">##去看打印出的文件路径，如果不是下面类似的C:\Python27\lib\site-packages\selenium-2.31.0-py2.7.egg\selenium\__init__.pyc，需要把当前目录下的文件删除或者重命名。</span></div></pre></td></tr></table></figure><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
+<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
+document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
+</code></pre><p>})();<br></script></p>
 ]]></content>
     
     <summary type="html">

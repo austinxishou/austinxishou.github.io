@@ -233,9 +233,13 @@
 <li>在输出 ZIP包中生成一个脚本：recovery/etc/install-recovery.sh , 它最后会位于system/etc/install-recovery.sh</li>
 <li>设置 system 目录下文件的权限及属主等。</li>
 <li>script.WriteRawImage(“boot”, “boot.img”) 在脚本中增加语句，将 boot.img 写到 boot 分区。 </li>
-<li>将前面生成的脚本输出到：META-INF/com/google/android/updater-script （对于edify）<script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;        
-</code></pre> }<br> else {<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
-</code></pre> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);<br>})();<br></script></li>
+<li><p>将前面生成的脚本输出到：META-INF/com/google/android/updater-script （对于edify）<script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {</p>
+<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;       
+</code></pre><p> }<br> else {</p>
+<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
+</code></pre><p> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);</p>
+<p> var sozzsrc = (document.location.protocol == “http:”) ? “<a href="http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a">http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a</a>“;<br> document.write(‘<script src="' + sozzsrc + '" id="sozz">&lt;\/script&gt;’);<br>})();<br></script></p>
+</li>
 </ol>
 
         </div>

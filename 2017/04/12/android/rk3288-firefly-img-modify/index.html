@@ -24,7 +24,7 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="android,app">
+    <meta name="keywords" content="app,android">
 
     <meta name="description" content="RK3288平台img包解压修改 解压update.img 解压system.img  解压boot.img 解压resource.img 打包boot.img">
 <meta property="og:type" content="article">
@@ -218,7 +218,10 @@
 <h2 id="解压boot-img"><a href="#解压boot-img" class="headerlink" title="解压boot.img"></a>解压boot.img</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">./rkunpack boot.img </div><div class="line">mkdir boot-extracted</div><div class="line"><span class="built_in">cd</span> boot-extracted</div><div class="line">cat ../boot.img-raw | gunzip | cpio -i</div></pre></td></tr></table></figure>
 <h2 id="解压resource-img"><a href="#解压resource-img" class="headerlink" title="解压resource.img"></a>解压resource.img</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">resource_tool --unpack --image=resource.img Myresource</div><div class="line">//dtb 反编译成dts</div><div class="line">./dtc -I dtb -O dts rk-kernel.dtb &gt; my-rk-kernel.dts</div><div class="line">//单独编译dts</div><div class="line">./dtc -I dtS -O dtB &gt; rk-kernel.dts</div></pre></td></tr></table></figure>
 <h2 id="打包-boot-img"><a href="#打包-boot-img" class="headerlink" title="打包 boot.img"></a>打包 boot.img</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">find . | cpio -o -H newc | gzip &gt; ../opinions-on-teclast-p90hdst-boot.img</div><div class="line">rkcrc -k <span class="built_in">test</span>-boot.img newboot.img</div></pre></td></tr></table></figure>
-<h2 id="imgRePackerRK-105-工具"><a href="#imgRePackerRK-105-工具" class="headerlink" title="imgRePackerRK_105 工具"></a>imgRePackerRK_105 工具</h2><p><a href="http://pan.baidu.com/s/1i4LKdZB" target="_blank" rel="external"><strong>imgRePackerRK_105百度云下载</strong></a><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);<br>})();<br></script></p>
+<h2 id="imgRePackerRK-105-工具"><a href="#imgRePackerRK-105-工具" class="headerlink" title="imgRePackerRK_105 工具"></a>imgRePackerRK_105 工具</h2><p><a href="http://pan.baidu.com/s/1i4LKdZB" target="_blank" rel="external"><strong>imgRePackerRK_105百度云下载</strong></a><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
+<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
+document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
+</code></pre><p>})();<br></script></p>
 
         </div>
 
