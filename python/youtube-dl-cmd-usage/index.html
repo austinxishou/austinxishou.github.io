@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>youtube-dl视频下载工具使用 | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,youtube-dl">
+
+    <meta name="description" content="youtube-dl视频下载工具使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="youtube-dl视频下载工具使用">
+<meta property="og:url" content="https://austinxishou.github.io/python/youtube-dl-cmd-usage/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="youtube-dl视频下载工具使用">
+<meta property="og:updated_time" content="2017-05-17T10:41:38.013Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="youtube-dl视频下载工具使用">
+<meta name="twitter:description" content="youtube-dl视频下载工具使用">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">youtube-dl视频下载工具使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">youtube-dl视频下载工具使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-05-17T06:33:46.349Z" itemprop="datePublished" class="page-time">
+  2017-05-17
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#About-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">About-简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Download-and-Install-下载安装"><span class="post-toc-number">2.</span> <span class="post-toc-text">Download and Install-下载安装</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Usage-使用"><span class="post-toc-number">3.</span> <span class="post-toc-text">Usage-使用</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-python/youtube-dl-cmd-usage"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">youtube-dl视频下载工具使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年05月17日 14:33" datetime="2017-05-17T06:33:46.349Z"  itemprop="datePublished">2017-05-17</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python/">python</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About-简介"></a>About-简介</h2><p>通常用于下载网站视频的工具有youtube-dl和You-Get;经过测试发现,下载国外视频用youtube-dl比较方便,下载国内视频用You-Get;</p>
+<p>不过,由于youtube-dl支持的是Python 2.6, 2.7, or 3.2+,相对来说会方便很多;</p>
+<p>这篇文章主要介绍youtube-dl 命令行工具的使用,以及如何在python代码中调用外部 youtube-dl 命令,执行下载操作;</p>
+<p><a href="https://yt-dl.org/" target="_blank" rel="external">youtube-dl官网</a><br><a href="https://github.com/rg3/youtube-dl" target="_blank" rel="external">youtube-dlGithub</a></p>
+<h2 id="Download-and-Install-下载安装"><a href="#Download-and-Install-下载安装" class="headerlink" title="Download and Install-下载安装"></a>Download and Install-下载安装</h2><ul>
+<li><p>方式一 下载Windows exe程序使用<br>  从官网下载<a href="http://rg3.github.io/youtube-dl/download.html" target="_blank" rel="external">youtube-dl.exe</a><br>  然后放在电脑的任意目录下即可使用;可以通过下面的命令来更新youtube-dl</p>
+</li>
+<li><p>方式二 直接使用命令行来安装<br>  在安装了Python之后,按Win+R键打开运行，输入cmd，再输入下面的代码即可自动下载安装youtube-dl</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">pip install youtube-dl //直接安装youtube-dl</div><div class="line">pip install --upgrade youtube-dl //安装youtube-dl并更新</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Usage-使用"><a href="#Usage-使用" class="headerlink" title="Usage-使用"></a>Usage-使用</h2><p>命令格式为:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">youtube-dl [OPTIONS] URL [URL...]</div></pre></td></tr></table></figure>
+<p><strong> 常用的选项有:</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">-h, --help                       打印帮助</div><div class="line">--version                        显示版本</div><div class="line">-U, --update                     升级</div><div class="line">-i, --ignore-errors              忽略错误继续执行下载操作</div><div class="line">--abort-on-error                 出现错误中断下载</div><div class="line">--dump-user-agent                显示当前的用户代理信息</div><div class="line">--list-extractors                显示所有的支持解析</div><div class="line">--extractor-descriptions         显示所有的支持解析的描述</div><div class="line">--force-generic-extractor        使用通用的解析器强制下载</div><div class="line">--default-search PREFIX          对未校验的链接使用默认的前缀</div><div class="line">--ignore-config                  忽略配置文件</div><div class="line">--config-location PATH           使用本地的配置文件</div><div class="line">--flat-playlist                  不解析播放列表,仅仅显示</div><div class="line">--mark-watched                   标记视频已看过</div><div class="line">--no-mark-watched                不标记已观看</div><div class="line">--no-color                       忽略颜色输出</div></pre></td></tr></table></figure>
+<p><strong> 网络 选项 </strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">--proxy URL                      使用指定的代理</div><div class="line">--socket-timeout SECONDS         设置超时时间</div><div class="line">--source-address IP              绑定客户端IP地址</div><div class="line"><span class="number">-4</span>, --force-ipv4                 设置所有链接为 IPv4</div><div class="line"><span class="number">-6</span>, --force-ipv6                 设置所有链接为 IPv6</div></pre></td></tr></table></figure>
+<p><strong> 视频选择 </strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">--playlist-start NUMBER          播放列表起始位置(默认为 <span class="number">1</span>)</div><div class="line">--playlist-end NUMBER            播放列表结束位置(默认为 最后)</div><div class="line">--playlist-items ITEM_SPEC       播放列表特定选项进行下载</div><div class="line">--match-title REGEX              只下载匹配相应标题的视频</div><div class="line">--reject-title REGEX             跳过已经看过的视频</div><div class="line">--max-downloads NUMBER           设置最大下载数量</div><div class="line">--min-filesize SIZE              不下载视频大小小于设定值的视频</div><div class="line">--max-filesize SIZE              不下载视频大小大于设定值的视频</div><div class="line">--date DATE                      只下载更新日期为DATE的视频</div><div class="line">--datebefore DATE                只下载更新日期早于DATE的视频</div><div class="line">--dateafter DATE                 只下载更新日期晚于DATE的视频</div><div class="line">--min-views COUNT                不下载视频数量小于设定值的视频</div><div class="line">--max-views COUNT                不下载视频数量大于设定值的视频</div><div class="line">--match-filter FILTER            设置通用的视频过滤器</div><div class="line">--no-playlist                    如果连接指向视频和播放列表,只下载视频</div><div class="line">--yes-playlist                   如果连接指向视频和播放列表,只下载播放列表</div><div class="line">--age-limit YEARS                只下载指定年份的视频</div><div class="line">--download-archive FILE          只下载archive文件中没有的视频</div><div class="line">--include-ads                    广告视频也一起下载</div></pre></td></tr></table></figure>
+<p><strong> 下载选项 </strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">-r, --limit-rate RATE            设置下载最大sulv</div><div class="line">-R, --retries RETRIES            最大的尝试次数</div><div class="line">--fragment-retries RETRIES       fragment窗口最大的尝试次数</div><div class="line">--skip-unavailable-fragments     跳过无效的fragment窗口</div><div class="line">--abort-on-unavailable-fragment  当某些窗口失效时,停止下载</div><div class="line">--buffer-size SIZE               设置下载缓存</div><div class="line">--no-resize-buffer               不要进行下载缓存的自适应</div><div class="line">--playlist-reverse               反向下载播放列表视频</div><div class="line">--playlist-random                随机下载播放列表视频</div><div class="line">--xattr-set-filesize             设置文件xattr属性大小</div><div class="line">--hls-prefer-native              使用HLS下载器替代 ffmpeg                                 </div><div class="line">--hls-prefer-ffmpeg              使用ffmpeg下载器替代HLS</div><div class="line">--external-downloader COMMAND    使用外部下载器,目前支持:</div><div class="line">                                 aria2c,avconv,axel,curl,ffmpeg,httpie,wget</div><div class="line">--external-downloader-args ARGS  设置外部下载器参数</div></pre></td></tr></table></figure></p>
+<p><strong> 文件系统选项 </strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">-a, --batch-file FILE            下载指定文件包含的url链接视频</div><div class="line">--id                             文件名使用视频ID值</div><div class="line">-o, --output TEMPLATE            设置输出临时文件名</div><div class="line">--autonumber-start NUMBER        指定开始数值<span class="keyword">for</span> %(autonumber)s(默认为<span class="number">1</span>)</div><div class="line">--restrict-filenames             限制文件名使用ASCII编码</div><div class="line">-w, --no-overwrites              不要覆盖文件</div><div class="line">-c, --<span class="keyword">continue</span>                   强制恢复下载文件</div><div class="line">--no-<span class="keyword">continue</span>                    不要恢复下载文件</div><div class="line">--no-part                        不要使用.part 文件 - 直接写入到输出文件</div><div class="line">--no-mtime                       不要使用最后的修改时间</div><div class="line">--write-description              输出视频描述到指定文件</div><div class="line">--write-info-json                输出视频元数据metadata 到.info.json 文件</div><div class="line">--write-annotations              输出视频标记信息到.annotations.xml 文件</div><div class="line">--load-info-json FILE            载入视频信息文件</div><div class="line">--cookies FILE                   缓存文件</div><div class="line">--cache-dir DIR                  指定缓存文件目录</div><div class="line">--no-cache-dir                   关闭文件系统缓存</div><div class="line">--rm-cache-dir                   删除所有文件系统缓存文件</div></pre></td></tr></table></figure></p>
+<p><strong> 缩略图选项 </strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">--write-thumbnail                下载缩略图</div><div class="line">--write-all-thumbnails           下载所有格式的缩略图</div><div class="line">--list-thumbnails                仅仅显示缩略图列表</div></pre></td></tr></table></figure>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-17T10:41:38.013Z" itemprop="dateUpdated">2017年5月17日 18:41</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/python/youtube-dl-cmd-usage/" target="_blank" rel="external">https://austinxishou.github.io/python/youtube-dl-cmd-usage/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/youtube-dl/">youtube-dl</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/python/youtube-dl-cmd-usage/&title=《youtube-dl视频下载工具使用》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/python/youtube-dl-cmd-usage/&title=《youtube-dl视频下载工具使用》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/python/youtube-dl-cmd-usage/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《youtube-dl视频下载工具使用》 — 爵士犀首&url=https://austinxishou.github.io/python/youtube-dl-cmd-usage/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/python/youtube-dl-cmd-usage/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/python/python-subprocess-popen-usage/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">python多线程以及执行本地命令技术要点</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="python/youtube-dl-cmd-usage" data-title="youtube-dl视频下载工具使用" data-url="https://austinxishou.github.io/python/youtube-dl-cmd-usage/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.14');
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/python/youtube-dl-cmd-usage/&title=《youtube-dl视频下载工具使用》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/python/youtube-dl-cmd-usage/&title=《youtube-dl视频下载工具使用》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/python/youtube-dl-cmd-usage/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《youtube-dl视频下载工具使用》 — 爵士犀首&url=https://austinxishou.github.io/python/youtube-dl-cmd-usage/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/python/youtube-dl-cmd-usage/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aS5KDMAxFUfa/aTLNBOc+CVJlcRl1dUPbxwOVPj4O/Jxfz/qv6zevviWr3PDIkCFjW8a5fMg7a0DtHb43GTJkvIdBQmEajnkIvlqL7E2GDBkyrt5JA+s6jKbHJ0OGDBmcwYMpYazxMmTIkMHDZYqsheMHa3EZMmRsyKi17//z8yPzDRkyZGzF6LT7UyopWYu7kiFDxmgGD3Bpg+yu1DAYRciQIWM0I12ejy15iUt+X0wTZciQsTkjvdrVuYSxTjFrxS3KcGXIkDGIwVM9kuTxIpZ89aNsliFDxmhGGuxqpWxaxNbSRxkyZExl8MXS8Nq/kMHDrgwZMt7AqF25IEE2xdS+lSFDxmxGOhiopW5ko+lIoDXClCFDxrYM3hrrjELTore4NxkyZAxidK5KdC6BdZLLIGOVIUPGCEb6j/jljKDsrA0syQhThgwZIxj91j9P4zg1TUBlyJDxHgYPf/zaBLm6wQ/rMhmVIUPGaEatNZ/yeDpYOzgZMmS8h1FreNXSRD7yfKQWlyFDxuYMnvyRhWtU3oA70vOTIUPG5gzemudDAj7UJNttZbgyZMjYlnGGz7qJVitN+XYvqTJkyBjNqI0MO6lheqkiHZ3KkCFjKiMNsve29dP2XHzSMmTIGMTggY8H01pBW9utDBkyZPANpbknv4ohQ4YMGWnAJckiPwJO/TEekCFDxmgGb6jxMSdPMVOkDBky3sZIEzgeau8dD9ww1JQhQ8Z+jA+vi0HPTlj3GwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
