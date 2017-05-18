@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>Android Studio中使用ButterKnife注解框架 | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android,butterknife">
+
+    <meta name="description" content="Android butterknife">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Studio中使用ButterKnife注解框架">
+<meta property="og:url" content="https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="Android butterknife">
+<meta property="og:image" content="https://austinxishou.github.io/images/android-butterknife/butterknife.gif">
+<meta property="og:image" content="https://austinxishou.github.io/images/android-butterknife/butterknife-install1.jpg">
+<meta property="og:image" content="https://austinxishou.github.io/images/android-butterknife/butterknife-install2.jpg">
+<meta property="og:image" content="https://austinxishou.github.io/images/android-butterknife/addDependency.jpg">
+<meta property="og:image" content="https://austinxishou.github.io/images/android-butterknife/addDependency2.jpg">
+<meta property="og:image" content="https://austinxishou.github.io/images/android-butterknife/generate.jpg">
+<meta property="og:image" content="https://austinxishou.github.io/images/android-butterknife/generate2.jpg">
+<meta property="og:image" content="https://austinxishou.github.io/images/android-butterknife/generate3.jpg">
+<meta property="og:updated_time" content="2017-04-13T05:56:30.978Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android Studio中使用ButterKnife注解框架">
+<meta name="twitter:description" content="Android butterknife">
+<meta name="twitter:image" content="https://austinxishou.github.io/images/android-butterknife/butterknife.gif">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android Studio中使用ButterKnife注解框架</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android Studio中使用ButterKnife注解框架</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-04-13T03:38:02.387Z" itemprop="datePublished" class="page-time">
+  2017-04-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#About"><span class="post-toc-number">1.</span> <span class="post-toc-text">About</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用方法"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用方法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装ButterKnife插件"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">安装ButterKnife插件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用ButterKnife插件"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">使用ButterKnife插件</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/androidstudio-import-butterKnife-framework"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android Studio中使用ButterKnife注解框架</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年04月13日 11:38" datetime="2017-04-13T03:38:02.387Z"  itemprop="datePublished">2017-04-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><blockquote>
+<p>比较复杂的布局文件中，会定义众多的view，在activity中使用findViewById逐个初始化，也是挺繁琐的一项工作，喜欢偷懒的程序员，一定会喜欢ButterKnife的，它大大的简化了这一步骤，只需要鼠标点击三下就OK了。<br>下面是android ButterKnife Zelezny的github上的一个动态使用流程图： </p>
+</blockquote>
+<p><img src="/images/android-butterknife/butterknife.gif" alt="butterknife"></p>
+<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="安装ButterKnife插件"><a href="#安装ButterKnife插件" class="headerlink" title="安装ButterKnife插件"></a>安装ButterKnife插件</h3><ol>
+<li><strong>File –&gt; Settings –&gt; Plugins –&gt; Browse repositories</strong> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/android-butterknife/butterknife-install1.jpg" alt="插件安装" title="">
+                </div>
+                <div class="image-caption">插件安装</div>
+            </figure></li>
+<li><strong>查找ButterKnife插件，安装</strong> <figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/android-butterknife/butterknife-install2.jpg" alt="查找ButterKnife插件" title="">
+                </div>
+                <div class="image-caption">查找ButterKnife插件</div>
+            </figure></li>
+<li><strong>重启Android Studio</strong></li>
+</ol>
+<h3 id="使用ButterKnife插件"><a href="#使用ButterKnife插件" class="headerlink" title="使用ButterKnife插件"></a>使用ButterKnife插件</h3><ol>
+<li><p><strong>添加jar包</strong></p>
+<blockquote>
+<p>右键Module，Open Module Settings<br>切换到Dependencies，点击右侧的“+”，选择“Library Dependency” </p>
+</blockquote>
+<p> <img src="/images/android-butterknife/addDependency.jpg" alt="addDependency"> </p>
+<blockquote>
+<p>搜索ButterKnife，添加jar包 </p>
+</blockquote>
+<p> <img src="/images/android-butterknife/addDependency2.jpg" alt="addDependency"></p>
+</li>
+<li><p><strong>生成注解</strong></p>
+<blockquote>
+<p>右键layout的ID，点击“Generate” </p>
+</blockquote>
+<p> <img src="/images/android-butterknife/generate.jpg" alt="Generate"> </p>
+<blockquote>
+<p>选择“Generate Butterknife Injections” </p>
+</blockquote>
+<p> <img src="/images/android-butterknife/generate2.jpg" alt="Generate"> </p>
+<blockquote>
+<p>生成注解 </p>
+</blockquote>
+<p> <img src="/images/android-butterknife/generate3.jpg" alt="Generate"></p>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-04-13T05:56:30.978Z" itemprop="dateUpdated">2017年4月13日 13:56</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/" target="_blank" rel="external">https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/butterknife/">butterknife</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/&title=《Android Studio中使用ButterKnife注解框架》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/&title=《Android Studio中使用ButterKnife注解框架》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Studio中使用ButterKnife注解框架》 — 爵士犀首&url=https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/android/cj2tuyhlj003hhspxod08jz8q/android/Android-ota-from-target-files-usage/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android-OTA(二)ota_from_target_files命令解析</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/android/cj2tuyhlj003whspxml3rl491/android/android-build-project-error/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android工程编译错误集锦</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+<div class="comments" id="comments">
+    <div class="ds-thread" data-thread-key="android/androidstudio-import-butterKnife-framework" data-title="Android Studio中使用ButterKnife注解框架" data-url="https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/"></div>
+</div>
+<script>
+lazyScripts.push('//cdn.bootcss.com/marked/0.3.6/marked.min.js');
+
+var duoshuoQuery = {short_name:'ysblog', theme: 'none'};
+lazyScripts.push('/js/embed.min.js?v=1.4.14');
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/&title=《Android Studio中使用ButterKnife注解框架》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/&title=《Android Studio中使用ButterKnife注解框架》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android Studio中使用ButterKnife注解框架》 — 爵士犀首&url=https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQ4AAAEOCAAAAABd2qZ5AAAD9klEQVR42u3ay3LiQBAEQP7/p9mrNzByVffIS8QmJwcGaZQ+lPvxeMSv55fX13def379fPLdd595vXJ7hccdLxw4cODAET9qcrh3B02wZofO6ZN3rp8CBw4cOHCc4sgPMePLYzh/pCR682fEgQMHDhz/liM/Sh6ZSdBes7b3woEDBw4cn8wxa/PNyrZT9Dhw4MCB4z6O2aAoP2JekiXc+bToxl4pDhw4cOCY5F09UvrMn2/Z78CBAwcOHHE45YHUDpBmo6mk9HquXzhw4MCBY8+RB9KMKWlBtndsCfK74MCBAweOPUe+DLdvxrVlYfvdNuAfdxwIBw4cOP57js1KwSb2krFWe992RaP+JwAHDhw4cATvJ6XObFEgIcvj9o4cfFvC4cCBAweOQxxJkdM+XnL02ejo+u7tPwHDmg8HDhw4cFwm1/WF2tA9VdS1Dcq2jYgDBw4cOO7gmMVVG2CbYixvHe6fCAcOHDhwbJ7o1OJCHtt5428WvTN6HDhw4MBxiiO/3LGmW1wW5uHdloh1QxMHDhw4cMQciVbbXGvLrc13Nw3EH9qCOHDgwIFjwbFvum3mXXkh1wZ53qD8K2hx4MCBA8cNHHn65FGatPnadYo27B+znMeBAwcOHCOOttDah2j+ahcU8qt9M4XDgQMHDhwLjnak1BZLSTAnD7ZZtkjOXz8SDhw4cOAIOM4WeLNmYh6Ns6IxqtRw4MCBA8eaow3C2TrabB2hbVO2QTusGnHgwIEDR4kym85sAjsfNW3+AHXjEgcOHDhwjJ60bQvmv90MrvZL2DklDhw4cOA4y5F/OY/D/DNtYG/OWSxk4MCBAweONUc+KNqvytVDoLwGDdYsin8LcODAgQPHmuO+EuvUaGp2qmRpDwcOHDhw7Dny4+af2Rw3L/k2RWZUxeLAgQMHjgVHkr2nyqr24fNvHbgLDhw4cOA4xJEHZ3usJAhnjbxkNaGOZxw4cODAccPsfjPUyVfZzi5A5KFbNChx4MCBA8eIow3CZLyUs7Ztytnni/YlDhw4cOA4xJHH3mztLH+wfMVhdqphcxAHDhw4cJQcs4W5Wb3YNh9z9LbA++Z9HDhw4MCx5sjHNnl7rj10MvE5FdIRKw4cOHDgWHA8y9cs8JLw26w7zK6w2u/AgQMHDhyTvYXVWCi5Wd6IbON/VnDiwIEDB45THMVgJo7nBGX/rXbgVP/lceDAgQPHgmO2OvDD8tmhku93WpA4cODAgeMTOPL2X/5O+6jtkt+NQYsDBw4cOEYc++ZdW7ydKhGjK+DAgQMHjkMc+fJ0XRStQ7f9M+SBvRo74cCBAweORT8tGTvlgdouye0X3ZJlOxw4cODAseb4A2ToUyVqkE5hAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -17,8 +17,8 @@
   
   <entry>
     <title>youtube-dl视频下载工具使用</title>
-    <link href="https://austinxishou.github.io/python/cj2sv20l20002cgpxs2dg2fjx/python/youtube-dl%E8%A7%86%E9%A2%91%E4%B8%8B%E8%BD%BD%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
-    <id>https://austinxishou.github.io/python/cj2sv20l20002cgpxs2dg2fjx/python/youtube-dl视频下载工具使用/</id>
+    <link href="https://austinxishou.github.io/python/cj2tuyhly005dhspx3mzfagvx/python/youtube-dl-cmd-usage/"/>
+    <id>https://austinxishou.github.io/python/cj2tuyhly005dhspx3mzfagvx/python/youtube-dl-cmd-usage/</id>
     <published>2017-05-17T06:33:46.349Z</published>
     <updated>2017-05-17T10:41:38.013Z</updated>
     
@@ -64,10 +64,10 @@
   
   <entry>
     <title>python多线程以及执行本地命令技术要点</title>
-    <link href="https://austinxishou.github.io/python/cj2skkokv005618px7edtf12w/python/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E4%BB%A5%E5%8F%8A%E6%89%A7%E8%A1%8C%E6%9C%AC%E5%9C%B0%E5%91%BD%E4%BB%A4%E6%8A%80%E6%9C%AF%E8%A6%81%E7%82%B9/"/>
-    <id>https://austinxishou.github.io/python/cj2skkokv005618px7edtf12w/python/python多线程以及执行本地命令技术要点/</id>
+    <link href="https://austinxishou.github.io/python/cj2tuyhly0056hspx7iqgutcx/python/python-subprocess-popen-usage/"/>
+    <id>https://austinxishou.github.io/python/cj2tuyhly0056hspx7iqgutcx/python/python-subprocess-popen-usage/</id>
     <published>2017-05-17T03:18:42.782Z</published>
-    <updated>2017-05-17T05:51:23.184Z</updated>
+    <updated>2017-05-17T05:57:35.584Z</updated>
     
     <content type="html"><![CDATA[<h2 id="subprocess-About-简介"><a href="#subprocess-About-简介" class="headerlink" title="subprocess-About-简介"></a>subprocess-About-简介</h2><p><code>subprocess</code> 模块用来创建新的进程，连接到其stdin、stdout、stderr管道并获取它们的返回码。</p>
 <p>subprocess模块的出现是为了替代旧模块及函数：<code>os.system</code>、<code>os.spawn*</code>、<code>os.popen*</code>、<code>popen2.*</code>、<code>commands.*</code>。</p>
@@ -113,8 +113,8 @@
   
   <entry>
     <title>python结巴分词jieba技术集成应用说明</title>
-    <link href="https://austinxishou.github.io/python/cj2skkoky005c18px5l8wy5fn/python/python%E7%BB%93%E5%B7%B4%E5%88%86%E8%AF%8Djieba%E6%8A%80%E6%9C%AF%E9%9B%86%E6%88%90%E5%BA%94%E7%94%A8%E8%AF%B4%E6%98%8E/"/>
-    <id>https://austinxishou.github.io/python/cj2skkoky005c18px5l8wy5fn/python/python结巴分词jieba技术集成应用说明/</id>
+    <link href="https://austinxishou.github.io/python/cj2tuyhly0052hspxqz6jpv6r/python/python-jieba-fenci-usage/"/>
+    <id>https://austinxishou.github.io/python/cj2tuyhly0052hspxqz6jpv6r/python/python-jieba-fenci-usage/</id>
     <published>2017-05-17T01:43:11.910Z</published>
     <updated>2017-05-17T02:03:35.877Z</updated>
     
@@ -206,8 +206,8 @@
   
   <entry>
     <title>在线工具类网站</title>
-    <link href="https://austinxishou.github.io/killtime/cj2skkoku005218pxarvdmo26/killtime/tools/"/>
-    <id>https://austinxishou.github.io/killtime/cj2skkoku005218pxarvdmo26/killtime/tools/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2tuyhl30039hspxgltnu406/killtime/soft-tools-collection/"/>
+    <id>https://austinxishou.github.io/killtime/cj2tuyhl30039hspxgltnu406/killtime/soft-tools-collection/</id>
     <published>2017-05-12T02:16:41.523Z</published>
     <updated>2017-05-12T02:26:43.950Z</updated>
     
@@ -306,8 +306,8 @@
   
   <entry>
     <title>软件及源码仓库收集</title>
-    <link href="https://austinxishou.github.io/killtime/cj2skkokr004u18pxyyvrmk5z/killtime/soft_site/"/>
-    <id>https://austinxishou.github.io/killtime/cj2skkokr004u18pxyyvrmk5z/killtime/soft_site/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2tuyhl3002whspx2ipa9oed/killtime/code-resource-collection/"/>
+    <id>https://austinxishou.github.io/killtime/cj2tuyhl3002whspx2ipa9oed/killtime/code-resource-collection/</id>
     <published>2017-05-12T02:16:41.522Z</published>
     <updated>2017-05-12T07:59:43.030Z</updated>
     
@@ -382,8 +382,8 @@
   
   <entry>
     <title>找资源</title>
-    <link href="https://austinxishou.github.io/killtime/cj2skkoks004y18pxcut53zub/killtime/search/"/>
-    <id>https://austinxishou.github.io/killtime/cj2skkoks004y18pxcut53zub/killtime/search/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2tuyhl30035hspxa13qcu4o/killtime/search-resource-collection/"/>
+    <id>https://austinxishou.github.io/killtime/cj2tuyhl30035hspxa13qcu4o/killtime/search-resource-collection/</id>
     <published>2017-05-12T02:16:41.521Z</published>
     <updated>2017-05-12T02:25:02.429Z</updated>
     
@@ -434,8 +434,8 @@
   
   <entry>
     <title>电影资源汇总</title>
-    <link href="https://austinxishou.github.io/killtime/cj2skkokp004r18pxmsb9kfz1/killtime/movie/"/>
-    <id>https://austinxishou.github.io/killtime/cj2skkokp004r18pxmsb9kfz1/killtime/movie/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2tuyhl30033hspxfncjf29u/killtime/movie-resource-collection/"/>
+    <id>https://austinxishou.github.io/killtime/cj2tuyhl30033hspxfncjf29u/killtime/movie-resource-collection/</id>
     <published>2017-05-12T02:16:41.519Z</published>
     <updated>2017-05-12T02:23:28.103Z</updated>
     
@@ -533,39 +533,9 @@
   </entry>
   
   <entry>
-    <title>游戏站推荐</title>
-    <link href="https://austinxishou.github.io/killtime/cj2skkokn004o18px82vunicb/killtime/game/"/>
-    <id>https://austinxishou.github.io/killtime/cj2skkokn004o18px82vunicb/killtime/game/</id>
-    <published>2017-05-12T02:16:41.518Z</published>
-    <updated>2017-05-12T02:34:12.758Z</updated>
-    
-    <content type="html"><![CDATA[<ul>
-<li>拼命玩游戏 : <a href="http://wanga.me/" target="_blank" rel="external">http://wanga.me/</a></li>
-<li>ArmorGames : <a href="http://armorgames.com/" target="_blank" rel="external">http://armorgames.com/</a></li>
-<li>u77汉化 : <a href="http://www.u77.com/" target="_blank" rel="external">http://www.u77.com/</a></li>
-<li>taptap : <a href="https://www.taptap.com/" target="_blank" rel="external">https://www.taptap.com/</a></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      游戏站推荐
-    
-    </summary>
-    
-      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
-    
-    
-      <category term="killtime" scheme="https://austinxishou.github.io/tags/killtime/"/>
-    
-      <category term="football" scheme="https://austinxishou.github.io/tags/football/"/>
-    
-  </entry>
-  
-  <entry>
     <title>老司机资源汇总</title>
-    <link href="https://austinxishou.github.io/killtime/cj2skkokk004i18px4ood8sps/killtime/driver/"/>
-    <id>https://austinxishou.github.io/killtime/cj2skkokk004i18px4ood8sps/killtime/driver/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2tuyhl3002thspxt12d56ok/killtime/driver-resource-collection/"/>
+    <id>https://austinxishou.github.io/killtime/cj2tuyhl3002thspxt12d56ok/killtime/driver-resource-collection/</id>
     <published>2017-05-12T02:16:41.518Z</published>
     <updated>2017-05-12T02:21:51.509Z</updated>
     
@@ -720,9 +690,39 @@
   </entry>
   
   <entry>
+    <title>游戏站推荐</title>
+    <link href="https://austinxishou.github.io/killtime/cj2tuyhl3002zhspxs3ovkbtt/killtime/game-resource-collection/"/>
+    <id>https://austinxishou.github.io/killtime/cj2tuyhl3002zhspxs3ovkbtt/killtime/game-resource-collection/</id>
+    <published>2017-05-12T02:16:41.518Z</published>
+    <updated>2017-05-12T02:34:12.758Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>拼命玩游戏 : <a href="http://wanga.me/" target="_blank" rel="external">http://wanga.me/</a></li>
+<li>ArmorGames : <a href="http://armorgames.com/" target="_blank" rel="external">http://armorgames.com/</a></li>
+<li>u77汉化 : <a href="http://www.u77.com/" target="_blank" rel="external">http://www.u77.com/</a></li>
+<li>taptap : <a href="https://www.taptap.com/" target="_blank" rel="external">https://www.taptap.com/</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      游戏站推荐
+    
+    </summary>
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/categories/killtime/"/>
+    
+    
+      <category term="killtime" scheme="https://austinxishou.github.io/tags/killtime/"/>
+    
+      <category term="football" scheme="https://austinxishou.github.io/tags/football/"/>
+    
+  </entry>
+  
+  <entry>
     <title>设计资源汇总</title>
-    <link href="https://austinxishou.github.io/killtime/cj2skkokj004f18pxlvy8drct/killtime/design/"/>
-    <id>https://austinxishou.github.io/killtime/cj2skkokj004f18pxlvy8drct/killtime/design/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2tuyhlj003dhspxzl91unqm/killtime/webdesign-source-collection/"/>
+    <id>https://austinxishou.github.io/killtime/cj2tuyhlj003dhspxzl91unqm/killtime/webdesign-source-collection/</id>
     <published>2017-05-12T02:16:41.517Z</published>
     <updated>2017-05-12T02:21:02.414Z</updated>
     
@@ -785,8 +785,8 @@
   
   <entry>
     <title>IT技术站点收集</title>
-    <link href="https://austinxishou.github.io/killtime/cj2skkokm004m18pxcq7sgkdm/killtime/ittech_site/"/>
-    <id>https://austinxishou.github.io/killtime/cj2skkokm004m18pxcq7sgkdm/killtime/ittech_site/</id>
+    <link href="https://austinxishou.github.io/killtime/cj2tuyhl30031hspxkc1zl6nk/killtime/ittech-site-collection/"/>
+    <id>https://austinxishou.github.io/killtime/cj2tuyhl30031hspxkc1zl6nk/killtime/ittech-site-collection/</id>
     <published>2017-05-12T02:16:41.513Z</published>
     <updated>2017-05-12T06:35:02.465Z</updated>
     
@@ -828,8 +828,8 @@
   
   <entry>
     <title>pyinstaller打包可执行文件命令工具使用</title>
-    <link href="https://austinxishou.github.io/python-pyinstaller/cj2sv20lk000bcgpxevi13frl/python/pyinstaller%E6%89%93%E5%8C%85%E5%8F%AF%E6%89%A7%E8%A1%8C%E6%96%87%E4%BB%B6%E5%91%BD%E4%BB%A4%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/"/>
-    <id>https://austinxishou.github.io/python-pyinstaller/cj2sv20lk000bcgpxevi13frl/python/pyinstaller打包可执行文件命令工具使用/</id>
+    <link href="https://austinxishou.github.io/python-pyinstaller/cj2tuyhly004yhspx4ki14c8l/python/pyinstaller-winexe-usage-guide/"/>
+    <id>https://austinxishou.github.io/python-pyinstaller/cj2tuyhly004yhspx4ki14c8l/python/pyinstaller-winexe-usage-guide/</id>
     <published>2017-05-08T01:32:43.870Z</published>
     <updated>2017-05-17T06:37:20.057Z</updated>
     
@@ -902,8 +902,8 @@
   
   <entry>
     <title>Android 冻结APP</title>
-    <link href="https://austinxishou.github.io/android/cj2skkojy003218pxhby2ysvs/android/Android%20%E5%86%BB%E7%BB%93%E4%B8%8D%E5%B8%B8%E7%94%A8%E7%9A%84app/"/>
-    <id>https://austinxishou.github.io/android/cj2skkojy003218pxhby2ysvs/android/Android 冻结不常用的app/</id>
+    <link href="https://austinxishou.github.io/android/cj2tuyhlj003phspxh9aa70gi/android/android-apk-disable/"/>
+    <id>https://austinxishou.github.io/android/cj2tuyhlj003phspxh9aa70gi/android/android-apk-disable/</id>
     <published>2017-05-04T03:07:12.925Z</published>
     <updated>2017-05-04T03:18:20.887Z</updated>
     
@@ -937,8 +937,8 @@
   
   <entry>
     <title>python 多线程实践</title>
-    <link href="https://austinxishou.github.io/python/cj2skkokw005918pxs7h2yfnd/python/python%E5%A4%9A%E7%BA%BF%E7%A8%8B%E5%AE%9E%E8%B7%B5/"/>
-    <id>https://austinxishou.github.io/python/cj2skkokw005918pxs7h2yfnd/python/python多线程实践/</id>
+    <link href="https://austinxishou.github.io/python/cj2tuyhly0059hspxwzmorkyh/python/python-threading-module-queue-usage/"/>
+    <id>https://austinxishou.github.io/python/cj2tuyhly0059hspxwzmorkyh/python/python-threading-module-queue-usage/</id>
     <published>2017-05-04T01:43:52.969Z</published>
     <updated>2017-05-04T03:02:41.990Z</updated>
     
@@ -975,8 +975,8 @@
   
   <entry>
     <title>Android-OTA(四) updater功能解析</title>
-    <link href="https://austinxishou.github.io/android/cj2skkok0003718px5hhq5z9h/android/Android-OTA(%E5%9B%9B)%20updater%E5%8A%9F%E8%83%BD%E8%A7%A3%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/android/cj2skkok0003718px5hhq5z9h/android/Android-OTA(四) updater功能解析/</id>
+    <link href="https://austinxishou.github.io/android/cj2tuyhlj0046hspxxk26j1p6/android/android-ota-updater/"/>
+    <id>https://austinxishou.github.io/android/cj2tuyhlj0046hspxxk26j1p6/android/android-ota-updater/</id>
     <published>2017-04-14T09:12:59.419Z</published>
     <updated>2017-04-14T10:06:30.928Z</updated>
     
@@ -1046,8 +1046,8 @@
   
   <entry>
     <title>Android-OTA(三) recovery 功能解析</title>
-    <link href="https://austinxishou.github.io/android/cj2skkok4003d18px2w5vwsck/android/Android-OTA(%E4%B8%89)recovery%E5%8A%9F%E8%83%BD%E8%A7%A3%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/android/cj2skkok4003d18px2w5vwsck/android/Android-OTA(三)recovery功能解析/</id>
+    <link href="https://austinxishou.github.io/android/cj2tuyhlj004ahspxvsh9cutz/android/android-recovery-boot-ota/"/>
+    <id>https://austinxishou.github.io/android/cj2tuyhlj004ahspxvsh9cutz/android/android-recovery-boot-ota/</id>
     <published>2017-04-14T03:45:15.978Z</published>
     <updated>2017-04-14T09:10:58.869Z</updated>
     
@@ -1184,8 +1184,8 @@
   
   <entry>
     <title>Android-OTA(二)ota_from_target_files命令解析</title>
-    <link href="https://austinxishou.github.io/android/cj2skkok2003918px8s5serh4/android/Android-OTA(%E4%BA%8C)ota_from_target_files%E5%91%BD%E4%BB%A4%E8%A7%A3%E6%9E%90/"/>
-    <id>https://austinxishou.github.io/android/cj2skkok2003918px8s5serh4/android/Android-OTA(二)ota_from_target_files命令解析/</id>
+    <link href="https://austinxishou.github.io/android/cj2tuyhlj003hhspxod08jz8q/android/Android-ota-from-target-files-usage/"/>
+    <id>https://austinxishou.github.io/android/cj2tuyhlj003hhspxod08jz8q/android/Android-ota-from-target-files-usage/</id>
     <published>2017-04-14T03:25:29.926Z</published>
     <updated>2017-04-14T03:42:35.136Z</updated>
     
@@ -1230,8 +1230,8 @@
   
   <entry>
     <title>Android Studio中使用ButterKnife注解框架</title>
-    <link href="https://austinxishou.github.io/android/cj2skkok5003g18px26ceud22/android/AndroidStudio%E4%B8%AD%E4%BD%BF%E7%94%A8ButterKnife%E6%B3%A8%E8%A7%A3%E6%A1%86%E6%9E%B6/"/>
-    <id>https://austinxishou.github.io/android/cj2skkok5003g18px26ceud22/android/AndroidStudio中使用ButterKnife注解框架/</id>
+    <link href="https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/"/>
+    <id>https://austinxishou.github.io/android/cj2tuyhly004khspxtitmxcqn/android/androidstudio-import-butterKnife-framework/</id>
     <published>2017-04-13T03:38:02.387Z</published>
     <updated>2017-04-13T05:56:30.978Z</updated>
     
@@ -1301,8 +1301,8 @@
   
   <entry>
     <title>Android工程编译错误集锦</title>
-    <link href="https://austinxishou.github.io/android/cj2skkokg004518pxa9hfheah/android/Android%E5%B7%A5%E7%A8%8B%E7%BC%96%E8%AF%91%E9%94%99%E8%AF%AF%E9%9B%86%E9%94%A6/"/>
-    <id>https://austinxishou.github.io/android/cj2skkokg004518pxa9hfheah/android/Android工程编译错误集锦/</id>
+    <link href="https://austinxishou.github.io/android/cj2tuyhlj003whspxml3rl491/android/android-build-project-error/"/>
+    <id>https://austinxishou.github.io/android/cj2tuyhlj003whspxml3rl491/android/android-build-project-error/</id>
     <published>2017-04-13T01:48:54.373Z</published>
     <updated>2017-05-05T02:10:20.568Z</updated>
     
@@ -1378,17 +1378,41 @@
   </entry>
   
   <entry>
-    <title>Android OTA升级测试以及问题汇总</title>
-    <link href="https://austinxishou.github.io/android/cj2skkojx003018pxnhrg6x4t/android/Android%20OTA%E5%8D%87%E7%BA%A7%E6%B5%8B%E8%AF%95%E4%BB%A5%E5%8F%8A%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
-    <id>https://austinxishou.github.io/android/cj2skkojx003018pxnhrg6x4t/android/Android OTA升级测试以及问题汇总/</id>
-    <published>2017-04-12T07:13:17.361Z</published>
-    <updated>2017-04-12T07:13:17.382Z</updated>
+    <title>Android优化OTA包大小和开机启动时间</title>
+    <link href="https://austinxishou.github.io/android/cj2tuyhlj003jhspxf49w29eu/android/Android-ota-odex-improve/"/>
+    <id>https://austinxishou.github.io/android/cj2tuyhlj003jhspxf49w29eu/android/Android-ota-odex-improve/</id>
+    <published>2017-04-12T06:21:18.535Z</published>
+    <updated>2017-05-18T03:14:30.369Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="OTA包本地升级操作步骤"><a href="#OTA包本地升级操作步骤" class="headerlink" title="OTA包本地升级操作步骤"></a>OTA包本地升级操作步骤</h2>]]></content>
+    <content type="html"><![CDATA[<h2 id="问题说明"><a href="#问题说明" class="headerlink" title="问题说明"></a>问题说明</h2><p>在Android 升级到 5.0 (Lollipop/L)之后，虚拟机实例换成了ART，这加快了应用运行时的速度，但是在系统升级中却引入了一些不便之处：</p>
+<ol>
+<li>在生成升级包时，因为ART采用了预编译优化功能，会把 APK 及JAR等通过dex2ota预编译成odex文件，这样极大的增加了升级包的大小，动辄上G的大小不方便用户的下载和网络的传播；</li>
+<li>如果不进行预编译优化，则这部分操作会转移到刷机完成后第一次开机时间，十几分钟甚至更多的时间，让用户不确认是否升级出问题；</li>
+</ol>
+<h2 id="预编译配置-兼顾大小和时间"><a href="#预编译配置-兼顾大小和时间" class="headerlink" title="预编译配置-兼顾大小和时间"></a>预编译配置-兼顾大小和时间</h2><p>上述问题，Android系统设计者，早已考虑周全，尤其是针对存储空间有限的设备，提供了丰富的编译配置选项，方便开发者根据自己实际情况进行针对性的配置修改；</p>
+<p>下面就针对这些配置选项进行说明和标记，方便后续开发人员参考；</p>
+<h3 id="打开odex编译优化"><a href="#打开odex编译优化" class="headerlink" title="打开odex编译优化"></a>打开odex编译优化</h3><p>首先，可以完全关闭预编译优化功能，跟dalvik虚拟机时代的升级包相同：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">product BoardConfig.mk 文件中，添加编译变量： WITH_DEXPREOPT := true</div></pre></td></tr></table></figure></p>
+<p>当然，这样的结果就是升级包小了，第一次开机时间极其慢；</p>
+<h3 id="预编译的包不进行优化"><a href="#预编译的包不进行优化" class="headerlink" title="预编译的包不进行优化"></a>预编译的包不进行优化</h3><p>预编译的包是指那些在模块编译文件中指定为：include $(BUILD_PREBUILT) 的APK和JAR包等，这在升级包中占了一大部门；<br>DONT_DEXPREOPT_PREBUILTS  变量就可以配置这部门代码是否进行预编译优化；<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">DONT_DEXPREOPT_PREBUILTS := true 后，编译系统将会阻止 prebuild 包的odex优化；</div></pre></td></tr></table></figure></p>
+<h3 id="只进行BOOT-img-优化"><a href="#只进行BOOT-img-优化" class="headerlink" title="只进行BOOT.img 优化"></a>只进行BOOT.img 优化</h3><p>Android启动过程中，boot.img包含了大部分底层系统的启动和初始化，主要包含在boot.art文件中；<br>使用 WITH_DEXPREOPT_BOOT_IMG_ONLY 编译变量，可以控制编译系统只进行boot.img的优化；<br>使能该变量后，将会大量节省system分区的大小，但同时意味着所有的app都需要在第一次重启的时候进行odex优化；</p>
+<p>所以最好是通过 DONT_DEXPREOPT_PREBUILTS 进行更精确的控制；</p>
+<h3 id="LOCAL-DEX-PREOPT-编译变量使用"><a href="#LOCAL-DEX-PREOPT-编译变量使用" class="headerlink" title="LOCAL_DEX_PREOPT 编译变量使用"></a>LOCAL_DEX_PREOPT 编译变量使用</h3><p>每个app应用，可以通过该编译变量进行控制是否进行odex优化；<br>在 app’s Android.mk，进行变量赋值 LOCAL_DEX_PREOPT := false</p>
+<h3 id="PRODUCT-DEXPREOPT-编译变量使用"><a href="#PRODUCT-DEXPREOPT-编译变量使用" class="headerlink" title="PRODUCT_DEXPREOPT 编译变量使用"></a>PRODUCT_DEX<em>PREOPT</em> 编译变量使用</h3><p>在 post-L 发行版本之后，添加了这个系列的编译变量，进行更深入控制预编译的优化；</p>
+<ol>
+<li>PRODUCT_DEX_PREOPT_BOOT_FLAGS          传递参数给 dex2oat 命令，控制boot.img的编译</li>
+<li>PRODUCT_DEX_PREOPT_DEFAULT_FLAGS     传递默认参数给 dex2oat 命令，控制除了 boot.img的编译，即jar包和apk文件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(call add-product-dex-preopt-module-config,services,--compiler-filter=space)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>或者 直接关闭模块的预编译优化<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$(call add-product-dex-preopt-module-config,Calculator,disable)</div></pre></td></tr></table></figure></p>
+<h3 id="Android-7-0-之后的优化"><a href="#Android-7-0-之后的优化" class="headerlink" title="Android 7.0 之后的优化"></a>Android 7.0 之后的优化</h3><p>7.0后，系统可以分为A/B两个分区，OTA升级以及APK的优化不影响用户前台的正常使用，这样既减小了升级包的大小，又提升了第一次开机速度；</p>
+<h3 id="预加载类文件"><a href="#预加载类文件" class="headerlink" title="预加载类文件"></a>预加载类文件</h3><p>预加载类会由zygote统一初始化，这样使后续使用到这些类的app开启速度加快；但是预加载类的使用在实际项目中要非常注意，需要仔细评估后确认权衡值，太多的预加载类会导致一些不常用的类消耗宝贵的内存资源，相反则会导致常用的类在不同应用中独立加载，各自有一个备份，既减慢应用开启速度，也是浪费内存；</p>
+<p>预加载类的定义列表，默认放置在 frameworks/base/preloaded-classes ，也可以在产品的devic.mk中添加自行定义的预加载列表：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">PRODUCT_COPY_FILES += &lt;filename&gt;:system/etc/preloaded-classes</div></pre></td></tr></table></figure></p>
+<h3 id="编译类列表"><a href="#编译类列表" class="headerlink" title="编译类列表"></a>编译类列表</h3><p>结合 PRODUCT_DEX_PREOPT_BOOT_FLAGS 和 compiled-classes 可以控制编译系统是否在预编译优化中编译这些类；<br>不过上述列表只能定义启动类的一个子集，适合用于那些存储空间非常有限，不能全局优化编译整个boot.img 分区的设备，所以对我们来说并不适合；</p>
+]]></content>
     
     <summary type="html">
     
-      Android OTA 升级测试以及问题汇总
+      Android 优化OTA包大小和开机启动时间 升级包大小优化 升级开机时间优化 odex
     
     </summary>
     
@@ -1397,7 +1421,7 @@
     
       <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
     
-      <category term="OTA" scheme="https://austinxishou.github.io/tags/OTA/"/>
+      <category term="odex" scheme="https://austinxishou.github.io/tags/odex/"/>
     
   </entry>
   
