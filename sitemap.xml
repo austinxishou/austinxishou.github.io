@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://austinxishou.github.io/2017/05/18/webdesign/hexo-plugin/</loc>
+    
+    <lastmod>2017-05-18T07:10:27.143Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://austinxishou.github.io/2017/04/12/android/Android-ota-odex-improve/</loc>
     
     <lastmod>2017-05-18T03:14:30.369Z</lastmod>
@@ -212,13 +219,6 @@
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/categories/wechat/index-ycl-PC.html</loc>
-    
-    <lastmod>2017-03-28T14:14:25.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://austinxishou.github.io/tags/index-ycl-PC.html</loc>
     
     <lastmod>2017-03-28T14:14:25.000Z</lastmod>
@@ -233,16 +233,16 @@
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/tags/index.html</loc>
+    <loc>https://austinxishou.github.io/categories/wechat/index-ycl-PC.html</loc>
     
-    <lastmod>2017-03-28T03:23:06.252Z</lastmod>
+    <lastmod>2017-03-28T14:14:25.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/categories/android/index.html</loc>
+    <loc>https://austinxishou.github.io/tags/index.html</loc>
     
-    <lastmod>2017-03-28T03:22:54.013Z</lastmod>
+    <lastmod>2017-03-28T03:23:06.252Z</lastmod>
     
   </url>
   
@@ -255,6 +255,13 @@
   
   <url>
     <loc>https://austinxishou.github.io/categories/webdesign/index.html</loc>
+    
+    <lastmod>2017-03-28T03:22:54.013Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/categories/android/index.html</loc>
     
     <lastmod>2017-03-28T03:22:54.013Z</lastmod>
     
