@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="360-site-verification" content="f623c899b6306a6a416f749df60d39a5" />
+	<meta name="sogou_site_verification" content="b2uCFUinvb"/>
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>krpano技术摘要 | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="krpano,pano">
+
+    <meta name="description" content="krpano技术摘要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="krpano技术摘要">
+<meta property="og:url" content="https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="krpano技术摘要">
+<meta property="og:updated_time" content="2017-10-27T08:13:11.233Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="krpano技术摘要">
+<meta name="twitter:description" content="krpano技术摘要">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">krpano技术摘要</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">krpano技术摘要</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-31T03:39:14.228Z" itemprop="datePublished" class="page-time">
+  2017-08-31
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/krpano/">krpano</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#About-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">About 简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Krpano-学习"><span class="post-toc-number">2.</span> <span class="post-toc-text">Krpano 学习</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Embedding-into-HTML"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Embedding into HTML</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#XML文档"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">XML文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Actions-Scripting-动态执行动作及脚本"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Actions / Scripting 动态执行动作及脚本</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTML5"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">HTML5</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#插件开发"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">插件开发</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Javascript接口调用"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">Javascript接口调用</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#全景场景插入平面视频"><span class="post-toc-number">3.</span> <span class="post-toc-text">全景场景插入平面视频</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Krpano-精灵图（雪碧图-sprites）完美解决方案"><span class="post-toc-number">4.</span> <span class="post-toc-text">Krpano 精灵图（雪碧图 || sprites）完美解决方案</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Krpano-Plugins"><span class="post-toc-number">5.</span> <span class="post-toc-text">Krpano-Plugins</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Videoplayer"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">Videoplayer</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#krpano工程问题"><span class="post-toc-number">6.</span> <span class="post-toc-text">krpano工程问题</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-webdesign/krpano-dev-doc"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">krpano技术摘要</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年08月31日 11:39" datetime="2017-08-31T03:39:14.228Z"  itemprop="datePublished">2017-08-31</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/krpano/">krpano</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About 简介"></a>About 简介</h2><blockquote>
+<p>Krpano 可以方便快速的构建全景场景或全景视频</p>
+</blockquote>
+<p><a href="https://krpano.com/" target="_blank" rel="external">Krpano官方网站</a><br><a href="https://krpano.milly.me/" target="_blank" rel="external">Krpano 非官方中文文档</a><br><a href="http://www.720ku.com/" target="_blank" rel="external">720ku</a><br><a href="http://720yun.com/" target="_blank" rel="external">720yun</a><br><a href="http://new720.com" target="_blank" rel="external">New720</a><br><a href="http://blog.new720.com" target="_blank" rel="external">New720-Blog</a></p>
+<h2 id="Krpano-学习"><a href="#Krpano-学习" class="headerlink" title="Krpano 学习"></a>Krpano 学习</h2><h3 id="Embedding-into-HTML"><a href="#Embedding-into-HTML" class="headerlink" title="Embedding into HTML"></a>Embedding into HTML</h3><pre><code>嵌入到HTML文档
+</code></pre><h3 id="XML文档"><a href="#XML文档" class="headerlink" title="XML文档"></a>XML文档</h3><ul>
+<li><a href="#常用设置">常用设置</a><ul>
+<li><a href="#小行星开场">小行星开场</a></li>
+<li><a href="#加载动画">加载动画</a></li>
+<li><a href="#修改右键菜单">修改右键菜单</a></li>
+<li><a href="#自定义热点">自定义热点</a></li>
+<li><a href="#隐藏皮肤">隐藏皮肤</a></li>
+<li><a href="#动态热点">添加动态热点</a></li>
+<li><a href="#动态热点添加始终显示的文字">动态热点添加始终显示的文字</a></li>
+<li><a href="#热点和或图层在鼠标点击或鼠标悬停时进入动态模式">热点和或图层在鼠标点击或鼠标悬停时进入动态模式</a></li>
+<li><a href="#拖拽热点">拖拽热点</a></li>
+<li><a href="#添加简单的全景视频">添加简单的全景视频</a></li>
+<li><a href="#添加雨雪特效">添加雨雪特效</a></li>
+<li><a href="#自动旋转">自动旋转</a></li>
+<li><a href="#无按钮控制的自动旋转">无按钮控制的自动旋转</a></li>
+<li><a href="#按钮控制的自动旋转">按钮控制的自动旋转</a></li>
+<li><a href="#添加陀螺仪">添加陀螺仪</a></li>
+<li><a href="#场景过渡效果">场景过渡效果</a></li>
+<li><a href="#隐藏显示热点">隐藏显示热点</a></li>
+<li><a href="#获取全景视频进度">获取全景视频进度</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Actions-Scripting-动态执行动作及脚本"><a href="#Actions-Scripting-动态执行动作及脚本" class="headerlink" title="Actions / Scripting 动态执行动作及脚本"></a>Actions / Scripting 动态执行动作及脚本</h3><h3 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h3><h3 id="插件开发"><a href="#插件开发" class="headerlink" title="插件开发"></a>插件开发</h3><h3 id="Javascript接口调用"><a href="#Javascript接口调用" class="headerlink" title="Javascript接口调用"></a>Javascript接口调用</h3><h2 id="全景场景插入平面视频"><a href="#全景场景插入平面视频" class="headerlink" title="全景场景插入平面视频"></a>全景场景插入平面视频</h2><p><a href="https://github.com/dee-wei/Krpano" target="_blank" rel="external">Krpano-video</a><br><a href="http://blog.new720.com/tour/video/video.html" target="_blank" rel="external">krpano内嵌视频编辑插件</a></p>
+<h2 id="Krpano-精灵图（雪碧图-sprites）完美解决方案"><a href="#Krpano-精灵图（雪碧图-sprites）完美解决方案" class="headerlink" title="Krpano 精灵图（雪碧图 || sprites）完美解决方案"></a>Krpano 精灵图（雪碧图 || sprites）完美解决方案</h2><blockquote>
+<p>做全景播放器的时候，我们们通常会用到各种各样的图标，播放暂停啊，全屏VR啊什么的，如果每个图标都用单张图片来引入的话，势必会产生非常多的HTTP请求，而我们知道，过多的HTTP请求是页面性能的大杀器，还好 Krpano-xml 的 layer 提供了 crop 属性给我们，这个属性可以让我们对图片进行切割，只显示切割出来的区域，和 CSS 精灵图使用 background-image 和 background-position 来进行图片显示的方式非常类似。</p>
+</blockquote>
+<p>下面是 krpano crop 属性示例：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">layer</span> </span></div><div class="line">	<span class="attr">name</span>=<span class="string">"some-image-layer"</span></div><div class="line">	<span class="attr">url</span>=<span class="string">"/foo/bar/image.png"</span></div><div class="line">	<span class="attr">crop</span>=<span class="string">"0|0|64|64"</span></div><div class="line">	/&gt;</div><div class="line">//上述代码的意思就是，从 x=0 y=0 坐标开始，截取图片的64x64宽高的区域来显示。</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>现在我们有了 krpano 精灵图的使用方法，但是当你有很多张图片的时候，手动管理这些坐标点的位置是一件非常非常非常麻烦的事情。</p>
+</blockquote>
+<p>CSS 精灵图已经有各种成熟的解决方案，比如博主喜欢的 gulp 插件 <a href="https://www.npmjs.com/package/sprity" target="_blank" rel="external">sprity</a> ，它可以一键拼合零碎图片，并且生成 CSS/LESS/SASS 代码，可惜 krpano-xml 相对来说太小众了，我找遍 google 并没有找到一个好的解决方案，所以是时候造个轮子了:grin:。</p>
+<h2 id="Krpano-Plugins"><a href="#Krpano-Plugins" class="headerlink" title="Krpano-Plugins"></a>Krpano-Plugins</h2><h3 id="Videoplayer"><a href="#Videoplayer" class="headerlink" title="Videoplayer"></a>Videoplayer</h3><p>Videoplayer插件可用于在krpano内播放视频。<br>作为屏幕上的平面layer元素使用：<br>作为3D变形热点使用：<br>作为全景视频使用：</p>
+<h2 id="krpano工程问题"><a href="#krpano工程问题" class="headerlink" title="krpano工程问题"></a>krpano工程问题</h2><ol>
+<li><p>autorotate 自动旋转,自动播放<br> 全景图在开启了自动旋转后,会自动在间隔时间内,加载其他scene,但是自动旋转却会停止;<br> KEEPMOVING Autorotate</p>
+</li>
+<li><p>浏览器接受蓝牙控制</p>
+</li>
+</ol>
+<p>蓝牙作为信息输入</p>
+<p><a href="https://webbluetoothcg.github.io/web-bluetooth/" target="_blank" rel="external">Web Bluetooth</a></p>
+<p><a href="http://caniuse.com" target="_blank" rel="external">caniuse</a></p>
+<p>Web Bluetooth API</p>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-10-27T08:13:11.233Z" itemprop="dateUpdated">2017年10月27日 16:13</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/2017/08/31/webdesign/krpano-dev-doc/" target="_blank" rel="external">https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/krpano/">krpano</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pano/">pano</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/&title=《krpano技术摘要》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/&title=《krpano技术摘要》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano技术摘要》 — 爵士犀首&url=https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/09/06/android/android-source-code-prebuild-apk/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android源码环境集成预编译APK</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/02/webdesign/krpano-note/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Krpano入门笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/&title=《krpano技术摘要》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/&title=《krpano技术摘要》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《krpano技术摘要》 — 爵士犀首&url=https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACuklEQVR42u3aQXKDMAwF0Nz/0ukBGOBLsimdPlaZNhieF7bzpc8nvr6HK/l78vl479l/j99ZduHh4eGNXz1n5FNw/Gb+9MldeHh4ePt4Z687f8VkUo7j5BvMjQUPDw/vlbzrca7PupOjPB4eHt5f4VUfdn1Az6cMDw8P7228JIyobgnz2DcfZ0HWgoeHh1fLBArH3zd83lLfw8PDwxtX1fMFN1noJ89qjoCHh4e3gTeJU6sF/nKIELcsXE80Hh4e3lrepNGqF0nkLVl5AHF6+MbDw8PbxkuW6V65Kyl6VQ/lhWACDw8PbzNvVTSQj1yNjKuNWXh4eHi7efkynR+48w0mP7gv2/fw8PDwlvLyZboaYeTIakx8Wt/Dw8PDW8p7prg1CWerUcgv1O7w8PD+Ja9XrJo3BOTLfXIvHh4e3jO8VSHC2taByfvg4eHh7eatiht6G0Be668GHzdVPjw8PLwBLzplt9oFJh1QhV8A1xOHh4eHt43XaxHIC//VYlg+cYXSFx4eHt4i3rzY3yxEFdPlajPWTesAHh4e3mZewk62hHwDyN8nKpvh4eHhLeX1WqxWtUzl7QL5RBcO03h4eHgDXt5MkMes1SV+0ihQKIDh4eHhjXm9DWACqEYYW5qu8PDw8Dbwqk1Xk7aD5Om9FgQ8PDy83bw8UEhaB/KGg7yo1mtNwMPDw3ueVz0QJ6R5EJw/EQ8PD283Lw8ICkFqXPj/tK6bcfDw8PCW8r7FaxK/VhsI8qk5HRMPDw9vA6+6+PZiizxQyBf9VZsKHh4eXo9XLU3ly/eqSRxtDHh4eHjbeL1FeR6zVg/reTiCh4eH9x5evlVUI4N5M9ZpSo2Hh4f3Al5yzK1OTb6pRO1WeHh4eJt5k8ckI1djiF7Z7KYzAg8PD28Rr/eDPy9u9di9VoZRfQ8PDw/vnvcDkTFzqM9DJccAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

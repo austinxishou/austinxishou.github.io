@@ -32,7 +32,7 @@
 <meta property="og:url" content="https://austinxishou.github.io/2017/05/04/android/android-apk-disable/index.html">
 <meta property="og:site_name" content="爵士犀首">
 <meta property="og:description" content="Android pm disable">
-<meta property="og:updated_time" content="2017-05-04T03:18:20.887Z">
+<meta property="og:updated_time" content="2017-08-24T12:44:19.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 冻结APP">
 <meta name="twitter:description" content="Android pm disable">
@@ -186,7 +186,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#功能说明"><span class="post-toc-number">1.</span> <span class="post-toc-text">功能说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主要代码实现"><span class="post-toc-number">2.</span> <span class="post-toc-text">主要代码实现</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#js模块开发的任务"><span class="post-toc-number">1.</span> <span class="post-toc-text">js模块开发的任务</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#功能说"><span class="post-toc-number">2.</span> <span class="post-toc-text">功能说</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#主要代码实现"><span class="post-toc-number">3.</span> <span class="post-toc-text">主要代码实现</span></a></li></ol>
         </nav>
     </aside>
     
@@ -213,7 +213,16 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h2><blockquote>
+            <h2 id="js模块开发的任务"><a href="#js模块开发的任务" class="headerlink" title="js模块开发的任务"></a>js模块开发的任务</h2><p>首先需要了解</p>
+<ol>
+<li>Node Package Manager (NPM): 阅读 <a href="https://docs.npmjs.com/getting-started/what-is-npm" target="_blank" rel="external">Getting Started guide</a></li>
+<li>Modern JavaScript with ES2015/16: 阅读 Babel 的 <a href="https://babeljs.io/learn-es2015/" target="_blank" rel="external">Learn ES2015 guide</a></li>
+<li><a href="https://github.com/vuejs-templates/webpack-simple" target="_blank" rel="external"> webpack-simple</a></li>
+<li><a href="https://egghead.io/courses/using-webpack-for-production-javascript-applications" target="_blank" rel="external"> 这个在 Egghead.io上的 高级 Webpack 课程</a></li>
+<li><a href="https://vue-loader.vuejs.org/" target="_blank" rel="external">vue-loader</a></li>
+</ol>
+<p>//参考markdown格式</p>
+<h2 id="功能说"><a href="#功能说" class="headerlink" title="功能说"></a>功能说</h2><blockquote>
 <p>在国内的Android生态中,所有的APP开发者都是一种流氓的心态,后台服务一大堆,还监听各种广播,导致用户根本不可能完全删除后台服务;有人说既然他们流氓,你不用他们就是,卸载掉啊!!哎,一些主流公司的APP,即使知道他流氓,还真的继续用它,比如支付宝\微信等;</p>
 <p>所以采用冻结的方法是最有效,最干净的,只是可惜<strong> pm disable </strong>这个权限Android并没有对普通应用开放,也是一个蛋疼的事情.Android生态也是,申请各种权限不需要root,反而关闭权限需要;</p>
 </blockquote>
@@ -236,7 +245,7 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-05-04T03:18:20.887Z" itemprop="dateUpdated">2017年5月4日 11:18</time>
+    最后更新时间：<time datetime="2017-08-24T12:44:19.501Z" itemprop="dateUpdated">2017年8月24日 20:44</time>
 </span><br>
 
 

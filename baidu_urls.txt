@@ -1,10 +1,10 @@
+https://austinxishou.github.io/2017/09/06/android/android-source-code-prebuild-apk/
+https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/
+https://austinxishou.github.io/2017/08/02/webdesign/krpano-note/
+https://austinxishou.github.io/2017/07/17/AI/AI-learning-road/
+https://austinxishou.github.io/2017/05/19/python/win-director-sublime-open/
 https://austinxishou.github.io/2017/05/18/webdesign/hexo-plugin/
 https://austinxishou.github.io/2017/05/17/python/youtube-dl-cmd-usage/
 https://austinxishou.github.io/2017/05/17/python/python-subprocess-popen-usage/
 https://austinxishou.github.io/2017/05/17/python/python-jieba-fenci-usage/
 https://austinxishou.github.io/2017/05/12/killtime/soft-tools-collection/
-https://austinxishou.github.io/2017/05/12/killtime/code-resource-collection/
-https://austinxishou.github.io/2017/05/12/killtime/search-resource-collection/
-https://austinxishou.github.io/2017/05/12/killtime/movie-resource-collection/
-https://austinxishou.github.io/2017/05/12/killtime/driver-resource-collection/
-https://austinxishou.github.io/2017/05/12/killtime/game-resource-collection/

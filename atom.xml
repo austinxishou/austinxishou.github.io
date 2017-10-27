@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2017-05-18T08:32:24.917Z</updated>
+  <updated>2017-09-06T02:13:08.763Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -14,6 +14,595 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Android源码环境集成预编译APK</title>
+    <link href="https://austinxishou.github.io/2017/09/06/android/android-source-code-prebuild-apk/"/>
+    <id>https://austinxishou.github.io/2017/09/06/android/android-source-code-prebuild-apk/</id>
+    <published>2017-09-06T01:48:50.845Z</published>
+    <updated>2017-09-06T02:13:08.763Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="系统集成任务"><a href="#系统集成任务" class="headerlink" title="系统集成任务"></a>系统集成任务</h2><blockquote>
+<p>作为系统开发人员，经常需要集成第三方<code>APK</code> <code>JAR包</code> <code>so包</code>等;面对不同的情况,就要熟悉Android-mk语法的各种LOCAL_XXX变量,这篇文章就是对不同情况的一个梳理总结。</p>
+</blockquote>
+<p>首先需要了解</p>
+<ol>
+<li>Node Package Manager (NPM): 阅读 <a href="https://docs.npmjs.com/getting-started/what-is-npm" target="_blank" rel="external">Getting Started guide</a></li>
+<li>Modern JavaScript with ES2015/16: 阅读 Babel 的 <a href="https://babeljs.io/learn-es2015/" target="_blank" rel="external">Learn ES2015 guide</a></li>
+<li><a href="https://github.com/vuejs-templates/webpack-simple" target="_blank" rel="external"> webpack-simple</a></li>
+<li><a href="https://egghead.io/courses/using-webpack-for-production-javascript-applications" target="_blank" rel="external"> 这个在 Egghead.io上的 高级 Webpack 课程</a></li>
+<li><a href="https://vue-loader.vuejs.org/" target="_blank" rel="external">vue-loader</a></li>
+</ol>
+<p>//参考markdown格式</p>
+<h2 id="集成可执行bin文件"><a href="#集成可执行bin文件" class="headerlink" title="集成可执行bin文件"></a>集成可执行bin文件</h2><p>例如:集成预编译好的busybox命令</p>
+<figure class="highlight mk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">LOCAL_PATH:= <span class="variable">$(call my-dir)</span>  </div><div class="line">  </div><div class="line">include $(CLEAR_VARS)  </div><div class="line">LOCAL_MODULE        := busybox  </div><div class="line">LOCAL_MODULE_TAGS   := optional  </div><div class="line">LOCAL_MODULE_CLASS  := EXECUTABLES  </div><div class="line">LOCAL_SRC_FILES     := busybox  </div><div class="line">LOCAL_MODULE_PATH   := <span class="variable">$(PRODUCT_OUT)</span>/system/xbin  </div><div class="line">include $(BUILD_PREBUILT)</div></pre></td></tr></table></figure>
+<h2 id="集成第三方jar包"><a href="#集成第三方jar包" class="headerlink" title="集成第三方jar包"></a>集成第三方jar包</h2><figure class="highlight mk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">LOCAL_PATH :=<span class="variable">$(call my-dir)</span>  </div><div class="line"></div><div class="line">include $(CLEAR_VARS)</div><div class="line">LOCAL_MODULE_TAGS := optional</div><div class="line">LOCAL_STATIC_JAVA_LIBRARIES :=zxing android-support-v4 android-support-v13  </div><div class="line">LOCAL_SRC_FILES :=<span class="variable">$(call all-java-files-under, src)</span>  </div><div class="line">LOCAL_PACKAGE_NAME := SetInput2  </div><div class="line">LOCAL_CERTIFICATE := platform</div><div class="line">  </div><div class="line">include $(BUILD_PACKAGE)  </div><div class="line"> </div><div class="line">include $(CLEAR_VARS)  </div><div class="line">LOCAL_PREBUILT_STATIC_JAVA_LIBRARIES :=zxing:libs/zxing-1.6-core.jar  </div><div class="line">include $(BUILD_MULTI_PREBUILT)</div></pre></td></tr></table></figure>
+<h2 id="集成不带so包的apk"><a href="#集成不带so包的apk" class="headerlink" title="集成不带so包的apk"></a>集成不带so包的apk</h2><figure class="highlight mk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">LOCAL_PATH := <span class="variable">$(call my-dir)</span>  </div><div class="line">  </div><div class="line">include $(CLEAR_VARS)  </div><div class="line">LOCAL_MODULE_TAGS := optional  </div><div class="line">LOCAL_MODULE := rsota  </div><div class="line">LOCAL_SRC_FILES := <span class="variable">$(LOCAL_MODULE)</span>.apk  </div><div class="line">LOCAL_MODULE_CLASS  := APPS  </div><div class="line">LOCAL_MODULE_PATH := <span class="variable">$(PRODUCT_OUT)</span>/system/app  </div><div class="line">LOCAL_CERTIFICATE := platform     </div><div class="line">LOCAL_MODULE_SUFFIX := .apk  </div><div class="line">  </div><div class="line">include $(BUILD_PREBUILT)</div></pre></td></tr></table></figure>
+<h2 id="集成带so的apk"><a href="#集成带so的apk" class="headerlink" title="集成带so的apk"></a>集成带so的apk</h2><figure class="highlight mk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<blockquote>
+<p>在国内的Android生态中,所有的APP开发者都是一种流氓的心态,后台服务一大堆,还监听各种广播,导致用户根本不可能完全删除后台服务;有人说既然他们流氓,你不用他们就是,卸载掉啊!!哎,一些主流公司的APP,即使知道他流氓,还真的继续用它,比如支付宝\微信等;</p>
+<p>所以采用冻结的方法是最有效,最干净的,只是可惜<strong> pm disable </strong>这个权限Android并没有对普通应用开放,也是一个蛋疼的事情.Android生态也是,申请各种权限不需要root,反而关闭权限需要;</p>
+</blockquote>
+<p>使用冻结APP的场景:</p>
+<ol>
+<li>某些应用开启大量后台服务,导致系统响应缓慢,再不能卸载的情况下,冻结它;</li>
+<li>某些不常用的APP,但是需要的时候重新下载又麻烦,冻结它;</li>
+<li>某些应用后台大量更新数据,消耗流量,冻结它;</li>
+<li>冻结app解冻后,保留所有应用数据,不用担心数据丢失,账号重新登录等;</li>
+</ol>
+<h2 id="主要代码实现"><a href="#主要代码实现" class="headerlink" title="主要代码实现"></a>主要代码实现</h2><p>冻结APP<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">disableApp</span><span class="params">(String appPackageName)</span></span>&#123;</div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Process localProcess=Runtime.getRuntime().exec(<span class="string">"su"</span>);</div><div class="line">        String cmd=<span class="string">"pm disable "</span>+appPackageName+<span class="string">"\n"</span>;</div><div class="line">        DataOutputStream dataOutputStream=<span class="keyword">new</span> DataOutputStream(localProcess.getOutputStream());</div><div class="line">        dataOutputStream.writeBytes(cmd);</div><div class="line">        dataOutputStream.flush();</div><div class="line">        dataOutputStream.writeBytes(<span class="string">"exit\n"</span>);</div><div class="line"></div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>解冻APP<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">enableApp</span><span class="params">(String appPackageName)</span></span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">try</span> &#123;</div><div class="line">        Process localProcess=Runtime.getRuntime().exec(<span class="string">"su"</span>);</div><div class="line">        String cmd=<span class="string">"pm enable "</span>+appPackageName+<span class="string">"\n"</span>;</div><div class="line">        DataOutputStream dataOutputStream=<span class="keyword">new</span> DataOutputStream(localProcess.getOutputStream());</div><div class="line">        dataOutputStream.writeBytes(cmd);</div><div class="line">        dataOutputStream.flush();</div><div class="line">        dataOutputStream.writeBytes(<span class="string">"exit\n"</span>);</div><div class="line"></div><div class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">        e.printStackTrace();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
+<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
+document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
+</code></pre><p>})();<br></script></p>
+]]></content>
+    
+    <summary type="html">
+    
+      Android prebuild
+    
+    </summary>
+    
+      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+    
+    
+      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>krpano技术摘要</title>
+    <link href="https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/"/>
+    <id>https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/</id>
+    <published>2017-08-31T03:39:14.228Z</published>
+    <updated>2017-10-27T08:13:11.233Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About 简介"></a>About 简介</h2><blockquote>
+<p>Krpano 可以方便快速的构建全景场景或全景视频</p>
+</blockquote>
+<p><a href="https://krpano.com/" target="_blank" rel="external">Krpano官方网站</a><br><a href="https://krpano.milly.me/" target="_blank" rel="external">Krpano 非官方中文文档</a><br><a href="http://www.720ku.com/" target="_blank" rel="external">720ku</a><br><a href="http://720yun.com/" target="_blank" rel="external">720yun</a><br><a href="http://new720.com" target="_blank" rel="external">New720</a><br><a href="http://blog.new720.com" target="_blank" rel="external">New720-Blog</a></p>
+<h2 id="Krpano-学习"><a href="#Krpano-学习" class="headerlink" title="Krpano 学习"></a>Krpano 学习</h2><h3 id="Embedding-into-HTML"><a href="#Embedding-into-HTML" class="headerlink" title="Embedding into HTML"></a>Embedding into HTML</h3><pre><code>嵌入到HTML文档
+</code></pre><h3 id="XML文档"><a href="#XML文档" class="headerlink" title="XML文档"></a>XML文档</h3><ul>
+<li><a href="#常用设置">常用设置</a><ul>
+<li><a href="#小行星开场">小行星开场</a></li>
+<li><a href="#加载动画">加载动画</a></li>
+<li><a href="#修改右键菜单">修改右键菜单</a></li>
+<li><a href="#自定义热点">自定义热点</a></li>
+<li><a href="#隐藏皮肤">隐藏皮肤</a></li>
+<li><a href="#动态热点">添加动态热点</a></li>
+<li><a href="#动态热点添加始终显示的文字">动态热点添加始终显示的文字</a></li>
+<li><a href="#热点和或图层在鼠标点击或鼠标悬停时进入动态模式">热点和或图层在鼠标点击或鼠标悬停时进入动态模式</a></li>
+<li><a href="#拖拽热点">拖拽热点</a></li>
+<li><a href="#添加简单的全景视频">添加简单的全景视频</a></li>
+<li><a href="#添加雨雪特效">添加雨雪特效</a></li>
+<li><a href="#自动旋转">自动旋转</a></li>
+<li><a href="#无按钮控制的自动旋转">无按钮控制的自动旋转</a></li>
+<li><a href="#按钮控制的自动旋转">按钮控制的自动旋转</a></li>
+<li><a href="#添加陀螺仪">添加陀螺仪</a></li>
+<li><a href="#场景过渡效果">场景过渡效果</a></li>
+<li><a href="#隐藏显示热点">隐藏显示热点</a></li>
+<li><a href="#获取全景视频进度">获取全景视频进度</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="Actions-Scripting-动态执行动作及脚本"><a href="#Actions-Scripting-动态执行动作及脚本" class="headerlink" title="Actions / Scripting 动态执行动作及脚本"></a>Actions / Scripting 动态执行动作及脚本</h3><h3 id="HTML5"><a href="#HTML5" class="headerlink" title="HTML5"></a>HTML5</h3><h3 id="插件开发"><a href="#插件开发" class="headerlink" title="插件开发"></a>插件开发</h3><h3 id="Javascript接口调用"><a href="#Javascript接口调用" class="headerlink" title="Javascript接口调用"></a>Javascript接口调用</h3><h2 id="全景场景插入平面视频"><a href="#全景场景插入平面视频" class="headerlink" title="全景场景插入平面视频"></a>全景场景插入平面视频</h2><p><a href="https://github.com/dee-wei/Krpano" target="_blank" rel="external">Krpano-video</a><br><a href="http://blog.new720.com/tour/video/video.html" target="_blank" rel="external">krpano内嵌视频编辑插件</a></p>
+<h2 id="Krpano-精灵图（雪碧图-sprites）完美解决方案"><a href="#Krpano-精灵图（雪碧图-sprites）完美解决方案" class="headerlink" title="Krpano 精灵图（雪碧图 || sprites）完美解决方案"></a>Krpano 精灵图（雪碧图 || sprites）完美解决方案</h2><blockquote>
+<p>做全景播放器的时候，我们们通常会用到各种各样的图标，播放暂停啊，全屏VR啊什么的，如果每个图标都用单张图片来引入的话，势必会产生非常多的HTTP请求，而我们知道，过多的HTTP请求是页面性能的大杀器，还好 Krpano-xml 的 layer 提供了 crop 属性给我们，这个属性可以让我们对图片进行切割，只显示切割出来的区域，和 CSS 精灵图使用 background-image 和 background-position 来进行图片显示的方式非常类似。</p>
+</blockquote>
+<p>下面是 krpano crop 属性示例：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">layer</span> </span></div><div class="line">	<span class="attr">name</span>=<span class="string">"some-image-layer"</span></div><div class="line">	<span class="attr">url</span>=<span class="string">"/foo/bar/image.png"</span></div><div class="line">	<span class="attr">crop</span>=<span class="string">"0|0|64|64"</span></div><div class="line">	/&gt;</div><div class="line">//上述代码的意思就是，从 x=0 y=0 坐标开始，截取图片的64x64宽高的区域来显示。</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>现在我们有了 krpano 精灵图的使用方法，但是当你有很多张图片的时候，手动管理这些坐标点的位置是一件非常非常非常麻烦的事情。</p>
+</blockquote>
+<p>CSS 精灵图已经有各种成熟的解决方案，比如博主喜欢的 gulp 插件 <a href="https://www.npmjs.com/package/sprity" target="_blank" rel="external">sprity</a> ，它可以一键拼合零碎图片，并且生成 CSS/LESS/SASS 代码，可惜 krpano-xml 相对来说太小众了，我找遍 google 并没有找到一个好的解决方案，所以是时候造个轮子了:grin:。</p>
+<h2 id="Krpano-Plugins"><a href="#Krpano-Plugins" class="headerlink" title="Krpano-Plugins"></a>Krpano-Plugins</h2><h3 id="Videoplayer"><a href="#Videoplayer" class="headerlink" title="Videoplayer"></a>Videoplayer</h3><p>Videoplayer插件可用于在krpano内播放视频。<br>作为屏幕上的平面layer元素使用：<br>作为3D变形热点使用：<br>作为全景视频使用：</p>
+<h2 id="krpano工程问题"><a href="#krpano工程问题" class="headerlink" title="krpano工程问题"></a>krpano工程问题</h2><ol>
+<li><p>autorotate 自动旋转,自动播放<br> 全景图在开启了自动旋转后,会自动在间隔时间内,加载其他scene,但是自动旋转却会停止;<br> KEEPMOVING Autorotate</p>
+</li>
+<li><p>浏览器接受蓝牙控制</p>
+</li>
+</ol>
+<p>蓝牙作为信息输入</p>
+<p><a href="https://webbluetoothcg.github.io/web-bluetooth/" target="_blank" rel="external">Web Bluetooth</a></p>
+<p><a href="http://caniuse.com" target="_blank" rel="external">caniuse</a></p>
+<p>Web Bluetooth API</p>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+]]></content>
+    
+    <summary type="html">
+    
+      krpano技术摘要
+    
+    </summary>
+    
+      <category term="krpano" scheme="https://austinxishou.github.io/categories/krpano/"/>
+    
+    
+      <category term="krpano" scheme="https://austinxishou.github.io/tags/krpano/"/>
+    
+      <category term="pano" scheme="https://austinxishou.github.io/tags/pano/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Krpano入门笔记</title>
+    <link href="https://austinxishou.github.io/2017/08/02/webdesign/krpano-note/"/>
+    <id>https://austinxishou.github.io/2017/08/02/webdesign/krpano-note/</id>
+    <published>2017-08-02T05:36:56.238Z</published>
+    <updated>2017-10-27T08:14:01.847Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ul>
+<li><a href="#krpano-droplet">Krpano Droplet</a><ul>
+<li><a href="#make-pano-normal">MAKE PANO (NORMAL)</a></li>
+<li><a href="#make-pano-multires">MAKE PANO (MULTIRES)</a></li>
+<li><a href="#make-pano-singleswf">MAKE PANO (SINGLESWF)</a></li>
+<li><a href="#make-pano-flat">MAKE PANO (FLAT)</a></li>
+<li><a href="#make-vtour-normal">MAKE VTOUR (NORMAL)</a></li>
+<li><a href="#make-vtour-multires">MAKE VTOUR (MULTIRES)</a></li>
+<li><a href="#make-object">MAKE OBJECT</a></li>
+<li><a href="#convert-sphere-to-cube">Convert SPHERE to CUBE</a></li>
+<li><a href="#convert-cube-to-sphere">Convert CUBE to SPHERE</a></li>
+<li><a href="#encrypt-xml">Encrypt XML</a></li>
+</ul>
+</li>
+<li><a href="#vtour-文件夹说明">vtour 文件夹说明</a><ul>
+<li><a href="#vtour-文件夹结构">vtour 文件夹结构</a></li>
+<li><a href="#vtour-运作机制">vtour 运作机制</a></li>
+</ul>
+</li>
+<li><a href="#krpano-xml结构">krpano XML结构</a><ul>
+<li><a href="#krpano-内置元素说明">Krpano 内置元素说明</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>GitHub: <a href="https://github.com/NalvyBoo/nodeKrpano/" target="_blank" rel="external">nodeKrpano</a></p>
+<h2 id="Krpano-Droplet"><a href="#Krpano-Droplet" class="headerlink" title="Krpano Droplet"></a>Krpano Droplet</h2><h3 id="MAKE-PANO-NORMAL"><a href="#MAKE-PANO-NORMAL" class="headerlink" title="MAKE PANO (NORMAL)"></a>MAKE PANO (NORMAL)</h3><p><strong>用法说明</strong></p>
+<ul>
+<li>生成普通 (=单分辨率) 全景</li>
+<li>制作典型的 360 度全景</li>
+<li>全部全景图将会一次性载入. 默认下方块最大变长为 2048 像素(可以在配置文件中修改)</li>
+<li>包括默认的导航皮肤</li>
+<li>支持 <code>Flash</code> 和 <code>HTML5</code></li>
+</ul>
+<p><strong>Droplet 说明</strong></p>
+<ul>
+<li>配置文件: <code>normal.config</code></li>
+<li>默认模版/皮肤配置文件: <code>defaultbuttons.skin</code></li>
+</ul>
+<hr>
+<h3 id="MAKE-PANO-MULTIRES"><a href="#MAKE-PANO-MULTIRES" class="headerlink" title="MAKE PANO (MULTIRES)"></a>MAKE PANO (MULTIRES)</h3><p><strong>用法说明</strong></p>
+<ul>
+<li>生成多分辨率全景</li>
+<li>制作所有类型的全景</li>
+<li>只有特定的切片在需要时载入 没有尺寸/分辨率限制</li>
+<li>包含默认的导航皮肤</li>
+<li>支持 <code>Flash</code> 和 <code>HTML5</code></li>
+</ul>
+<p><strong>Droplet 说明</strong></p>
+<p>配置文件: <code>multiresconfig</code><br>默认模版/皮肤配置文件: <code>defaultbuttonsskin</code></p>
+<hr>
+<h3 id="MAKE-PANO-SINGLESWF"><a href="#MAKE-PANO-SINGLESWF" class="headerlink" title="MAKE PANO (SINGLESWF)"></a>MAKE PANO (SINGLESWF)</h3><p><strong>用法说明</strong></p>
+<ul>
+<li>生成普通 (=单分辨率) 全景同时将所有文件嵌在一个SWF文件中只输出一个SWF文件和一个HTML文件</li>
+<li>制作典型的360度全景</li>
+<li>全部全景图将会一次性载入 默认下方块最大变长为2048像素(可以在配置文件中修改)</li>
+<li>包含默认的导航皮肤</li>
+<li>仅支持 <code>Flash</code></li>
+</ul>
+<p><strong>Droplet 说明</strong></p>
+<p>配置文件: <code>singleswfconfig</code><br>默认模版/皮肤配置文件: <code>defaultbuttonsskin</code></p>
+<hr>
+<h3 id="MAKE-PANO-FLAT"><a href="#MAKE-PANO-FLAT" class="headerlink" title="MAKE PANO (FLAT)"></a>MAKE PANO (FLAT)</h3><p><strong>用法说明</strong></p>
+<ul>
+<li>生成平面切片多分辨率图像</li>
+<li>制作平面图像 输出时既定为平面图像</li>
+<li>只有特定的切片在需要时载入 没有尺寸/分辨率限制</li>
+<li>包含有默认导航按钮的皮肤，针对特定的视角</li>
+<li>支持 <code>Flash</code> 与 <code>HTML5</code></li>
+</ul>
+<p><strong>Droplet 说明</strong></p>
+<ul>
+<li>配置文件: <code>flatconfig</code></li>
+<li>默认模版/皮肤配置文件: <code>flatxml / flatskinxml</code></li>
+</ul>
+<hr>
+<h3 id="MAKE-VTOUR-NORMAL"><a href="#MAKE-VTOUR-NORMAL" class="headerlink" title="MAKE VTOUR (NORMAL)"></a>MAKE VTOUR (NORMAL)</h3><p><strong>用法说明</strong></p>
+<ul>
+<li>生成普通 (=单分辨率) 全景并将它们整合到一个虚拟漫游中</li>
+<li>制作典型的 360 度全景</li>
+<li>全部全景图将会一次性载入 默认下方块最大变长为 2048 像素(可以在配置文件中修改)</li>
+<li>包含一个包括导航按钮、可滚动缩略图以及可选择必应地图以及重力感应插件的默认皮肤</li>
+<li>支持 <code>Flash</code> 和 <code>HTML5</code></li>
+</ul>
+<p><strong>Droplet 说明</strong></p>
+<ul>
+<li>配置文件: <code>vtour-normalconfig</code></li>
+<li>默认模版/皮肤配置文件: <code>vtourskin-thumbnails-bingmaps-gyroskin</code></li>
+</ul>
+<hr>
+<h3 id="MAKE-VTOUR-MULTIRES"><a href="#MAKE-VTOUR-MULTIRES" class="headerlink" title="MAKE VTOUR (MULTIRES)"></a>MAKE VTOUR (MULTIRES)</h3><p><strong>用法说明</strong></p>
+<ul>
+<li>生成多分辨率全景并将它们整合到一个虚拟漫游中</li>
+<li>制作所有类型全景图像</li>
+<li>只有特定的切片在需要时载入 没有尺寸/分辨率限制</li>
+<li>包含一个包括导航按钮、可滚动缩略图以及可选择必应地图以及重力感应插件的默认皮肤</li>
+<li>支持 <code>Flash</code> 和 <code>HTML5</code></li>
+</ul>
+<p><strong>Droplet 说明</strong></p>
+<ul>
+<li>配置文件: <code>vtour-multiresconfig</code></li>
+<li>默认模版/皮肤配置文件: <code>vtourskin-thumbnails-bingmaps-gyroskin</code></li>
+</ul>
+<hr>
+<h3 id="MAKE-OBJECT"><a href="#MAKE-OBJECT" class="headerlink" title="MAKE OBJECT"></a>MAKE OBJECT</h3><p><strong>用法说明</strong></p>
+<ul>
+<li>生成若干个平面多分辨率图像并将它们整合到一个可缩放旋转的 360 物体影像中</li>
+<li>制作平面图像物体 所有物体图片的尺寸必须一致</li>
+<li>只有特定的切片在需要时载入 没有尺寸/分辨率限制</li>
+<li>包含一个特定的控制物体的皮肤</li>
+<li>仅支持 <code>Flash</code></li>
+</ul>
+<p><strong>Droplet 说明</strong></p>
+<ul>
+<li>配置文件: <code>objectconfig</code></li>
+<li>默认模版/皮肤配置文件: <code>objectxml / objectskinxml</code></li>
+</ul>
+<hr>
+<h3 id="Convert-SPHERE-to-CUBE"><a href="#Convert-SPHERE-to-CUBE" class="headerlink" title="Convert SPHERE to CUBE"></a>Convert SPHERE to CUBE</h3><p><strong>用法说明</strong></p>
+<ul>
+<li>将球面图像转换至立方体图</li>
+<li>输出的立方体格式、尺寸以及图像尺寸可以在配置文件中修改</li>
+</ul>
+<p><strong>Droplet 说明</strong></p>
+<ul>
+<li>配置文件: <code>convertdropletsconfig</code></li>
+</ul>
+<hr>
+<h3 id="Convert-CUBE-to-SPHERE"><a href="#Convert-CUBE-to-SPHERE" class="headerlink" title="Convert CUBE to SPHERE"></a>Convert CUBE to SPHERE</h3><p><strong>用法说明</strong></p>
+<ul>
+<li>将六张立方体图像转换成一张球面全景图</li>
+<li>输出的图像尺寸和格式可以在配置文件中修改</li>
+</ul>
+<p><strong>Droplet 说明</strong></p>
+<ul>
+<li>配置文件: <code>convertdropletsconfig</code></li>
+</ul>
+<hr>
+<h3 id="Encrypt-XML"><a href="#Encrypt-XML" class="headerlink" title="Encrypt XML"></a>Encrypt XML</h3><p><strong>用法说明</strong></p>
+<ul>
+<li>将 <code>xml</code> 文件拖放进 <code>droplet</code> 进行加密</li>
+<li>加密过程中 <code>xml</code> 文件会自动被压缩</li>
+</ul>
+<hr>
+<h3 id="自定义-droplet"><a href="#自定义-droplet" class="headerlink" title="自定义 droplet"></a>自定义 droplet</h3><p>如果内置 <code>droplet</code> 不能满足需求或者需要对一些参数进行自定义。只要复制并重命名一个配置文件与皮肤配置文件，然后复制并重命名一个 <code>droplet</code>，修改里面的配置路径即可。</p>
+<hr>
+<h2 id="vtour-文件夹说明"><a href="#vtour-文件夹说明" class="headerlink" title="vtour 文件夹说明"></a>vtour 文件夹说明</h2><h3 id="vtour-文件夹结构"><a href="#vtour-文件夹结构" class="headerlink" title="vtour 文件夹结构"></a>vtour 文件夹结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">vtour/</div><div class="line">| -- panos/             #存放全景切片图片的文件夹</div><div class="line">| -- skin/              #存放皮肤相关文件</div><div class="line">| -- plugins/           #用来存放插件</div><div class="line">| -- tour.swf           #krpano flash viewer</div><div class="line">| -- tour.js            #krpano HTML5 viewer</div><div class="line">| -- tour.xml           #生成全景的相关配置</div><div class="line">| -- tour.html          #用来浏览全景的页面，需要本地服务环境</div><div class="line">| -- tour_editor.html   #添加热点（hotspot）与初始化视角的设置</div></pre></td></tr></table></figure>
+<h3 id="vtour-运作机制"><a href="#vtour-运作机制" class="headerlink" title="vtour 运作机制"></a>vtour 运作机制</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"pano"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"tour.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></div><div class="line">embedpano(&#123;</div><div class="line">    swf: "tour.swf", //有则表示加载flash引擎，如果设置html5:only则不需要该值</div><div class="line">    xml: "tour.xml", //启动时的配置文件</div><div class="line">    target: "pano", //要渲染到的目标容器ID</div><div class="line">    html5: "only", //如果有需要用到flash，可设置为auto</div><div class="line">    //id: "krpanoSWFObject", //默认的krpano对象，每一个viewer对应唯一id，与JS交互时要用到</div><div class="line">    mobilescale: 1.0, //移动设备缩放，1表示不缩放，默认0.5</div><div class="line">    passQueryParameters: false //是否接受URL传参，例如：tour.html?html5=only&amp;startscene=scene2</div><div class="line">&#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="krpano-XML结构"><a href="#krpano-XML结构" class="headerlink" title="krpano XML结构"></a>krpano XML结构</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">krpano</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">include</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">preview</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">image</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">view</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">area</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">display</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">control</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">cursors</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">autorotate</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">layer</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">hotspot</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="xml"></span></div><div class="line">    <span class="tag">&lt;<span class="name">events</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">action</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">contextmenu</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">network</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">memory</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">security</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">textstyle</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">lensflareset</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">lensflare</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">data</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">scene</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">krpano</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="Krpano-内置元素说明"><a href="#Krpano-内置元素说明" class="headerlink" title="Krpano 内置元素说明"></a>Krpano 内置元素说明</h3><p><strong>01.krpano</strong></p>
+<p><code>krpano</code> 元素是 <code>krpano xml</code> 文件的根元素。任何一个 <code>krpano xml</code> 文件内的其它元素都要被 <code>krpano</code> 元素所嵌套。</p>
+<p><strong>02.include</strong></p>
+<p><code>include</code> 元素可引入其它 <code>xml</code> 文件的内容，例如我们常要用到的 <code>vtourskin.xml</code> 就是使用 <code>include</code> 嵌入到主 <code>xml</code> 中。</p>
+<p><strong>03.preview</strong></p>
+<p>预览图设置，也就是全景图完全载入之前的模糊图像，但因为体积较小，因此载入速度较快，会在全景图之前先载入，避免黑屏。</p>
+<p><strong>04.image</strong></p>
+<p>image 元素控制全景图设置，包括全景图类型，渐进分辨率切片显示等。</p>
+<p><strong>05.view</strong></p>
+<p>view 元素控制全景的视野，例如起始视角、视角限制与缩放等等。当要设置限制视角或设定特定的初始视角时，需要自行设定或使用插件获取代码。</p>
+<p><strong>06.area</strong></p>
+<p>area 元素控制全景图在浏览器窗口中显示区域大小。</p>
+<p><strong>07.display</strong></p>
+<p>控制全景图的显示品质。</p>
+<p><strong>08.control</strong></p>
+<p>设置鼠标、键盘以及触摸设备对全景浏览的控制方式。</p>
+<p><strong>09.cursors</strong></p>
+<p>设置鼠标光标样式。</p>
+<p><strong>10.autorotate</strong></p>
+<p>控制自动旋转。</p>
+<p><strong>11.plugin</strong></p>
+<p>用来调用插件、插入图片或生成容器。</p>
+<p><strong>12.layer</strong></p>
+<p>与 <code>plugin</code> 作用相同，只是名称不同。</p>
+<p><strong>13.hotspot</strong></p>
+<p>热点，可在 3D 空间中插入图片，使之随着 3D 空间一同运动，可制作很多特效。</p>
+<p><strong>14.style</strong></p>
+<p>可以保存其它元素的属性子集。</p>
+<p><strong>15.events</strong></p>
+<p>可调用各类型事件，例如全景载入的不同阶段以及鼠标触发的不同行为等。</p>
+<p><strong>16.action</strong></p>
+<p>自定义动态代码。</p>
+<p><strong>17.contextmenu</strong></p>
+<p>定义右键菜单的内容。</p>
+<p><strong>18.network</strong></p>
+<p>控制图像的下载、缓存与解码。</p>
+<p><strong>19.menory</strong></p>
+<p>控制全景图在设备中的存储。</p>
+<p><strong>20.security</strong></p>
+<p><code>Flashplayer</code> 和 <code>HTML5</code> 相关的安全/跨域设置。</p>
+<p><strong>21.lensflareset</strong></p>
+<p>镜头眩光的设置（目前只能在 <code>flash</code> 下使用）。</p>
+<p><strong>22.lensflare</strong></p>
+<p>生成镜头眩光（目前只能在 <code>flash</code> 下使用）。</p>
+<p><strong>23.data</strong></p>
+<p>可放置任意的数据。</p>
+<p><strong>24.scene</strong></p>
+<p>可放置任意 <code>krpano</code> 元素。每个 <code>scene</code> 元素只有在被 <code>loadscene</code> 时才会被载入到浏览器进行解析。</p>
+<h2 id="常用设置"><a href="#常用设置" class="headerlink" title="常用设置"></a>常用设置</h2><h3 id="小行星开场"><a href="#小行星开场" class="headerlink" title="小行星开场"></a>小行星开场</h3><p>开启小行星，先找到 <code>tour.xml</code> ，然后搜索 <code>littleplanetintro</code> 将其值设置为 <code>true</code> 即可。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">skin_settings</span></span></div><div class="line">    <span class="attr">...</span></div><div class="line">    <span class="attr">littleplanetintro</span>=<span class="string">"true"</span></div><div class="line">    <span class="attr">...</span></div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<h3 id="加载动画"><a href="#加载动画" class="headerlink" title="加载动画"></a>加载动画</h3><p>在官方的案例文件夹中找到 <code>loading-progress</code> 这个文件夹，将需要的文件内容复制到项目中的 <code>skin</code> 文件夹，然后在 <code>tour.xml</code> 文件中引入该文件即可，这样重新打开就可以看到有动态的进度条了。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">include</span> <span class="attr">url</span>=<span class="string">"skin/loadingbar.xml"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="修改右键菜单"><a href="#修改右键菜单" class="headerlink" title="修改右键菜单"></a>修改右键菜单</h3><p>找到引入的皮肤文件，默认在 <code>vtourskin.xml</code> ，然后修改下面这些地方即可自定义右键菜单，但像版权、全屏菜单即使删除也会存在。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">contextmenu</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">"fv"</span> <span class="attr">caption</span>=<span class="string">"鱼眼视图"</span> <span class="attr">onclick</span>=<span class="string">"skin_view_fisheye();"</span> <span class="attr">showif</span>=<span class="string">"view.vlookatrange == 180"</span> <span class="attr">devices</span>=<span class="string">"flash|webgl"</span> <span class="attr">separator</span>=<span class="string">"true"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">contextmenu</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><strong>contextmenu元素</strong></p>
+<ul>
+<li><code>caption</code> 右键菜单显示的文字</li>
+<li><code>onclick</code> 控制点击后执行的动作，动作由 <code>action</code> 定义</li>
+<li><code>showif</code> 显示条目的条件</li>
+<li><code>devices</code> 控制在 <code>flash/webgl</code> 哪个模式中出现</li>
+<li><code>separator</code> 显示分隔符来分隔菜单</li>
+</ul>
+<h3 id="自定义热点"><a href="#自定义热点" class="headerlink" title="自定义热点"></a>自定义热点</h3><p>配置 <code>&lt;hotspot&gt;</code> 中 <code>style</code> 的属性对应的元素（<code>skin</code>对应的文件夹）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">hotspot</span> <span class="attr">name</span>=<span class="string">"spot1"</span> <span class="attr">style</span>=<span class="string">"skin_hotspotstyle"</span> <span class="attr">ath</span>=<span class="string">"93.531"</span> <span class="attr">atv</span>=<span class="string">"-1.109"</span> <span class="attr">linkedscene</span>=<span class="string">"scene_shuilifang"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- skin_hotspotstyle - style for the hotspots --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">"skin_hotspotstyle"</span> <span class="attr">url</span>=<span class="string">"vtourskin_hotspot.png"</span> <span class="attr">scale</span>=<span class="string">"0.5"</span> <span class="attr">edge</span>=<span class="string">"top"</span> <span class="attr">distorted</span>=<span class="string">"true"</span></span></div><div class="line">	       <span class="attr">tooltip</span>=<span class="string">""</span></div><div class="line">	       <span class="attr">linkedscene</span>=<span class="string">""</span></div><div class="line">	       <span class="attr">linkedscene_lookat</span>=<span class="string">""</span></div><div class="line">	       <span class="attr">onclick</span>=<span class="string">"skin_hotspotstyle_click();"</span></div><div class="line">	       <span class="attr">onover</span>=<span class="string">"tween(scale,0.55);"</span></div><div class="line">	       <span class="attr">onout</span>=<span class="string">"tween(scale,0.5);"</span></div><div class="line">	       <span class="attr">onloaded</span>=<span class="string">"if(linkedscene AND skin_settings.tooltips_hotspots, copy(tooltip,scene[get(linkedscene)].title); loadstyle(skin_tooltips); );"</span></div><div class="line">	       /&gt;<span class="undefined"></span></div></pre></td></tr></table></figure>
+<h3 id="隐藏皮肤"><a href="#隐藏皮肤" class="headerlink" title="隐藏皮肤"></a>隐藏皮肤</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"startup"</span> <span class="attr">autorun</span>=<span class="string">"onstart"</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--添加代码 隐藏皮肤 --&gt;</span></div><div class="line">	set(events[skin_events].name, null);</div><div class="line">  	for(set(i,0), i LT layer.count, inc(i), </div><div class="line">	copy(layername, layer[get(i)].name);</div><div class="line">	subtxt(namestart, get(layername), 0, 5);</div><div class="line">	if(namestart == 'skin_', removelayer(get(layername)); dec(i); );</div><div class="line">  );</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="动态热点"><a href="#动态热点" class="headerlink" title="动态热点"></a>动态热点</h3><p>在 <code>tour.xml</code> 空白处的scene标签的外面，添加动作代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"do_crop_animation"</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 为热点注册属性 --&gt;</span></div><div class="line">	registerattribute(xframes, calc((imagewidth / %1) BOR 0));</div><div class="line">	registerattribute(yframes, calc((imageheight / %2) BOR 0));</div><div class="line">	registerattribute(frames, calc(xframes * yframes));</div><div class="line">	registerattribute(frame, 0);</div><div class="line"> </div><div class="line">	set(crop, '0|0|%1|%2');</div><div class="line"> </div><div class="line">	setinterval(calc('crop_anim_' + name), calc(1.0 / %3),</div><div class="line">		if(loaded,</div><div class="line">			inc(frame);</div><div class="line">			if(frame GE frames, if(onlastframe !== null, onlastframe() ); set(frame,0); );</div><div class="line">			mod(xpos, frame, xframes);</div><div class="line">			div(ypos, frame, xframes);</div><div class="line">			Math.floor(ypos);</div><div class="line">			mul(xpos, %1);</div><div class="line">			mul(ypos, %2);</div><div class="line">			calc(crop, xpos + '|' + ypos + '|%1|%2');</div><div class="line">		  ,</div><div class="line">			clearinterval(calc('crop_anim_' + name));</div><div class="line">		  );</div><div class="line">	  );</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在 <code>hotspot</code> 或 <code>layer</code> 的代码添加代码， <code>do_crop_animation(每帧宽,每帧高,fps)</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">url="explosion.png"  onloaded="do_crop_animation(100,100, 60)"</div></pre></td></tr></table></figure>
+<h3 id="动态热点添加始终显示的文字"><a href="#动态热点添加始终显示的文字" class="headerlink" title="动态热点添加始终显示的文字"></a>动态热点添加始终显示的文字</h3><p>显示 <code>&lt;scene&gt; title</code> 中的文字</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">hotspot</span> <span class="attr">name</span>=<span class="string">"spot1"</span> <span class="attr">url</span>=<span class="string">"animatedhotspot_white.png"</span> <span class="attr">onloaded</span>=<span class="string">"do_crop_animation(64,64, 60);"</span>   <span class="attr">ath</span>=<span class="string">"-15"</span> <span class="attr">atv</span>=<span class="string">"-12"</span> <span class="attr">onclick</span>=<span class="string">"loadscene(get(linkedscene))"</span> <span class="attr">linkedscene</span>=<span class="string">"scene_01"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>或者在 <code>&lt;hotpsot&gt; text</code> 中添加显示自定义的文字</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">hotspot</span> <span class="attr">name</span>=<span class="string">"spot1"</span> <span class="attr">url</span>=<span class="string">"animatedhotspot_white.png"</span> <span class="attr">onloaded</span>=<span class="string">"do_crop_animation(64,64, 60);"</span>   <span class="attr">ath</span>=<span class="string">"-15"</span> <span class="attr">atv</span>=<span class="string">"-12"</span> <span class="attr">onclick</span>=<span class="string">"loadscene(get(linkedscene))"</span> <span class="attr">text</span>=<span class="string">"自定义文字"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<p>在热点的 <code>onload</code> 事件中加上 <code>add_all_the_time_tooltip()</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">onloaded="do_crop_animation(64,64, 60);add_all_the_time_tooltip()"</div></pre></td></tr></table></figure>
+<p>空白处加上 <code>action</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"add_all_the_time_tooltip"</span>&gt;</span></div><div class="line">	    txtadd(tooltipname, 'tooltip_', get(name));</div><div class="line">	    addplugin(get(tooltipname));</div><div class="line">	    txtadd(plugin[get(tooltipname)].parent, 'hotspot[', get(name), ']');</div><div class="line">	    set(plugin[get(tooltipname)].url,'%SWFPATH%/plugins/textfield.swf');</div><div class="line">	    set(plugin[get(tooltipname)].align,top);</div><div class="line">	    set(plugin[get(tooltipname)].edge,bottom);</div><div class="line">	    set(plugin[get(tooltipname)].x,0);</div><div class="line">	    set(plugin[get(tooltipname)].y,0);</div><div class="line">	    set(plugin[get(tooltipname)].autowidth,true);</div><div class="line">	    set(plugin[get(tooltipname)].autoheight,true);</div><div class="line">	    set(plugin[get(tooltipname)].vcenter,true);</div><div class="line">	    set(plugin[get(tooltipname)].background,true);</div><div class="line">	    set(plugin[get(tooltipname)].backgroundcolor,0x000000);</div><div class="line">	    set(plugin[get(tooltipname)].roundedge,5);</div><div class="line">	    set(plugin[get(tooltipname)].backgroundalpha,0.65);</div><div class="line">	    set(plugin[get(tooltipname)].padding,5);</div><div class="line">	    set(plugin[get(tooltipname)].border,false);</div><div class="line">	    set(plugin[get(tooltipname)].glow,0);</div><div class="line">	    set(plugin[get(tooltipname)].glowcolor,0xFFFFFF);</div><div class="line">	    set(plugin[get(tooltipname)].css,'text-align:center; color:#FFFFFF; font-family:MicrosoftYahei;  font-size:24px;');</div><div class="line">	    if(device.mobile,set(plugin[get(tooltipname)].css,'text-align:center; color:#FFFFFF; font-family:MicrosoftYahei; font-weight:bold; font-size:24px;');</div><div class="line">	    	);</div><div class="line">	    set(plugin[get(tooltipname)].textshadow,0);</div><div class="line">	    set(plugin[get(tooltipname)].textshadowrange,6.0);</div><div class="line">	    set(plugin[get(tooltipname)].textshadowangle,90);</div><div class="line">	    if(text == '' OR text === null,</div><div class="line">	    copy(plugin[get(tooltipname)].html,scene[get(linkedscene)].title),</div><div class="line">	    copy(plugin[get(tooltipname)].html,text)</div><div class="line">	    );    </div><div class="line">	    set(plugin[get(tooltipname)].enabled,false);	</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="热点和或图层在鼠标点击或鼠标悬停时进入动态模式"><a href="#热点和或图层在鼠标点击或鼠标悬停时进入动态模式" class="headerlink" title="热点和或图层在鼠标点击或鼠标悬停时进入动态模式"></a>热点和或图层在鼠标点击或鼠标悬停时进入动态模式</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"do_crop_animation_onclick"</span>&gt;</span>	</div><div class="line">		if(hotspot[get(name)].animated === null OR hotspot[get(name)].animated == false,</div><div class="line">		    set(hotspot[get(name)].animated,true);</div><div class="line">			setinterval(calc('crop_anim_' + name), calc(1.0 / %3),			</div><div class="line">					inc(frame);</div><div class="line">					if(frame GE frames, if(onlastframe !== null, onlastframe() ); set(frame,0); );</div><div class="line">					mod(xpos, frame, xframes);</div><div class="line">					div(ypos, frame, xframes);</div><div class="line">					Math.floor(ypos);</div><div class="line">					mul(xpos, %1);</div><div class="line">					mul(ypos, %2);</div><div class="line">					calc(crop, xpos + '|' + ypos + '|%1|%2');			  				</div><div class="line">			  );</div><div class="line">			  ,</div><div class="line">            set(hotspot[get(name)].animated,false);  </div><div class="line">			clearinterval(calc('crop_anim_' + name));</div><div class="line">			set(crop, '0|0|%1|%2');	</div><div class="line">		  );</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"do_crop_animation_register"</span>&gt;</span></div><div class="line">		registerattribute(xframes, calc((imagewidth / %1) BOR 0));</div><div class="line">		registerattribute(yframes, calc((imageheight / %2) BOR 0));</div><div class="line">		registerattribute(frames, calc(xframes * yframes));</div><div class="line">		registerattribute(frame, 0);</div><div class="line">		set(crop, '0|0|%1|%2');	</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"> </div><div class="line"> </div><div class="line"> </div><div class="line"><span class="comment">&lt;!-- example hotspots --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">hotspot</span> <span class="attr">name</span>=<span class="string">"spot1"</span> <span class="attr">url</span>=<span class="string">"animatedhotspot_white.png"</span> </span></div><div class="line">		<span class="attr">onover</span>=<span class="string">"do_crop_animation_onclick(64,64,60)"</span> <span class="attr">onout</span>=<span class="string">"do_crop_animation_onclick(64,64,60)"</span>   <span class="attr">ath</span>=<span class="string">"-15"</span> <span class="attr">atv</span>=<span class="string">"-12"</span> <span class="attr">onloaded</span>=<span class="string">"do_crop_animation_register(64,64)"</span> /&gt;</div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">hotspot</span> <span class="attr">name</span>=<span class="string">"spot1"</span> <span class="attr">url</span>=<span class="string">"animatedhotspot_white.png"</span> </span></div><div class="line">		<span class="attr">onclick</span>=<span class="string">"do_crop_animation_onclick(64,64,60)"</span>  <span class="attr">ath</span>=<span class="string">"-15"</span> <span class="attr">atv</span>=<span class="string">"-12"</span> <span class="attr">onloaded</span>=<span class="string">"do_crop_animation_register(64,64)"</span> /&gt;</div></pre></td></tr></table></figure>
+<p>以上代码执行了一次动态循环后，序列图停留在第一帧，如果只是需要执行一次动态循环，并且序列图停留在最后一帧的话，那么 <code>do_crop_animation_onclick</code> 需更改（区别就是 <code>frame</code> 这个变量没有重置为 0 ，并且没有重新设置 <code>crop</code> ）</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"do_crop_animation_onclick"</span>&gt;</span> </div><div class="line">    if(hotspot[get(name)].animated === null OR hotspot[get(name)].animated == false,</div><div class="line">        set(hotspot[get(name)].animated,true);</div><div class="line">      setinterval(calc('crop_anim_' + name), calc(1.0 / %3),  </div><div class="line"> </div><div class="line">          inc(frame);</div><div class="line">          if(frame GE frames, if(onlastframe !== null, onlastframe() ); add(frame,frames,-1); );</div><div class="line">          mod(xpos, frame, xframes);</div><div class="line">          div(ypos, frame, xframes);</div><div class="line">          Math.floor(ypos);</div><div class="line">          mul(xpos, %1);</div><div class="line">          mul(ypos, %2);</div><div class="line">          calc(crop, xpos + '|' + ypos + '|%1|%2');               </div><div class="line">        );</div><div class="line">        ,</div><div class="line">        set(hotspot[get(name)].animated,false);  </div><div class="line">      clearinterval(calc('crop_anim_' + name));</div><div class="line">     </div><div class="line">      );</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="拖拽热点"><a href="#拖拽热点" class="headerlink" title="拖拽热点"></a>拖拽热点</h3><p>在 <code>&lt;hotspot/&gt;</code> 中添加代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ondown="draghotspot();"</div></pre></td></tr></table></figure>
+<p>添加 action 代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"draghotspot"</span>&gt;</span></div><div class="line">	spheretoscreen(ath, atv, hotspotcenterx, hotspotcentery, 'l');</div><div class="line">	sub(drag_adjustx, mouse.stagex, hotspotcenterx);</div><div class="line">	sub(drag_adjusty, mouse.stagey, hotspotcentery);</div><div class="line">	asyncloop(pressed,</div><div class="line">		sub(dx, mouse.stagex, drag_adjustx);</div><div class="line">		sub(dy, mouse.stagey, drag_adjusty);</div><div class="line">		screentosphere(dx, dy, ath, atv);</div><div class="line">	  );</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="添加简单的全景视频"><a href="#添加简单的全景视频" class="headerlink" title="添加简单的全景视频"></a>添加简单的全景视频</h3><p>从 <code>viewer/examples/videopano</code> 中复制 <code>vtourskin.xml</code>，在主xml 添加代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">scene</span> <span class="attr">name</span>=<span class="string">"videopano"</span> <span class="attr">title</span>=<span class="string">"户外全景视频"</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- include the videoplayer interface / skin (with VR support) --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">include</span> <span class="attr">url</span>=<span class="string">"skin/videointerface.xml"</span> /&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- include the videoplayer plugin --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">plugin</span> <span class="attr">name</span>=<span class="string">"video"</span></span></div><div class="line">	        <span class="attr">url.html5</span>=<span class="string">"%SWFPATH%/plugins/videoplayer.js"</span></div><div class="line">	        <span class="attr">url.flash</span>=<span class="string">"%SWFPATH%/plugins/videoplayer.swf"</span></div><div class="line">	        <span class="attr">pausedonstart</span>=<span class="string">"true"</span></div><div class="line">	        <span class="attr">loop</span>=<span class="string">"true"</span></div><div class="line">	        <span class="attr">volume</span>=<span class="string">"1.0"</span></div><div class="line">	        <span class="attr">onloaded</span>=<span class="string">"add_video_sources();"</span></div><div class="line">	        /&gt;</div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- use the videoplayer plugin as panoramic image source --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">image</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">sphere</span> <span class="attr">url</span>=<span class="string">"plugin:video"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">image</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- set the default view --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">view</span> <span class="attr">hlookat</span>=<span class="string">"0"</span> <span class="attr">vlookat</span>=<span class="string">"0"</span> <span class="attr">fovtype</span>=<span class="string">"DFOV"</span> <span class="attr">fov</span>=<span class="string">"130"</span> <span class="attr">fovmin</span>=<span class="string">"75"</span> <span class="attr">fovmax</span>=<span class="string">"150"</span> <span class="attr">distortion</span>=<span class="string">"0.0"</span> /&gt;</span></div><div class="line"></div><div class="line">	<span class="comment">&lt;!-- add the video sources and play the video --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"add_video_sources"</span>&gt;</span></div><div class="line">		videointerface_addsource('1024x512', '%CURRENTXML%/video/video-1024x512.mp4|%CURRENTXML%/video/video-1024x512.webm|%CURRENTXML%/video/iphone-audio.m4a', '%CURRENTXML%/video/video-1024x512-poster.jpg');</div><div class="line">		videointerface_addsource('1920x960', '%CURRENTXML%/video/video-1920x960.mp4|%CURRENTXML%/video/video-1920x960.webm|%CURRENTXML%/video/iphone-audio.m4a', '%CURRENTXML%/video/video-1920x960-poster.jpg');</div><div class="line">		</div><div class="line">		if(device.ios,</div><div class="line">			<span class="comment">&lt;!-- iOS Safari has a very slow 'video-to-webgl-texture' transfer, therefore use a low-res video by default --&gt;</span></div><div class="line">			videointerface_play('1024x512');</div><div class="line">		  ,</div><div class="line">			videointerface_play('1920x960');</div><div class="line">		  );</div><div class="line">	<span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">scene</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="添加雨雪特效"><a href="#添加雨雪特效" class="headerlink" title="添加雨雪特效"></a>添加雨雪特效</h3><ol>
+<li><p>添加文件 <a href="http://pan.baidu.com/s/1gfLTx6N" target="_blank" rel="external">http://pan.baidu.com/s/1gfLTx6N</a> 密码：6shh  </p>
+</li>
+<li><p>在 <code>viewer\plugins</code> 拷贝 <code>snow.swf</code> 和 <code>snow.js</code>  </p>
+</li>
+<li><p>添加  <code>&lt;scene onstart=&quot;snowballs();&quot;&gt;</code>  </p>
+<p> 目前可选的特效</p>
+<ul>
+<li>默认雪 <code>onstart=&#39;defaultsnow();&#39;</code></li>
+<li>雪球 <code>onstart=&#39;snowball();&#39;</code></li>
+<li>雪花 <code>onstart=&#39;snowflakes();&#39;</code></li>
+<li>银色星星 <code>onstart=&#39;silverstars();&#39;</code></li>
+<li>金色星星 <code>onstart=&#39;goldenstars();&#39;</code></li>
+<li>心形 <code>onstart=&#39;hearts();&#39;</code></li>
+<li>笑脸 <code>onstart=&#39;smileys();&#39;</code></li>
+<li>钱 <code>onstart=&#39;money();&#39;</code></li>
+<li>雨 <code>onstart=&#39;rain();&#39;</code></li>
+<li>大雨 <code>onstart=&#39;heavyrain();&#39;</code></li>
+</ul>
+</li>
+<li><p>在 <code>&lt;scene&gt;</code> 添加代码</p>
+</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">include</span> <span class="attr">url</span>=<span class="string">"snow.xml"</span> /&gt;</span></div><div class="line">``` </div><div class="line"></div><div class="line">### 自动旋转</div><div class="line"></div><div class="line">添加代码</div><div class="line"></div><div class="line">```xml</div><div class="line"><span class="tag">&lt;<span class="name">autorotate</span> <span class="attr">enabled</span>=<span class="string">"true"</span></span></div><div class="line"><span class="attr">waittime</span>=<span class="string">"5.0"</span></div><div class="line"><span class="attr">speed</span>=<span class="string">"-3.0"</span></div><div class="line"><span class="attr">horizon</span>=<span class="string">"0.0"</span></div><div class="line"><span class="attr">tofov</span>=<span class="string">"120.0"</span></div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li><code>waittime</code> 代表在最近一次用户交互行为之后要开始自动旋转之前的等待时间。以秒为单位。  </li>
+<li><code>speed</code> 为旋转速度。当该数值为正值时向右旋转，为负值时向左旋转。</li>
+<li><code>horizon</code> 为场景在自动旋转时将达到的水平位置。</li>
+<li><code>tofov</code> 为旋转中要达到的视场角。</li>
+</ul>
+<h3 id="无按钮控制的自动旋转"><a href="#无按钮控制的自动旋转" class="headerlink" title="无按钮控制的自动旋转"></a>无按钮控制的自动旋转</h3><p>自动旋转场景，场景旋转一圈后自动进入下一个场景，最后一个场景浏览结束后，进入第一个场景。需添加如下代码：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">autorotate</span> <span class="attr">enabled</span>=<span class="string">"true"</span></span></div><div class="line"><span class="attr">waittime</span>=<span class="string">"5.0"</span></div><div class="line"><span class="attr">speed</span>=<span class="string">"-3.0"</span></div><div class="line"><span class="attr">horizon</span>=<span class="string">"0.0"</span></div><div class="line"><span class="attr">tofov</span>=<span class="string">"120.0"</span></div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<p>修改 <code>&lt;action name=&quot;startup/&gt;</code> 中的代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"startup"</span>&gt;</span></div><div class="line">if(startscene === null, copy(startscene,scene[0].name));</div><div class="line">loadscene(get(startscene), null, MERGE);</div><div class="line">if(autorotate.enabled,bombtimer(0));</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在 <code>xml</code> 文件中加入下面的代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">events</span> <span class="attr">onmousedown</span>=<span class="string">"set(bt,0);"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"bombtimer"</span>&gt;</span></div><div class="line">set(autorotate.enabled,true);</div><div class="line">set(bt,%1);</div><div class="line">add(bt,1);</div><div class="line">delayedcall(1, bombtimer(get(bt)));</div><div class="line">copy(bt_1,autorotate.speed);</div><div class="line">Math.abs(bt_1);</div><div class="line">div(bt_2,360,bt_1);</div><div class="line">add(bt_2,autorotate.waittime);</div><div class="line">if(bt GE bt_2, set(bt,0); nextscene(););</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"nextscene"</span>&gt;</span></div><div class="line">set(ns, get(scene[get(xml.scene)].index));</div><div class="line">set(maxs, get(scene.count));</div><div class="line">add(ns,1);</div><div class="line">if(ns == maxs, set(ns,0));</div><div class="line">loadscene(get(scene[get(ns)].name), null, MERGE, BLEND(1.5));</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="按钮控制的自动旋转"><a href="#按钮控制的自动旋转" class="headerlink" title="按钮控制的自动旋转"></a>按钮控制的自动旋转</h3><p>添加代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">autorotate</span> <span class="attr">enabled</span>=<span class="string">"true"</span></span></div><div class="line"><span class="attr">waittime</span>=<span class="string">"5.0"</span></div><div class="line"><span class="attr">speed</span>=<span class="string">"-3.0"</span></div><div class="line"><span class="attr">horizon</span>=<span class="string">"0.0"</span></div><div class="line"><span class="attr">tofov</span>=<span class="string">"120.0"</span></div><div class="line">/&gt;</div></pre></td></tr></table></figure>
+<p>在对应的按钮，通常为 <code>&lt;layer&gt;</code> 标签中找到 <code>onclick</code> 属性替换，如果没有则直接添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">layer</span> <span class="attr">...</span> <span class="attr">onclick</span>=<span class="string">"switch(autorotate.enabled);"</span> <span class="attr">...</span> /&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="添加陀螺仪"><a href="#添加陀螺仪" class="headerlink" title="添加陀螺仪"></a>添加陀螺仪</h3><p>加载插件</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">plugin</span> <span class="attr">name</span>=<span class="string">"gyro"</span> <span class="attr">devices</span>=<span class="string">"html5"</span></span></div><div class="line">	        <span class="attr">url</span>=<span class="string">"%SWFPATH%/plugins/gyro2.js"</span></div><div class="line">	        <span class="attr">enabled</span>=<span class="string">"false"</span></div><div class="line">                <span class="attr">onavailable</span>=<span class="string">"gyro_available_info();"</span></div><div class="line">	        /&gt;</div><div class="line"> </div><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"gyro_available_info"</span>&gt;</span></div><div class="line">		set(layer[gyrobutton].visible, true);</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>控制按钮</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">layer</span> <span class="attr">name</span>=<span class="string">"gyrobutton"</span> <span class="attr">url</span>=<span class="string">"gyroicon.png"</span> <span class="attr">scale</span>=<span class="string">"0.5"</span> <span class="attr">align</span>=<span class="string">"right"</span> <span class="attr">x</span>=<span class="string">"10"</span> <span class="attr">visible</span>=<span class="string">"false"</span> </span></div><div class="line">		       <span class="attr">onclick</span>=<span class="string">"switch(plugin[gyro].enabled);"</span></div><div class="line">		       /&gt;</div></pre></td></tr></table></figure>
+<p>默认皮肤开启陀螺仪功能（在 <code>tour.xml</code> 的 <code>skin_settings</code>中设置）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">gyro=&quot;true&quot;</div></pre></td></tr></table></figure>
+<p>在 <code>tour.xml</code> 的 <code>include</code> 的下一行添加</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">plugin</span> <span class="attr">name</span>=<span class="string">"skin_gyro"</span> </span></div><div class="line">		<span class="attr">enabled</span>=<span class="string">"true"</span></div><div class="line">		<span class="attr">camroll</span>=<span class="string">"false"</span></div><div class="line">   		<span class="attr">onenable</span>=<span class="string">"set(view.limitview, range);"</span></div><div class="line">		/&gt;</div></pre></td></tr></table></figure>
+<h3 id="场景过渡效果"><a href="#场景过渡效果" class="headerlink" title="场景过渡效果"></a>场景过渡效果</h3><p>修改全部过渡效果，只需修改 <code>&lt;skin_settings /&gt;</code>中以下代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">loadscene_blend="OPENBLEND(0.5, 0.0, 0.75, 0.05, linear)"</div><div class="line">loadscene_blend_prev="SLIDEBLEND(0.5, 180, 0.75, linear)"</div><div class="line">loadscene_blend_next="SLIDEBLEND(0.5,   0, 0.75, linear)"</div></pre></td></tr></table></figure>
+<p>如果想为某个特殊的 <code>loadscene</code> 动作加上不一样的过渡效果，在主 <code>xml</code> 的 <code>scene</code> 外加入以下代码</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"no blending"</span>       <span class="attr">description</span>=<span class="string">"无过渡效果"</span>  <span class="attr">blend</span>=<span class="string">"NOBLEND"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"simple crossblending"</span> <span class="attr">description</span>=<span class="string">"简单淡入淡出"</span> <span class="attr">blend</span>=<span class="string">"BLEND(1.0, easeInCubic)"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"zoom blend"</span>        <span class="attr">description</span>=<span class="string">"缩放过渡"</span>  <span class="attr">blend</span>=<span class="string">"ZOOMBLEND(2.0, 2.0, easeInOutSine)"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"black-out"</span>         <span class="attr">description</span>=<span class="string">"黑场过渡"</span>  <span class="attr">blend</span>=<span class="string">"COLORBLEND(2.0, 0x000000, easeOutSine)"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"white-flash"</span>       <span class="attr">description</span>=<span class="string">"白场过渡"</span>  <span class="attr">blend</span>=<span class="string">"LIGHTBLEND(1.0, 0xFFFFFF, 2.0, linear)"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"right-to-left"</span>     <span class="attr">description</span>=<span class="string">"从右至左"</span>  <span class="attr">blend</span>=<span class="string">"SLIDEBLEND(1.0, 0.0, 0.2, linear)"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"top-to-bottom"</span>     <span class="attr">description</span>=<span class="string">"从上至下"</span>   <span class="attr">blend</span>=<span class="string">"SLIDEBLEND(1.0, 90.0, 0.01, linear)"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"diagonal"</span>          <span class="attr">description</span>=<span class="string">"对角线"</span>     <span class="attr">blend</span>=<span class="string">"SLIDEBLEND(1.0, 135.0, 0.4, linear)"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"circle open"</span>       <span class="attr">description</span>=<span class="string">"圆形展开"</span>      <span class="attr">blend</span>=<span class="string">"OPENBLEND(1.0, 0.0, 0.2, 0.0, linear)"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"vertical open"</span>     <span class="attr">description</span>=<span class="string">"垂直展开"</span>     <span class="attr">blend</span>=<span class="string">"OPENBLEND(0.7, 1.0, 0.1, 0.0, linear)"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"horizontal open"</span>   <span class="attr">description</span>=<span class="string">"水平展开"</span>    <span class="attr">blend</span>=<span class="string">"OPENBLEND(1.0, -1.0, 0.3, 0.0, linear)"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">blendmodes</span> <span class="attr">name</span>=<span class="string">"elliptic + zoom"</span>   <span class="attr">description</span>=<span class="string">"椭圆缩放"</span>      <span class="attr">blend</span>=<span class="string">"OPENBLEND(1.0, -0.5, 0.3, 0.8, linear)"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<p>修改 <code>loadscene(scenename, null, MERGE, get(blendmodes[black-out].blend));</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">hotspot</span> <span class="attr">onclick</span>=<span class="string">"loadscene(scene_shuilifang, null, MERGE, get(blendmodes[vertical open].blend));"</span> /&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="隐藏显示热点"><a href="#隐藏显示热点" class="headerlink" title="隐藏显示热点"></a>隐藏显示热点</h3><p>添加 <code>&lt;action&gt;</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"hideBox"</span>&gt;</span></div><div class="line">  tween(%1.alpha,0,0.5);</div><div class="line">  wait(1);</div><div class="line">  set(%1.visible,false);</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"showBox"</span>&gt;</span></div><div class="line">  set(%1.alpha,0);</div><div class="line">  set(%1.visible,true);</div><div class="line">  tween(%1.alpha,1,0.5);</div><div class="line">  tween(%1.scale,1,0.5,easeOutBack);</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>使用<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">hotspot</span> <span class="attr">name</span>=<span class="string">"spot1"</span> <span class="attr">style</span>=<span class="string">"skin_hotspotstyle"</span> <span class="attr">ath</span>=<span class="string">"46.131"</span> <span class="attr">atv</span>=<span class="string">"24.389"</span> <span class="attr">visible</span>=<span class="string">"true"</span> <span class="attr">onclick</span>=<span class="string">"spot1Click"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"spot1Click"</span>&gt;</span></div><div class="line">	hideBox(hotspot[spot1]);</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h3 id="获取全景视频进度"><a href="#获取全景视频进度" class="headerlink" title="获取全景视频进度"></a>获取全景视频进度</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 获取视频进度 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"get_video_time"</span>&gt;</span></div><div class="line">  setinterval(skin_video_seek_updates0, 0.1, skin_video_updatetime0())</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"skin_video_updatetime0"</span>&gt;</span></div><div class="line">  setStop(4,video_pause_events(););</div><div class="line"><span class="tag">&lt;/<span class="name">action</span> &gt;</span></div><div class="line">		</div><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"setStop"</span>&gt;</span></div><div class="line">  copy(t1, plugin[video].time);</div><div class="line">  if(t1 GT %1,%2);</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line"> </div><div class="line"><span class="comment">&lt;!-- 视频暂停回调 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"video_pause_events"</span>&gt;</span></div><div class="line">  plugin[video].pause();</div><div class="line">  clearinterval(skin_video_seek_updates0);</div><div class="line"><span class="tag">&lt;/<span class="name">action</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><ol>
+<li><p>集成到HTML</p>
+</li>
+<li><p>krpano XML</p>
+</li>
+</ol>
+<h2 id="krpano-action-script-动作与脚本"><a href="#krpano-action-script-动作与脚本" class="headerlink" title="krpano-action-script 动作与脚本"></a>krpano-action-script 动作与脚本</h2><pre><code>1. 语法跟应用
+2. 表达式
+3. 数组
+4. 全局变量
+    对应动作的局部变量
+</code></pre><p>获取全局变量</p>
+<p>参照(<a href="http://www.visita3d.com/" target="_blank" rel="external">http://www.visita3d.com/</a>)<script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
+<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
+document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
+</code></pre><p>})();<br></script></p>
+]]></content>
+    
+    <summary type="html">
+    
+      Krpano入门笔记
+    
+    </summary>
+    
+      <category term="krpano" scheme="https://austinxishou.github.io/categories/krpano/"/>
+    
+    
+      <category term="krpano" scheme="https://austinxishou.github.io/tags/krpano/"/>
+    
+      <category term="pano" scheme="https://austinxishou.github.io/tags/pano/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>人工智能学习路径</title>
+    <link href="https://austinxishou.github.io/2017/07/17/AI/AI-learning-road/"/>
+    <id>https://austinxishou.github.io/2017/07/17/AI/AI-learning-road/</id>
+    <published>2017-07-17T01:32:42.930Z</published>
+    <updated>2017-10-27T08:05:21.824Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="学习路径和资料"><a href="#学习路径和资料" class="headerlink" title="学习路径和资料"></a>学习路径和资料</h2><ol>
+<li><a href="http://www.ppvke.com/Blog/archives/46893" target="_blank" rel="external">最佳AI /机器学习资源索引</a></li>
+<li><a href="https://github.com/exacity/deeplearningbook-chinese" target="_blank" rel="external">Github开源资料</a></li>
+<li><a href="http://blog.csdn.net/xummgg/article/details/69214366" target="_blank" rel="external">TensorFlow和深度学习入门教程</a></li>
+<li><a href="https://github.com/collections/machine-learning" target="_blank" rel="external">Getting started with machine learning</a></li>
+</ol>
+<h2 id="社区和博客"><a href="#社区和博客" class="headerlink" title="社区和博客"></a>社区和博客</h2><ol>
+<li><a href="http://geek.csdn.net/forum/AI" target="_blank" rel="external">CSDN人工智能专栏</a></li>
+<li><a href="http://meta-guide.com/" target="_blank" rel="external">Meta Guides</a></li>
+</ol>
+<p><a href="https://github.com/Rochester-NRT/RocAlphaGo" target="_blank" rel="external">RocAlphaGo</a></p>
+<p><a href="https://mast-group.github.io/" target="_blank" rel="external">MAST</a><br>    通过人工智能分析代码质量</p>
+<p>## </p>
+<p><a href="https://github.com/josephmisiti/awesome-machine-learning" target="_blank" rel="external">awesome-machine-learning</a><br><a href="https://github.com/jobbole/awesome-machine-learning-cn" target="_blank" rel="external">awesome-machine-learning-cn</a>                 机器学习资源大全中文版<br><a href="https://github.com/owainlewis/awesome-artificial-intelligence" target="_blank" rel="external">awesome-artificial-intelligence</a>    人工智能<br><a href="http://www.cnblogs.com/52machinelearning/p/5821555.html" target="_blank" rel="external">机器学习相关的Awesome系列</a></p>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+]]></content>
+    
+    <summary type="html">
+    
+      AI artificial intelligence
+    
+    </summary>
+    
+      <category term="AI" scheme="https://austinxishou.github.io/categories/AI/"/>
+    
+    
+      <category term="AI" scheme="https://austinxishou.github.io/tags/AI/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>windows文件夹右键直接打开sublime</title>
+    <link href="https://austinxishou.github.io/2017/05/19/python/win-director-sublime-open/"/>
+    <id>https://austinxishou.github.io/2017/05/19/python/win-director-sublime-open/</id>
+    <published>2017-05-19T02:44:27.163Z</published>
+    <updated>2017-05-19T02:47:58.685Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p> 在web学习或开发中，会接触到各种Demo代码或者Github上的开源代码。要是每次都打开Sublime Text，然后把文件夹拖到里面，以打开一个文件夹，无疑是一件繁琐的事情。当然，你也可以使用Sublime Text里的project功能，不过个人觉得还是不够便捷。为什么不能在文件夹的右键菜单上添加一个”用Sublime Text打开“这样的菜单，直接打开呢？ok，懒人的方法来了。</p>
+<p> 一般建立 “Open With Sublime Text” 右键菜单的办法是导入注册表文件，但是你可能使用的是 Sublime Text 2 的 Portable 版本，还需要修改 .reg 文件中 sublime_text.exe 的路径，这里给出更好的办法。</p>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ol>
+<li><p>把以下保存成 .bat 文件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">set</span> ST_BIN=<span class="string">""</span><span class="string">"%~dp0sublime_text.exe"</span><span class="string">""</span></div><div class="line"></div><div class="line">reg add <span class="string">"HKCR\*\shell\Sublime Text 2"</span>                            /ve       /d <span class="string">"Open with Sublime Text 2"</span>       /f</div><div class="line">reg add <span class="string">"HKCR\*\shell\Sublime Text 2"</span>                            /v <span class="string">"Icon"</span> /d <span class="string">"%ST_BIN%,0"</span>                     /f</div><div class="line">reg add <span class="string">"HKCR\*\shell\Sublime Text 2\command"</span>                    /ve       /d <span class="string">"%ST_BIN% "</span><span class="string">""</span>%%1<span class="string">""</span><span class="string">""</span>             /f</div><div class="line"></div><div class="line">reg add <span class="string">"HKCR\Directory\shell\Sublime Text 2"</span>                    /ve       /d <span class="string">"Open Folder as Sublime Project"</span> /f</div><div class="line">reg add <span class="string">"HKCR\Directory\shell\Sublime Text 2"</span>                    /v <span class="string">"Icon"</span> /d <span class="string">"%ST_BIN%,0"</span>                     /f</div><div class="line">reg add <span class="string">"HKCR\Directory\shell\Sublime Text 2\command"</span>            /ve       /d <span class="string">"%ST_BIN% "</span><span class="string">""</span>%%V<span class="string">""</span><span class="string">""</span>             /f</div><div class="line"></div><div class="line">reg add <span class="string">"HKCR\Directory\Background\shell\Sublime Text 2"</span>         /ve       /d <span class="string">"Open Folder as Sublime Project"</span> /f</div><div class="line">reg add <span class="string">"HKCR\Directory\Background\shell\Sublime Text 2"</span>         /v <span class="string">"Icon"</span> /d <span class="string">"%ST_BIN%,0"</span>                     /f</div><div class="line">reg add <span class="string">"HKCR\Directory\Background\shell\Sublime Text 2\command"</span> /ve       /d <span class="string">"%ST_BIN% "</span><span class="string">""</span>%%V<span class="string">""</span><span class="string">""</span>             /f</div><div class="line"></div><div class="line">@echo.</div><div class="line">@pause</div></pre></td></tr></table></figure>
+</li>
+<li><p>放到 sublime_text.exe 所在目录下</p>
+</li>
+<li><p>以管理员身份运行该 .bat</p>
+</li>
+</ol>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><ol>
+<li>在文件上点右键会出现 “Open with Sublime Text 2”</li>
+<li>在文件夹或资源管理器的背景空白处点右键会出现 “Open Folder as Sublime Project”</li>
+<li><p>带有 /v “Icon” 的那几行是增加菜单项前的图标，如果你不需要可以删掉它</p>
+<script>
+(function(){
+ var bp = document.createElement('script');
+ var curProtocol = window.location.protocol.split(':')[0];
+ if (curProtocol === 'https') {
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+ }
+ else {
+     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+ }
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(bp, s);
+
+ var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+</li>
+</ol>
+]]></content>
+    
+    <summary type="html">
+    
+      windows文件夹右键直接打开sublime sublime 技巧
+    
+    </summary>
+    
+      <category term="python sublime" scheme="https://austinxishou.github.io/categories/python-sublime/"/>
+    
+    
+      <category term="python" scheme="https://austinxishou.github.io/tags/python/"/>
+    
+      <category term="sublime" scheme="https://austinxishou.github.io/tags/sublime/"/>
+    
+  </entry>
   
   <entry>
     <title>hexo 插件推荐收藏</title>
@@ -894,10 +1483,13 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
     <link href="https://austinxishou.github.io/2017/05/12/killtime/webdesign-source-collection/"/>
     <id>https://austinxishou.github.io/2017/05/12/killtime/webdesign-source-collection/</id>
     <published>2017-05-12T02:16:41.517Z</published>
-    <updated>2017-05-12T02:21:02.414Z</updated>
+    <updated>2017-10-24T03:11:46.462Z</updated>
     
     <content type="html"><![CDATA[<h2 id="导航"><a href="#导航" class="headerlink" title="导航"></a>导航</h2><ul>
 <li>牛大拿:<a href="http://niudana.com/" target="_blank" rel="external">http://niudana.com/</a></li>
+</ul>
+<h2 id="全景图"><a href="#全景图" class="headerlink" title="全景图"></a>全景图</h2><ul>
+<li>flickr : <a href="https://www.flickr.com/" target="_blank" rel="external">https://www.flickr.com/</a></li>
 </ul>
 <h2 id="视频素材"><a href="#视频素材" class="headerlink" title="视频素材"></a>视频素材</h2><ul>
 <li>视崛:<a href="http://www.shij001.com/" target="_blank" rel="external">http://www.shij001.com/</a></li>
@@ -915,6 +1507,7 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 <li>indienova : <a href="http://indienova.com/" target="_blank" rel="external">http://indienova.com/</a></li>
 <li>建筑 : <a href="http://afasiaarchzine.com/" target="_blank" rel="external">http://afasiaarchzine.com/</a></li>
 <li>创客贴 : <a href="https://www.chuangkit.com/" target="_blank" rel="external">https://www.chuangkit.com/</a></li>
+<li>toptal :　<a href="https://www.toptal.com/designers/" target="_blank" rel="external">https://www.toptal.com/designers/</a></li>
 </ul>
 <h2 id="设计工具"><a href="#设计工具" class="headerlink" title="设计工具"></a>设计工具</h2><ul>
 <li>马克鳗设计稿标注 : <a href="http://www.getmarkman.com/" target="_blank" rel="external">http://www.getmarkman.com/</a></li>
@@ -936,26 +1529,25 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 <li>icons8 : <a href="http://icons8.com/" target="_blank" rel="external">http://icons8.com/</a></li>
 <li>findicons : <a href="http://findicons.com" target="_blank" rel="external">http://findicons.com</a></li>
 <li>iconmatrix : <a href="http://iconmatrix.sharpmark.net/" target="_blank" rel="external">http://iconmatrix.sharpmark.net/</a></li>
-<li><p>thenounproject : <a href="https://thenounproject.com/" target="_blank" rel="external">https://thenounproject.com/</a></p>
+<li>thenounproject : <a href="https://thenounproject.com/" target="_blank" rel="external">https://thenounproject.com/</a></li>
+</ul>
 <script>
 (function(){
-  var bp = document.createElement('script');
-  var curProtocol = window.location.protocol.split(':')[0];
-  if (curProtocol === 'https') {
-      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
-  }
-  else {
-      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-  }
-  var s = document.getElementsByTagName("script")[0];
-  s.parentNode.insertBefore(bp, s);
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
 
-  var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
-  document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 })();
 </script>
-</li>
-</ul>
 ]]></content>
     
     <summary type="html">
@@ -1128,9 +1720,18 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
     <link href="https://austinxishou.github.io/2017/05/04/android/android-apk-disable/"/>
     <id>https://austinxishou.github.io/2017/05/04/android/android-apk-disable/</id>
     <published>2017-05-04T03:07:12.925Z</published>
-    <updated>2017-05-04T03:18:20.887Z</updated>
+    <updated>2017-08-24T12:44:19.501Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="功能说明"><a href="#功能说明" class="headerlink" title="功能说明"></a>功能说明</h2><blockquote>
+    <content type="html"><![CDATA[<h2 id="js模块开发的任务"><a href="#js模块开发的任务" class="headerlink" title="js模块开发的任务"></a>js模块开发的任务</h2><p>首先需要了解</p>
+<ol>
+<li>Node Package Manager (NPM): 阅读 <a href="https://docs.npmjs.com/getting-started/what-is-npm" target="_blank" rel="external">Getting Started guide</a></li>
+<li>Modern JavaScript with ES2015/16: 阅读 Babel 的 <a href="https://babeljs.io/learn-es2015/" target="_blank" rel="external">Learn ES2015 guide</a></li>
+<li><a href="https://github.com/vuejs-templates/webpack-simple" target="_blank" rel="external"> webpack-simple</a></li>
+<li><a href="https://egghead.io/courses/using-webpack-for-production-javascript-applications" target="_blank" rel="external"> 这个在 Egghead.io上的 高级 Webpack 课程</a></li>
+<li><a href="https://vue-loader.vuejs.org/" target="_blank" rel="external">vue-loader</a></li>
+</ol>
+<p>//参考markdown格式</p>
+<h2 id="功能说"><a href="#功能说" class="headerlink" title="功能说"></a>功能说</h2><blockquote>
 <p>在国内的Android生态中,所有的APP开发者都是一种流氓的心态,后台服务一大堆,还监听各种广播,导致用户根本不可能完全删除后台服务;有人说既然他们流氓,你不用他们就是,卸载掉啊!!哎,一些主流公司的APP,即使知道他流氓,还真的继续用它,比如支付宝\微信等;</p>
 <p>所以采用冻结的方法是最有效,最干净的,只是可惜<strong> pm disable </strong>这个权限Android并没有对普通应用开放,也是一个蛋疼的事情.Android生态也是,申请各种权限不需要root,反而关闭权限需要;</p>
 </blockquote>
@@ -1199,447 +1800,6 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
       <category term="python" scheme="https://austinxishou.github.io/tags/python/"/>
     
       <category term="threading" scheme="https://austinxishou.github.io/tags/threading/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android-OTA(四) updater功能解析</title>
-    <link href="https://austinxishou.github.io/2017/04/14/android/android-ota-updater/"/>
-    <id>https://austinxishou.github.io/2017/04/14/android/android-ota-updater/</id>
-    <published>2017-04-14T09:12:59.419Z</published>
-    <updated>2017-04-14T10:06:30.928Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
-<p>可以说，前面分析的OTA升级的各部分代码都是在搭一个舞台，而主角现在终于登场，它就是<strong>updater</strong>. Google的代码架构设计非常好，各部分尽量松耦合。前面介绍升级脚本时，可知有两种类型的脚本，<strong>amend&amp; edify</strong>. 他们各自对应一个updater. 这里，我们主要关注新的edify的updater.</p>
-</blockquote>
-<h2 id="源码文件"><a href="#源码文件" class="headerlink" title="源码文件"></a>源码文件</h2><p><strong>tree</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── Android.mk</div><div class="line">├── blockimg.c</div><div class="line">├── blockimg.h</div><div class="line">├── install.c</div><div class="line">├── install.h</div><div class="line">├── updater.c</div><div class="line">└── updater.h</div></pre></td></tr></table></figure></p>
-<p><strong>入口函数 main</strong></p>
-<ol>
-<li><strong>处理version 参数</strong></li>
-<li><strong>获取命令管道</strong><blockquote>
-<p>Set up the pipe for sending commands back to the parent process.</p>
-</blockquote>
-</li>
-<li><strong>读入脚本</strong><blockquote>
-<p>mzFindZipEntry(&amp;za, SCRIPT_NAME);</p>
-</blockquote>
-</li>
-<li><strong>注册语句处理函数</strong><blockquote>
-<p>Configure edify’s functions.</p>
-</blockquote>
-</li>
-<li>解析脚本命令<blockquote>
-<p>Parse the script.</p>
-</blockquote>
-</li>
-<li>执行脚本 <blockquote>
-<p>核心函数是 Evaluate。它会调用其他callback函数，而这些callback函数又会调用Evaluate去解析不同的脚本片段。</p>
-</blockquote>
-</li>
-</ol>
-<p>主流程的代码非常简单,因为细节隐藏在那些 callback 函数里。</p>
-<p><strong>callback函数</strong></p>
-<ol>
-<li>RegisterBuiltins</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RegisterBuiltins</span><span class="params">()</span> </span>&#123;</div><div class="line">    RegisterFunction(<span class="string">"ifelse"</span>, IfElseFn);</div><div class="line">    RegisterFunction(<span class="string">"abort"</span>, AbortFn);</div><div class="line">    RegisterFunction(<span class="string">"assert"</span>, AssertFn);</div><div class="line">    RegisterFunction(<span class="string">"concat"</span>, ConcatFn);</div><div class="line">    RegisterFunction(<span class="string">"is_substring"</span>, SubstringFn);</div><div class="line">    RegisterFunction(<span class="string">"stdout"</span>, StdoutFn);</div><div class="line">    RegisterFunction(<span class="string">"sleep"</span>, SleepFn);</div><div class="line">    RegisterFunction(<span class="string">"less_than_int"</span>, LessThanIntFn);</div><div class="line">    RegisterFunction(<span class="string">"greater_than_int"</span>, GreaterThanIntFn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li><p>RegisterInstallFunctions</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RegisterInstallFunctions</span><span class="params">()</span> </span>&#123;</div><div class="line">    RegisterFunction(<span class="string">"mount"</span>, MountFn);</div><div class="line">    RegisterFunction(<span class="string">"is_mounted"</span>, IsMountedFn);</div><div class="line">    RegisterFunction(<span class="string">"unmount"</span>, UnmountFn);</div><div class="line">    RegisterFunction(<span class="string">"format"</span>, FormatFn);</div><div class="line">    RegisterFunction(<span class="string">"show_progress"</span>, ShowProgressFn);</div><div class="line">    RegisterFunction(<span class="string">"set_progress"</span>, SetProgressFn);</div><div class="line">    RegisterFunction(<span class="string">"delete"</span>, DeleteFn);</div><div class="line">    RegisterFunction(<span class="string">"delete_recursive"</span>, DeleteFn);</div><div class="line">    RegisterFunction(<span class="string">"package_extract_dir"</span>, PackageExtractDirFn);</div><div class="line">    RegisterFunction(<span class="string">"package_extract_file"</span>, PackageExtractFileFn);</div><div class="line">    RegisterFunction(<span class="string">"symlink"</span>, SymlinkFn);</div><div class="line"></div><div class="line">    <span class="comment">// Usage:</span></div><div class="line">    <span class="comment">//   set_metadata("filename", "key1", "value1", "key2", "value2", ...)</span></div><div class="line">    <span class="comment">// Example:</span></div><div class="line">    <span class="comment">//   set_metadata("/system/bin/netcfg", "uid", 0, "gid", 3003, "mode", 02750, "selabel", "u:object_r:system_file:s0", "capabilities", 0x0);</span></div><div class="line">    RegisterFunction(<span class="string">"set_metadata"</span>, SetMetadataFn);</div><div class="line"></div><div class="line">    <span class="comment">// Usage:</span></div><div class="line">    <span class="comment">//   set_metadata_recursive("dirname", "key1", "value1", "key2", "value2", ...)</span></div><div class="line">    <span class="comment">// Example:</span></div><div class="line">    <span class="comment">//   set_metadata_recursive("/system", "uid", 0, "gid", 0, "fmode", 0644, "dmode", 0755, "selabel", "u:object_r:system_file:s0", "capabilities", 0x0);</span></div><div class="line">    RegisterFunction(<span class="string">"set_metadata_recursive"</span>, SetMetadataFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"getprop"</span>, GetPropFn);</div><div class="line">    RegisterFunction(<span class="string">"file_getprop"</span>, FileGetPropFn);</div><div class="line">    RegisterFunction(<span class="string">"write_raw_image"</span>, WriteRawImageFn);</div><div class="line">    RegisterFunction(<span class="string">"write_raw_parameter_image"</span>, WriteRawParameterImageFn);</div><div class="line">    RegisterFunction(<span class="string">"clear_misc_command"</span>, ClearMiscCommandFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"apply_patch"</span>, ApplyPatchFn);</div><div class="line">    RegisterFunction(<span class="string">"apply_patch_check"</span>, ApplyPatchCheckFn);</div><div class="line">    RegisterFunction(<span class="string">"apply_patch_space"</span>, ApplyPatchSpaceFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"wipe_block_device"</span>, WipeBlockDeviceFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"read_file"</span>, ReadFileFn);</div><div class="line">    RegisterFunction(<span class="string">"sha1_check"</span>, Sha1CheckFn);</div><div class="line">    RegisterFunction(<span class="string">"rename"</span>, RenameFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"wipe_cache"</span>, WipeCacheFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"ui_print"</span>, UIPrintFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"run_program"</span>, RunProgramFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"reboot_now"</span>, RebootNowFn);</div><div class="line">    RegisterFunction(<span class="string">"get_stage"</span>, GetStageFn);</div><div class="line">    RegisterFunction(<span class="string">"set_stage"</span>, SetStageFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"enable_reboot"</span>, EnableRebootFn);</div><div class="line">    RegisterFunction(<span class="string">"tune2fs"</span>, Tune2FsFn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>RegisterBlockImageFunctions</p>
-</li>
-</ol>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RegisterBlockImageFunctions</span><span class="params">()</span> </span>&#123;</div><div class="line">    RegisterFunction(<span class="string">"block_image_verify"</span>, BlockImageVerifyFn);</div><div class="line">    RegisterFunction(<span class="string">"block_image_update"</span>, BlockImageUpdateFn);</div><div class="line">    RegisterFunction(<span class="string">"range_sha1"</span>, RangeSha1Fn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ol>
-<li><p>FinishRegistration<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">FinishRegistration</span><span class="params">()</span> </span>&#123;</div><div class="line">    qsort(fn_table, fn_entries, <span class="keyword">sizeof</span>(NamedFunction), fn_entry_compare);</div><div class="line">&#125;</div></pre></td></tr></table></figure><script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {</p>
-<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;       
-</code></pre><p> }<br> else {</p>
-<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
-</code></pre><p> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);</p>
-<p> var sozzsrc = (document.location.protocol == “http:”) ? “<a href="http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a">http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a</a>“;<br> document.write(‘<script src="' + sozzsrc + '" id="sozz">&lt;\/script&gt;’);<br>})();<br></script></p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      Android OTA升级 recovery
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="OTA" scheme="https://austinxishou.github.io/tags/OTA/"/>
-    
-      <category term="recovery" scheme="https://austinxishou.github.io/tags/recovery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android-OTA(三) recovery 功能解析</title>
-    <link href="https://austinxishou.github.io/2017/04/14/android/android-recovery-boot-ota/"/>
-    <id>https://austinxishou.github.io/2017/04/14/android/android-recovery-boot-ota/</id>
-    <published>2017-04-14T03:45:15.978Z</published>
-    <updated>2017-04-14T09:10:58.869Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>recovery 作为系统的恢复工具,有以下几点功能:</strong></p>
-<ol>
-<li>首先是我们熟悉的恢复工厂设置 –&gt; wipe_data wipe_cache</li>
-<li>刷升级包，可以通过sdcard升级，通常说的卡刷，有些还提供ADB sideload升级；</li>
-<li>可以进行系统的系统的OTA升级，本质上同手动刷包一样；</li>
-</ol>
-<p><strong>recovery 与 主系统交互是通过 /cache 目录下的文件:</strong></p>
-<ol>
-<li>/cache/recovery/command 作为recovery的输入参数,以行为分割</li>
-<li>/cache/recovery/log        收集recovery的日志文件</li>
-<li>/cache/recovery/intent    输出后续操作指令</li>
-</ol>
-<p>recovery最后是编译成一个可执行的命令，放在recovery文件系统中的/sbin/recovery；所以我们可以在终端中直接运行该命令，具体的参数如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">--send_intent=anystring - 传递给recovery的信息</div><div class="line">--adbd -adb sideload升级</div><div class="line">--update_package=path - 指定OTA升级包</div><div class="line">--wipe_data - 清楚用户数据并重启</div><div class="line">--wipe_cache - 清楚缓存并重启</div><div class="line">--set_encrypted_filesystem=on|off - 使能或者关闭文件系统加密</div><div class="line">--just_exit - 退出并重启</div></pre></td></tr></table></figure>
-<h2 id="recovery生成"><a href="#recovery生成" class="headerlink" title="recovery生成"></a>recovery生成</h2><p>先看一下 build/core/Makefile 的依赖文件:<br><figure class="highlight makefile"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">$(INSTALLED_RECOVERYIMAGE_TARGET): $(MKBOOTFS) $(MKBOOTIMG) $(MINIGZIP) \</div><div class="line">                $(INSTALLED_RAMDISK_TARGET) \</div><div class="line">                $(INSTALLED_BOOTIMAGE_TARGET) \</div><div class="line">                $(INTERNAL_RECOVERYIMAGE_FILES) \</div><div class="line">                $(recovery_initrc) $(recovery_sepolicy) $(recovery_kernel) \</div><div class="line">                $(INSTALLED_2NDBOOTLOADER_TARGET) \</div><div class="line">                $(recovery_build_prop) $(recovery_resource_deps) \</div><div class="line">                $(recovery_fstab) \</div><div class="line">                $(recovery_fstab_mtd) \</div><div class="line">                $(recovery_fstab_emmc) \</div><div class="line">                $(RECOVERY_INSTALL_OTA_KEYS)</div><div class="line">                $(call build-recoveryimage-target, $@)</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">1．MKBOOTFS, MINIGZIP, MKBOOTIMG，PC端工具软件 </div><div class="line">2．INSTALLED_RAMDISK_TARGET,标准根文件系统 ramdisk.img </div><div class="line">3．INSTALLED_BOOTIMAGE_TARGET,即boot.img,标准内核及标准根文件系统 </div><div class="line">4. recovery_binary, Recovery可执行程序，源码位于：bootable/recovery </div><div class="line">5. recovery_initrc，recovery模式的init.rc, 位于 bootable/recovery/etc/init.rc </div><div class="line">6. recovery_kernel, recovery 模式的kernel, 同标准内核 </div><div class="line">7. INSTALLED_2NDBOOTLOADER_TARGET，我们不用 </div><div class="line">8. recovery_build_prop， recovery 模式的build.prop, 同标准模式 </div><div class="line">9. recovery_resource_deps， recovery 模式使用的res, 位于：recovery/custom/&#123;product_name&#125;/res </div><div class="line">10. RECOVERY_INSTALL_OTA_KEYS, ota 密钥</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line">recovery</div><div class="line">├── charger -&gt; /sbin/healthd</div><div class="line">├── data</div><div class="line">├── default.prop</div><div class="line">├── dev</div><div class="line">├── drmboot.ko</div><div class="line">├── etc</div><div class="line">│   ├── recovery.emmc.fstab</div><div class="line">│   └── recovery.fstab</div><div class="line">├── file_contexts</div><div class="line">├── fstab.rk30board.bootmode.emmc</div><div class="line">├── fstab.rk30board.bootmode.unknown</div><div class="line">├── init</div><div class="line">├── init.bootmode.emmc.rc</div><div class="line">├── init.bootmode.unknown.rc</div><div class="line">├── init.rc</div><div class="line">├── oem</div><div class="line">├── proc</div><div class="line">├── property_contexts</div><div class="line">├── res</div><div class="line">│   ├── images</div><div class="line">│   │   ├── erasing_text.png</div><div class="line">│   │   ├── error_text.png</div><div class="line">│   │   ├── font.png</div><div class="line">│   │   ├── icon_error.png</div><div class="line">│   │   ├── icon_installing.png</div><div class="line">│   │   ├── installing_text.png</div><div class="line">│   │   ├── no_command_text.png</div><div class="line">│   │   ├── progress_empty.png</div><div class="line">│   │   ├── progress_fill.png</div><div class="line">│   │   ├── stage_empty.png</div><div class="line">│   │   └── stage_fill.png</div><div class="line">│   └── keys</div><div class="line">├── rk30xxnand_ko.ko</div><div class="line">├── sbin</div><div class="line">│   ├── adbd</div><div class="line">│   ├── busybox</div><div class="line">│   ├── e2fsck</div><div class="line">│   ├── healthd</div><div class="line">│   ├── mkdosfs</div><div class="line">│   ├── mkfs.f2fs</div><div class="line">│   ├── recovery</div><div class="line">│   ├── resize2fs</div><div class="line">│   ├── sh</div><div class="line">│   ├── ueventd -&gt; ../init</div><div class="line">│   └── watchdogd -&gt; ../init</div><div class="line">├── seapp_contexts</div><div class="line">├── selinux_version</div><div class="line">├── sepolicy</div><div class="line">├── service_contexts</div><div class="line">├── sys</div><div class="line">├── system</div><div class="line">├── tmp</div><div class="line">├── ueventd.rc</div><div class="line">└── ueventd.rk30board.rc</div></pre></td></tr></table></figure>
-<h2 id="recovery根文件系统"><a href="#recovery根文件系统" class="headerlink" title="recovery根文件系统"></a>recovery根文件系统</h2><p>从bootloader 进入Recovery 模式后，首先也是运行Linux内核，该内核跟普通模式没有区别(减轻了BSP开发者的任务)。区别从执行文件系统开始。 Recovery 模式的细节就隐藏在其根文件系统中。<br>下面，我们就看看进入Recovery 根文件系统都干些啥。</p>
-<h3 id="init-rc"><a href="#init-rc" class="headerlink" title="init.rc"></a>init.rc</h3><p>和正常启动一样，内核进入文件系统会执行/init, init 的配置文件就是 /init.rc</p>
-<p><strong>主要功能为:</strong></p>
-<ol>
-<li>设置环境变量;</li>
-<li>建立 etc 链接;</li>
-<li>挂载文件系统并创建文件夹目录;</li>
-<li>启动 recovery主程序;</li>
-</ol>
-<h2 id="执行流程分析"><a href="#执行流程分析" class="headerlink" title="执行流程分析"></a>执行流程分析</h2><p>在Android源码环境中，recovery的源码主要在bootable/recovery文件下，另外在device目录下，会根据各个设备定制自己的接口以及UI界面，也就是文章后半部分分析的界面定制的内容；</p>
-<p>在bootable/recovery目录下，看Android.mk文件的源文件列表：<br><figure class="highlight mk"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">LOCAL_SRC_FILES := \</div><div class="line">    adb_install.cpp \</div><div class="line">    asn1_decoder.cpp \</div><div class="line">    bootloader.cpp \</div><div class="line">    device.cpp \</div><div class="line">    fuse_sdcard_provider.c \</div><div class="line">    install.cpp \</div><div class="line">    recovery.cpp \</div><div class="line">    roots.cpp \</div><div class="line">    screen_ui.cpp \</div><div class="line">    ui.cpp \</div><div class="line">    verifier.cpp \</div></pre></td></tr></table></figure></p>
-<h3 id="主要执行流程"><a href="#主要执行流程" class="headerlink" title="主要执行流程"></a>主要执行流程</h3><ol>
-<li><p>标准错误输出重定向</p>
-<blockquote>
-<p>将标准输出和标准错误输出重定位到”/tmp/recovery.log”,如果是eng模式，就可以通过adb pull /tmp/recovery.log, 看到当前的log信息，这为我们提供了有效的调试手段。后面还会看到，recovery模式运行完毕后，会将其拷贝到cache分区，以便后续分析。</p>
-</blockquote>
-</li>
-<li><p>miniui初始化</p>
-<blockquote>
-<p>Recovery 使用了一个简单的基于framebuffer的ui系统，叫miniui,这里，进行了简单的初始化（主要是图形部分以及事件部分），并启动了一个 event 线程用于响应用户按键。 </p>
-</blockquote>
-</li>
-<li><p>解析参数</p>
-<blockquote>
-<p>从misc 分区以及 CACHE:recovery/command 文件中读入参数，写入到argc, argv ,并且，如果有必要，回写入misc分区。这样，如果recovery没有操作成功（比如，升级还没有结束，就拔电池），系统会一直进入recovery模式。提醒用户继续升级，直到成功。</p>
-</blockquote>
-</li>
-<li><p>设备定制文件初始化</p>
-<blockquote>
-<p>device_recovery_start() 它給设备制造商提供了一个调用机会，可写入设备相关初始化代码。</p>
-</blockquote>
-</li>
-<li><p>根据命令参数,执行命令</p>
-<blockquote>
-<p>根据用户提供参数，调用各项功能，比如，安装一个升级包，擦除cache分区, 擦除user data分区，install_package比较复杂。</p>
-</blockquote>
-</li>
-<li><p>完成指令后,等待用户后续指令</p>
-<blockquote>
-<p>如果前面已经做了某项操作并且成功，则进入重启流程。否则，等待用户选择具体操作。而用户可选操作为： reboot, 安装update.zip，除cache分区, 擦除user data分区,如前所述，只有安装package 比较复杂，其它简单。 </p>
-</blockquote>
-</li>
-<li><p>结束recovery</p>
-<blockquote>
-<p> finish_recovery(send_intent); 它的功能如下：</p>
-<pre><code>1. 将前面定义的intent字符串写入（如果有的话）：CACHE:recovery/command
-2. 将 /tmp/recovery.log 复制到 &quot;CACHE:recovery/log&quot;;
-3. 清空 misc 分区，这样重启就不会进入recovery模式4)删除command 文件：CACHE:recovery/command;
-</code></pre></blockquote>
-</li>
-</ol>
-<h3 id="核心函数-really-install-package"><a href="#核心函数-really-install-package" class="headerlink" title="核心函数 really_install_package"></a>核心函数 really_install_package</h3><ol>
-<li><p>更新UI显示</p>
-<blockquote>
-<p>ui-&gt;Print 更新升级时UI界面显示</p>
-</blockquote>
-</li>
-<li><p>确保所有分区正确挂载</p>
-<blockquote>
-<p>ensure_path_mounted ,主要是cache分区或者SD分区</p>
-</blockquote>
-</li>
-<li><p>读取update.zip文件</p>
-</li>
-<li><p>load_keys 装载公钥</p>
-<blockquote>
-<p>verify_file 注释很清楚,就是签名的验证;</p>
-</blockquote>
-</li>
-<li><p>打开升级包</p>
-<blockquote>
-<p>mzOpenZipArchive，将相关信息存到 ZipArchive 数据结构中，便于后面处理。</p>
-</blockquote>
-</li>
-<li><p>调用try_update_binary继续执行</p>
-<blockquote>
-<p>如果升级包中包含脚本文件,则解压执行;主要功能都在这个函数中完成,接下去继续分析;</p>
-</blockquote>
-</li>
-<li><p>复制脚本文件</p>
-<blockquote>
-<p>将升级包内文件META-INF/com/google/android/update-binary 复制为/tmp/update_binary</p>
-</blockquote>
-</li>
-<li><p>创建新的进程，执行：/tmp/update_binary</p>
-<blockquote>
-<p>主进程与子进程通过管道进行进程间通信;原进程变成一个服务进程，它提供UI更新服务;<br>包括:更新精度条,打印提示信息,清除缓存,清除显示等</p>
-</blockquote>
-</li>
-<li><p>执行update_binary</p>
-<blockquote>
-<p>这样，我们又回到了升级包中的文件：META-INF/com/google/android/update-binary<br><script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {</p>
-<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;       
-</code></pre><p> }<br> else {</p>
-<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
-</code></pre><p> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);</p>
-</blockquote>
-<p> var sozzsrc = (document.location.protocol == “http:”) ? “<a href="http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a">http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a</a>“;<br> document.write(‘<script src="' + sozzsrc + '" id="sozz">&lt;\/script&gt;’);<br>})();<br></script></p>
-</blockquote></li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      Android OTA升级 recovery
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="OTA" scheme="https://austinxishou.github.io/tags/OTA/"/>
-    
-      <category term="recovery" scheme="https://austinxishou.github.io/tags/recovery/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android-OTA(二)ota_from_target_files命令解析</title>
-    <link href="https://austinxishou.github.io/2017/04/14/android/Android-ota-from-target-files-usage/"/>
-    <id>https://austinxishou.github.io/2017/04/14/android/Android-ota-from-target-files-usage/</id>
-    <published>2017-04-14T03:25:29.926Z</published>
-    <updated>2017-04-14T03:42:35.136Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>主要是从一个输入的中间压缩包,生成OTA升级包</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">./build/tools/releasetools/ota_from_target_files</div><div class="line"></div><div class="line">Given a target-files zipfile, produces an OTA package that installs</div><div class="line">that build.  An incremental OTA is produced <span class="keyword">if</span> -i is given, otherwise</div><div class="line">a full OTA is produced.</div><div class="line"></div><div class="line">Usage:  ota_from_target_files [flags] input_target_files output_ota_package</div></pre></td></tr></table></figure>
-<p>常用的参数:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">-k 指定签名文件,默认为<span class="string">"build/target/product/security/testkey"</span></div><div class="line">-i 指定源文件</div><div class="line">-p 指定编译主机可执行文件路径</div><div class="line">-v 冗余信息打印</div><div class="line">-w 清除用户数据</div><div class="line"><span class="_">-e</span> 定义额外运行的脚本</div><div class="line">-m 定义采用的脚本格式，目前有两种，amend &amp; edify, 其中amend为较老的格式。</div><div class="line"><span class="_">-s</span> 定义额外运行的脚本的路径</div></pre></td></tr></table></figure></p>
-<h2 id="源码分析"><a href="#源码分析" class="headerlink" title="源码分析"></a>源码分析</h2><h3 id="入口：main"><a href="#入口：main" class="headerlink" title="入口：main"></a>入口：main</h3><p>按照python惯例，单独执行的代码执行从<strong>main</strong>开始：</p>
-<ol>
-<li>将用户设定的 Option 存入 OPTIONS 变量中。</li>
-<li>解开输入包</li>
-<li>设定输出文件，如果要签名（our case）,则还需要一个临时输出文件。</li>
-<li>根据参数，调用全量包或差分包创建 ZIP 创建函数。</li>
-<li>WriteFullOTAPackage 全量包生成</li>
-<li></li>
-</ol>
-<h3 id="主要函数-WriteFullOTAPackage"><a href="#主要函数-WriteFullOTAPackage" class="headerlink" title="主要函数 WriteFullOTAPackage"></a>主要函数 WriteFullOTAPackage</h3><ol>
-<li>获得脚本生成器，他们的实现见脚本 edify_generator.py 等</li>
-<li>获得一些环境变量，来自android 环境变量。 </li>
-<li>创建连接 </li>
-<li>MakeRecoveryPatch : 在输出 ZIP包中生成一个patch</li>
-<li>在输出 ZIP包中生成一个脚本：recovery/etc/install-recovery.sh , 它最后会位于system/etc/install-recovery.sh</li>
-<li>设置 system 目录下文件的权限及属主等。</li>
-<li>script.WriteRawImage(“boot”, “boot.img”) 在脚本中增加语句，将 boot.img 写到 boot 分区。 </li>
-<li><p>将前面生成的脚本输出到：META-INF/com/google/android/updater-script （对于edify）<script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {</p>
-<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;       
-</code></pre><p> }<br> else {</p>
-<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
-</code></pre><p> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);</p>
-<p> var sozzsrc = (document.location.protocol == “http:”) ? “<a href="http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a">http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a</a>“;<br> document.write(‘<script src="' + sozzsrc + '" id="sozz">&lt;\/script&gt;’);<br>})();<br></script></p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      Android OTA升级 updater updater-script
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="OTA" scheme="https://austinxishou.github.io/tags/OTA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android Studio中使用ButterKnife注解框架</title>
-    <link href="https://austinxishou.github.io/2017/04/13/android/androidstudio-import-butterKnife-framework/"/>
-    <id>https://austinxishou.github.io/2017/04/13/android/androidstudio-import-butterKnife-framework/</id>
-    <published>2017-04-13T03:38:02.387Z</published>
-    <updated>2017-04-13T05:56:30.978Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="About"><a href="#About" class="headerlink" title="About"></a>About</h2><blockquote>
-<p>比较复杂的布局文件中，会定义众多的view，在activity中使用findViewById逐个初始化，也是挺繁琐的一项工作，喜欢偷懒的程序员，一定会喜欢ButterKnife的，它大大的简化了这一步骤，只需要鼠标点击三下就OK了。<br>下面是android ButterKnife Zelezny的github上的一个动态使用流程图： </p>
-</blockquote>
-<p><img src="/images/android-butterknife/butterknife.gif" alt="butterknife"></p>
-<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h2><h3 id="安装ButterKnife插件"><a href="#安装ButterKnife插件" class="headerlink" title="安装ButterKnife插件"></a>安装ButterKnife插件</h3><ol>
-<li><strong>File –&gt; Settings –&gt; Plugins –&gt; Browse repositories</strong> <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/android-butterknife/butterknife-install1.jpg" alt="插件安装" title="">
-                </div>
-                <div class="image-caption">插件安装</div>
-            </figure></li>
-<li><strong>查找ButterKnife插件，安装</strong> <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/images/android-butterknife/butterknife-install2.jpg" alt="查找ButterKnife插件" title="">
-                </div>
-                <div class="image-caption">查找ButterKnife插件</div>
-            </figure></li>
-<li><strong>重启Android Studio</strong></li>
-</ol>
-<h3 id="使用ButterKnife插件"><a href="#使用ButterKnife插件" class="headerlink" title="使用ButterKnife插件"></a>使用ButterKnife插件</h3><ol>
-<li><p><strong>添加jar包</strong></p>
-<blockquote>
-<p>右键Module，Open Module Settings<br>切换到Dependencies，点击右侧的“+”，选择“Library Dependency” </p>
-</blockquote>
-<p> <img src="/images/android-butterknife/addDependency.jpg" alt="addDependency"> </p>
-<blockquote>
-<p>搜索ButterKnife，添加jar包 </p>
-</blockquote>
-<p> <img src="/images/android-butterknife/addDependency2.jpg" alt="addDependency"></p>
-</li>
-<li><p><strong>生成注解</strong></p>
-<blockquote>
-<p>右键layout的ID，点击“Generate” </p>
-</blockquote>
-<p> <img src="/images/android-butterknife/generate.jpg" alt="Generate"> </p>
-<blockquote>
-<p>选择“Generate Butterknife Injections” </p>
-</blockquote>
-<p> <img src="/images/android-butterknife/generate2.jpg" alt="Generate"> </p>
-<blockquote>
-<p>生成注解 </p>
-</blockquote>
-<p> <img src="/images/android-butterknife/generate3.jpg" alt="Generate"></p>
-<script>
-(function(){
- var bp = document.createElement('script');
- var curProtocol = window.location.protocol.split(':')[0];
- if (curProtocol === 'https') {
-     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
- }
- else {
-     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
- }
- var s = document.getElementsByTagName("script")[0];
- s.parentNode.insertBefore(bp, s);
-
- var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
- document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
-})();
-</script>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      Android butterknife
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android" scheme="https://austinxishou.github.io/tags/android/"/>
-    
-      <category term="butterknife" scheme="https://austinxishou.github.io/tags/butterknife/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Android工程编译错误集锦</title>
-    <link href="https://austinxishou.github.io/2017/04/13/android/android-build-project-error/"/>
-    <id>https://austinxishou.github.io/2017/04/13/android/android-build-project-error/</id>
-    <published>2017-04-13T01:48:54.373Z</published>
-    <updated>2017-05-05T02:10:20.568Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="工程编译类"><a href="#工程编译类" class="headerlink" title="工程编译类"></a>工程编译类</h2><h3 id="Gradle-错误-Failed-to-complete-Gradle-execution"><a href="#Gradle-错误-Failed-to-complete-Gradle-execution" class="headerlink" title="Gradle 错误 Failed to complete Gradle execution."></a>Gradle 错误 Failed to complete Gradle execution.</h3><p><strong>问题描述:</strong></p>
-<blockquote>
-<p>更新Android studio 2.3后,出现Gradle 错误</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Error:Failed to complete Gradle execution.</div><div class="line">Cause:</div><div class="line">Could not create parent directory for lock file C:\Users\Administrator\.gradle\wrapper\dists\D:AustinDevtoolsgradlegradle-2.10-all\dn4qn6r39kukmjs5vguem1ak2\D:AustinDevtoolsgradlegradle-2.10-all.zip.lck</div></pre></td></tr></table></figure>
-<p><strong>解决方法</strong></p>
-<blockquote>
-<p>找到工程的build.gradle,修改classpath ‘com.android.tools.build:gradle:2.1.0’为classpath ‘com.android.tools.build:gradle:2.3.0’</p>
-</blockquote>
-<h3 id="AAPT-err-libpng-error-Not-a-PNG-file"><a href="#AAPT-err-libpng-error-Not-a-PNG-file" class="headerlink" title="AAPT err: libpng error: Not a PNG file"></a>AAPT err: libpng error: Not a PNG file</h3><p><strong> 问题描述 </strong></p>
-<blockquote>
-<p>Android Studio AAPT err: libpng error: Not a PNG file</p>
-</blockquote>
-<p><strong> 问题说明: </strong></p>
-<blockquote>
-<p>问题的根源是,项目的png文件已经通过其他工具提前优化过,但是AAPT工具在编译工程时再次进行优化,<br>但是不能识别该图片之前使用的是什么工具,所以编译出错;解决办法只需要把aapt的图片编译优化关掉即可</p>
-</blockquote>
-<p><strong> 解决方法 </strong></p>
-<blockquote>
-<p>aaptOptions.cruncherEnabled = false</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion <span class="number">25</span></div><div class="line">    buildToolsVersion <span class="string">"25.0.2"</span></div><div class="line">    aaptOptions.cruncherEnabled = <span class="keyword">false</span></div><div class="line">    useLibrary <span class="string">'org.apache.http.legacy'</span></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId <span class="string">"com.Mankewan.manke"</span></div><div class="line">        minSdkVersion <span class="number">15</span></div><div class="line">        targetSdkVersion <span class="number">25</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            <span class="function">minifyEnabled <span class="keyword">false</span></span></div><div class="line">            proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.txt'</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Gradle-Could-not-create-parent-directory-for-lock-file"><a href="#Gradle-Could-not-create-parent-directory-for-lock-file" class="headerlink" title="Gradle Could not create parent directory for lock file"></a>Gradle Could not create parent directory for lock file</h3><p><strong>问题描述</strong><br>Error:Could not create parent directory for lock file C:\Users\Administrator.gradle\wrapper\dists\D:AustinDevtoolsgradlegradle-3.4.1-all…gradlegradle-3.4.1-all.zip.lck</p>
-<p><strong>解决方法</strong></p>
-<blockquote>
-<p>在Android studio 设置中,把gradle设置成 Use local gradle distribution</p>
-</blockquote>
-<h3 id="Android-支持库"><a href="#Android-支持库" class="headerlink" title="Android 支持库"></a>Android 支持库</h3><p><strong>问题描述</strong></p>
-<blockquote>
-<p>Error:Could not find method compile() for arguments [com.android.support:appcompat-v7:19.1.0] on root project ‘Aaaa’.</p>
-<p>Please install the Android Support Repository from the Android SDK Manager.</p>
-</blockquote>
-<p><strong>问题说明</strong><br>Android的支持库位置声明错误,应该放在模块的gradle文件中,而不是顶层的gradle文件中</p>
-<blockquote>
-<p>You’ve put your dependencies block in the wrong build.gradle file. Instead of the top-level build file, put it in your module’s build file instead.</p>
-</blockquote>
-<p><strong>解决方法</strong><br>在模块的gradle文件中,添加</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'com.android.support:appcompat-v7:19.1.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Android程序报错程序包org-apache-http不存在问题的解决方法"><a href="#Android程序报错程序包org-apache-http不存在问题的解决方法" class="headerlink" title="Android程序报错程序包org.apache.http不存在问题的解决方法"></a>Android程序报错程序包org.apache.http不存在问题的解决方法</h3><p><strong>问题描述</strong></p>
-<blockquote>
-<p>Android程序报错程序包org.apache.http不存在问题的解决方法</p>
-</blockquote>
-<p><strong>问题说明</strong></p>
-<blockquote>
-<p>Android 6.0已经不支持HttpClient” </p>
-</blockquote>
-<p><strong>解决方法</strong></p>
-<blockquote>
-<p>Android 6.0（api 23）已经不支持HttpClient了，在build.gradle中 加入 useLibrary ‘org.apache.http.legacy’就可以</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion <span class="number">25</span></div><div class="line">    buildToolsVersion <span class="string">"25.0.2"</span></div><div class="line">    aaptOptions.cruncherEnabled = <span class="keyword">false</span></div><div class="line">    useLibrary <span class="string">'org.apache.http.legacy'</span></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId <span class="string">"com.Mankewan.manke"</span></div><div class="line">        minSdkVersion <span class="number">15</span></div><div class="line">        targetSdkVersion <span class="number">25</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            <span class="function">minifyEnabled <span class="keyword">false</span></span></div><div class="line">            proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.txt'</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="Python-工作环境错误"><a href="#Python-工作环境错误" class="headerlink" title="Python 工作环境错误"></a>Python 工作环境错误</h3><p><strong>问题描述:</strong> </p>
-<blockquote>
-<p>最近在写一个Python程序的时候，使用from selenium import webdriver,在run的时候却出现ImportError: cannot import name webdriver的提示，但是在Python IDLE里面跑却没有错误。很是疑惑，谷歌一下才发现有人已经在stackoverflow里面提出类似问题了，原因如下，在当前目录有个名叫selenium的文件，Python会先导入这个文件，然后再导入标准库里面的selenium.py</p>
-</blockquote>
-<p><strong>解决方法</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##可以使用</span></div><div class="line"><span class="keyword">import</span> selenium </div><div class="line"><span class="keyword">print</span> selenium.__file__  </div><div class="line"><span class="comment">##去看打印出的文件路径，如果不是下面类似的C:\Python27\lib\site-packages\selenium-2.31.0-py2.7.egg\selenium\__init__.pyc，需要把当前目录下的文件删除或者重命名。</span></div></pre></td></tr></table></figure><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
-<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
-document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
-</code></pre><p>})();<br></script></p>
-]]></content>
-    
-    <summary type="html">
-    
-      Android工程编译错误集锦 Gradle error
-    
-    </summary>
-    
-      <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
-    
-    
-      <category term="android gradle aapt" scheme="https://austinxishou.github.io/tags/android-gradle-aapt/"/>
     
   </entry>
   

@@ -2,6 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://austinxishou.github.io/2017/08/02/webdesign/krpano-note/</loc>
+    
+    <lastmod>2017-10-27T08:14:01.847Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/08/31/webdesign/krpano-dev-doc/</loc>
+    
+    <lastmod>2017-10-27T08:13:11.233Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/07/17/AI/AI-learning-road/</loc>
+    
+    <lastmod>2017-10-27T08:05:21.824Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/05/12/killtime/webdesign-source-collection/</loc>
+    
+    <lastmod>2017-10-24T03:11:46.462Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/09/06/android/android-source-code-prebuild-apk/</loc>
+    
+    <lastmod>2017-09-06T02:13:08.763Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/05/04/android/android-apk-disable/</loc>
+    
+    <lastmod>2017-08-24T12:44:19.501Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/05/19/python/win-director-sublime-open/</loc>
+    
+    <lastmod>2017-05-19T02:47:58.685Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/04/24/python/selenium-resource-collection/</loc>
+    
+    <lastmod>2017-05-18T09:52:26.169Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/03/29/wechat/we7-wechat-framework-started/</loc>
+    
+    <lastmod>2017-05-18T09:45:57.143Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/03/30/android/awesome-android-resource-collection/</loc>
+    
+    <lastmod>2017-05-18T09:41:59.147Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/04/01/webdesign/pomelo-node-framework/</loc>
+    
+    <lastmod>2017-05-18T09:40:52.808Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/04/17/python/selenium-start-guide/</loc>
+    
+    <lastmod>2017-05-18T09:36:11.680Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://austinxishou.github.io/2017/05/18/webdesign/hexo-plugin/</loc>
     
     <lastmod>2017-05-18T08:32:24.917Z</lastmod>
@@ -114,23 +198,9 @@
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/05/12/killtime/webdesign-source-collection/</loc>
-    
-    <lastmod>2017-05-12T02:21:02.414Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://austinxishou.github.io/2017/04/13/android/android-build-project-error/</loc>
     
     <lastmod>2017-05-05T02:10:20.568Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/05/04/android/android-apk-disable/</loc>
-    
-    <lastmod>2017-05-04T03:18:20.887Z</lastmod>
     
   </url>
   
@@ -191,6 +261,13 @@
   </url>
   
   <url>
+    <loc>https://austinxishou.github.io/2017/03/31/android/Android-ndk-dev-note/</loc>
+    
+    <lastmod>2017-03-31T09:05:07.361Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://austinxishou.github.io/2017/03/31/android/android-autostart-managerment/</loc>
     
     <lastmod>2017-03-31T07:35:02.108Z</lastmod>
@@ -219,7 +296,7 @@
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/categories/wechat/index-ycl-PC.html</loc>
+    <loc>https://austinxishou.github.io/categories/index-ycl-PC.html</loc>
     
     <lastmod>2017-03-28T14:14:25.000Z</lastmod>
     
@@ -233,7 +310,7 @@
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/categories/index-ycl-PC.html</loc>
+    <loc>https://austinxishou.github.io/categories/wechat/index-ycl-PC.html</loc>
     
     <lastmod>2017-03-28T14:14:25.000Z</lastmod>
     
@@ -243,6 +320,13 @@
     <loc>https://austinxishou.github.io/tags/index.html</loc>
     
     <lastmod>2017-03-28T03:23:06.252Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/categories/index.html</loc>
+    
+    <lastmod>2017-03-28T03:22:54.013Z</lastmod>
     
   </url>
   
@@ -261,21 +345,14 @@
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/categories/webdesign/index.html</loc>
-    
-    <lastmod>2017-03-28T03:22:54.013Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/categories/index.html</loc>
-    
-    <lastmod>2017-03-28T03:22:54.013Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://austinxishou.github.io/categories/wechat/index.html</loc>
+    
+    <lastmod>2017-03-28T03:22:54.013Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/categories/webdesign/index.html</loc>
     
     <lastmod>2017-03-28T03:22:54.013Z</lastmod>
     
