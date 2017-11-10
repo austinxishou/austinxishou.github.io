@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="360-site-verification" content="f623c899b6306a6a416f749df60d39a5" />
+	<meta name="sogou_site_verification" content="b2uCFUinvb"/>
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>require.js详解——Javascript模块化编程(四) | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JavaScript">
+
+    <meta name="description" content="require.js详解 Javascript模块化编程">
+<meta property="og:type" content="article">
+<meta property="og:title" content="require.js详解——Javascript模块化编程(四)">
+<meta property="og:url" content="https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="require.js详解 Javascript模块化编程">
+<meta property="og:updated_time" content="2017-11-07T03:46:58.667Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="require.js详解——Javascript模块化编程(四)">
+<meta name="twitter:description" content="require.js详解 Javascript模块化编程">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">require.js详解——Javascript模块化编程(四)</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">require.js详解——Javascript模块化编程(四)</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-07T03:29:43.323Z" itemprop="datePublished" class="page-time">
+  2017-11-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/webdesign/">webdesign</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#About-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">About-简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#GetStarted-第一步"><span class="post-toc-number">2.</span> <span class="post-toc-text">GetStarted-第一步</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#main-js-主模块实现"><span class="post-toc-number">3.</span> <span class="post-toc-text">main.js-主模块实现</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#require-config-模块加载"><span class="post-toc-number">4.</span> <span class="post-toc-text">require.config-模块加载</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-webdesign/JavaScript-module-require"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">require.js详解——Javascript模块化编程(四)</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年11月07日 11:29" datetime="2017-11-07T03:29:43.323Z"  itemprop="datePublished">2017-11-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/webdesign/">webdesign</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About-简介"></a>About-简介</h2><blockquote>
+<p>require.js是用于解决js文件的异步加载，避免网页失去响应，另外管理模块之间的依赖性，便于代码的编写和维护。</p>
+</blockquote>
+<h2 id="GetStarted-第一步"><a href="#GetStarted-第一步" class="headerlink" title="GetStarted-第一步"></a>GetStarted-第一步</h2><ol>
+<li>使用require.js的第一步，是先去<a href="http://requirejs.org/docs/download.html" target="_blank" rel="external">官方网站</a>下载最新版本。</li>
+</ol>
+<p>下载后，假定把它放在js子目录下面，就可以加载了。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;js/require.js&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure></p>
+<p>显而易见，加载这个文件，也可能造成网页失去响应。解决办法有两个，一个是把它放在网页底部加载，另一个是写成下面这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;js/require.js&quot; defer async=&quot;true&quot; &gt;&lt;/script&gt;</div><div class="line"></div><div class="line">//async属性表明这个文件需要异步加载，避免网页失去响应。IE不支持这个属性，只支持defer，所以把defer也写上。</div></pre></td></tr></table></figure>
+<p>加载require.js以后，下一步就要加载我们自己的代码了。假定我们自己的代码文件是main.js，也放在js目录下面。那么，只需要写成下面这样就行了：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;script src=&quot;js/require.js&quot; data-main=&quot;js/main&quot;&gt;&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>data-main属性的作用是，指定网页程序的主模块。在上例中，就是js目录下面的main.js，这个文件会第一个被require.js加载。<br>由于require.js默认的文件后缀名是js，所以可以把main.js简写成main。</p>
+<h2 id="main-js-主模块实现"><a href="#main-js-主模块实现" class="headerlink" title="main.js-主模块实现"></a>main.js-主模块实现</h2><p>上述加载的main.js，称为用户主模块，它有点像C语言的main()函数，所有代码都从这儿开始运行。<br>下面就来看，怎么写main.js。</p>
+<p>主模块依赖于其他模块，这时就要使用AMD规范定义的的require()函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// main.js</div><div class="line">　　require([&apos;moduleA&apos;, &apos;moduleB&apos;, &apos;moduleC&apos;], function (moduleA, moduleB, moduleC)&#123;</div><div class="line">　　　　// some code here</div><div class="line">　　&#125;);</div></pre></td></tr></table></figure>
+<p>require()函数接受两个参数。</p>
+<ol>
+<li>第一个参数是一个数组，表示所依赖的模块，上例就是[‘moduleA’, ‘moduleB’, ‘moduleC’]，即主模块依赖这三个模块；</li>
+<li>第二个参数是一个回调函数，当前面指定的模块都加载成功后，它将被调用。加载的模块会以参数形式传入该函数，从而在回调函数内部就可以使用这些模块。</li>
+</ol>
+<p>require()异步加载moduleA，moduleB和moduleC，浏览器不会失去响应；它指定的回调函数，只有前面的模块都加载成功后，才会运行，解决了依赖性的问题。</p>
+<p>下面，我们看一个实际的例子。<br>假定主模块依赖jquery、underscore和backbone这三个模块，main.js就可以这样写：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">　　require([&apos;jquery&apos;, &apos;underscore&apos;, &apos;backbone&apos;], function ($, _, Backbone)&#123;</div><div class="line">　　　　// some code here</div><div class="line">　　&#125;);</div></pre></td></tr></table></figure>
+<p>require.js会先加载jQuery、underscore和backbone，然后再运行回调函数。主模块的代码就写在回调函数中。</p>
+<h2 id="require-config-模块加载"><a href="#require-config-模块加载" class="headerlink" title="require.config-模块加载"></a>require.config-模块加载</h2><p>上一节最后的示例中，主模块的依赖模块是[‘jquery’, ‘underscore’, ‘backbone’]。默认情况下，require.js假定这三个模块与main.js在同一个目录，文件名分别为jquery.js，underscore.js和backbone.js，然后自动加载。<br>使用require.config()方法，我们可以对模块的加载行为进行自定义。require.config()就写在主模块（main.js）的头部。参数就是一个对象，这个对象的paths属性指定各个模块的加载路径。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">require.config(&#123;</div><div class="line">    paths: &#123;</div><div class="line">		jquery:	&apos;lib/jquery-3.1.0.min&apos;,</div><div class="line">		PreloadJS: &apos;lib/preloadjs-0.6.2.min&apos;,</div><div class="line">		jweixin: &apos;http://res.wx.qq.com/open/js/jweixin-1.0.0&apos;,</div><div class="line">		jstween: &apos;lib/jstween.min&apos;,</div><div class="line">		jstimeline: &apos;lib/jstimeline.min&apos;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>上面的代码给出了三个模块的文件名，路径默认与main.js在同一个目录（js子目录）。如果这些模块在其他目录，比如js/lib目录，则有两种写法。一种是逐一指定路径。</p>
+<p>也可以通过直接改变基目录(baseUrl)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">　　require.config(&#123;</div><div class="line">　　　　baseUrl: &quot;js/lib&quot;,</div><div class="line">　　　　paths: &#123;</div><div class="line">　　　　　　&quot;jquery&quot;: &quot;jquery.min&quot;,</div><div class="line">　　　　　　&quot;underscore&quot;: &quot;underscore.min&quot;,</div><div class="line">　　　　　　&quot;backbone&quot;: &quot;backbone.min&quot;</div><div class="line">　　　　&#125;</div><div class="line">　　&#125;);</div></pre></td></tr></table></figure>
+<p>require.js要求，每个模块是一个单独的js文件。这样的话，如果加载多个模块，就会发出多次HTTP请求，会影响网页的加载速度。<br>因此，require.js提供了一个<a href="http://requirejs.org/docs/optimization.html" target="_blank" rel="external">优化工具</a>，当模块部署完毕以后，可以用这个工具将多个模块合并在一个文件中，减少HTTP请求数。</p>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-07T03:46:58.667Z" itemprop="dateUpdated">2017年11月7日 11:46</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/2017/11/07/webdesign/JavaScript-module-require/" target="_blank" rel="external">https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/&title=《require.js详解——Javascript模块化编程(四)》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/&title=《require.js详解——Javascript模块化编程(四)》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《require.js详解——Javascript模块化编程(四)》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/07/webdesign/JavaScript-module-amd/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">AMD模块详解——Javascript模块化编程(三)</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/06/krpano/krpano-skin-develop/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Krpano-skin 皮肤详解及配置说明</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/&title=《require.js详解——Javascript模块化编程(四)》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/&title=《require.js详解——Javascript模块化编程(四)》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《require.js详解——Javascript模块化编程(四)》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACvElEQVR42u3aQW7DMAwEwPz/0+m1QGF7l5IKH8anoI1jjQJQDMnPJ76+8XX1/vvP/P2Xv++5+u+2Cw8PD2/r0vOlXC0o/8v9pszuwsPDwzvHSxZ6vylJZM4Xev+UZM14eHh4b+PNUt575GyD8PDw8N7PmxUj7hPr/AjBw8PDew8vWVBSbsjrqPfL2lXCwMPDwzvBy7tI73l9pL+Hh4eHt3UgIAnl7SevJ+gP9+Lh4eEd4LXl1zb5nhU4Zm22y8/Bw8PDO8DLB5uSRRcPWx4jqJNvPDw8vGXeSrl2Ng6VN66Swu6nPSXw8PDwNvF2jV6ttKnaIYMo7cbDw8M7wEsKAbtaZXky3T6lPv3w8PDwDvBWgnubQM8Ku8Xa8PDw8LbyVkLzrNyQp9RtBfoymcbDw8M7wJsNXc3Cd1uizcu7eHh4eP/Dm5UP8tZX2/5vhxKiwgQeHh7eAV57866C70rZdza+gIeHh7fOy0ep8vQ3HwKYJfHFEYKHh4d3gJcUFNpBqHbLdo3ADoeu8PDw8EpevpT2x39+qMw+LdpcPDw8vMO8drhqVsDNj5yV4woPDw/vHC9f7t5SxSz3z5/7ab8NPDw8vJjXBt88xM8aY3XQv/968PDw8P6Ft97IbztQ5+7Fw8PDO8HLR5rWG1SzDVoZPsDDw8M7x2sPg3ZMKjl42nGEvDiCh4eHd463EtzzRlfb9JodVw8NMDw8PLzDvL2lgSiUl9dDao6Hh4e3lfctr7ZNlYT7lfGChy3Gw8PDO8CbNfVnDbB87GDl9dLZgoeHhxfz2lA+24gcvzJ69fCLAQ8PD28rbxbQ2wicHCSzDX2oteDh4eG9gJcXApLtyJPs9il4eHh4b+Ald81GAZJ0PD948PDw8E7zVh4zC/dJc6ttm10eDHh4eHhbebMf/G0Rtl1KXrTdcOHh4eGlvB82eSvwTxHpzwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="360-site-verification" content="f623c899b6306a6a416f749df60d39a5" />
+	<meta name="sogou_site_verification" content="b2uCFUinvb"/>
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>Android工程编译错误集锦 | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android gradle aapt">
+
+    <meta name="description" content="Android工程编译错误集锦 Gradle error">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android工程编译错误集锦">
+<meta property="og:url" content="https://austinxishou.github.io/2017/11/01/android/android-build-project-error/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="Android工程编译错误集锦 Gradle error">
+<meta property="og:updated_time" content="2017-05-05T02:10:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android工程编译错误集锦">
+<meta name="twitter:description" content="Android工程编译错误集锦 Gradle error">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android工程编译错误集锦</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android工程编译错误集锦</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-01T07:49:16.524Z" itemprop="datePublished" class="page-time">
+  2017-11-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#工程编译类"><span class="post-toc-number">1.</span> <span class="post-toc-text">工程编译类</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gradle-错误-Failed-to-complete-Gradle-execution"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Gradle 错误 Failed to complete Gradle execution.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#AAPT-err-libpng-error-Not-a-PNG-file"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">AAPT err: libpng error: Not a PNG file</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Gradle-Could-not-create-parent-directory-for-lock-file"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Gradle Could not create parent directory for lock file</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android-支持库"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Android 支持库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Android程序报错程序包org-apache-http不存在问题的解决方法"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">Android程序报错程序包org.apache.http不存在问题的解决方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Python-工作环境错误"><span class="post-toc-number">1.6.</span> <span class="post-toc-text">Python 工作环境错误</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/android-build-project-error"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android工程编译错误集锦</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年11月01日 15:49" datetime="2017-11-01T07:49:16.524Z"  itemprop="datePublished">2017-11-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="工程编译类"><a href="#工程编译类" class="headerlink" title="工程编译类"></a>工程编译类</h2><h3 id="Gradle-错误-Failed-to-complete-Gradle-execution"><a href="#Gradle-错误-Failed-to-complete-Gradle-execution" class="headerlink" title="Gradle 错误 Failed to complete Gradle execution."></a>Gradle 错误 Failed to complete Gradle execution.</h3><p><strong>问题描述:</strong></p>
+<blockquote>
+<p>更新Android studio 2.3后,出现Gradle 错误</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Error:Failed to complete Gradle execution.</div><div class="line">Cause:</div><div class="line">Could not create parent directory for lock file C:\Users\Administrator\.gradle\wrapper\dists\D:AustinDevtoolsgradlegradle-2.10-all\dn4qn6r39kukmjs5vguem1ak2\D:AustinDevtoolsgradlegradle-2.10-all.zip.lck</div></pre></td></tr></table></figure>
+<p><strong>解决方法</strong></p>
+<blockquote>
+<p>找到工程的build.gradle,修改classpath ‘com.android.tools.build:gradle:2.1.0’为classpath ‘com.android.tools.build:gradle:2.3.0’</p>
+</blockquote>
+<h3 id="AAPT-err-libpng-error-Not-a-PNG-file"><a href="#AAPT-err-libpng-error-Not-a-PNG-file" class="headerlink" title="AAPT err: libpng error: Not a PNG file"></a>AAPT err: libpng error: Not a PNG file</h3><p><strong> 问题描述 </strong></p>
+<blockquote>
+<p>Android Studio AAPT err: libpng error: Not a PNG file</p>
+</blockquote>
+<p><strong> 问题说明: </strong></p>
+<blockquote>
+<p>问题的根源是,项目的png文件已经通过其他工具提前优化过,但是AAPT工具在编译工程时再次进行优化,<br>但是不能识别该图片之前使用的是什么工具,所以编译出错;解决办法只需要把aapt的图片编译优化关掉即可</p>
+</blockquote>
+<p><strong> 解决方法 </strong></p>
+<blockquote>
+<p>aaptOptions.cruncherEnabled = false</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion <span class="number">25</span></div><div class="line">    buildToolsVersion <span class="string">"25.0.2"</span></div><div class="line">    aaptOptions.cruncherEnabled = <span class="keyword">false</span></div><div class="line">    useLibrary <span class="string">'org.apache.http.legacy'</span></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId <span class="string">"com.Mankewan.manke"</span></div><div class="line">        minSdkVersion <span class="number">15</span></div><div class="line">        targetSdkVersion <span class="number">25</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            <span class="function">minifyEnabled <span class="keyword">false</span></span></div><div class="line">            proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.txt'</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Gradle-Could-not-create-parent-directory-for-lock-file"><a href="#Gradle-Could-not-create-parent-directory-for-lock-file" class="headerlink" title="Gradle Could not create parent directory for lock file"></a>Gradle Could not create parent directory for lock file</h3><p><strong>问题描述</strong><br>Error:Could not create parent directory for lock file C:\Users\Administrator.gradle\wrapper\dists\D:AustinDevtoolsgradlegradle-3.4.1-all…gradlegradle-3.4.1-all.zip.lck</p>
+<p><strong>解决方法</strong></p>
+<blockquote>
+<p>在Android studio 设置中,把gradle设置成 Use local gradle distribution</p>
+</blockquote>
+<h3 id="Android-支持库"><a href="#Android-支持库" class="headerlink" title="Android 支持库"></a>Android 支持库</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p>Error:Could not find method compile() for arguments [com.android.support:appcompat-v7:19.1.0] on root project ‘Aaaa’.</p>
+<p>Please install the Android Support Repository from the Android SDK Manager.</p>
+</blockquote>
+<p><strong>问题说明</strong><br>Android的支持库位置声明错误,应该放在模块的gradle文件中,而不是顶层的gradle文件中</p>
+<blockquote>
+<p>You’ve put your dependencies block in the wrong build.gradle file. Instead of the top-level build file, put it in your module’s build file instead.</p>
+</blockquote>
+<p><strong>解决方法</strong><br>在模块的gradle文件中,添加</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">dependencies &#123;</div><div class="line">    compile <span class="string">'com.android.support:appcompat-v7:19.1.0'</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Android程序报错程序包org-apache-http不存在问题的解决方法"><a href="#Android程序报错程序包org-apache-http不存在问题的解决方法" class="headerlink" title="Android程序报错程序包org.apache.http不存在问题的解决方法"></a>Android程序报错程序包org.apache.http不存在问题的解决方法</h3><p><strong>问题描述</strong></p>
+<blockquote>
+<p>Android程序报错程序包org.apache.http不存在问题的解决方法</p>
+</blockquote>
+<p><strong>问题说明</strong></p>
+<blockquote>
+<p>Android 6.0已经不支持HttpClient” </p>
+</blockquote>
+<p><strong>解决方法</strong></p>
+<blockquote>
+<p>Android 6.0（api 23）已经不支持HttpClient了，在build.gradle中 加入 useLibrary ‘org.apache.http.legacy’就可以</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">android &#123;</div><div class="line">    compileSdkVersion <span class="number">25</span></div><div class="line">    buildToolsVersion <span class="string">"25.0.2"</span></div><div class="line">    aaptOptions.cruncherEnabled = <span class="keyword">false</span></div><div class="line">    useLibrary <span class="string">'org.apache.http.legacy'</span></div><div class="line">    defaultConfig &#123;</div><div class="line">        applicationId <span class="string">"com.Mankewan.manke"</span></div><div class="line">        minSdkVersion <span class="number">15</span></div><div class="line">        targetSdkVersion <span class="number">25</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    buildTypes &#123;</div><div class="line">        release &#123;</div><div class="line">            <span class="function">minifyEnabled <span class="keyword">false</span></span></div><div class="line">            proguardFiles <span class="title">getDefaultProguardFile</span><span class="params">(<span class="string">'proguard-android.txt'</span>)</span>, 'proguard-rules.txt'</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Python-工作环境错误"><a href="#Python-工作环境错误" class="headerlink" title="Python 工作环境错误"></a>Python 工作环境错误</h3><p><strong>问题描述:</strong> </p>
+<blockquote>
+<p>最近在写一个Python程序的时候，使用from selenium import webdriver,在run的时候却出现ImportError: cannot import name webdriver的提示，但是在Python IDLE里面跑却没有错误。很是疑惑，谷歌一下才发现有人已经在stackoverflow里面提出类似问题了，原因如下，在当前目录有个名叫selenium的文件，Python会先导入这个文件，然后再导入标准库里面的selenium.py</p>
+</blockquote>
+<p><strong>解决方法</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">##可以使用</span></div><div class="line"><span class="keyword">import</span> selenium </div><div class="line"><span class="keyword">print</span> selenium.__file__  </div><div class="line"><span class="comment">##去看打印出的文件路径，如果不是下面类似的C:\Python27\lib\site-packages\selenium-2.31.0-py2.7.egg\selenium\__init__.pyc，需要把当前目录下的文件删除或者重命名。</span></div></pre></td></tr></table></figure><script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
+<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
+document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
+</code></pre><p>})();<br></script></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-05T02:10:20.000Z" itemprop="dateUpdated">2017年5月5日 10:10</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/2017/11/01/android/android-build-project-error/" target="_blank" rel="external">https://austinxishou.github.io/2017/11/01/android/android-build-project-error/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android-gradle-aapt/">android gradle aapt</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/android/android-build-project-error/&title=《Android工程编译错误集锦》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/android/android-build-project-error/&title=《Android工程编译错误集锦》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/01/android/android-build-project-error/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android工程编译错误集锦》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/android/android-build-project-error/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/01/android/android-build-project-error/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/01/android/awesome-java-tech-collection/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Java编程资源收集awesome-java</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/01/android/androidstudio-import-butterKnife-framework/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android Studio中使用ButterKnife注解框架</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/android/android-build-project-error/&title=《Android工程编译错误集锦》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/android/android-build-project-error/&title=《Android工程编译错误集锦》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/01/android/android-build-project-error/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android工程编译错误集锦》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/android/android-build-project-error/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/01/android/android-build-project-error/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACs0lEQVR42u3aUY7bMAwE0L3/pdMDtE5mSGmRAs9fC8eN9VRAUob8+Ymv119X8uTTnfdPJp8evvDw8PDWQ0+G+PTpE+NpiMnbkzc+Tj0eHh7eNd7Tirr66rcbQ7IZ5NP0eB8PDw/vy3jvl/vkrDs7yuPh4eH9v7zkCH42nsDDw8P7Hl4yoP3Sv48eLmYteHh4eF1i8JMP9Bv+vlLfw8PDw1tX1dtNIimJzZb41+jCw8PDu8G7Eae+/7ZZLJsfl/Hw8PB+h5fEB/nQi5ctQofZZOHh4eHtebPSVNtGkCzxbYwbTT0eHh7eNV57Jz/I1vvS4ogf/VbAw8PDW/M2hf+2TSpv5NoU5IY1PTw8PLyY1xaoNgFBi2ybsT7U9/Dw8PAO8ZJVdBZJzMKIYeiQ7H54eHh4F3ibAeUL9+yo3UYeERUPDw9vxGsX6PbJTVSxKX3h4eHh3eO1JaVTBbNZsJtPFh4eHt49Xo7ZL+iv4JoVw+r+Ajw8PLxDvDa3aKfm1AZQHO7x8PDwLvDyF7QH6LxpoI0zku8v/g/x8PDwDvE2L9jkIrNyV7374eHh4S14CWwT1+ZH52F3Q170wsPDwzvKywtgbYlrNsS8geDDp3h4eHjXeBtYErbmjVP7pqvH3wp4eHh4h3jtP5g1GeRR7yyMiN6Ih4eHd5SXL+73FvEkgGiLZ3h4eHi/w5uFubNFPF/oVwEKHh4e3q/zkkNwFAe0C/ooCH5MXPDw8PAO8V7ltWkCaJuu2qn50HSFh4eHd4i3KerPtpO2wWs/KXh4eHg3eO1S3jLyMli+IRVNDHh4eHjXeGeHe/H4W7Yg4OHh4X0Pb1Ykm93/AHh/Hw8PD+8LeG102+I3kXFRQ8PDw8Nb89og4FSI0D6TRBh4eHh4t3mzH/z59jArp82++ViegYeHh/fv6w9zq5xxIddhDAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="360-site-verification" content="f623c899b6306a6a416f749df60d39a5" />
+	<meta name="sogou_site_verification" content="b2uCFUinvb"/>
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>selenium相关技术要点总结 | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="selenium">
+
+    <meta name="description" content="selenium自动化测试 selenium原理 selenium教程 技术要点总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="selenium相关技术要点总结">
+<meta property="og:url" content="https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="selenium自动化测试 selenium原理 selenium教程 技术要点总结">
+<meta property="og:updated_time" content="2017-05-18T09:52:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="selenium相关技术要点总结">
+<meta name="twitter:description" content="selenium自动化测试 selenium原理 selenium教程 技术要点总结">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">selenium相关技术要点总结</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">selenium相关技术要点总结</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-01T07:46:53.556Z" itemprop="datePublished" class="page-time">
+  2017-11-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/webdesign/">webdesign</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#selenium-相关资料"><span class="post-toc-number">1.</span> <span class="post-toc-text">selenium 相关资料</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#文档"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">文档</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#网站"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">网站</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#学习路径"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">学习路径</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#业内牛人"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">业内牛人</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相关技术"><span class="post-toc-number">2.</span> <span class="post-toc-text">相关技术</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#excel读写操作"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">excel读写操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#xml读写操作"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">xml读写操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#json-yaml读写操作"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">json-yaml读写操作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#日志模块logging库"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">日志模块logging库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自动发送报告-Jenkins"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">自动发送报告-Jenkins</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#界面-Django、flask、web2py、web-py"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">界面-Django、flask、web2py、web.py</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#打包成exe"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">打包成exe</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#py2exe"><span class="post-toc-number">2.7.1.</span> <span class="post-toc-text">py2exe</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-python/selenium-resource-collection"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">selenium相关技术要点总结</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年11月01日 15:46" datetime="2017-11-01T07:46:53.556Z"  itemprop="datePublished">2017-11-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/webdesign/">webdesign</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="selenium-相关资料"><a href="#selenium-相关资料" class="headerlink" title="selenium 相关资料"></a>selenium 相关资料</h2><h3 id="文档"><a href="#文档" class="headerlink" title="文档"></a>文档</h3><p><a href="http://selenium-python.readthedocs.io/index.html" target="_blank" rel="external">Selenium Python Bindings</a><br><a href="https://seleniumhq.github.io/selenium/docs/api/py/api.html" target="_blank" rel="external">Selenium Documentation</a><br><a href="https://www.w3.org/TR/webdriver/" target="_blank" rel="external">WebDriver Living Document</a></p>
+<h3 id="网站"><a href="#网站" class="headerlink" title="网站"></a>网站</h3><p><a href="http://www.techbeamers.com/" target="_blank" rel="external">techbeamers</a><br><a href="http://www.softwaretestingstudio.com/" target="_blank" rel="external">softwaretestingstudio</a><br><a href="http://www.software-testing-tutorials-automation.com/" target="_blank" rel="external"></a><br><a href="http://toolsqa.com/" target="_blank" rel="external">toolsqa</a><br><a href="http://www.webdriver.org/nav1/" target="_blank" rel="external">WebDriver中文社区</a><br><a href="https://easonhan007.gitbooks.io/selenium-webdriver/content/" target="_blank" rel="external">乙醇的blog</a><br><a href="http://blog.csdn.net/huilan_same/article/list" target="_blank" rel="external">灰蓝博客</a><br><a href="https://huilansame.github.io/" target="_blank" rel="external">灰蓝GITHUB</a></p>
+<h3 id="学习路径"><a href="#学习路径" class="headerlink" title="学习路径"></a>学习路径</h3><ol>
+<li><a href="http://blog.csdn.net/huilan_same/article/details/52559711" target="_blank" rel="external">学习路径-成神之路</a><h3 id="业内牛人"><a href="#业内牛人" class="headerlink" title="业内牛人"></a>业内牛人</h3></li>
+<li><a href="http://www.cnblogs.com/hyddd/archive/2009/05/30/1492536.html" target="_blank" rel="external">hyddd（陈曦明）</a></li>
+<li>‘FirefoxWebElement’ object is not iterable<br>.wcommonFeed &gt; ul:nth-child(2) &gt; li:nth-child(13) &gt; div:nth-child(2)</li>
+</ol>
+<h2 id="相关技术"><a href="#相关技术" class="headerlink" title="相关技术"></a>相关技术</h2><h3 id="excel读写操作"><a href="#excel读写操作" class="headerlink" title="excel读写操作"></a>excel读写操作</h3><p>xlrd、xlwt操作excel文件<br><a href="http://www.cnblogs.com/ysjt/p/6527056.html" target="_blank" rel="external">Selenium2+Python–操作Excel读写</a></p>
+<h3 id="xml读写操作"><a href="#xml读写操作" class="headerlink" title="xml读写操作"></a>xml读写操作</h3><h3 id="json-yaml读写操作"><a href="#json-yaml读写操作" class="headerlink" title="json-yaml读写操作"></a>json-yaml读写操作</h3><h3 id="日志模块logging库"><a href="#日志模块logging库" class="headerlink" title="日志模块logging库"></a>日志模块logging库</h3><p><a href="http://www.cnblogs.com/ysjt/p/6592825.html" target="_blank" rel="external">Selenium2+Python–日志管理实例</a></p>
+<h3 id="自动发送报告-Jenkins"><a href="#自动发送报告-Jenkins" class="headerlink" title="自动发送报告-Jenkins"></a>自动发送报告-Jenkins</h3><h3 id="界面-Django、flask、web2py、web-py"><a href="#界面-Django、flask、web2py、web-py" class="headerlink" title="界面-Django、flask、web2py、web.py"></a>界面-Django、flask、web2py、web.py</h3><h3 id="打包成exe"><a href="#打包成exe" class="headerlink" title="打包成exe"></a>打包成exe</h3><h4 id="py2exe"><a href="#py2exe" class="headerlink" title="py2exe"></a>py2exe</h4><p><strong>About</strong></p>
+<blockquote>
+<p>写好了Python selenium脚本，到其他机器上运行，还得要在其他机器上也装一套Python的环境，尤其在你用了一些第三方库的时候，甚至还要顾及操作系统是32位还是64位，是不是很坑，如果能打成一个exe就好了，不论32位还是64位，只要拷过去，安装合适版本的浏览器就行了。今天博主就带你将你的py脚本打包成一个exe</p>
+</blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">C:\Users\Administrator&gt;pip search py2exe</div><div class="line"></div><div class="line">py-exe-builder (0.1)               - Uses py2exe to create small exe stubs</div><div class="line">                                     that leverage a full python installation,</div><div class="line">                                     rather than packing the required pyc</div><div class="line">                                     files <span class="keyword">in</span> to the executable.</div><div class="line">Manual-de-Py2Exe-en-Espa-ol (1.0)  - Manual de Py2Exe en Espa帽ol</div><div class="line">PyBuilder-for-Py2exe (0.3)         - A tool to asist <span class="keyword">in</span> compiling python</div><div class="line">                                     scripts with py2exe</div><div class="line">py2exe (0.9.2.2)                   - Build standalone executables <span class="keyword">for</span> Windows</div><div class="line">                                     (python 3 version)</div><div class="line">py2exe2msi (0.0.2)                 - An easy way to create Windows standalone</div><div class="line">                                     applications <span class="keyword">in</span> Python</div><div class="line">py2exe_py2 (0.6.9)                 - A wheel of Py2exe <span class="keyword">for</span> Python 2</div><div class="line">unpy2exe (0.3)                     - Extract pyc files from py2exe executable.</div></pre></td></tr></table></figure>
+<ol>
+<li><p>打开CMD窗口，将工作目录切换到python文件所在文件夹，并输入命令“python setup.py py2exe”</p>
+<script>
+(function(){
+ var bp = document.createElement('script');
+ var curProtocol = window.location.protocol.split(':')[0];
+ if (curProtocol === 'https') {
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+ }
+ else {
+     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+ }
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(bp, s);
+
+ var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-18T09:52:26.000Z" itemprop="dateUpdated">2017年5月18日 17:52</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/2017/11/01/python/selenium-resource-collection/" target="_blank" rel="external">https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/selenium/">selenium</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/&title=《selenium相关技术要点总结》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/&title=《selenium相关技术要点总结》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《selenium相关技术要点总结》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/01/android/androidstudio-import-butterKnife-framework/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Android Studio中使用ButterKnife注解框架</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/01/krpano/krpano-note/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Krpano入门笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/&title=《selenium相关技术要点总结》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/&title=《selenium相关技术要点总结》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《selenium相关技术要点总结》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACt0lEQVR42u3bQW4bMRAEQP3/0/LFN2O13RxSkoHaU2Bk5SkGIKmeyeMRP88/z9+fv/7J68+8+pvJ52x48PDw8Malt0U/g+c14PVb7W/Ew8PDew/vakdNPjr/9fm+nddzY8HDw8P7Mt7kspu8lR8weHh4eP+FN7mCt/EEHh4e3rfx2hCh3frzwCI/ijZnLXh4eHgxb63Qz/75SH8PDw8Pb9xVzzfctgGWt8HW6vx9Fw8PD+8AbxKn5qXPY9n8uoyHh4f3Tl5b7l7w/Ji5XCw8PDy8rbx8m56PEeSLldQQRRV4eHh4x3hrAW5SetvuaptY22IIPDw8vJiXw5IWftuyyuPdaLhq0tPDw8PDK3nJRTbfypNtum10JYtyk7Xg4eHhbeK14wLt9j0ZDli71i9ONODh4eEt8da+5CfX63lMvBgQ4+Hh4R3jrX1zz4tuL9ztUXS5xHh4eHgHeGtDTnvT4vbAqK/XeHh4eFt5OSYPC/IjoY1C2nYdHh4e3nt4eYjwzqXJQ+GbEw8PDw9vzGtHqfLNuo19E0z++Zf/hnh4eHhjXrutt9Fqe1S04ws3rTI8PDy8A7x2ZKodvcqPljyibY8iPDw8vL28yYBUy9u7cMlRgYeHh3eC127NE0A74DVZIDw8PLzTvHboapQZxwu6Fi5HXT48PDy8A7x2o8+HA6LgddBUW71x4+Hh4a3w2gtx3uAvmlVxHJzcmfHw8PA+xcsvx5PIdRJG3LyFh4eHt5X3LJ/8opyHGvOluawHDw8P7wCv3Wrnp1B7AOwKMvDw8PD28vKtfFJK/lb73wNuKsTDw8M7xpuX217H10a48vgYDw8P79t48wh4MtRV1IOHh4f3BbzkGMiD2nZAth0Rw8PDwzvHa1tWLSmJJJKi22s6Hh4e3gne2hf+eQwxP3geux48PDy8lPcDm9FUuWfTvO0AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

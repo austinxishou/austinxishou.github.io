@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/</loc>
+    
+    <lastmod>2017-11-07T09:58:43.366Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-amd/</loc>
+    
+    <lastmod>2017-11-07T08:05:20.193Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-require/</loc>
+    
+    <lastmod>2017-11-07T03:46:58.667Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/krpano/krpano-dev-doc/</loc>
+    
+    <lastmod>2017-11-06T07:29:28.955Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/06/krpano/krpano-skin-develop/</loc>
+    
+    <lastmod>2017-11-06T07:06:49.282Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/krpano/krpano-note/</loc>
+    
+    <lastmod>2017-11-06T06:26:05.669Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/killtime/patent-idea-collection/</loc>
+    
+    <lastmod>2017-11-01T03:14:08.993Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://austinxishou.github.io/2017/08/02/webdesign/krpano-note/</loc>
     
     <lastmod>2017-10-27T08:14:01.847Z</lastmod>
@@ -16,294 +65,294 @@
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/07/17/AI/AI-learning-road/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/AI/AI-learning-road/</loc>
     
-    <lastmod>2017-10-27T08:05:21.824Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/05/12/killtime/webdesign-source-collection/</loc>
-    
-    <lastmod>2017-10-24T03:11:46.462Z</lastmod>
+    <lastmod>2017-10-27T08:05:21.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/09/06/android/android-source-code-prebuild-apk/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/killtime/webdesign-source-collection/</loc>
     
-    <lastmod>2017-09-06T02:13:08.763Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/05/04/android/android-apk-disable/</loc>
-    
-    <lastmod>2017-08-24T12:44:19.501Z</lastmod>
+    <lastmod>2017-10-24T03:11:46.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/05/19/python/win-director-sublime-open/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/android/android-source-code-prebuild-apk/</loc>
     
-    <lastmod>2017-05-19T02:47:58.685Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/04/24/python/selenium-resource-collection/</loc>
-    
-    <lastmod>2017-05-18T09:52:26.169Z</lastmod>
+    <lastmod>2017-09-06T02:13:08.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/03/29/wechat/we7-wechat-framework-started/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/android/android-apk-disable/</loc>
     
-    <lastmod>2017-05-18T09:45:57.143Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/03/30/android/awesome-android-resource-collection/</loc>
-    
-    <lastmod>2017-05-18T09:41:59.147Z</lastmod>
+    <lastmod>2017-08-24T12:44:19.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/04/01/webdesign/pomelo-node-framework/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/python/win-director-sublime-open/</loc>
     
-    <lastmod>2017-05-18T09:40:52.808Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/04/17/python/selenium-start-guide/</loc>
-    
-    <lastmod>2017-05-18T09:36:11.680Z</lastmod>
+    <lastmod>2017-05-19T02:47:58.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/05/18/webdesign/hexo-plugin/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/python/selenium-resource-collection/</loc>
     
-    <lastmod>2017-05-18T08:32:24.917Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/04/12/android/Android-ota-odex-improve/</loc>
-    
-    <lastmod>2017-05-18T03:14:30.369Z</lastmod>
+    <lastmod>2017-05-18T09:52:26.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/03/29/webdesign/GithubPagesHexo3.0-for-personal-blog/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/wechat/we7-wechat-framework-started/</loc>
     
-    <lastmod>2017-05-18T03:13:19.840Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/05/17/python/youtube-dl-cmd-usage/</loc>
-    
-    <lastmod>2017-05-17T10:41:38.013Z</lastmod>
+    <lastmod>2017-05-18T09:45:57.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/05/08/python/pyinstaller-winexe-usage-guide/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/android/awesome-android-resource-collection/</loc>
     
-    <lastmod>2017-05-17T06:37:20.057Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/05/17/python/python-subprocess-popen-usage/</loc>
-    
-    <lastmod>2017-05-17T05:57:35.584Z</lastmod>
+    <lastmod>2017-05-18T09:41:59.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/03/29/android/android-compent-lifetime/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/webdesign/pomelo-node-framework/</loc>
     
-    <lastmod>2017-05-17T05:47:02.659Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/03/30/android/awesome-java-tech-collection/</loc>
-    
-    <lastmod>2017-05-17T02:07:27.578Z</lastmod>
+    <lastmod>2017-05-18T09:40:52.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/05/17/python/python-jieba-fenci-usage/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/python/selenium-start-guide/</loc>
     
-    <lastmod>2017-05-17T02:03:35.877Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/05/12/killtime/code-resource-collection/</loc>
-    
-    <lastmod>2017-05-12T07:59:43.030Z</lastmod>
+    <lastmod>2017-05-18T09:36:11.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/05/12/killtime/ittech-site-collection/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/webdesign/hexo-plugin/</loc>
     
-    <lastmod>2017-05-12T06:35:02.465Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/05/12/killtime/game-resource-collection/</loc>
-    
-    <lastmod>2017-05-12T02:34:12.758Z</lastmod>
+    <lastmod>2017-05-18T08:32:24.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/05/12/killtime/soft-tools-collection/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/android/Android-ota-odex-improve/</loc>
     
-    <lastmod>2017-05-12T02:26:43.950Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/05/12/killtime/search-resource-collection/</loc>
-    
-    <lastmod>2017-05-12T02:25:02.429Z</lastmod>
+    <lastmod>2017-05-18T03:14:30.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/05/12/killtime/movie-resource-collection/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/webdesign/GithubPagesHexo3.0-for-personal-blog/</loc>
     
-    <lastmod>2017-05-12T02:23:28.103Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/05/12/killtime/driver-resource-collection/</loc>
-    
-    <lastmod>2017-05-12T02:21:51.509Z</lastmod>
+    <lastmod>2017-05-18T03:13:19.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/04/13/android/android-build-project-error/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/python/youtube-dl-cmd-usage/</loc>
     
-    <lastmod>2017-05-05T02:10:20.568Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/05/04/python/python-threading-module-queue-usage/</loc>
-    
-    <lastmod>2017-05-04T03:02:41.990Z</lastmod>
+    <lastmod>2017-05-17T10:41:38.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/04/12/android/android-ota-recovery-custom/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/</loc>
     
-    <lastmod>2017-04-17T02:06:25.241Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/04/14/android/android-ota-updater/</loc>
-    
-    <lastmod>2017-04-14T10:06:30.928Z</lastmod>
+    <lastmod>2017-05-17T06:37:20.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/04/14/android/android-recovery-boot-ota/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/python/python-subprocess-popen-usage/</loc>
     
-    <lastmod>2017-04-14T09:10:58.869Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/04/14/android/Android-ota-from-target-files-usage/</loc>
-    
-    <lastmod>2017-04-14T03:42:35.136Z</lastmod>
+    <lastmod>2017-05-17T05:57:35.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/04/12/android/android-updater-ota-from-target/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/android/android-compent-lifetime/</loc>
     
-    <lastmod>2017-04-14T03:24:21.003Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/04/13/android/androidstudio-import-butterKnife-framework/</loc>
-    
-    <lastmod>2017-04-13T05:56:30.978Z</lastmod>
+    <lastmod>2017-05-17T05:47:02.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/04/12/android/rk3288-firefly-img-modify/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/android/awesome-java-tech-collection/</loc>
     
-    <lastmod>2017-04-12T04:00:52.137Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/2017/03/31/android/Android-ndk-dev-note/</loc>
-    
-    <lastmod>2017-03-31T09:05:07.361Z</lastmod>
+    <lastmod>2017-05-17T02:07:27.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/03/31/android/android-autostart-managerment/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/python/python-jieba-fenci-usage/</loc>
     
-    <lastmod>2017-03-31T07:35:02.108Z</lastmod>
+    <lastmod>2017-05-17T02:03:35.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/03/31/android/android-broadcast-detail/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/killtime/code-resource-collection/</loc>
     
-    <lastmod>2017-03-31T07:34:50.276Z</lastmod>
+    <lastmod>2017-05-12T07:59:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/killtime/ittech-site-collection/</loc>
+    
+    <lastmod>2017-05-12T06:35:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/killtime/game-resource-collection/</loc>
+    
+    <lastmod>2017-05-12T02:34:12.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/killtime/soft-tools-collection/</loc>
+    
+    <lastmod>2017-05-12T02:26:43.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/killtime/search-resource-collection/</loc>
+    
+    <lastmod>2017-05-12T02:25:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/killtime/movie-resource-collection/</loc>
+    
+    <lastmod>2017-05-12T02:23:28.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/killtime/driver-resource-collection/</loc>
+    
+    <lastmod>2017-05-12T02:21:51.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/android/android-build-project-error/</loc>
+    
+    <lastmod>2017-05-05T02:10:20.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/python/python-threading-module-queue-usage/</loc>
+    
+    <lastmod>2017-05-04T03:02:41.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/android/android-ota-recovery-custom/</loc>
+    
+    <lastmod>2017-04-17T02:06:25.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/android/android-ota-updater/</loc>
+    
+    <lastmod>2017-04-14T10:06:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/android/android-recovery-boot-ota/</loc>
+    
+    <lastmod>2017-04-14T09:10:58.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/android/Android-ota-from-target-files-usage/</loc>
+    
+    <lastmod>2017-04-14T03:42:35.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/android/android-updater-ota-from-target/</loc>
+    
+    <lastmod>2017-04-14T03:24:21.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/android/androidstudio-import-butterKnife-framework/</loc>
+    
+    <lastmod>2017-04-13T05:56:30.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/android/rk3288-firefly-img-modify/</loc>
+    
+    <lastmod>2017-04-12T04:00:52.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/android/Android-ndk-dev-note/</loc>
+    
+    <lastmod>2017-03-31T09:05:07.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/android/android-autostart-managerment/</loc>
+    
+    <lastmod>2017-03-31T07:35:02.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/2017/11/01/android/android-broadcast-detail/</loc>
+    
+    <lastmod>2017-03-31T07:34:50.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://austinxishou.github.io/categories/webdesign/javascript%E7%BC%96%E7%A8%8B%E5%A4%87%E5%BF%98%E5%BD%95.html</loc>
     
-    <lastmod>2017-03-30T07:44:27.296Z</lastmod>
+    <lastmod>2017-03-30T07:44:27.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/2017/03/29/android/android-selinux-sepolice-modify/</loc>
+    <loc>https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/</loc>
     
-    <lastmod>2017-03-29T05:47:19.110Z</lastmod>
+    <lastmod>2017-03-29T05:47:19.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/tags/index-ycl-PC.html</loc>
+    <loc>https://austinxishou.github.io/categories/index-ycl-PC.html</loc>
     
     <lastmod>2017-03-28T14:14:25.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/categories/index-ycl-PC.html</loc>
+    <loc>https://austinxishou.github.io/tags/index-ycl-PC.html</loc>
     
     <lastmod>2017-03-28T14:14:25.000Z</lastmod>
     
@@ -319,42 +368,42 @@
   <url>
     <loc>https://austinxishou.github.io/tags/index.html</loc>
     
-    <lastmod>2017-03-28T03:23:06.252Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/categories/killtime/index.html</loc>
-    
-    <lastmod>2017-03-28T03:22:54.013Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://austinxishou.github.io/categories/wechat/index.html</loc>
-    
-    <lastmod>2017-03-28T03:22:54.013Z</lastmod>
+    <lastmod>2017-03-28T03:23:06.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://austinxishou.github.io/categories/webdesign/index.html</loc>
     
-    <lastmod>2017-03-28T03:22:54.013Z</lastmod>
+    <lastmod>2017-03-28T03:22:54.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://austinxishou.github.io/categories/index.html</loc>
+    <loc>https://austinxishou.github.io/categories/killtime/index.html</loc>
     
-    <lastmod>2017-03-28T03:22:54.013Z</lastmod>
+    <lastmod>2017-03-28T03:22:54.000Z</lastmod>
     
   </url>
   
   <url>
     <loc>https://austinxishou.github.io/categories/android/index.html</loc>
     
-    <lastmod>2017-03-28T03:22:54.013Z</lastmod>
+    <lastmod>2017-03-28T03:22:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/categories/wechat/index.html</loc>
+    
+    <lastmod>2017-03-28T03:22:54.000Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://austinxishou.github.io/categories/index.html</loc>
+    
+    <lastmod>2017-03-28T03:22:54.000Z</lastmod>
     
   </url>
   

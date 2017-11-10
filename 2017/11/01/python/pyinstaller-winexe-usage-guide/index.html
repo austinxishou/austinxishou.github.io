@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="360-site-verification" content="f623c899b6306a6a416f749df60d39a5" />
+	<meta name="sogou_site_verification" content="b2uCFUinvb"/>
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>pyinstaller打包可执行文件命令工具使用 | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="python,pyinstaller">
+
+    <meta name="description" content="pyinstaller打包可执行文件命令工具使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pyinstaller打包可执行文件命令工具使用">
+<meta property="og:url" content="https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="pyinstaller打包可执行文件命令工具使用">
+<meta property="og:updated_time" content="2017-05-17T06:37:20.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="pyinstaller打包可执行文件命令工具使用">
+<meta name="twitter:description" content="pyinstaller打包可执行文件命令工具使用">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">pyinstaller打包可执行文件命令工具使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">pyinstaller打包可执行文件命令工具使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-01T07:52:11.919Z" itemprop="datePublished" class="page-time">
+  2017-11-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python-pyinstaller/">python pyinstaller</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简介安装与说明"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介安装与说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#选项"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">选项</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Spec-文件"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Spec 文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#UPX压缩可执行包"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">UPX压缩可执行包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#跨平台打包"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">跨平台打包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#windows-安装包的版本文件"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">windows 安装包的版本文件</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运行时信息"><span class="post-toc-number">3.</span> <span class="post-toc-text">运行时信息</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用-file-and-sys-MEIPASS"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">使用 file and sys._MEIPASS</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用-sys-executable-and-sys-argv-0"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">使用 sys.executable and sys.argv[0]</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#LD-LIBRARY-PATH-LIBPATH-considerations"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">LD_LIBRARY_PATH / LIBPATH considerations</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用-Spec-文件"><span class="post-toc-number">4.</span> <span class="post-toc-text">使用 Spec 文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#spec-文件的结构"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">spec 文件的结构</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#向压缩包中添加文件"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">向压缩包中添加文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#在模块中使用-data文件"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">在模块中使用 data文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#增加Python运行时参数"><span class="post-toc-number">4.4.</span> <span class="post-toc-text">增加Python运行时参数</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-python/pyinstaller-winexe-usage-guide"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">pyinstaller打包可执行文件命令工具使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年11月01日 15:52" datetime="2017-11-01T07:52:11.919Z"  itemprop="datePublished">2017-11-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/python-pyinstaller/">python pyinstaller</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="简介安装与说明"><a href="#简介安装与说明" class="headerlink" title="简介安装与说明"></a>简介安装与说明</h2><p><a href="http://www.pyinstaller.org/" target="_blank" rel="external">pyinstall官网</a><br><a href="http://www.111cn.net/phper/python/122937.htm" target="_blank" rel="external">http://www.111cn.net/phper/python/122937.htm</a></p>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>命令格式为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyinstaller [options] script [script ...] | specfile</div></pre></td></tr></table></figure></p>
+<p>所以最基本的使用为:<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyinstaller myscript.py</div></pre></td></tr></table></figure></p>
+<ul>
+<li>Writes myscript.spec in the same folder as the script.</li>
+<li>Creates a folder build in the same folder as the script if it does not exist.</li>
+<li>Writes some log files and working files in the build folder.</li>
+<li>Creates a folder dist in the same folder as the script if it does not exist.</li>
+<li>Writes the myscript executable folder in the dist folder.</li>
+</ul>
+<p>更深入的使用得配合各种选项和myscript.spec文件</p>
+<h3 id="选项"><a href="#选项" class="headerlink" title="选项"></a>选项</h3><h3 id="Spec-文件"><a href="#Spec-文件" class="headerlink" title="Spec 文件"></a>Spec 文件</h3><h3 id="UPX压缩可执行包"><a href="#UPX压缩可执行包" class="headerlink" title="UPX压缩可执行包"></a>UPX压缩可执行包</h3><p>默认生成的python可执行文件有点大，可以通过upx程序进行压缩，upx程序的主页位于：<a href="https://upx.github.io/" target="_blank" rel="external">https://upx.github.io/</a> ，目前windows版的最新upx为upx391w.zip ，下载后，将其中的upx.exe文件放到C:\Python27目录下（python可执行程序的安装目录），再次执行的时候，可以跟上–upx进行压缩。默认存在时不指定也会进行压缩，生成exe文件时，在其日志中可以发现如下内容：</p>
+<p>###加密 python 可执行文件<br>Encrypting Python Bytecode</p>
+<h3 id="跨平台打包"><a href="#跨平台打包" class="headerlink" title="跨平台打包"></a>跨平台打包</h3><h3 id="windows-安装包的版本文件"><a href="#windows-安装包的版本文件" class="headerlink" title="windows 安装包的版本文件"></a>windows 安装包的版本文件</h3><p>pyi-grab_version 命令<br>pyi-grab_version executable_with_version_resource</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">--version-file=<span class="string">'file_version_info.txt'</span>,</div><div class="line">          --version-file file_version_info.txt,</div><div class="line">icon</div><div class="line">          icon=<span class="string">'news_xishou.ico'</span>,</div><div class="line"><span class="keyword">import</span> logging</div><div class="line"><span class="keyword">try</span>:</div><div class="line">    <span class="number">1</span>/<span class="number">0</span></div><div class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</div><div class="line">    logging.exception(<span class="string">"message"</span>)</div></pre></td></tr></table></figure>
+<h2 id="运行时信息"><a href="#运行时信息" class="headerlink" title="运行时信息"></a>运行时信息</h2><p>当应用运行时,有可能从以下三个地方获取可访问的文件:</p>
+<ol>
+<li>当前程序的文件夹内,比如我们添加的 Adding Data Files</li>
+<li>用户在使用时放置在程序文件夹内</li>
+<li>用户当前工作目录</li>
+</ol>
+<h3 id="使用-file-and-sys-MEIPASS"><a href="#使用-file-and-sys-MEIPASS" class="headerlink" title="使用 file and sys._MEIPASS"></a>使用 <strong>file</strong> and sys._MEIPASS</h3><p>在Python中,<code>__file__</code> 表示当前脚本文件的路径.当程序包文件运行时,加载器会设置sys.frozen变量和<br>把运行文件的绝对路径保存在 <code>sys._MEIPASS</code> 变量中;</p>
+<p>在 一个文件夹安装包的模式,这个路径指向文件夹;<br>在一个文件的模式中,这个路径指向 _MEIxxxxxx 临时文件夹</p>
+<h3 id="使用-sys-executable-and-sys-argv-0"><a href="#使用-sys-executable-and-sys-argv-0" class="headerlink" title="使用 sys.executable and sys.argv[0]"></a>使用 sys.executable and sys.argv[0]</h3><p>在 python 运行时, sys.executable 表示当前程序的路径,一般为python解释的路径,如:<br>C:\Python27\python.exe</p>
+<p>但是在 安装包运行,虽然也表示运行程序的路径,但已经不是 python解释器的路径,而是程序加载器<br>bootloader<br>所以这个变量提供了一个可靠的路径标识当前用户使用的路径位置;</p>
+<p>当用户是使用快捷键运行时,sys.argv[0]标识快捷键的位置,sys.executable仍然是可执行文件真实存在的位置</p>
+<p>当需要提供不同快捷键运行不同功能时,就可以使用该参数<br>os.path.basename(sys.argv[0])</p>
+<p>示例程序<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#!/usr/bin/python3</span></div><div class="line"><span class="keyword">import</span> sys, os</div><div class="line">frozen = <span class="string">'not'</span></div><div class="line"><span class="keyword">if</span> getattr(sys, <span class="string">'frozen'</span>, <span class="keyword">False</span>):</div><div class="line">        <span class="comment"># we are running in a bundle</span></div><div class="line">        frozen = <span class="string">'ever so'</span></div><div class="line">        bundle_dir = sys._MEIPASS</div><div class="line"><span class="keyword">else</span>:</div><div class="line">        <span class="comment"># we are running in a normal Python environment</span></div><div class="line">        bundle_dir = os.path.dirname(os.path.abspath(__file__))</div><div class="line">print( <span class="string">'we are'</span>,frozen,<span class="string">'frozen'</span>)</div><div class="line">print( <span class="string">'bundle dir is'</span>, bundle_dir )</div><div class="line">print( <span class="string">'sys.argv[0] is'</span>, sys.argv[<span class="number">0</span>] )</div><div class="line">print( <span class="string">'sys.executable is'</span>, sys.executable )</div><div class="line">print( <span class="string">'os.getcwd is'</span>, os.getcwd() )</div></pre></td></tr></table></figure></p>
+<h3 id="LD-LIBRARY-PATH-LIBPATH-considerations"><a href="#LD-LIBRARY-PATH-LIBPATH-considerations" class="headerlink" title="LD_LIBRARY_PATH / LIBPATH considerations"></a>LD_LIBRARY_PATH / LIBPATH considerations</h3><p>在类Unix系统中,表示库搜索路径</p>
+<h2 id="使用-Spec-文件"><a href="#使用-Spec-文件" class="headerlink" title="使用 Spec 文件"></a>使用 Spec 文件</h2><p>使用spec文件的场景:</p>
+<ol>
+<li>打包数据文件</li>
+<li>加载运行时库文件</li>
+<li>增加Python运行时配置参数</li>
+<li>打包跨程序的安装包</li>
+</ol>
+<p>单独生成spec文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyi-makespec options name.py [other scripts ...]</div></pre></td></tr></table></figure></p>
+<p>当生成并修改好spec文件后,运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">pyinstaller options name.spec</div></pre></td></tr></table></figure></p>
+<p>当你使用spec文件时,绝大多数的选项参数已经在spec文件中给出,这些参数不会改变;也就说你在命令行中给出的选项参数会被spec文件的参数覆盖,不起作用</p>
+<p>只有下述几个参数才是有意义的<br>–upx-dir=<br>–distpath=<br>–workpath=<br>–noconfirm<br>–ascii</p>
+<h3 id="spec-文件的结构"><a href="#spec-文件的结构" class="headerlink" title="spec 文件的结构"></a>spec 文件的结构</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">block_cipher = None</div><div class="line">a = Analysis([&apos;minimal.py&apos;],</div><div class="line">     pathex=[&apos;/Developer/PItests/minimal&apos;],</div><div class="line">     binaries=None,</div><div class="line">     datas=None,</div><div class="line">     hiddenimports=[],</div><div class="line">     hookspath=None,</div><div class="line">     runtime_hooks=None,</div><div class="line">     excludes=None,</div><div class="line">     cipher=block_cipher)</div><div class="line">pyz = PYZ(a.pure, a.zipped_data,</div><div class="line">     cipher=block_cipher)</div><div class="line">exe = EXE(pyz,... )</div><div class="line">coll = COLLECT(...)</div></pre></td></tr></table></figure>
+<p>由四部分组成: Analysis, PYZ, EXE and COLLECT.</p>
+<h3 id="向压缩包中添加文件"><a href="#向压缩包中添加文件" class="headerlink" title="向压缩包中添加文件"></a>向压缩包中添加文件</h3><p>添加文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">added_files = [</div><div class="line">         ( &apos;/mygame/sfx/*.mp3&apos;, &apos;sfx&apos; ),</div><div class="line">         ( &apos;src/README.txt&apos;, &apos;.&apos; )</div><div class="line">         ]</div><div class="line">    a = Analysis(...</div><div class="line">         datas = added_files,</div><div class="line">         ...</div><div class="line">         )</div></pre></td></tr></table></figure>
+<p>可以添加整个文件夹<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">added_files = [</div><div class="line">         ( &apos;/mygame/data&apos;, &apos;data&apos; ),</div><div class="line">         ( &apos;/mygame/sfx/*.mp3&apos;, &apos;sfx&apos; ),</div><div class="line">         ( &apos;src/README.txt&apos;, &apos;.&apos; )</div><div class="line">         ]</div></pre></td></tr></table></figure></p>
+<p>/mygame/data整个文件夹复制到data目录</p>
+<h3 id="在模块中使用-data文件"><a href="#在模块中使用-data文件" class="headerlink" title="在模块中使用 data文件"></a>在模块中使用 data文件</h3><p>pkgutils.get_data()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">import pkgutil</div><div class="line">help_bin = pkgutil.get_data( &apos;helpmod&apos;, &apos;help_data.txt&apos; )</div></pre></td></tr></table></figure>
+<p>添加可执行文件</p>
+<h3 id="增加Python运行时参数"><a href="#增加Python运行时参数" class="headerlink" title="增加Python运行时参数"></a>增加Python运行时参数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">v to write a message to stdout each time a module is initialized.</div><div class="line">u for unbuffered stdio.</div><div class="line">W and an option to change warning behavior: W ignore or W once or W error.</div></pre></td></tr></table></figure>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-17T06:37:20.000Z" itemprop="dateUpdated">2017年5月17日 14:37</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/2017/11/01/python/pyinstaller-winexe-usage-guide/" target="_blank" rel="external">https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pyinstaller/">pyinstaller</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/&title=《pyinstaller打包可执行文件命令工具使用》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/&title=《pyinstaller打包可执行文件命令工具使用》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《pyinstaller打包可执行文件命令工具使用》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/01/killtime/ittech-site-collection/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">IT技术站点收集</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/01/android/android-apk-disable/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android 冻结APP</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/&title=《pyinstaller打包可执行文件命令工具使用》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/&title=《pyinstaller打包可执行文件命令工具使用》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《pyinstaller打包可执行文件命令工具使用》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/01/python/pyinstaller-winexe-usage-guide/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACpklEQVR42u3aQW7DMAwEQP//0+21ReFkSYqBUYxPAVrbGh0keqnriq+vH1fy17vfp555+MLDw8MbDP3v9Xoo+b13Q+y9PbkLDw8Pb5t3t6Lmi3s+BdUnVMeDh4eH90xesg3kz8ynDw8PD+//8fJ4oncXHh4e3nN41UDhdfmbhAi9qVzMWvDw8PBiXt5Fes7vlf4eHh4e3rirnhTNSbm8F/W+GS0eHh7eAi9fcCdl9KmDWdVx4uHh4W3wXi/3p45b5aVwNfx9E53g4eHhrfEmAWgyQQk1Kdmr4S8eHh7eNm++WOcLd/WYQvL/t98KeHh4eAu8XvM+j1+rRwTybeZA1w4PDw9vwEu2gfzeefMsv7ecteDh4eENeL2GUx6z9o4OFIrm3laBh4eHN+BVB1edlEmpPToNgYeHh/cRXt6myg8HbJTL+Vvw8PDwNnhJrd0roK/WlR+xKgQleHh4eEd5SeM/H3pvcHn4W46b8fDw8BZ4k8I3n4j8adWJjiYFDw8Pb5mXl8t5YDFptvUOY735YsDDw8Mb8PJBVEvbfKGfH0S4fQ4eHh7eAm8eqvao5bI43hIOZ8Z4eHh4wXf6vBG1cXyqGmfg4eHhfYY3H0S+/1QPAfQON+Dh4eFt8JJotdcSmwcK1dZaNB14eHh4h3jzoKEaalQX9NFWhIeHh7fGS7aHajmbbyq9AjqKPPDw8PCWeXmzah7UljtyxaYdHh4e3gbvq3hVI4NTB63yNtiv33h4eHgLvOqCO3l0Neo9FWTg4eHhbfBObQaTiCHfTspTjIeHh7fG60W0ySCqm8E8X8HDw8N7Gm9SFufHEXqTe1Vfj4eHh/cRXrWMnhwvmLfc8PDw8PZ41df0jh3kU3Nsc8LDw8Nb4PU++HttrXxZn0wWHh4e3hrvG8FAh1zA4pvAAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

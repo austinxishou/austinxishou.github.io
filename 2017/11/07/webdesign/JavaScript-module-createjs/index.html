@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="360-site-verification" content="f623c899b6306a6a416f749df60d39a5" />
+	<meta name="sogou_site_verification" content="b2uCFUinvb"/>
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>createjs详解-preloadJS的使用 | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JavaScript">
+
+    <meta name="description" content="createjs详解-preloadJS的使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="createjs详解-preloadJS的使用">
+<meta property="og:url" content="https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="createjs详解-preloadJS的使用">
+<meta property="og:updated_time" content="2017-11-07T09:58:43.366Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="createjs详解-preloadJS的使用">
+<meta name="twitter:description" content="createjs详解-preloadJS的使用">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">createjs详解-preloadJS的使用</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">createjs详解-preloadJS的使用</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-07T08:05:26.130Z" itemprop="datePublished" class="page-time">
+  2017-11-07
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/webdesign/">webdesign</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#About-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">About-简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#preloadJS的使用"><span class="post-toc-number">2.</span> <span class="post-toc-text">preloadJS的使用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实例"><span class="post-toc-number">3.</span> <span class="post-toc-text">实例</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-webdesign/JavaScript-module-createjs"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">createjs详解-preloadJS的使用</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年11月07日 16:05" datetime="2017-11-07T08:05:26.130Z"  itemprop="datePublished">2017-11-07</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/webdesign/">webdesign</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About-简介"></a>About-简介</h2><p>createJs框架<br><a href="http://www.ajexoop.com/wordpress/" target="_blank" rel="external">ajexoop博客</a><br><a href="http://creatine.guineashots.com/" target="_blank" rel="external">Creatine-基于create.js的游戏引擎</a><br><a href="http://www.mapeditor.org/" target="_blank" rel="external">Creatine-地图编辑器</a></p>
+<blockquote>
+<p>createJs分成easelJs（图形动画）、preloadJs（文件加载）、soundJs（音频控制）以及tweenJs（补间动画）四部分</p>
+</blockquote>
+<h2 id="preloadJS的使用"><a href="#preloadJS的使用" class="headerlink" title="preloadJS的使用"></a>preloadJS的使用</h2><p><code>定义依赖模块</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">require.config(&#123;</div><div class="line">    paths: &#123;</div><div class="line">		jquery:	&apos;lib/jquery-3.1.0.min&apos;,</div><div class="line">		PreloadJS: &apos;lib/preloadjs-0.6.2.min&apos;,</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><code>定义manifest</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Global.manifest = [</div><div class="line">               &#123;src:&quot;image/man.png&quot; , id:&quot;man&quot;&#125;,</div><div class="line">               &#123;src:&quot;image/ground.png&quot; , id:&quot;ground&quot;&#125;,</div><div class="line">               &#123;src:&quot;image/bg.png&quot; , id:&quot;bg&quot;&#125;,</div><div class="line">               &#123;src:&quot;image/high.jpg&quot; , id:&quot;high&quot;&#125;,</div><div class="line">               &#123;src:&quot;image/coins.png&quot; , id:&quot;coin&quot;&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<blockquote>
+<p>src表示资源的路径，id在后面用来取加载好的资源。</p>
+</blockquote>
+<p><code>加载资源</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 加载资源</div><div class="line">var loader = new createjs.LoadQueue(false);</div><div class="line">   loader.setMaxConnections(100);</div><div class="line">   loader.maintainScriptOrder = true;</div><div class="line">loader.addEventListener(&apos;progress&apos;, function (e) &#123;</div><div class="line">	console.log(Math.floor(e.progress * 100) + &apos;%&apos;);</div><div class="line">&#125;);</div><div class="line">   loader.addEventListener(&apos;complete&apos;, function () &#123;&#125;);//当图片素材load完后执行该方法</div><div class="line">   loader.loadManifest(Global.manifest);</div></pre></td></tr></table></figure>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>参照网络上的<a href="http://whxaxes.github.io/canvas-test/src/Game-demo/runningMan/index.html" target="_blank" rel="external">酷跑demo</a></p>
+<p><code>初始化舞台</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function init()&#123;</div><div class="line">	stage = new createjs.Stage(&quot;cas&quot;);</div><div class="line">	C_W = stage.canvas.width;</div><div class="line">	C_H = stage.canvas.height;</div><div class="line">	var manifest = [</div><div class="line">		&#123;src:&quot;image/man.png&quot; , id:&quot;man&quot;&#125;,</div><div class="line">		&#123;src:&quot;image/ground.png&quot; , id:&quot;ground&quot;&#125;,</div><div class="line">		&#123;src:&quot;image/bg.png&quot; , id:&quot;bg&quot;&#125;,</div><div class="line">		&#123;src:&quot;image/high.jpg&quot; , id:&quot;high&quot;&#125;,</div><div class="line">		&#123;src:&quot;image/coins.png&quot; , id:&quot;coin&quot;&#125;</div><div class="line">	]</div><div class="line">	loader = new createjs.LoadQueue(false);</div><div class="line">	loader.addEventListener(&quot;complete&quot; , handleComplete);</div><div class="line">	loader.loadManifest(manifest);</div><div class="line">	drawLoading();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-07T09:58:43.366Z" itemprop="dateUpdated">2017年11月7日 17:58</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/2017/11/07/webdesign/JavaScript-module-createjs/" target="_blank" rel="external">https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/&title=《createjs详解-preloadJS的使用》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/&title=《createjs详解-preloadJS的使用》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《createjs详解-preloadJS的使用》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/07/webdesign/JavaScript-module-amd/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">AMD模块详解——Javascript模块化编程(三)</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/&title=《createjs详解-preloadJS的使用》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/&title=《createjs详解-preloadJS的使用》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《createjs详解-preloadJS的使用》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtklEQVR42u3aQW7cMBAEQP//0841QCKpe0bcGEHxtLApLUsGxHFzvr7i8f3baGdeXZXMTO7zwsDDw8NbLP3PkfOu5iSA+2+/uk9yFR4eHt453tVy8zn5UhLe/bXFevDw8PB+AG9T5s7ug4eHh/d/8NriO5+zeax4eHh4n+Qli85L5CR6uF/W/eM4krXg4eHhxby3SuFPfj5yvoeHh4e3PlVvI9T2hT47fitWi4eHh3eAl79wW3y+xDyemLV84eHh4Z3mzcLWJFqdNRm0v/3LSvDw8PBe5SWR6yy6zTeM5NuHwQQeHh7eYd7mmH9zYJY/lLzcx8PDwzvNy4PafH7bWNAe/BcbAx4eHt4x3v1P2nq1LcHbDSk6PMPDw8P7CK8uW+O49t0CPXrceHh4eId5+0W3rVftVtGW73h4eHgneJvGptnR1CyibY/u8PDw8D7Da2OFNjiYtS/kW0LUU4aHh4d3jJeX1/trH6LYeDyU1Hh4eHgv8drj/3YDSJaet7rWh214eHh4x3j7KCF/oc8arYbbDx4eHt4B3qoSXwQE93OShq3kWjw8PLzTvH2L6mYbaGHtnwEPDw/vLV4bQLTHYLOmhPY+l6vCw8PDO8bbt4rm7+E2X02C46hRFQ8PD+8l3onA9FwjQtt8gIeHh3eO1xa7bYtAsvHk909K8CaEwcPDw9vyZjFEG2fkAe6sFSzqLMPDw8Nb8zZfM8MXIcImYcDDw8N7lfddjjZazYvpWeH+UDnj4eHhHeC1L98iD16U2pvPq70FDw8PL+bt49c88J09xNXGgIeHh3eM154c7cvr+0fQbjkPWQseHh7eP+XNXvT5stpmrIfvwsPDw/sBvLy0bTeJvC2gCETw8PDwjvFmh15JYT1rRJiV9ZcbAx4eHt6rvPYf/jxCzRmbRoEXBh4eHl7K+wXHVu4DsB//wwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
