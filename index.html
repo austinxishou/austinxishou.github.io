@@ -178,6 +178,68 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-server/opentaobao-dev-doc"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2018年03月09日 14:44" datetime="2018-03-09T06:44:48.218Z"  itemprop="datePublished">2018-03-09</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/server/">server</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2018/03/09/server/opentaobao-dev-doc/">淘宝开放平台文档记录</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        JSSDK文档JSSDK文档
+引入
+阿里无线开放APIhttp://coolgame.ews.m.jaeapp.com/example/index.html
+创建前台应用
+EWS环境必须手动引用Tida
+同时每个页面上的head里面加入 开启数据统计功能
+
+店铺二楼接入流程
+购买聚石塔服务器
+114.55.37.28
+
+
+添加机器到资源池
+创建服务(function(){ var bp = ...
+    
+
+        <a href="/2018/03/09/server/opentaobao-dev-doc/" class="post-more waves-effect waves-button">
+            阅读全文...
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/server/">server</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-python/python-parse-xml-usage"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -459,7 +521,7 @@ API���÷��������ٷ��ĵ�
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/01/18/server/php-composer-usage/">composerʹ��</a>
+      <a class="post-title-link" href="/2018/01/18/server/php-composer-usage/">composer使用</a>
     </h3>
   
 
@@ -470,7 +532,7 @@ API���÷��������ٷ��ĵ�
 
     
         http://www.pfinal.cn/
-composer ������composer autoload - �Զ�����12345678910&quot;autoload&quot;: &#123;        &quot;classmap&quot;: [            &quot;database/seeds&quot;,            &quot;databa...
+composer 包管理composer autoload - 自动加载12345678910&quot;autoload&quot;: &#123;        &quot;classmap&quot;: [            &quot;database/seeds&quot;,            &quot;database/fac...
     
 
         <a href="/2018/01/18/server/php-composer-usage/" class="post-more waves-effect waves-button">
@@ -519,7 +581,12 @@ composer ������composer autoload - �Զ�����12345678910&q
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        ����ssh-sftp&gt; �ڷ������Ͽ�ͨSFTP�ļ�����������ĳЩ�û��ϴ��������ļ���������Щ�û�ֻ��ʹ��SFTP�����ļ�������ʹ��SSH�ն˷��ʷ�����������SFTP���ܷ���ϵͳ�ļ�������ν�ġ�Jail��������������ϵͳ����Ա������ʹ��SFTP�����ļ���Ҳ��ʹ...
+        配置ssh-sftp&gt; 在服务器上开通SFTP文件服务，允许某些用户上传及下载文件。但是这些用户只能使用SFTP传输文件，不能使用SSH终端访问服务器，并且SFTP不能访问系统文件（即所谓的“Jail（监狱）”）。系统管理员则既能使用SFTP传输文件，也能使用SSH远程管理服务器。
+
+安装OpenSSH服务器
+1sudo apt-get install openssh-server
+
+...
     
 
         <a href="/2018/01/17/server/server-admin-usage-note/" class="post-more waves-effect waves-button">
@@ -558,7 +625,7 @@ composer ������composer autoload - �Զ�����12345678910&q
 
   
     <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/01/15/server/docker-note-useage/">docker ʹ�ñʼ�</a>
+      <a class="post-title-link" href="/2018/01/15/server/docker-note-useage/">docker 使用笔记</a>
     </h3>
   
 
@@ -568,11 +635,14 @@ composer ������composer autoload - �Զ�����12345678910&q
     <div class="post-content" id="post-content" itemprop="postContent">
 
     
-        About-�����ο��ĵ�
+        About-简介参考文档
 
-Docker��ʹ��go���Ի���LINUX�ں˵�cgroup��namespace�Լ�AUFS ���� Union FS �ȼ������Խ��̽��з�װ������һ�ֲ���ϵͳ���������⻯���������ڸ����Ľ��̶����������������ĸ����Ľ��̣�����Ҳ����Ϊ������
+Docker是使用go语言基于LINUX内核的cgroup，namespace以及AUFS 类的 Union FS 等技术，对进程进行封装隔离的一种操作系统层面的虚拟化技术，由于隔离的进程独立于宿主和其它的隔离的进程，因此也称其为容器。
 
-Docker�ʹ...
+Docker和传统虚拟化技术的对比
+                
+                    
+       ...
     
 
         <a href="/2018/01/15/server/docker-note-useage/" class="post-more waves-effect waves-button">
@@ -632,59 +702,6 @@ Html结构标准...
     
 
         <a href="/2018/01/07/wechat/html-chuanbozhike/" class="post-more waves-effect waves-button">
-            阅读全文...
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-wechat/html-css-layout"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2018年01月07日 12:05" datetime="2018-01-07T04:05:01.668Z"  itemprop="datePublished">2018-01-07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/layout-html/">layout html</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2018/01/07/wechat/html-css-layout/">html layout</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        Online webѧϰCSS����Webǰ��ʵ����
-http://www.jianshu.com/p/56d8672ccb0f
-����CSS position��������CSS position����position��������
-1. static
-    static��position���Ե�Ĭ��ֵ��Ĭ�������£��鼶Ԫ�غ�����Ԫ�ذ��ո��Ե�...
-    
-
-        <a href="/2018/01/07/wechat/html-css-layout/" class="post-more waves-effect waves-button">
             阅读全文...
         </a>
     </div>

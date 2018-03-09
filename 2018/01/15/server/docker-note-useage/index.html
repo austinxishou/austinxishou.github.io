@@ -18,7 +18,7 @@
 	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
     <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
     <meta http-equiv="content-language" content="zh-cn">
-    <title>docker ʹ�ñʼ� | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <title>docker 使用笔记 | 爵士犀首 | Talk is cheap, show me the code!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -26,17 +26,17 @@
     
     <meta name="keywords" content="docker">
 
-    <meta name="description" content="dockerʹ�ñʼ�">
+    <meta name="description" content="docker使用笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker ʹ�ñʼ�">
+<meta property="og:title" content="docker 使用笔记">
 <meta property="og:url" content="https://austinxishou.github.io/2018/01/15/server/docker-note-useage/index.html">
 <meta property="og:site_name" content="爵士犀首">
-<meta property="og:description" content="dockerʹ�ñʼ�">
+<meta property="og:description" content="docker使用笔记">
 <meta property="og:image" content="https://austinxishou.github.io/images/kvm-vs-docker.png">
-<meta property="og:updated_time" content="2018-02-04T23:55:34.000Z">
+<meta property="og:updated_time" content="2018-03-09T06:46:20.435Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="docker ʹ�ñʼ�">
-<meta name="twitter:description" content="dockerʹ�ñʼ�">
+<meta name="twitter:title" content="docker 使用笔记">
+<meta name="twitter:description" content="docker使用笔记">
 <meta name="twitter:image" content="https://austinxishou.github.io/images/kvm-vs-docker.png">
     
         <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
@@ -142,7 +142,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">docker ʹ�ñʼ�</div>
+        <div class="flex-col header-title ellipsis">docker 使用笔记</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -164,7 +164,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">docker ʹ�ñʼ�</h1>
+        <h1 class="title">docker 使用笔记</h1>
         <h5 class="subtitle">
             
                 <time datetime="2018-01-15T01:18:42.376Z" itemprop="datePublished" class="page-time">
@@ -188,7 +188,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#About-����"><span class="post-toc-number">1.</span> <span class="post-toc-text">About-����</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker�ʹ�ͳ���⻯�����KԱ�"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Docker�ʹ�ͳ���⻯�����ĶԱ�</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ΪʲoҪʹ��-Docker"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">ΪʲôҪʹ�� Docker</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Docker�L�������"><span class="post-toc-number">2.</span> <span class="post-toc-text">Docker�Ļ�������</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker-����"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Docker ����</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#�ֲ��洢"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">�ֲ��洢</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker-����-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Docker ����</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker-Registry"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Docker Registry</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Docker-����-2"><span class="post-toc-number">3.</span> <span class="post-toc-text">Docker ����</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#��װdocker"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">��װdocker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#���þ�������"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">���þ�������</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ʹ�þ���"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">ʹ�þ���</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dockerfile"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">Dockerfile</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#���o�������"><span class="post-toc-number">4.</span> <span class="post-toc-text">���ò�������</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#About-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">About-简介</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker和传统虚拟化技术的对比"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Docker和传统虚拟化技术的对比</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么要使用-Docker"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">为什么要使用 Docker</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Docker的基本概念"><span class="post-toc-number">2.</span> <span class="post-toc-text">Docker的基本概念</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker-镜像"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Docker 镜像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分层存储"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">分层存储</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker-容器"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Docker 容器</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker-Registry"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Docker Registry</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Docker-操作"><span class="post-toc-number">3.</span> <span class="post-toc-text">Docker 操作</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#安装docker"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">安装docker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#配置镜像加速"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">配置镜像加速</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用镜像"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">使用镜像</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dockerfile"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">Dockerfile</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#常用操作命令"><span class="post-toc-number">4.</span> <span class="post-toc-text">常用操作命令</span></a></li></ol>
         </nav>
     </aside>
     
@@ -196,7 +196,7 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">docker ʹ�ñʼ�</h1>
+        <h1 class="post-card-title">docker 使用笔记</h1>
         <div class="post-meta">
             <time class="post-time" title="2018年01月15日 9:18" datetime="2018-01-15T01:18:42.376Z"  itemprop="datePublished">2018-01-15</time>
 
@@ -215,181 +215,181 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="About-����"><a href="#About-����" class="headerlink" title="About-����"></a>About-����</h2><p><a href="https://www.cnblogs.com/linuxops/p/6781047.html" target="_blank" rel="external">�ο��ĵ�</a></p>
+            <h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About-简介"></a>About-简介</h2><p><a href="https://www.cnblogs.com/linuxops/p/6781047.html" target="_blank" rel="external">参考文档</a></p>
 <blockquote>
-<p>Docker��ʹ��go���Ի���LINUX�ں˵�cgroup��namespace�Լ�AUFS ���� Union FS �ȼ������Խ��̽��з�װ������һ�ֲ���ϵͳ���������⻯���������ڸ����Ľ��̶����������������ĸ����Ľ��̣�����Ҳ����Ϊ������</p>
+<p>Docker是使用go语言基于LINUX内核的cgroup，namespace以及AUFS 类的 Union FS 等技术，对进程进行封装隔离的一种操作系统层面的虚拟化技术，由于隔离的进程独立于宿主和其它的隔离的进程，因此也称其为容器。</p>
 </blockquote>
-<h3 id="Docker�ʹ�ͳ���⻯�����KԱ�"><a href="#Docker�ʹ�ͳ���⻯�����KԱ�" class="headerlink" title="Docker�ʹ�ͳ���⻯�����ĶԱ�"></a>Docker�ʹ�ͳ���⻯�����ĶԱ�</h3><figure class="image-bubble">
+<h3 id="Docker和传统虚拟化技术的对比"><a href="#Docker和传统虚拟化技术的对比" class="headerlink" title="Docker和传统虚拟化技术的对比"></a>Docker和传统虚拟化技术的对比</h3><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/images/kvm-vs-docker.png" alt="kvm-vs-docker" title="">
                 </div>
                 <div class="image-caption">kvm-vs-docker</div>
             </figure>
-<h3 id="ΪʲoҪʹ��-Docker"><a href="#ΪʲoҪʹ��-Docker" class="headerlink" title="ΪʲôҪʹ�� Docker"></a>ΪʲôҪʹ�� Docker</h3><ul>
-<li><strong>����Ч������ϵͳ��Դ</strong><ul>
-<li>����Docker�����ڽ��̼��𣬲���Ҫ����Ӳ�������Լ�������������ϵͳ�ȶ��⿪��������Docker��ϵͳ��Դ�������ʸ��ߡ�����������������һ����ͬ���õ������������������и���������Ӧ�á�</li>
+<h3 id="为什么要使用-Docker"><a href="#为什么要使用-Docker" class="headerlink" title="为什么要使用 Docker"></a>为什么要使用 Docker</h3><ul>
+<li><strong>更高效的利用系统资源</strong><ul>
+<li>由于Docker工作在进程级别，不需要进行硬件虚拟以及运行完整操作系统等额外开销，所以Docker对系统资源的利用率更高。相比虚拟机技术，一个相同配置的主机，往往可以运行更多数量的应用。</li>
 </ul>
 </li>
-<li><strong>�����ٵ�����ʱ��</strong><ul>
-<li>��ͳ����������������Ӧ�÷���������Ҫ�����ӣ��� Docker����Ӧ�ã�����ֱ�������������ںˣ��������������Ĳ���ϵͳ�����˿��������뼶���������뼶������ʱ�䡣�����Ľ�Լ�˿��������ԡ�������ʱ�䡣</li>
+<li><strong>更快速的启动时间</strong><ul>
+<li>传统的虚拟机技术启动应用服务往往需要数分钟，而 Docker容器应用，由于直接运行于宿主内核，无需启动完整的操作系统，因此可以做到秒级、甚至毫秒级的启动时间。大大的节约了开发、测试、部署的时间。</li>
 </ul>
 </li>
-<li><strong>һ�µ����л���</strong><ul>
-<li>���ڿ������������Ի���������������һ�£�������Щ bug ��δ�ڿ��������б����֡�Docker �ľ����ṩ�˳��ں�������������ʱ������ȷ����Ӧ�����л���һ���ԣ��Ӷ������ٳ��� �����δ������һ�����û���Ⱑ�� �������⡣</li>
+<li><strong>一致的运行环境</strong><ul>
+<li>由于开发环境、测试环境、生产环境不一致，导致有些 bug 并未在开发过程中被发现。Docker 的镜像提供了除内核外完整的运行时环境，确保了应用运行环境一致性，从而不会再出现 “这段代码在我机器上没问题啊” 这类问题。</li>
 </ul>
 </li>
-<li><strong>���������Ͳ���</strong><ul>
-<li>һ�δ������������С�ͨ������Ӧ�þ�����ʵ�ֳ������ɡ��������������𡣿�����Ա����ͨ�� Dockerfile �����о��񹹽��������ϳ�������(Continuous Integration)ϵͳ���м��ɲ��ԣ�����ά��Ա������ֱ�������������п��ٲ����þ������������� ��������(Continuous Delivery/Deployment) ϵͳ�����Զ����𡣶���ʹ�� Dockerfile ʹ���񹹽�͸�����������������Ŷӿ�������Ӧ�����л�����Ҳ������ά�Ŷ�����Ӧ�����������������������õ����������в����þ�����</li>
+<li><strong>持续交付和部署</strong><ul>
+<li>一次创建，多次运行。通过定制应用镜像来实现持续集成、持续交付、部署。开发人员可以通过 Dockerfile 来进行镜像构建，并结合持续集成(Continuous Integration)系统进行集成测试，而运维人员则可以直接在生产环境中快速部署该镜像，甚至结合 持续部署(Continuous Delivery/Deployment) 系统进行自动部署。而且使用 Dockerfile 使镜像构建透明化，不仅仅开发团队可以理解应用运行环境，也方便运维团队理解应用运行所需条件，帮助更好的生产环境中部署该镜像。</li>
 </ul>
 </li>
-<li><strong>�����ɵ�Ǩ��</strong><ul>
-<li>Docker ȷ����ִ�л�����һ���ԣ����������������������������ơ�˽���ƣ������ǱʼǱ��������н�����һ�µġ����˿��Ժ�����Ǩ�Ƶ������ϣ������õ������л����ı仯����Ӧ���޷��������е�������</li>
+<li><strong>更轻松的迁移</strong><ul>
+<li>Docker 确保了执行环境的一致性，无论是物理机、虚拟机、公有云、私有云，甚至是笔记本，其运行结果是一致的。因此可以很轻易迁移到任意上，而不用担心运行环境的变化导致应用无法正常运行的情况。</li>
 </ul>
 </li>
-<li><strong>�����ɵ�ά������չ</strong><ul>
-<li>Docker ʹ�õķֲ��洢�Լ������ļ�����Docker �Ŷ�ͬ������Դ��Ŀ�Ŷ�һ��ά����һ�����������Ĺٷ����񣬼ȿ���ֱ������������ʹ�ã��ֿ�����Ϊ������һ�����ơ�</li>
+<li><strong>更轻松的维护和扩展</strong><ul>
+<li>Docker 使用的分层存储以及镜像的技术，Docker 团队同各个开源项目团队一起维护了一大批高质量的官方镜像，既可以直接在生产环境使用，又可以作为基础进一步定制。</li>
 </ul>
 </li>
 </ul>
-<h2 id="Docker�L�������"><a href="#Docker�L�������" class="headerlink" title="Docker�Ļ�������"></a>Docker�Ļ�������</h2><h3 id="Docker-����"><a href="#Docker-����" class="headerlink" title="Docker ����"></a>Docker ����</h3><pre><code>���Ƕ�֪��������ϵͳ��Ϊ�ں˺��û��ռ䡣���� Linux ���ԣ��ں������󣬻����ظ��ļ�ϵͳΪ���ṩ�û��ռ�֧�֡��� Docker ������Image�������൱����һ�����ļ�ϵͳ��Docker ������һ���������ļ�ϵͳ�������ṩ��������ʱ�����ĳ��򡢿⡢��Դ�����õ��ļ��⣬��������һЩΪ����ʱ׼����һЩ���ò��������������������������û��ȣ������񲻰����κζ�̬���ݣ��������ڹ���֮��Ҳ���ᱻ�ı䡣
-</code></pre><h3 id="�ֲ��洢"><a href="#�ֲ��洢" class="headerlink" title="�ֲ��洢"></a>�ֲ��洢</h3><pre><code>��Ϊ������������ϵͳ�����ĸ��ļ�ϵͳ���������������Ӵ��ģ������� Docker ����ʱ���ͳ������� Union FS �ļ�������������Ϊ�ֲ��洢�ļܹ��������ϸ���˵�����񲢷�����һ�� ISO �����Ĵ����ļ�������ֻ��һ�������ĸ����ʵ�����ֲ�����һ���ļ����ɣ�������һ���ļ�ϵͳ���ɣ�����˵���ɶ����ļ�ϵͳ�������ɡ�
-���񹹽�ʱ����һ���㹹����ǰһ���Ǻ�һ���Ļ�����ÿһ�㹹�����Ͳ����ٷ����ı䣬��һ���ϵ��κθı�ֻ�������Լ���һ�㡣���磬ɾ��ǰһ���ļ��Ĳ�����ʵ�ʲ�������ɾ��ǰһ�����ļ������ǽ��ڵ�ǰ������Ϊ���ļ���ɾ�����������������е�ʱ������Ȼ���ῴ�������ļ�������ʵ���ϸ��ļ���һֱ���澵�������ˣ��ڹ���������ʱ������Ҫ����С�ģ�ÿһ�㾡��ֻ�����ò���Ҫ���ӵĶ������κζ����Ķ���Ӧ���ڸò㹹������ǰ��������
+<h2 id="Docker的基本概念"><a href="#Docker的基本概念" class="headerlink" title="Docker的基本概念"></a>Docker的基本概念</h2><h3 id="Docker-镜像"><a href="#Docker-镜像" class="headerlink" title="Docker 镜像"></a>Docker 镜像</h3><pre><code>我们都知道，操作系统分为内核和用户空间。对于 Linux 而言，内核启动后，会挂载根文件系统为其提供用户空间支持。而 Docker 镜像（Image），就相当于是一个根文件系统。Docker 镜像是一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（如匿名卷、环境变量、用户等）。镜像不包含任何动态数据，其内容在构建之后也不会被改变。
+</code></pre><h3 id="分层存储"><a href="#分层存储" class="headerlink" title="分层存储"></a>分层存储</h3><pre><code>因为镜像包含操作系统完整的根文件系统，其体积往往是庞大的，因此在 Docker 设计时，就充分利用 Union FS 的技术，将其设计为分层存储的架构。所以严格来说，镜像并非是像一个 ISO 那样的打包文件，镜像只是一个虚拟的概念，其实际体现并非由一个文件组成，而是由一组文件系统组成，或者说，由多层文件系统联合组成。
+镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。比如，删除前一层文件的操作，实际不是真的删除前一层的文件，而是仅在当前层标记为该文件已删除。在最终容器运行的时候，虽然不会看到这个文件，但是实际上该文件会一直跟随镜像。因此，在构建镜像的时候，需要额外小心，每一层尽量只包含该层需要添加的东西，任何额外的东西应该在该层构建结束前清理掉。
 
-�ֲ��洢��������ʹ�þ����ĸ��á����Ʊ��ĸ�Ϊ���ס�����������֮ǰ�����õľ�����Ϊ�����㣬Ȼ����һ�������µĲ㣬�Զ����Լ����������ݣ������µľ�����
-</code></pre><h3 id="Docker-����-1"><a href="#Docker-����-1" class="headerlink" title="Docker ����"></a>Docker ����</h3><pre><code>������Image����������Container���Ĺ�ϵ�������������������������е�����ʵ��һ���������Ǿ�̬�Ķ��壬�����Ǿ�������ʱ��ʵ�塣�������Ա�������������ֹͣ��ɾ������ͣ�ȡ�
+分层存储的特征还使得镜像的复用、定制变的更为容易。甚至可以用之前构建好的镜像作为基础层，然后进一步添加新的层，以定制自己所需的内容，构建新的镜像。
+</code></pre><h3 id="Docker-容器"><a href="#Docker-容器" class="headerlink" title="Docker 容器"></a>Docker 容器</h3><pre><code>镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。
 
-������ʵ���ǽ��̣�����ֱ��������ִ�еĽ��̲�ͬ���������������������Լ��Ķ����������ռ䡣������������ӵ���Լ��ĸ��ļ�ϵͳ���Լ����������á��Լ��Ľ��̿ռ䣬�����Լ����û� ID �ռ䡣�����ڵĽ�����������һ�������Ļ����ʹ���������ͺ�������һ��������������ϵͳ�²���һ������������ʹ��������װ��Ӧ�ñ�ֱ�����������и��Ӱ�ȫ��
+容器的实质是进程，但与直接在宿主执行的进程不同，容器进程运行于属于自己的独立的命名空间。因此容器可以拥有自己的根文件系统、自己的网络配置、自己的进程空间，甚至自己的用户 ID 空间。容器内的进程是运行在一个隔离的环境里，使用起来，就好像是在一个独立于宿主的系统下操作一样。这种特性使得容器封装的应用比直接在宿主运行更加安全。
 
-ǰ�潲������ʹ�õ��Ƿֲ��洢������Ҳ�����ˡ�ÿһ����������ʱ�����Ծ���Ϊ�����㣬�����ϴ���һ����ǰ�����Ĵ洢�㣬���ǿ��Գ�����Ϊ��������ʱ��д��׼���Ĵ洢��Ϊ�����洢�㡣
+前面讲过镜像使用的是分层存储，容器也是如此。每一个容器运行时，是以镜像为基础层，在其上创建一个当前容器的存储层，我们可以称这个为容器运行时读写而准备的存储层为容器存储层。
 
-�����洢�����������ں�����һ������������ʱ�������洢��Ҳ��֮���������ˣ��κα����������洢������Ϣ����������ɾ������ʧ��
+容器存储层的生存周期和容器一样，容器消亡时，容器存储层也随之消亡。因此，任何保存于容器存储层的信息都会随容器删除而丢失。
 
-���� Docker ����ʵ����Ҫ����������Ӧ�������洢����д���κ����ݣ������洢��Ҫ������״̬�������е��ļ�д����������Ӧ��ʹ�� ���ݾ���Volume�������߰�������Ŀ¼������Щλ�õĶ�д�����������洢�㣬ֱ�Ӷ�����(�������洢)������д�������ܺ��ȶ��Ը��ߡ�
+按照 Docker 最佳实践的要求，容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。所有的文件写入操作，都应该使用 数据卷（Volume）、或者绑定宿主目录，在这些位置的读写会跳过容器存储层，直接对宿主(或网络存储)发生读写，其性能和稳定性更高。
 
-���ݾ����������ڶ������������������������ݾ��������������ˣ�ʹ�����ݾ�����������������ɾ�����������У�����ȴ���ᶪʧ��
-</code></pre><h3 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h3><pre><code>Docker Registry �ṩ�˾����ļ��еĴ洢���ַ����ܡ�һ�� Docker Registry �п��԰��������ֿ⣨Repository����ÿ���ֿ����԰���������ǩ��Tag����ͨ�� &lt;�ֿ���&gt;:&lt;��ǩ&gt; �ĸ�ʽ��ָ�����������������ĸ��汾�ľ�����Docker Registry ��Ϊ���з�����˽�з��������ǿ��Դһ�����ڱ��ص�registry
-</code></pre><h2 id="Docker-����-2"><a href="#Docker-����-2" class="headerlink" title="Docker ����"></a>Docker ����</h2><h3 id="��װdocker"><a href="#��װdocker" class="headerlink" title="��װdocker"></a>��װdocker</h3><pre><code>������Ubuntu��,����ֱ������:
+数据卷的生存周期独立于容器，容器消亡，数据卷不会消亡。因此，使用数据卷后，容器可以随意删除、重新运行，数据却不会丢失。
+</code></pre><h3 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h3><pre><code>Docker Registry 提供了镜像的集中的存储、分发功能。一个 Docker Registry 中可以包含多个仓库（Repository）；每个仓库可以包含多个标签（Tag）；通过 &lt;仓库名&gt;:&lt;标签&gt; 的格式来指定具体是这个软件哪个版本的镜像。Docker Registry 分为公有服务和私有服务，我们可以搭建一个基于本地的registry
+</code></pre><h2 id="Docker-操作"><a href="#Docker-操作" class="headerlink" title="Docker 操作"></a>Docker 操作</h2><h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><pre><code>例如在Ubuntu中,可以直接运行:
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install docker</div></pre></td></tr></table></figure>
-</code></pre><h3 id="���þ�������"><a href="#���þ�������" class="headerlink" title="���þ�������"></a>���þ�������</h3><pre><code>���ڹ��ڷ���dockerԭվ���ǳ����ѣ����ڵ��Ʒ����ṩ���ṩ�˼��ٹ��ܡ�����ʹ�ð����ƽ���docker����
-��ַΪ: https://dev.aliyun.com/search.html
+</code></pre><h3 id="配置镜像加速"><a href="#配置镜像加速" class="headerlink" title="配置镜像加速"></a>配置镜像加速</h3><pre><code>由于国内访问docker原站点非常困难，国内的云服务提供商提供了加速功能。我们使用阿里云进行docker加速
+地址为: https://dev.aliyun.com/search.html
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sed -i &quot;s|ExecStart=/usr/bin/dockerd|ExecStart=/usr/bin/dockerd --registry-mirror=https://fz5yth0r.mirror.aliyuncs.com|g&quot; /usr/lib/systemd/system/docker.service</div><div class="line">systemctl daemon-reload</div><div class="line">systemctl restart docker</div></pre></td></tr></table></figure>
-</code></pre><h3 id="ʹ�þ���"><a href="#ʹ�þ���" class="headerlink" title="ʹ�þ���"></a>ʹ�þ���</h3><ul>
-<li><p><strong>��ȡ����</strong></p>
+</code></pre><h3 id="使用镜像"><a href="#使用镜像" class="headerlink" title="使用镜像"></a>使用镜像</h3><ul>
+<li><p><strong>获取镜像</strong></p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull [OPTIONS] NAME[:TAG|@DIGEST]</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>�г�����</strong></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@node1 docker]# docker images</div><div class="line">#�ֿ���             #��ǩ                #����ID             #����ʱ��            #��С</div><div class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">centos              latest              98d35105a391        7 days ago          192 MB</div><div class="line"></div><div class="line">docker images  -a //ʹ��-a��������ʾ�м��㾵����</div><div class="line"></div><div class="line">//����ָ����ʽ����</div><div class="line">docker images   --format &quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Repository&#125;&#125;\t&#123;&#123;.Tag&#125;&#125;&quot;</div></pre></td></tr></table></figure>
+<li><p><strong>列出镜像</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@node1 docker]# docker images</div><div class="line">#仓库名             #标签                #镜像ID             #创建时间            #大小</div><div class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">centos              latest              98d35105a391        7 days ago          192 MB</div><div class="line"></div><div class="line">docker images  -a //使用-a参数来显示中间层镜像。</div><div class="line"></div><div class="line">//按照指定格式输出</div><div class="line">docker images   --format &quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Repository&#125;&#125;\t&#123;&#123;.Tag&#125;&#125;&quot;</div></pre></td></tr></table></figure>
 </li>
-<li><p><strong>Docker ����</strong></p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//ʹ��nginx ��������һ������������Ϊ webserver�����Ұ�������80�˿�ӳ������������80�˿ڡ�</div><div class="line">docker run --name webserver -d -p 80:80 nginx</div></pre></td></tr></table></figure>
+<li><p><strong>Docker 运行</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//使用nginx 镜像启动一个容器，命名为 webserver，并且把容器的80端口映射在宿主机的80端口。</div><div class="line">docker run --name webserver -d -p 80:80 nginx</div></pre></td></tr></table></figure>
 </li>
 <li><p><strong>Docker commit</strong></p>
 <ul>
-<li>�����޸��������Ĵ洢�㣬ʹ��docker diff �鿴�ļ��ĸĶ�</li>
-<li>���ƺ�ҳ��֮�󣬱���Ϊ���񣬵���������һ��������ʱ����������ʹ�þ��Ļ��������������κ��ļ��޸Ķ��ᱻ��¼�������洢���</li>
-<li><p>�� Docker �ṩ��һ�� docker commit ������Խ������Ĵ洢�㱣��������Ϊ���񡣻��仰˵��������ԭ�о����Ļ����ϣ��ٵ����������Ĵ洢�㣬�������µľ�����</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">docker commit \</div><div class="line">   --author &quot;austin &lt;xxx@163.com&gt;&quot; \</div><div class="line">   --message &quot;�޸ĳ�ʼ��ҳ&quot; \</div><div class="line">   webserver \</div><div class="line">   nginx:v2</div></pre></td></tr></table></figure>
+<li>我们修改了容器的存储层，使用docker diff 查看文件的改动</li>
+<li>定制好页面之后，保存为镜像，当我们运行一个容器的时候（如果不使用卷的话），我们做的任何文件修改都会被记录于容器存储层里。</li>
+<li><p>而 Docker 提供了一个 docker commit 命令，可以将容器的存储层保存下来成为镜像。换句话说，就是在原有镜像的基础上，再叠加上容器的存储层，并构成新的镜像。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">docker commit \</div><div class="line">   --author &quot;austin &lt;xxx@163.com&gt;&quot; \</div><div class="line">   --message &quot;修改初始网页&quot; \</div><div class="line">   webserver \</div><div class="line">   nginx:v2</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code>- �������� docker history �����鿴�����ڵ���ʷ��¼�������Ƚ� nginx:latest ����ʷ��¼
+<pre><code>- 还可以用 docker history 具体查看镜像内的历史记录，如果比较 nginx:latest 的历史记录
 
-- ���� docker commit
-&gt; �۲�֮ǰ�� docker diff webserver �Ľ��������ᷢ�ֳ���������Ҫ�޸ĵ� /usr/share/nginx/html/index.html �ļ��⣬���кܶ��ļ����Ķ��������ˡ������ǰ�װ�����������빹�����ǻ��д������޹����ݱ����ӽ��������ᵼ�¾�����Ϊӷ�ס�
+- 慎用 docker commit
+&gt; 观察之前的 docker diff webserver 的结果，你会发现除了真正想要修改的 /usr/share/nginx/html/index.html 文件外，还有很多文件被改动或添加了。如果是安装软件包、编译构建，那会有大量的无关内容被添加进来，将会导致镜像极为臃肿。
 
-ʹ�� docker commit ��ζ�ų���������������֪��ִ�й�ʲô�����ô���ɵľ��񣬱��˸����޴ӵ�֪�����ң���ʹ�����������������ˣ���һ��ʱ����Ҳ�޷����������ڲ����ġ�
+使用 docker commit 意味着除了制作镜像的人知道执行过什么命令、怎么生成的镜像，别人根本无从得知。而且，即使是这个制作镜像的人，过一段时间后也无法记清具体在操作的。
 
-����ʹ�� docker commit ��������������ֻ�ڵ�ǰ�������������޸ĵĻ���ÿһ���޸Ķ����þ�������ӷ��һ�Σ���ɾ������һ���Ķ��������ᶪʧ����һֱ��Ӱ���εĸ�������������
-��ʹ�����޷����ʵ�?�������þ�������ӷ�ס�
+如果使用 docker commit 制作镜像，由于只在当前层操作，后期修改的话，每一次修改都会让镜像更加臃肿一次，所删除的上一层的东西并不会丢失，会一直如影随形的跟着这个镜像，
+即使根本无法访问到?。这会让镜像更加臃肿。
 
-docker commit ��������ѧϰ֮�⣬����һЩ������Ӧ�ó��ϣ����类���ֺ󱣴��ֳ��ȡ����ǣ���Ҫʹ�� docker commit ���ƾ��񣬶�����ΪӦ��ʹ�� Dockerfile �����ɡ�
-</code></pre><h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><pre><code>Dockerfile��һ���ı��ļ������������������ƾ�����֮ǰʹ�� docker commit �ἰ���޷��ظ������⡢���񹹽�͸���Ե����⡢�����������Ͷ���������
-ʹ��docker file ����nginx����
+docker commit 命令除了学习之外，还有一些特殊的应用场合，比如被入侵后保存现场等。但是，不要使用 docker commit 定制镜像，定制行为应该使用 Dockerfile 来完成。
+</code></pre><h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><pre><code>Dockerfile是一个文本文件，用来来构建、定制镜像。之前使用 docker commit 提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。
+使用docker file 定制nginx镜像
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FROM nginx</div><div class="line">RUN echo &apos;&lt;h1&gt;Hello, Docker!&lt;/h1&gt;&apos; &gt; /usr/share/nginx/html/index.html</div></pre></td></tr></table></figure>
 </code></pre><ul>
 <li><p><strong>FROM</strong></p>
 <ul>
-<li><p>ָ��һ���������񣬿���ֱ������ʹ�õķ������ľ�������ubuntu��debian��centos��fedora��alpine��nginx��redis��mongo��mysql��httpd��php��tomcat �ȡ�</p>
+<li><p>指定一个基础镜像，可以直接拿来使用的服务类的镜像，如ubuntu、debian、centos、fedora、alpine、nginx、redis、mongo、mysql、httpd、php、tomcat 等。</p>
 </li>
-<li><p>ָ��һ���հ׾���</p>
+<li><p>指定一个空白镜像</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FROM scratch</div><div class="line">RUN  ...</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 <li><p><strong>RUN</strong></p>
 <ul>
-<li><p>RUN ָ��������ִ���������������ʽ�����֡�</p>
+<li><p>RUN 指令是用来执行命令行命令。其格式有两种。</p>
 <ul>
-<li><p>SHELL��ʽ��</p>
+<li><p>SHELL格式：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RUN echo &apos;&lt;h1&gt;Hello, Docker!&lt;/h1&gt;&apos; &gt; /usr/share/nginx/html/index.html</div></pre></td></tr></table></figure>
 </li>
-<li><p>exec ��ʽ:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RUN [&quot;��ִ���ļ�&quot;, &quot;����1&quot;, &quot;����2&quot;]</div></pre></td></tr></table></figure>
+<li><p>exec 格式:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RUN [&quot;可执行文件&quot;, &quot;参数1&quot;, &quot;参数2&quot;]</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>��ʹ��shellģʽ��дʱ��������ÿ�����дһ��RUN��ÿһ�� RUN ����Ϊ���ͺ͸ղ������ֹ����������Ĺ���һ�����½���һ�㣬������ִ����Щ���ִ�н�������commit ��һ�����޸ģ������µľ�����Union FS ���������������Ƶģ����� AUFS�����������󲻵ó��� 42 �㣬�����ǲ��ó��� 127 �㡣</p>
+<li><p>在使用shell模式编写时，不建议每个命令都写一层RUN，每一个 RUN 的行为，就和刚才我们手工建立镜像的过程一样：新建立一层，在其上执行这些命令，执行结束后，commit 这一层的修改，构成新的镜像。Union FS 是有最大层数限制的，比如 AUFS，曾经是最大不得超过 42 层，现在是不得超过 127 层。</p>
 </li>
-<li><p>��ȷdockerfileд��</p>
+<li><p>正确dockerfile写法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">FROM debian:jessie</div><div class="line"></div><div class="line">RUN buildDeps=&apos;gcc libc6-dev make&apos; \</div><div class="line">   &amp;&amp; apt-get update \</div><div class="line">   &amp;&amp; apt-get install -y $buildDeps \</div><div class="line">   &amp;&amp; wget -O redis.tar.gz &quot;http://download.redis.io/releases/redis-3.2.5.tar.gz&quot; \</div><div class="line">   &amp;&amp; mkdir -p /usr/src/redis \</div><div class="line">   &amp;&amp; tar -xzf redis.tar.gz -C /usr/src/redis --strip-components=1 \</div><div class="line">   &amp;&amp; make -C /usr/src/redis \</div><div class="line">   &amp;&amp; make -C /usr/src/redis install \</div><div class="line">   &amp;&amp; rm -rf /var/lib/apt/lists/* \</div><div class="line">   &amp;&amp; rm redis.tar.gz \</div><div class="line">   &amp;&amp; rm -r /usr/src/redis \</div><div class="line">   &amp;&amp; apt-get purge -y --auto-remove $buildDeps</div></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-<pre><code>- ��������д����
+<pre><code>- 不建议的写法：
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">FROM debian:jessie</div><div class="line"></div><div class="line">RUN apt-get update</div><div class="line">RUN apt-get install -y gcc libc6-dev make</div><div class="line">RUN wget -O redis.tar.gz &quot;http://download.redis.io/releases/redis-3.2.5.tar.gz&quot;</div><div class="line">RUN mkdir -p /usr/src/redis</div><div class="line">RUN tar -xzf redis.tar.gz -C /usr/src/redis --strip-components=1</div><div class="line">RUN make -C /usr/src/redis</div><div class="line">RUN make -C /usr/src/redis install</div></pre></td></tr></table></figure>
 </code></pre><ul>
-<li><p><strong>��������</strong></p>
+<li><p><strong>构建镜像</strong></p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build -t nginx:v3 .</div></pre></td></tr></table></figure>
 <blockquote>
-<p>���񹹽������ģ�Context��</p>
+<p>镜像构建上下文（Context）</p>
 </blockquote>
 </li>
 <li><p><strong>COPY</strong></p>
 <ul>
-<li><p>SHELL��ʽ��</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">COPY &lt;Դ·��&gt;... &lt;Ŀ��·��&gt;</div></pre></td></tr></table></figure>
+<li><p>SHELL格式：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">COPY &lt;源路径&gt;... &lt;目标路径&gt;</div></pre></td></tr></table></figure>
 <ul>
-<li>exec ��ʽ:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	COPY [&quot;&lt;Դ·��1&gt;&quot;,... &quot;&lt;Ŀ��·��&gt;&quot;]</div><div class="line">	``` </div><div class="line">- Դ·��&quot;�����Ƕ�����Ҳ������ͨ��������ͨ��������Ҫ���� Go �� filepath.Match �������磺</div></pre></td></tr></table></figure>
+<li>exec 格式:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	COPY [&quot;&lt;源路径1&gt;&quot;,... &quot;&lt;目标路径&gt;&quot;]</div><div class="line">	``` </div><div class="line">- 源路径&quot;可以是多个，也可以是通配符，其通配符规则要满足 Go 的 filepath.Match 规则，如：</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>COPY hom* /mydir/<br>COPY hom?.txt /mydir/</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	&gt; &quot;Ŀ��·��&quot;�����������ڵľ���·����Ҳ�����������ڹ���Ŀ¼������·��������Ŀ¼������ WORKDIRָ����ָ������Ŀ��·������Ҫ���ȴ���������Ŀ¼�����ڻ��ڸ����ļ�ǰ���д���ȱʧĿ¼��</div><div class="line">	ʹ�� COPY ָ�Դ�ļ��ĸ���Ԫ���ݶ��ᱣ������������д��ִ��Ȩ�ޡ��ļ�����ʱ���ȡ��������Զ��ھ������ƺ����á��ر��ǹ��������ļ�����ʹ�� Git ���й�����ʱ����</div><div class="line"></div><div class="line"></div><div class="line">- **ADD**</div><div class="line">	&quot;Դ·��&quot;������һ�� URL�����������£�Docker ��������ͼȥ�����������ӵ��ļ��ŵ�&quot;Ŀ��·��&quot;�����غ����ļ�Ȩ���Զ�����Ϊ600��</div><div class="line"></div><div class="line">	�����Ⲣ������Ҫ��Ȩ�ޣ���ô����Ҫ���Ӷ�����һ�� RUN ����Ȩ�޵�����</div><div class="line"></div><div class="line">	����&quot;Դ·��&quot;Ϊһ�� tar.gzip,tar.bzip2,tar.xz���ļ���ADD ָ����Զ���ѹ������ѹ���ļ���&quot;Ŀ��·��&quot;ȥ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	&gt; &quot;目标路径&quot;可以是容器内的绝对路径，也可以是相对于工作目录的相对路径（工作目录可以用 WORKDIR指令来指定）。目标路径不需要事先创建，如果目录不存在会在复制文件前先行创建缺失目录。</div><div class="line">	使用 COPY 指令，源文件的各种元数据都会保留。比如读、写、执行权限、文件变更时间等。这个特性对于镜像定制很有用。特别是构建相关文件都在使用 Git 进行管理的时候。</div><div class="line"></div><div class="line"></div><div class="line">- **ADD**</div><div class="line">	&quot;源路径&quot;可以是一个 URL，这种情况下，Docker 引擎会试图去下载这个链接的文件放到&quot;目标路径&quot;。下载后的文件权限自动设置为600。</div><div class="line"></div><div class="line">	如果这并不是想要的权限，那么还需要增加额外的一层 RUN 进行权限调整。</div><div class="line"></div><div class="line">	如果&quot;源路径&quot;为一个 tar.gzip,tar.bzip2,tar.xz的文件，ADD 指令将会自动解压缩这个压缩文件到&quot;目标路径&quot;去。</div></pre></td></tr></table></figure>
 <p>FROM scratch<br>ADD ubuntu-xenial-core-cloudimg-amd64-root.tar.gz /</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	�� Docker �ٷ�������ʵ���ĵ���Ҫ�󣬾����ܵ�ʹ�� COPY����Ϊ COPY ����������ȷ�����Ǹ����ļ����ѣ��� ADD �������˸����ӵĹ��ܣ�����ΪҲ��һ�������������ʺ�ʹ�� ADD �ĳ��ϣ��������ἰ����Ҫ�Զ���ѹ���ĳ��ϡ�</div><div class="line"></div><div class="line">	</div><div class="line">- **CMD**</div><div class="line">	- CMD ָ���ĸ�ʽ�� RUN ���ƣ�Ҳ�����ָ�ʽ��</div><div class="line">	- SHELL��ʽ��</div></pre></td></tr></table></figure>
-<p>  CMD &lt;����&gt;</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- exec ��ʽ:</div></pre></td></tr></table></figure>
-<p>  CMD [“��ִ���ļ�”, “����1”, “����2”…]</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- �����б���ʽ</div></pre></td></tr></table></figure>
-<p>  CMD [“����1”, “����2”…]��</p>
-  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">��ָ���� ENTRYPOINT ָ�������� CMD ָ�������Ĳ�����</div><div class="line"></div><div class="line">&gt; ֮ǰ����������ʱ������˵����Docker �������������������ǽ��̡���Ȼ�ǽ��̣���ô������������ʱ������Ҫָ�������еĳ��򼰲�����CMD ָ����������ָ��Ĭ�ϵ����������̵����������ġ�</div><div class="line"></div><div class="line">&gt; ������ʱ����ָ���µ��������������������е�����Ĭ���������Ĭ�ϵ� CMD �� `/bin/bash` ����������ֱ�� `docker run -it centos` �Ļ�����ֱ�ӽ��� `bash`������Ҳ����������ʱָ�����б�������� `docker run -it ubuntu cat /etc/os-release`���������� `cat /etc/os-release`�����滻��Ĭ�ϵ� `/bin/bash `�����ˣ�������ϵͳ�汾��Ϣ��</div><div class="line"></div><div class="line">��ָ����ʽ�ϣ�һ���Ƽ�ʹ�� exec ��ʽ��������ʽ�ڽ���ʱ�ᱻ����Ϊ JSON ���飬����һ��Ҫʹ��˫���� &quot;������Ҫʹ�õ����š�</div><div class="line"></div><div class="line">����ʹ�� shell ��ʽ�Ļ���ʵ�ʵ������ᱻ��װΪsh -c �Ĳ�������ʽ����ִ�С����磺</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	在 Docker 官方的最佳实践文档中要求，尽可能的使用 COPY，因为 COPY 的语义很明确，就是复制文件而已，而 ADD 则包含了更复杂的功能，其行为也不一定很清晰。最适合使用 ADD 的场合，就是所提及的需要自动解压缩的场合。</div><div class="line"></div><div class="line">	</div><div class="line">- **CMD**</div><div class="line">	- CMD 指令的格式和 RUN 相似，也是两种格式：</div><div class="line">	- SHELL格式：</div></pre></td></tr></table></figure>
+<p>  CMD &lt;命令&gt;</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- exec 格式:</div></pre></td></tr></table></figure>
+<p>  CMD [“可执行文件”, “参数1”, “参数2”…]</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- 参数列表格式</div></pre></td></tr></table></figure>
+<p>  CMD [“参数1”, “参数2”…]。</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">在指定了 ENTRYPOINT 指令后，用 CMD 指定具体的参数。</div><div class="line"></div><div class="line">&gt; 之前介绍容器的时候曾经说过，Docker 不是虚拟机，容器就是进程。既然是进程，那么在启动容器的时候，需要指定所运行的程序及参数。CMD 指令就是用于指定默认的容器主进程的启动命令的。</div><div class="line"></div><div class="line">&gt; 在运行时可以指定新的命令来替代镜像设置中的这个默认命令，镜像默认的 CMD 是 `/bin/bash` ，如果我们直接 `docker run -it centos` 的话，会直接进入 `bash`。我们也可以在运行时指定运行别的命令，如 `docker run -it ubuntu cat /etc/os-release`。这就是用 `cat /etc/os-release`命令替换了默认的 `/bin/bash `命令了，输出了系统版本信息。</div><div class="line"></div><div class="line">在指令格式上，一般推荐使用 exec 格式，这类格式在解析时会被解析为 JSON 数组，因此一定要使用双引号 &quot;，而不要使用单引号。</div><div class="line"></div><div class="line">如果使用 shell 格式的话，实际的命令会被包装为sh -c 的参数的形式进行执行。比如：</div></pre></td></tr></table></figure>
 <p>CMD echo $HOME</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ʵ��ִ���У��Ὣ������Ϊ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">在实际执行中，会将其变更为：</div></pre></td></tr></table></figure>
 <p>CMD [ “sh”, “-c”, “echo $HOME” ]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">������Ϊʲô���ǿ���ʹ�û���������ԭ������Ϊ��Щ���������ᱻ shell ���н���������</div><div class="line">Docker �����������������е�Ӧ�ö�Ӧ����ǰִ̨�У����������������������������������� upstart/systemd ȥ������̨������������û�к�̨�����ĸ��</div><div class="line"></div><div class="line">һЩ��ѧ�߽� CMD дΪ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这就是为什么我们可以使用环境变量的原因，因为这些环境变量会被 shell 进行解析处理。</div><div class="line">Docker 不是虚拟机，容器中的应用都应该以前台执行，而不是像虚拟机、物理机里面那样，用 upstart/systemd 去启动后台服务，容器内没有后台服务的概念。</div><div class="line"></div><div class="line">一些初学者将 CMD 写为：</div></pre></td></tr></table></figure>
 <p>CMD service nginx start</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ȼ����������ִ�к��������˳��ˡ�������������ȥʹ�� `systemctl `��������ȴ���ָ���ִ�в��ˡ���������Ϊû�и�����ǰ̨����̨�ĸ��û�������������������Ĳ��죬�������Դ�ͳ�������ĽǶ�ȥ����������</div><div class="line"></div><div class="line">�����������ԣ���������������`����Ӧ�ý���`����������Ϊ�������̶����ڵģ��������˳���������ʧȥ�˴��ڵ����壬�Ӷ��˳��������������̲�������Ҫ���ĵĶ�����</div><div class="line"></div><div class="line">��ʹ��`service nginx start`�������ϣ�� `upstart` ���Ժ�̨�ػ�������ʽ���� `nginx` ���񡣶��ղ�˵�� `CMD service nginx start` �ᱻ����Ϊ `CMD [ &quot;sh&quot;, &quot;-c&quot;, &quot;service nginx start&quot;]`������������ʵ������` sh`����ô�� `service nginx start` ������������`sh` Ҳ�ͽ����ˣ�`sh` ��Ϊ�������˳��ˣ���Ȼ�ͻ��������˳���</div><div class="line"></div><div class="line">��ȷ��������ֱ��ִ�� `nginx` ��ִ���ļ�������Ҫ����ǰ̨��ʽ���С����磺</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">然后发现容器执行后就立即退出了。甚至在容器内去使用 `systemctl `命令结果却发现根本执行不了。这就是因为没有搞明白前台、后台的概念，没有区分容器和虚拟机的差异，依旧在以传统虚拟机的角度去理解容器。</div><div class="line"></div><div class="line">对于容器而言，其启动程序就是`容器应用进程`，容器就是为了主进程而存在的，主进程退出，容器就失去了存在的意义，从而退出，其它辅助进程不是它需要关心的东西。</div><div class="line"></div><div class="line">而使用`service nginx start`命令，则是希望 `upstart` 来以后台守护进程形式启动 `nginx` 服务。而刚才说了 `CMD service nginx start` 会被理解为 `CMD [ &quot;sh&quot;, &quot;-c&quot;, &quot;service nginx start&quot;]`，因此主进程实际上是` sh`。那么当 `service nginx start` 命令结束后，`sh` 也就结束了，`sh` 作为主进程退出了，自然就会令容器退出。</div><div class="line"></div><div class="line">正确的做法是直接执行 `nginx` 可执行文件，并且要求以前台形式运行。比如：</div></pre></td></tr></table></figure>
 <p>CMD [“nginx”, “-g”, “daemon off;”]</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **ENTRYPOINT**</div><div class="line">	</div><div class="line">	&gt; `ENTRYPOINT` ��Ŀ�ĺ� `CMD` һ����������ָ�������������򼰲�����`ENTRYPOINT` ������ʱҲ���������������� `CMD` Ҫ���Է�������Ҫͨ�� `docker run` �Ĳ��� `--entrypoint` ��ָ����</div><div class="line">	��ָ���� ENTRYPOINT ����`CMD` �ĺ����ͷ����˸ı䣬������ֱ�ӵ�������������ǽ� `CMD` ��������Ϊ�������� `ENTRYPOINT` ָ����仰˵ʵ��ִ��ʱ������Ϊ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **ENTRYPOINT**</div><div class="line">	</div><div class="line">	&gt; `ENTRYPOINT` 的目的和 `CMD` 一样，都是在指定容器启动程序及参数。`ENTRYPOINT` 在运行时也可以替代，不过比 `CMD` 要略显繁琐，需要通过 `docker run` 的参数 `--entrypoint` 来指定。</div><div class="line">	当指定了 ENTRYPOINT 后，`CMD` 的含义就发生了改变，不再是直接的运行其命令，而是将 `CMD` 的内容作为参数传给 `ENTRYPOINT` 指令，换句话说实际执行时，将变为：</div></pre></td></tr></table></figure>
 <p><entrypoint> “<cmd>“</cmd></entrypoint></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">����һ���þ�������������һ��ʹ��</div><div class="line">����������Ҫһ����֪�Լ���ǰ���� IP �ľ�������ô�������� CMD ��ʵ�֣�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">场景一：让镜像变成像命令一样使用</div><div class="line">假设我们需要一个得知自己当前公网 IP 的镜像，那么可以先用 CMD 来实现：</div></pre></td></tr></table></figure>
 <p>mkdir ~/myip/<br>cd ~/myip/<br>tee Dockerfile &lt;&lt;’EOF’<br>FROM centos<br>RUN  yum -y install wget \<br>   &amp;&amp; wget -O /etc/yum.repos.d/CentOS-Base.repo <a href="http://mirrors.aliyun.com/repo/Centos-7.repo" target="_blank" rel="external">http://mirrors.aliyun.com/repo/Centos-7.repo</a> \<br>   &amp;&amp;wget -O /etc/yum.repos.d/epel.repo <a href="http://mirrors.aliyun.com/repo/epel-7.repo" target="_blank" rel="external">http://mirrors.aliyun.com/repo/epel-7.repo</a> \<br>   &amp;&amp;yum -y install  curl<br>CMD [ “curl”, “-s”, “<a href="http://ip.cn" target="_blank" rel="external">http://ip.cn</a>“ ]<br>EOF<br>docker build  -t myip .</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">����һ����������</div></pre></td></tr></table></figure>
-<p>[root@node1 myip]# docker run  myip<br>��ǰ IP��123.117.85.77 ���ԣ������� ��ͨ</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ô��������������ֱ�ӰѾ�����������ʹ���ˣ���������ϣ���Ӳ����أ�</div><div class="line">�������� CMD �п��Կ���ʵ�ʵ������� curl����ô��������ϣ����ʾ HTTP ͷ��Ϣ������Ҫ���� -i ��������ô���ǿ���ֱ�Ӽ� -i ������ docker run myip ô��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">启动一个容器测试</div></pre></td></tr></table></figure>
+<p>[root@node1 myip]# docker run  myip<br>当前 IP：123.117.85.77 来自：北京市 联通</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这么看起来好像可以直接把镜像当做命令使用了，如果我们希望加参数呢？</div><div class="line">从上面的 CMD 中可以看到实质的命令是 curl，那么如果我们希望显示 HTTP 头信息，就需要加上 -i 参数。那么我们可以直接加 -i 参数给 docker run myip 么？</div></pre></td></tr></table></figure>
 <p>[root@node1 myip]# docker rum myip -i<br>unknown shorthand flag: ‘i’ in -i<br>See ‘docker –help’.<br>…</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">���ھ������������� command������ʱ���滻 CMD ��Ĭ��ֵ������������ -i �滻��ԭ���� CMD��������������ԭ���� curl -s http://ip.cn ���档�� -i �����������������Ȼ�Ҳ�����</div><div class="line"></div><div class="line">��������ϣ������ -i �����������Ǿͱ������������������������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">跟在镜像名后面的是 command，运行时会替换 CMD 的默认值。因此这里的 -i 替换了原来的 CMD，而不是添加在原来的 curl -s http://ip.cn 后面。而 -i 根本不是命令，所以自然找不到。</div><div class="line"></div><div class="line">如果我们希望加入 -i 这参数，我们就必须重新完整的输入这个命令：</div></pre></td></tr></table></figure>
 <p>[root@node1 myip]# docker run myip curl -s <a href="http://ip.cn" target="_blank" rel="external">http://ip.cn</a> -i<br>HTTP/1.1 200 OK<br>Server: nginx/1.10.0 (Ubuntu)<br>Date: Fri, 24 Mar 2017 02:21:43 GMT<br>Content-Type: text/html; charset=UTF-8<br>Transfer-Encoding: chunked<br>Connection: keep-alive</p>
-<p>��ǰ IP��123.117.85.77 ���ԣ������� </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ʹ�� ENTRYPOINT �Ϳ��Ը� docker ���Σ��޸�docker����</div></pre></td></tr></table></figure>
+<p>当前 IP：123.117.85.77 来自：北京市 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">而使用 ENTRYPOINT 就可以给 docker 传参，修改docker镜像</div></pre></td></tr></table></figure>
 <p>cd ~/myip/<br>tee Dockerfile &lt;&lt;’EOF’<br>FROM centos<br>RUN  yum -y install wget \<br>   &amp;&amp; wget -O /etc/yum.repos.d/CentOS-Base.repo <a href="http://mirrors.aliyun.com/repo/Centos-7.repo" target="_blank" rel="external">http://mirrors.aliyun.com/repo/Centos-7.repo</a> \<br>   &amp;&amp;wget -O /etc/yum.repos.d/epel.repo <a href="http://mirrors.aliyun.com/repo/epel-7.repo" target="_blank" rel="external">http://mirrors.aliyun.com/repo/epel-7.repo</a> \<br>   &amp;&amp;yum -y install  curl<br>ENTRYPOINT [ “curl”, “-s”, “<a href="http://ip.cn" target="_blank" rel="external">http://ip.cn</a>“ ]<br>EOF<br>docker build  -t myip .</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�ٴ�����</div></pre></td></tr></table></figure>
-<p>[root@node1 myip]# docker run myip<br>��ǰ IP��123.117.85.77 ���ԣ�������</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">再次运行</div></pre></td></tr></table></figure>
+<p>[root@node1 myip]# docker run myip<br>当前 IP：123.117.85.77 来自：北京市</p>
 </li>
 </ul>
 </li>
@@ -402,9 +402,9 @@ Content-Type: text/html; charset=UTF-8
 Transfer-Encoding: chunked
 Connection: keep-alive
 
-��ǰ IP��123.117.85.77 ���ԣ�������
+当前 IP：123.117.85.77 来自：北京市
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��������Ӧ������ǰ��׼������</div><div class="line">[redis�Ĺٷ�dockerfile]( https://github.com/docker-library/redis/blob/master/3.2/alpine/Dockerfile)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">场景二：应用运行前的准备工作</div><div class="line">[redis的官方dockerfile]( https://github.com/docker-library/redis/blob/master/3.2/alpine/Dockerfile)</div></pre></td></tr></table></figure>
 
 FROM alpine:3.5
 ...
@@ -414,7 +414,7 @@ ENTRYPOINT [&quot;docker-entrypoint.sh&quot;]
 
 EXPOSE 6379
 CMD [ &quot;redis-server&quot; ]
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">���Կ�������Ϊ�� redis ���񴴽��� redis �û�����������ָ���� ENTRYPOINT Ϊ docker-entrypoint.sh �ű���</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">可以看到其中为了 redis 服务创建了 redis 用户，并在最后指定了 ENTRYPOINT 为 docker-entrypoint.sh 脚本。</div></pre></td></tr></table></figure>
 
 #!/bin/sh
 ...
@@ -425,52 +425,52 @@ if [ &quot;$1&quot; = &apos;redis-server&apos; -a &quot;$(id -u)&quot; = &apos;0
 fi
 
 exec &quot;$@&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�ýű������ݾ��Ǹ��� CMD ���������жϣ������� `redis-server` �Ļ������л��� `redis` �û�������������������������ʹ�� `root `����ִ�С����磺</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">该脚本的内容就是根据 CMD 的内容来判断，如果是 `redis-server` 的话，则切换到 `redis` 用户身份启动服务器，否则依旧使用 `root `身份执行。比如：</div></pre></td></tr></table></figure>
 
 $ docker run -it redis id
 uid=0(root) gid=0(root) groups=0(root)
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **ENV ���û�������**</div><div class="line">	��ʽ�����֣�</div><div class="line">		- `ENV &lt;key&gt; &lt;value&gt;`</div><div class="line">		- `ENV &lt;key1&gt;=&lt;value1&gt; &lt;key2&gt;=&lt;value2&gt;...`</div><div class="line">	����ָ���ܼ򵥣��������û����������ѣ������Ǻ���������ָ��� RUN����������ʱ��Ӧ�ã�������ֱ��ʹ�����ﶨ���Ļ���������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **ENV 设置环境变量**</div><div class="line">	格式有两种：</div><div class="line">		- `ENV &lt;key&gt; &lt;value&gt;`</div><div class="line">		- `ENV &lt;key1&gt;=&lt;value1&gt; &lt;key2&gt;=&lt;value2&gt;...`</div><div class="line">	这个指令很简单，就是设置环境变量而已，无论是后面的其它指令，如 RUN，还是运行时的应用，都可以直接使用这里定义的环境变量。</div></pre></td></tr></table></figure>
 
 ENV VERSION=1.0 DEBUG=on \
 NAME=&quot;Happy Feet&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- **ARG ��������**</div><div class="line">	- ��ʽ��</div><div class="line">		`ARG &lt;������&gt;[=&lt;Ĭ��ֵ&gt;]`</div><div class="line">	���������� ENV ��Ч��һ�����������û�������������ͬ���ǣ�ARG �����õĹ��������Ļ����������ڽ�����������ʱ�ǲ���������Щ���������ġ������� ARG ��������֮������Ϣ����Ϊ docker history ���ǿ��Կ�������ֵ�ġ�</div><div class="line">	</div><div class="line">- **VOLUME ����������**</div><div class="line">	- ��ʽ:</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- **ARG 构建参数**</div><div class="line">	- 格式：</div><div class="line">		`ARG &lt;参数名&gt;[=&lt;默认值&gt;]`</div><div class="line">	构建参数和 ENV 的效果一样，都是设置环境变量。所不同的是，ARG 所设置的构建环境的环境变量，在将来容器运行时是不会存在这些环境变量的。不建议 ARG 保存密码之类的信息，因为 docker history 还是可以看到所有值的。</div><div class="line">	</div><div class="line">- **VOLUME 定义匿名卷**</div><div class="line">	- 格式:</div></pre></td></tr></table></figure>
 
-    VOLUME [&quot;&lt;·��1&gt;&quot;, &quot;&lt;·��2&gt;&quot;...]
-    VOLUME &lt;·��&gt;
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; ֮ǰ����˵������������ʱӦ�þ������������洢�㲻����д�������������ݿ�����Ҫ���涯̬���ݵ�Ӧ�ã������ݿ��ļ�Ӧ�ñ����ھ�(volume)�У��������½����ǻ���һ������ Docker ���ĸ��Ϊ�˷�ֹ����ʱ�û����ǽ���̬�ļ�������Ŀ¼����Ϊ������ Dockerfile �У����ǿ�������ָ��ĳЩĿ¼����Ϊ������������������ʱ�����û���ָ�����أ���Ӧ��Ҳ�����������У������������洢��д���������ݡ�</div></pre></td></tr></table></figure>
+    VOLUME [&quot;&lt;路径1&gt;&quot;, &quot;&lt;路径2&gt;&quot;...]
+    VOLUME &lt;路径&gt;
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; 之前我们说过，容器运行时应该尽量保持容器存储层不发生写操作，对于数据库类需要保存动态数据的应用，其数据库文件应该保存于卷(volume)中，后面的章节我们会进一步介绍 Docker 卷的概念。为了防止运行时用户忘记将动态文件所保存目录挂载为卷，在 Dockerfile 中，我们可以事先指定某些目录挂载为匿名卷，这样在运行时如果用户不指定挂载，其应用也可以正常运行，不会向容器存储层写入大量数据。</div></pre></td></tr></table></figure>
 
 VOLUME /data
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Ҳ��������ʱ���������������á����磺</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">也可以运行时覆盖这个挂载设置。比如：</div></pre></td></tr></table></figure>
 
 docker run -d -v mydata:/data xxxx
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	�����������У���ʹ���� mydata �������������ص��� /data ����λ�ã������� Dockerfile �ж������������Ĺ������á�</div><div class="line">	</div><div class="line">- **EXPOSE �����˿�**</div><div class="line">	- ��ʽ:</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	在这行命令中，就使用了 mydata 这个命名卷挂载到了 /data 这个位置，替代了 Dockerfile 中定义的匿名卷的挂载配置。</div><div class="line">	</div><div class="line">- **EXPOSE 声明端口**</div><div class="line">	- 格式:</div></pre></td></tr></table></figure>
 
-    EXPOSE &lt;�˿�1&gt; [&lt;�˿�2&gt;...]
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">	EXPOSE ָ������������ʱ�����ṩ�����˿ڣ�������ʱ��������Ϊ��������Ӧ�þͻῪ�������˿ڵķ�����</div><div class="line">	</div><div class="line">	- �� Dockerfile ��д�������������������ô�:</div><div class="line">		- ��������ʹ�����������������������ػ��˿ڣ��Է�������ӳ��</div><div class="line">		- ������ʱʹ�������˿�ӳ��ʱ��Ҳ���� docker run -P ʱ�����Զ�����ӳ�� EXPOSE �Ķ˿ڡ�</div><div class="line">	&gt; ���⣬������ Docker �汾�л���һ���������ô�����ǰ����������������Ĭ���Ž������У�����������������֮�䶼����ֱ�ӷ��ʣ���������һ���İ�ȫ�����⡣��������һ�� Docker �������� --icc=false����ָ���ò������������佫Ĭ���޷����ã����ǻ�����ʹ���� --links �����������ſ��Ի�ͨ������ֻ�о����� EXPOSE �������Ķ˿ڲſ��Ա����ʡ����� --icc=false ���÷����������� docker network ���Ѿ����������ˣ�ͨ���Զ����������Ժ����ɵ�ʵ���������Ļ��������롣</div><div class="line">	</div><div class="line">	</div><div class="line">- **WORKDIR ָ������Ŀ¼**</div><div class="line">	- ��ʽ:</div></pre></td></tr></table></figure>
+    EXPOSE &lt;端口1&gt; [&lt;端口2&gt;...]
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">	EXPOSE 指令是声明运行时容器提供服务端口，在运行时并不会因为这个声明应用就会开启这个端口的服务。</div><div class="line">	</div><div class="line">	- 在 Dockerfile 中写入这样的声明有两个好处:</div><div class="line">		- 帮助镜像使用者理解这个镜像服务的守护端口，以方便配置映射</div><div class="line">		- 在运行时使用随机端口映射时，也就是 docker run -P 时，会自动随机映射 EXPOSE 的端口。</div><div class="line">	&gt; 此外，在早期 Docker 版本中还有一个特殊的用处。以前所有容器都运行于默认桥接网络中，因此所有容器互相之间都可以直接访问，这样存在一定的安全性问题。于是有了一个 Docker 引擎参数 --icc=false，当指定该参数后，容器间将默认无法互访，除非互相间使用了 --links 参数的容器才可以互通，并且只有镜像中 EXPOSE 所声明的端口才可以被访问。这个 --icc=false 的用法，在引入了 docker network 后已经基本不用了，通过自定义网络可以很轻松的实现容器间的互联与隔离。</div><div class="line">	</div><div class="line">	</div><div class="line">- **WORKDIR 指定工作目录**</div><div class="line">	- 格式:</div></pre></td></tr></table></figure>
 
-    WORKDIR &lt;����Ŀ¼·��&gt;
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ʹ�� WORKDIR ָ��������ָ������Ŀ¼�����߳�Ϊ��ǰĿ¼�����Ժ������ĵ�ǰĿ¼�ͱ���Ϊָ����Ŀ¼������Ŀ¼�����ڣ�WORKDIR �����㽨��Ŀ¼��</div><div class="line">֮ǰ�ᵽһЩ��ѧ�߳����Ĵ����ǰ� Dockerfile ��ͬ�� Shell �ű�����д�����ִ��������⻹���ܻᵼ�³������������Ĵ�����</div></pre></td></tr></table></figure>
+    WORKDIR &lt;工作目录路径&gt;
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">使用 WORKDIR 指令可以来指定工作目录（或者称为当前目录），以后各层的当前目录就被改为指定的目录，如该目录不存在，WORKDIR 会帮你建立目录。</div><div class="line">之前提到一些初学者常犯的错误是把 Dockerfile 等同于 Shell 脚本来书写，这种错误的理解还可能会导致出现下面这样的错误：</div></pre></td></tr></table></figure>
 
 RUN cd /app
 RUN echo &quot;hello&quot; &gt; world.txt
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	&gt; ���������� Dockerfile ���й����������к󣬻ᷢ���Ҳ��� /app/world.txt �ļ������������ݲ���hello��ԭ����ʵ�ܼ򵥣��� Shell �У�����������ͬһ������ִ�л���������ǰһ�������޸ĵ��ڴ�״̬����ֱ��Ӱ����һ��������� Dockerfile �У������� RUN ������ִ�л���������ͬ����������ȫ��ͬ�������������Ƕ� Dokerfile �����ֲ��洢�ĸ���˽������µĴ�����</div><div class="line">	</div><div class="line">	&gt; ֮ǰ˵��ÿһ�� `RUN `��������һ��������ִ�����Ȼ���ύ�洢���ļ���������һ�� `RUN cd /app `��ִ�н����ǵ�ǰ���̵Ĺ���Ŀ¼������һ���ڴ��ϵı仯���ѣ����������������κ��ļ������������ڶ�����ʱ������������һ��ȫ�µ�����������һ������������ȫû��ϵ����Ȼ�����ܼ̳�ǰһ�㹹�������е��ڴ��仯��</div><div class="line"></div><div class="line">	����������Ҫ�ı��Ժ������Ĺ���Ŀ¼��λ�ã���ôӦ��ʹ�� `WORKDIR` ָ�</div><div class="line">- **USER ָ����ǰ�û�**</div><div class="line">	- ��ʽ:</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	&gt; 如果将这个 Dockerfile 进行构建镜像运行后，会发现找不到 /app/world.txt 文件，或者其内容不是hello。原因其实很简单，在 Shell 中，连续两行是同一个进程执行环境，因此前一个命令修改的内存状态，会直接影响后一个命令；而在 Dockerfile 中，这两行 RUN 命令的执行环境根本不同，是两个完全不同的容器。这就是对 Dokerfile 构建分层存储的概念不了解所导致的错误。</div><div class="line">	</div><div class="line">	&gt; 之前说过每一个 `RUN `都是启动一个容器、执行命令、然后提交存储层文件变更。第一层 `RUN cd /app `的执行仅仅是当前进程的工作目录变更，一个内存上的变化而已，其结果不会造成任何文件变更。而到第二层的时候，启动的是一个全新的容器，跟第一层的容器更完全没关系，自然不可能继承前一层构建过程中的内存变化。</div><div class="line"></div><div class="line">	因此如果需要改变以后各层的工作目录的位置，那么应该使用 `WORKDIR` 指令。</div><div class="line">- **USER 指定当前用户**</div><div class="line">	- 格式:</div></pre></td></tr></table></figure>
 
-    USER &lt;�û���&gt;
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">USER ָ���� WORKDIR ���ƣ����Ǹı价��״̬��Ӱ���Ժ��Ĳ㡣WORKDIR �Ǹı乤��Ŀ¼��USER ���Ǹı�֮������ִ�� RUN, CMD �Լ� ENTRYPOINT �������������ݡ�</div><div class="line"></div><div class="line">��Ȼ���� WORKDIR һ����USER ֻ�ǰ������л���ָ���û����ѣ������û����������Ƚ����õģ������޷��л���</div></pre></td></tr></table></figure>
+    USER &lt;用户名&gt;
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">USER 指令和 WORKDIR 相似，都是改变环境状态并影响以后的层。WORKDIR 是改变工作目录，USER 则是改变之后层的执行 RUN, CMD 以及 ENTRYPOINT 这类命令的身份。</div><div class="line"></div><div class="line">当然，和 WORKDIR 一样，USER 只是帮助你切换到指定用户而已，这个用户必须是事先建立好的，否则无法切换。</div></pre></td></tr></table></figure>
 
 RUN groupadd -r redis &amp;&amp; useradd -r -g redis redis
 USER redis
 RUN [ &quot;redis-server&quot; ]
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">- **HEALTHCHECK ��������**</div><div class="line">	- ��ʽ:</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">- **HEALTHCHECK 健康检查**</div><div class="line">	- 格式:</div></pre></td></tr></table></figure>
 
-    HEALTHCHECK [ѡ��] CMD &lt;����&gt;�����ü�����������״��������
-    HEALTHCHECK NONE���������������н�������ָ�ʹ�����п������ε��佡������ָ��
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">HEALTHCHECK ָ���Ǹ��� Docker Ӧ�����ν����ж�������״̬�Ƿ����������� Docker 1.12 ��������ָ�</div><div class="line"></div><div class="line">��û�� HEALTHCHECK ָ��ǰ��Docker ����ֻ����ͨ���������������Ƿ��˳����ж������Ƿ�״̬�쳣���ܶ���������û���⣬��������������������״̬��������ѭ��״̬��Ӧ�ý��̲����˳������Ǹ������Ѿ��޷��ṩ�����ˡ��� 1.12 ��ǰ��Docker �������⵽����������״̬���Ӷ��������µ��ȣ����¿��ܻ��в��������Ѿ��޷��ṩ������ȴ���ڽ����û�������</div><div class="line"></div><div class="line">���� 1.12 ֮����Docker �ṩ�� HEALTHCHECK ָ�ͨ����ָ��ָ��һ������������������ж����������̵ķ���״̬�Ƿ����������Ӷ��Ƚ���ʵ�ķ�Ӧ����ʵ��״̬��</div><div class="line"></div><div class="line">����һ������ָ���� HEALTHCHECK ָ����������������������ʼ״̬��Ϊ starting���� HEALTHCHECK ָ�������ɹ�����Ϊ healthy����������һ������ʧ�ܣ�������Ϊ unhealthy��</div><div class="line"></div><div class="line">HEALTHCHECK ֧������ѡ�</div></pre></td></tr></table></figure>
+    HEALTHCHECK [选项] CMD &lt;命令&gt;：设置检查容器健康状况的命令
+    HEALTHCHECK NONE：如果基础镜像有健康检查指令，使用这行可以屏蔽掉其健康检查指令
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">HEALTHCHECK 指令是告诉 Docker 应该如何进行判断容器的状态是否正常，这是 Docker 1.12 引入的新指令。</div><div class="line"></div><div class="line">在没有 HEALTHCHECK 指令前，Docker 引擎只可以通过容器内主进程是否退出来判断容器是否状态异常。很多情况下这没问题，但是如果程序进入死锁状态，或者死循环状态，应用进程并不退出，但是该容器已经无法提供服务了。在 1.12 以前，Docker 不会检测到容器的这种状态，从而不会重新调度，导致可能会有部分容器已经无法提供服务了却还在接受用户请求。</div><div class="line"></div><div class="line">而自 1.12 之后，Docker 提供了 HEALTHCHECK 指令，通过该指令指定一行命令，用这行命令来判断容器主进程的服务状态是否还正常，从而比较真实的反应容器实际状态。</div><div class="line"></div><div class="line">当在一个镜像指定了 HEALTHCHECK 指令后，用其启动容器，初始状态会为 starting，在 HEALTHCHECK 指令检查成功后变为 healthy，如果连续一定次数失败，则会变为 unhealthy。</div><div class="line"></div><div class="line">HEALTHCHECK 支持下列选项：</div></pre></td></tr></table></figure>
 
---interval=&lt;����&gt;�����ν��������ļ�����Ĭ��Ϊ 30 �룻
---timeout=&lt;ʱ��&gt;�����������������г�ʱʱ�䣬������������ʱ�䣬���ν��������ͱ���Ϊʧ�ܣ�Ĭ�� 30 �룻
---retries=&lt;����&gt;��������ʧ��ָ������������������״̬��Ϊ unhealthy��Ĭ�� 3 �Ρ�
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; �� CMD, ENTRYPOINT һ����HEALTHCHECK ֻ���Գ���һ�Σ�����д�˶�����ֻ������һ����Ч��</div><div class="line"></div><div class="line">�� HEALTHCHECK [ѡ��] CMD �����������ʽ�� ENTRYPOINT һ������Ϊ shell ��ʽ���� exec ��ʽ�������ķ���ֵ�����˸ôν��������ĳɹ�������0���ɹ���1��ʧ�ܣ�2����������Ҫʹ������ֵ��</div><div class="line"></div><div class="line">���������и������Ǹ����򵥵� Web ����������ϣ�����ӽ����������ж��� Web �����Ƿ����������������ǿ����� curl �������жϣ��� Dockerfile �� HEALTHCHECK ������ôд��</div></pre></td></tr></table></figure>
+--interval=&lt;间隔&gt;：两次健康检查的间隔，默认为 30 秒；
+--timeout=&lt;时长&gt;：健康检查命令运行超时时间，如果超过这个时间，本次健康检查就被视为失败，默认 30 秒；
+--retries=&lt;次数&gt;：当连续失败指定次数后，则将容器状态视为 unhealthy，默认 3 次。
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; 和 CMD, ENTRYPOINT 一样，HEALTHCHECK 只可以出现一次，如果写了多个，只有最后一个生效。</div><div class="line"></div><div class="line">在 HEALTHCHECK [选项] CMD 后面的命令，格式和 ENTRYPOINT 一样，分为 shell 格式，和 exec 格式。命令的返回值决定了该次健康检查的成功与否：0：成功；1：失败；2：保留，不要使用这个值。</div><div class="line"></div><div class="line">假设我们有个镜像是个最简单的 Web 服务，我们希望增加健康检查来判断其 Web 服务是否在正常工作，我们可以用 curl 来帮助判断，其 Dockerfile 的 HEALTHCHECK 可以这么写：</div></pre></td></tr></table></figure>
 
 mkdir ~/nginxcheck
 cd ~/nginxcheck
@@ -481,15 +481,15 @@ HEALTHCHECK --interval=5s --timeout=3s \
   CMD curl -fs http://localhost/ || exit 1
 
 docker build -t myweb:v1 .
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��������������ÿ 5 ������һ�Σ�����Ϊ���������Լ����ǳ��̣�ʵ��Ӧ�����Խϳ���������������������� 3 ��û��Ӧ����Ϊʧ�ܣ�����ʹ�� curl -fs http://localhost/ || exit 1 ��Ϊ�����������</div><div class="line"></div><div class="line">��������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">这里我们设置了每 5 秒检查一次（这里为了试验所以间隔非常短，实际应该相对较长），如果健康检查命令超过 3 秒没响应就视为失败，并且使用 curl -fs http://localhost/ || exit 1 作为健康检查命令。</div><div class="line"></div><div class="line">启动测试</div></pre></td></tr></table></figure>
 
 docker run -d --name myweb -p 80:82 myweb:v1
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�鿴</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">查看</div></pre></td></tr></table></figure>
 
 [root@node1 nginxcheck]# docker ps -f name=myweb
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                    PORTS                                 NAMES
 beb18dcc15fe        myweb:v1            &quot;nginx -g &apos;daemon ...&quot;   22 seconds ago      Up 21 seconds (healthy)   80/tcp, 443/tcp, 0.0.0.0:80-&gt;82/tcp   myweb
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	����������������ʧ�ܳ��������Դ�����״̬�ͻ���Ϊ (unhealthy)��</div><div class="line">	������������������������ stdout �Լ� stderr�����ᱻ�洢�ڽ���״̬������� docker inspect ���鿴��</div><div class="line">	</div><div class="line">- **ONBUILD Ϊ����������**</div><div class="line">	ONBUILD ��һ��������ָ�����������������ָ����� RUN, COPY �ȣ�����Щָ��ڵ�ǰ���񹹽�ʱ�����ᱻִ�С�ֻ�е��Ե�ǰ����Ϊ����������ȥ������һ��������ʱ���Żᱻִ�С�</div><div class="line">	���磺</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	如果健康检查连续失败超过了重试次数，状态就会变为 (unhealthy)。</div><div class="line">	健康检查命令的输出（包括 stdout 以及 stderr）都会被存储于健康状态里，可以用 docker inspect 来查看。</div><div class="line">	</div><div class="line">- **ONBUILD 为他人做嫁衣**</div><div class="line">	ONBUILD 是一个特殊的指令，它后面跟的是其它指令，比如 RUN, COPY 等，而这些指令，在当前镜像构建时并不会被执行。只有当以当前镜像为基础镜像，去构建下一级镜像的时候才会被执行。</div><div class="line">	例如：</div></pre></td></tr></table></figure>
 
 FROM node:slim
 RUN &quot;mkdir /app&quot;
@@ -498,61 +498,61 @@ ONBUILD COPY ./package.json /app
 ONBUILD RUN [ &quot;npm&quot;, &quot;install&quot; ]
 ONBUILD COPY . /app/
 CMD [ &quot;npm&quot;, &quot;start&quot; ]
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">�ڹ�������������ʱ�򣬰���ONBUILD�����в����ᱻִ�У����ǵ�������������Ϊ�������񹹽�ʱ�������оͻ�ִ�С�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在构建基础镜像的时候，包含ONBUILD这三行并不会被执行，但是当把这个镜像作为基础镜像构建时，这三行就会执行。</div></pre></td></tr></table></figure>
 
-#���ȹ�����������
+#首先构建基础镜像
 docker build -t my-node .
 
-#��������Ŀ��Ҫʹ������Dockerfile�����ľ�����Ϊ��������ʱ��ֱ��дDockerfile���������������л�����Dockerfile��ִ��
+#在其他项目需要使用这个Dockerfile制作的镜像作为基础镜像时，直接写Dockerfile，基础镜像的三行会在子Dockerfile中执行
 FROM my-node
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- **�����������񷽷�**</div><div class="line">	���˱�׼��ʹ�� Dockerfile ���ɾ����ķ����⣬���ڸ���������������ʷԭ�򣬻��ṩ��һЩ���������������ɾ�����</div><div class="line">	</div><div class="line">	- �� rootfs ѹ��������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- **其他制作镜像方法**</div><div class="line">	除了标准的使用 Dockerfile 生成镜像的方法外，由于各种特殊需求和历史原因，还提供了一些其它方法用以生成镜像。</div><div class="line">	</div><div class="line">	- 从 rootfs 压缩包导入</div></pre></td></tr></table></figure>
 
-    ��ʽ��docker import [ѡ��] &lt;�ļ�&gt;|&lt;URL&gt;|- [&lt;�ֿ���&gt;[:&lt;��ǩ&gt;]]
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ѹ���������Ǳ����ļ���Զ�� Web �ļ��������Ǵӱ�׼�����еõ���ѹ���������ھ��� / Ŀ¼չ������ֱ����Ϊ������һ���ύ��</div><div class="line"></div><div class="line">����������Ҫ����һ�� OpenVZ �� Ubuntu 14.04 ģ���ľ�����</div></pre></td></tr></table></figure>
+    格式：docker import [选项] &lt;文件&gt;|&lt;URL&gt;|- [&lt;仓库名&gt;[:&lt;标签&gt;]]
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">压缩包可以是本地文件、远程 Web 文件，甚至是从标准输入中得到。压缩包将会在镜像 / 目录展开，并直接作为镜像第一层提交。</div><div class="line"></div><div class="line">比如我们想要创建一个 OpenVZ 的 Ubuntu 14.04 模板的镜像：</div></pre></td></tr></table></figure>
 
     docker import \
     http://download.openvz.org/template/precreated/ubuntu-14.04-x86_64-minimal.tar.gz \
     openvz/ubuntu:14.04
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	���������Զ������� ubuntu-14.04-x86_64-minimal.tar.gz �ļ���������Ϊ���ļ�ϵͳչ�����룬������Ϊ���� openvz/ubuntu:14.04��</div><div class="line">	</div><div class="line">- docker save �� docker load</div><div class="line">	Docker ���ṩ�� docker load �� docker save ������Խ����񱣴�Ϊһ�� tar �ļ���Ȼ�����䵽��һ��λ���ϣ��ټ��ؽ�����������û�� Docker Registry ʱ�������������Ѿ����Ƽ�������Ǩ��Ӧ��ֱ��ʹ�� Docker Registry��������ֱ��ʹ�� Docker Hub ����ʹ������˽�� Registry �����ԡ�</div><div class="line">	</div><div class="line">	ʹ�� docker save �������Խ����񱣴�Ϊ�鵵�ļ���</div></pre></td></tr></table></figure>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	这条命令自动下载了 ubuntu-14.04-x86_64-minimal.tar.gz 文件，并且作为根文件系统展开导入，并保存为镜像 openvz/ubuntu:14.04。</div><div class="line">	</div><div class="line">- docker save 和 docker load</div><div class="line">	Docker 还提供了 docker load 和 docker save 命令，用以将镜像保存为一个 tar 文件，然后传输到另一个位置上，再加载进来。这是在没有 Docker Registry 时的做法，现在已经不推荐，镜像迁移应该直接使用 Docker Registry，无论是直接使用 Docker Hub 还是使用内网私有 Registry 都可以。</div><div class="line">	</div><div class="line">	使用 docker save 命令可以将镜像保存为归档文件。</div></pre></td></tr></table></figure>
 
     docker pull alpine
     docker save alpine |gzip &gt; alpine.tar.gz
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ȼ�����ǽ� alpine-latest.tar.gz �ļ����Ƶ��˵�����һ�������ϣ����������������������ؾ�����</div></pre></td></tr></table></figure>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">然后我们将 alpine-latest.tar.gz 文件复制到了到了另一个机器上，可以用下面这个命令加载镜像：</div></pre></td></tr></table></figure>
 
     docker load -i alpine-latest.tar.gz
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## ʹ������</div><div class="line">### ��������</div><div class="line">	�������������ַ�ʽ��һ���ǻ��ھ����½�һ������������������һ���ǽ�����ֹ״̬��stopped������������������</div><div class="line">	</div><div class="line">- **��������������**</div><div class="line">	������ docker run ����������ʱ��Docker �ں�̨���еı�׼����������</div><div class="line">		1. ���鱾���Ƿ�����ָ���ľ��񣬲����ھʹӹ��вֿ�����</div><div class="line">		1. ���þ��񴴽�������һ������</div><div class="line">		1. ����һ���ļ�ϵͳ������ֻ���ľ�������������һ���ɶ�д��</div><div class="line">		1. �������������õ����Žӿ����Ž�һ�������ӿڵ�������ȥ</div><div class="line">		1. �ӵ�ַ������һ�� ip ��ַ������</div><div class="line">		1. ִ���û�ָ����Ӧ�ó���</div><div class="line">		1. ִ�����Ϻ���������ֹ</div><div class="line">	</div><div class="line"></div><div class="line">- **ʹ��docker run����**</div><div class="line">	��������������һ�� ��Hello World����֮����ֹ������</div></pre></td></tr></table></figure>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## 使用容器</div><div class="line">### 启动容器</div><div class="line">	启动容器有两种方式，一种是基于镜像新建一个容器并启动，另外一个是将在终止状态（stopped）的容器重新启动。</div><div class="line">	</div><div class="line">- **容器的启动流程**</div><div class="line">	当利用 docker run 来创建容器时，Docker 在后台运行的标准操作包括：</div><div class="line">		1. 检查本地是否存在指定的镜像，不存在就从公有仓库下载</div><div class="line">		1. 利用镜像创建并启动一个容器</div><div class="line">		1. 分配一个文件系统，并在只读的镜像层外面挂载一层可读写层</div><div class="line">		1. 从宿主主机配置的网桥接口中桥接一个虚拟接口到容器中去</div><div class="line">		1. 从地址池配置一个 ip 地址给容器</div><div class="line">		1. 执行用户指定的应用程序</div><div class="line">		1. 执行完毕后容器被终止</div><div class="line">	</div><div class="line"></div><div class="line">- **使用docker run启动**</div><div class="line">	下面的命令输出一个 “Hello World”，之后终止容器。</div></pre></td></tr></table></figure>
 
 docker run centos /bin/echo &apos;Hello world&apos;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">����һ��ǰ̨��bash���̣�-t ѡ����Docker����һ��α�նˣ�pseudo-tty�����󶨵������ı�׼�����ϣ�-i ���������ı�׼���뱣�ִ򿪡�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">启动一个前台的bash进程，-t 选项让Docker分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上，-i 则让容器的标准输入保持打开。</div></pre></td></tr></table></figure>
 
 docker run -t -i centos /bin/bash
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- **ʹ��docker start��������ֹ����**</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- **使用docker start启动已终止容器**</div></pre></td></tr></table></figure>
 
-docker start  �������ֻ�ID
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">�鿴��������Դռ��,ֻ��һ��bash����</div></pre></td></tr></table></figure>
+docker start  容器名字或ID
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">查看容器的资源占用,只有一个bash进程</div></pre></td></tr></table></figure>
 
 [root@94b57792acbf /]# ps aux
 USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
 root          1  0.0  0.1  11768  1932 ?        Ss   07:19   0:00 /bin/bash
 root         56  0.0  0.1  47440  1672 ?        R+   07:27   0:00 ps aux
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	</div><div class="line">- **�������Ժ�̨����ģʽ����**	</div><div class="line">	������ʱ������Ҫ�� Docker�ں�̨���ж�����ֱ�Ӱ�ִ�������Ľ��������ڵ�ǰ�������¡���ʱ������ͨ������ -d ������ʵ�֡�</div><div class="line">	ʹ���������������𣺲�ʹ�� -d ������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	</div><div class="line">- **让容器以后台进程模式运行**	</div><div class="line">	更多的时候，需要让 Docker在后台运行而不是直接把执行命令的结果输出在当前宿主机下。此时，可以通过添加 -d 参数来实现。</div><div class="line">	使用例子来体验区别：不使用 -d 参数：</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# docker run centos /bin/bash -c &quot;while true; do echo hello world; sleep 1; done&quot;
 hello world
 hello world
 hello world
 hello world
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">���е���������������������</div><div class="line"></div><div class="line">��-d����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">所有的输出都输出到宿主机。</div><div class="line"></div><div class="line">加-d参数</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# docker run  -d centos /bin/bash -c &quot;while true; do echo hello world; sleep 1; done&quot;
 a8e42575a9ff340c65f0023c77926b0f80051f53ade13c38847f0e8a6319ee63
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">��ʱ�������ں�̨���в������������Ľ�����ӡ���������ϣ�����ʹ�� docker logs �鿴</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">此时容器会在后台运行并不会把输出的结果打印到宿主机上，可以使用 docker logs 查看</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# docker logs a8e42575a9ff
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	&gt; ע�� �����Ƿ��᳤�����У��Ǻ�docker runָ���������йأ��� -d �����޹ء�</div><div class="line">	</div><div class="line">- **��ֹ����**</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	&gt; 注： 容器是否会长久运行，是和docker run指定的命令有关，和 -d 参数无关。</div><div class="line">	</div><div class="line">- **终止容器**</div></pre></td></tr></table></figure>
 
 docker stop {CONTAINER ID| NAMES}
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	������һ�½���ֻ������һ��bash���������û�ͨ�� exit ������ Ctrl+d ���˳��ն�ʱ��������������������ֹ��</div><div class="line">	</div><div class="line">- **��������**	</div><div class="line">	attach ����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	对于上一章节中只启动了一个bash的容器，用户通过 exit 命令或 Ctrl+d 来退出终端时，所创建的容器立刻终止。</div><div class="line">	</div><div class="line">- **进入容器**	</div><div class="line">	attach 命令</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# docker run -dit centos /bin/bash
 14c0b4a935f57317f25111aa55beed0f3329afe60871ca06c44a12acc4172140
@@ -561,61 +561,61 @@ CONTAINER ID        IMAGE               COMMAND                  CREATED        
 14c0b4a935f5        centos              &quot;/bin/bash&quot;              25 seconds ago      Up 24 seconds                                                dreamy_wiles
 
 [root@node1 ~]# docker attach dreamy_wiles
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	&gt; ����ʹ�� attach ������ʱ�򲢲����㡣����������ͬʱ attach ��ͬһ��������ʱ�������д��ڶ���ͬ����ʾ����ĳ����������������ʱ,��������Ҳ�޷�ִ�в�����,ʹ��attach�����˳�ʹ��ctrl+p+q �˳���Ӱ���������С�</div><div class="line"></div><div class="line">- **nsenter ����**	</div><div class="line">	��װ����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	&gt; 但是使用 attach 命令有时候并不方便。当多个窗口同时 attach 到同一个容器的时候，所有窗口都会同步显示。当某个窗口因命令阻塞时,其他窗口也无法执行操作了,使用attach命令退出使用ctrl+p+q 退出不影响容器运行。</div><div class="line"></div><div class="line">- **nsenter 命令**	</div><div class="line">	安装命令</div></pre></td></tr></table></figure>
 
 yum -y install  util-linux
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">��ȡ����PID</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">获取容器PID</div></pre></td></tr></table></figure>
 
 PID=$(docker inspect --format &quot;{{ .State.Pid }}&quot; dreamy_wiles)
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">��������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">进入容器</div></pre></td></tr></table></figure>
 
 nsenter --target $PID --mount --uts --ipc --net --pid
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">- **���뵼������**	</div><div class="line">	������������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">- **导入导出容器**	</div><div class="line">	导出容器快照</div></pre></td></tr></table></figure>
 
 docker export 7691a814370e &gt; centos.tar
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">������������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">导入容器快照</div></pre></td></tr></table></figure>
 
 cat centos.tar | sudo docker import - myimages/centos:v1.0
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ɾ������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">删除容器</div></pre></td></tr></table></figure>
 
 docker rm {CONTAINER ID| NAMES}
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">### Docer ���ݹ���</div><div class="line">	Docker �ڲ�����������Ҫ�����ַ�ʽ��</div><div class="line">		- ���ݾ���Data volumes��</div><div class="line">		- ���ݾ�������Data volume containers��</div><div class="line">	</div><div class="line">- **���ݾ�**	</div><div class="line">	���ݾ���һ���ɹ�һ������������ʹ�õ�����Ŀ¼�����ƹ� UFS�������ṩ�ܶ����õ����ԣ�</div><div class="line">		- ���ݾ�����������֮�乲��������</div><div class="line">		- �����ݾ����޸Ļ�������Ч</div><div class="line">		- �����ݾ��ĸ��£�����Ӱ�쾵��</div><div class="line">		- ���ݾ�Ĭ�ϻ�һֱ���ڣ���ʹ������ɾ��</div><div class="line">	&gt; ע�⣺���ݾ���ʹ�ã������� Linux �¶�Ŀ¼���ļ����� mount�������еı�ָ��Ϊ���ص���Ŀ¼�е��ļ������ص�������ʾ�����ǹ��ص����ݾ���</div><div class="line">	</div><div class="line">	ʹ�� `-v` ����Ҳ����ָ������һ������������Ŀ¼��������ȥ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">### Docer 数据管理</div><div class="line">	Docker 内部管理数据主要有两种方式：</div><div class="line">		- 数据卷（Data volumes）</div><div class="line">		- 数据卷容器（Data volume containers）</div><div class="line">	</div><div class="line">- **数据卷**	</div><div class="line">	数据卷是一个可供一个或多个容器使用的特殊目录，它绕过 UFS，可以提供很多有用的特性：</div><div class="line">		- 数据卷可以在容器之间共享和重用</div><div class="line">		- 对数据卷的修改会立马生效</div><div class="line">		- 对数据卷的更新，不会影响镜像</div><div class="line">		- 数据卷默认会一直存在，即使容器被删除</div><div class="line">	&gt; 注意：数据卷的使用，类似于 Linux 下对目录或文件进行 mount，镜像中的被指定为挂载点的目录中的文件会隐藏掉，能显示看的是挂载的数据卷。</div><div class="line">	</div><div class="line">	使用 `-v` 标记也可以指定挂载一个本地主机的目录到容器中去。</div></pre></td></tr></table></figure>
 
 docker run -dit --name test  -v /tmp:/opt:ro centos  /bin/bash
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">- **���ݾ�����**	</div><div class="line">	���ݾ���������ʵ����һ��������������ר�������ṩ���ݾ��������������صġ�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">- **数据卷容器**	</div><div class="line">	数据卷容器，其实就是一个正常的容器，专门用来提供数据卷供其它容器挂载的。</div></pre></td></tr></table></figure>
 
 docker run -dit -v /dbdata --name dbdata centos /bin/bash
 [root@node1 ~]# docker attach dbdata
 [root@a9642e6adf7b /]# touch /dbdata/{1..10}.txt
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">������������ʹ�� --volumes-from ������ dbdata �����е����ݾ���</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">在其他容器中使用 --volumes-from 来挂载 dbdata 容器中的数据卷。</div></pre></td></tr></table></figure>
 
 docker run -dit --volumes-from dbdata --name db1 centos /bin/bash
 docker run -dit --volumes-from dbdata --name db2 centos /bin/bash
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">��֤</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">验证</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# docker attach db1
 [root@87f964ea0f31 /]# ls /dbdata/
 1.txt  10.txt  2.txt  3.txt  4.txt  5.txt  6.txt  7.txt  8.txt  9.txt
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	&gt; ע�⣺ʹ�� --volumes-from �������������ݾ��������Լ�������Ҫ����������״̬��</div><div class="line">	</div><div class="line">	����ɾ���˹��ص����������� dbdata��db1 �� db2�������ݾ������ᱻ�Զ�ɾ��������Ҫɾ��һ�����ݾ���������ɾ������һ������������������ʱʹ�� docker rm -v ������ָ��ͬʱɾ�������������� ���������û�������֮���������ƶ����ݾ���</div><div class="line"></div><div class="line">- **�������ݾ����������ݡ��ָ���Ǩ�����ݾ�**	</div><div class="line">	�����������ݾ������е����ݽ��н��б��ݡ��ָ���Ǩ�ơ�</div><div class="line">	`����`</div><div class="line">	����ʹ�� --volumes-from ����������һ������ dbdata ��������������������������/opt/backup�������� /backup Ŀ¼���������£�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	&gt; 注意：使用 --volumes-from 参数所挂载数据卷的容器自己并不需要保持在运行状态。</div><div class="line">	</div><div class="line">	如果删除了挂载的容器（包括 dbdata、db1 和 db2），数据卷并不会被自动删除。如果要删除一个数据卷，必须在删除最后一个还挂载着它的容器时使用 docker rm -v 命令来指定同时删除关联的容器。 这可以让用户在容器之间升级和移动数据卷。</div><div class="line"></div><div class="line">- **利用数据卷容器来备份、恢复、迁移数据卷**	</div><div class="line">	可以利用数据卷对其中的数据进行进行备份、恢复和迁移。</div><div class="line">	`备份`</div><div class="line">	首先使用 --volumes-from 标记来创建一个加载 dbdata 容器卷的容器，并从主机挂载/opt/backup到容器的 /backup 目录。命令如下：</div></pre></td></tr></table></figure>
 
 docker run --volumes-from dbdata -v /opt/backup:/backup centos tar cvf /backup/backup.tar /dbdata
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">`�ָ�`</div><div class="line">����Ҫ�ָ����ݵ�һ�����������ȴ���һ�����п����ݾ������� dbdata2��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">`恢复`</div><div class="line">如果要恢复数据到一个容器，首先创建一个带有空数据卷的容器 dbdata2。</div></pre></td></tr></table></figure>
 
 docker run --volumes-from dbdata2 -v /opt/backup:/backup centos tar xvf /backup/backup.tar
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Ϊ�˲鿴/��֤�ָ������ݣ�����������һ����������ͬ�������������鿴</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">为了查看/验证恢复的数据，可以再启动一个容器挂载同样的容器卷来查看</div></pre></td></tr></table></figure>
 
 docker run --volumes-from dbdata2 centos /bin/ls /dbdata
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## Docker registry</div><div class="line">### Registry �� Repository ������</div><div class="line">	ע����������Registry�����ǹ����ֿ��ľ�����������ÿ���������Ͽ����ж����ֿ⣨Repository������ÿ���ֿ⣨Repository�������ж���������</div><div class="line">### ����registry</div><div class="line">	registry������Ҫ���˿���ʹ�ã���Ҫhttps�ſ��ԣ����ǿ�������openssl���˽�е�CA������������ǩ�����䷢֤�飬������ǩ��֤�����ѵ���֤���ȡ�</div><div class="line">### �˽��CA</div><div class="line">	��ʼ��CA��������/etc/pki/CA/�½���֤���������ݿ��ļ�index.txt�����к��ļ�serial����Ϊ֤�����к��ļ��ṩ��ʼֵ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## Docker registry</div><div class="line">### Registry 和 Repository 的区别</div><div class="line">	注册服务器（Registry），是管理仓库的具体服务器，每个服务器上可以有多个仓库（Repository），而每个仓库（Repository）下面有多个镜像。</div><div class="line">### 配置registry</div><div class="line">	registry如果想要别人可以使用，需要https才可以，我们可以利用openssl来搭建私有的CA服务器，用以签名、颁发证书，管理已签名证书和已吊销证书等。</div><div class="line">### 搭建私有CA</div><div class="line">	初始化CA环境，在/etc/pki/CA/下建立证书索引数据库文件index.txt和序列号文件serial，并为证书序列号文件提供初始值。</div></pre></td></tr></table></figure>
 
 touch /etc/pki/CA/{index.txt,serial}
 echo 01 &gt; /etc/pki/CA/serial
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">������Կ�����浽/etc/pki/CA/private/cakey.pem</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">生成密钥并保存到/etc/pki/CA/private/cakey.pem</div></pre></td></tr></table></figure>
 
 (umask 077;openssl genrsa -out  /etc/pki/CA/private/cakey.pem 2048)
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">���ɸ�֤��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">生成根证书</div></pre></td></tr></table></figure>
 
 openssl req -new -x509 -key  /etc/pki/CA/private/cakey.pem -out /etc/pki/CA/cacert.pem -days 3650
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��д����Ϣ</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">填写的信息</div></pre></td></tr></table></figure>
 
 Country Name (2 letter code) [XX]:CN
 State or Province Name (full name) []:Beijing
@@ -624,17 +624,17 @@ Organization Name (eg, company) [Default Company Ltd]:mycompany
 Organizational Unit Name (eg, section) []:ops
 Common Name (eg, your name or your server&apos;s hostname) []:registry.mycompany.com
 Email Address []:admin@mycompany.com
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ʹLinuxϵͳ���θ�֤��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">使Linux系统信任根证书</div></pre></td></tr></table></figure>
 
 cat /etc/pki/CA/cacert.pem &gt;&gt; /etc/pki/tls/certs/ca-bundle.crt
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ǩ��֤��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">签发证书</div></pre></td></tr></table></figure>
 
-yum -y install nginx //��װnginx
-mkdir  /etc/nginx/ssl //����sslĿ¼����������Կ�ļ���֤�������ļ�
-//������Կ�ļ���֤�������ļ�
+yum -y install nginx //安装nginx
+mkdir  /etc/nginx/ssl //创建ssl目录用来存放密钥文件和证书申请文件
+//创建密钥文件和证书申请文件
 (umask 077;openssl genrsa -out /etc/nginx/ssl/docker.key 2048)
 openssl req -new -key /etc/nginx/ssl/docker.key -out /etc/nginx/ssl/docker.csr
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��д��������Ϣǰ����Ҫ��˽��CA����Ϣһ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">填写的申请信息前四项要和私有CA的信息一致</div></pre></td></tr></table></figure>
 
 Country Name (2 letter code) [XX]:CN
 State or Province Name (full name) []:Beijing
@@ -643,10 +643,10 @@ Organization Name (eg, company) [Default Company Ltd]:mycompany
 Organizational Unit Name (eg, section) []:ops
 Common Name (eg, your name or your server&apos;s hostname) []:registry.mycompany.com
 Email Address []:admin@mycompany.com
-#ֱ�ӻس�
+#直接回车
 A challenge password []:
 An optional company name []:
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ǩ����֤��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">签署，证书</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# openssl ca -in /etc/nginx/ssl/docker.csr -out /etc/nginx/ssl/docker.crt -days 3650
 Using configuration from /etc/pki/tls/openssl.cnf
@@ -681,30 +681,30 @@ Sign the certificate? [y/n]:y
 1 out of 1 certificate requests certified, commit? [y/n]y
 Write out database with 1 new entries
 Data Base Updated
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">����index.txt��serial���кŸ���</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">检查index.txt和serial序列号更新</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# cat /etc/pki/CA/index.txt
 V    270328055023Z        01    unknown    /C=CN/ST=Beijing/O=mycompany/OU=ops/CN=registry.mycompany.com/emailAddress=admin@mycompany.com
 
 [root@node1 ~]# cat /etc/pki/CA/serial
 02
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">### ����localhost�docker-registry</div><div class="line">	����registry</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">### 基于localhost搭建docker-registry</div><div class="line">	启动registry</div></pre></td></tr></table></figure>
 
 docker run -d -p 5000:5000 --restart=always --name registry -v /opt/registry:/var/lib/registry registry:2
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��dockerhub����centos������ʹ��docker tag �� centos ������������Ϊ localhost:5000/centos</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">从dockerhub下载centos镜像，使用docker tag 将 centos 这个镜像标记为 localhost:5000/centos</div></pre></td></tr></table></figure>
 
 docker pull centos &amp;&amp; docker tag centos localhost:5000/centos
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ʹ��docker push �ϴ����ǵľ���</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">使用docker push 上传标记的镜像</div></pre></td></tr></table></figure>
 
 docker push localhost:5000/centos
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��˽�вֿ����ؾ���</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">从私有仓库下载镜像</div></pre></td></tr></table></figure>
 
 docker pull  localhost:5000/centos
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	</div><div class="line">### ����nginx��������docker registry</div><div class="line">	- **Ϊnginx������֤**</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	</div><div class="line">### 配置nginx反向代理docker registry</div><div class="line">	- **为nginx添加认证**</div></pre></td></tr></table></figure>
 
 yum -y install httpd-tools
 htpasswd -cb /etc/nginx/conf.d/docker-registry.htpasswd admin admin
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- **����nginx��server**</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- **添加nginx的server**</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# cat /etc/nginx/conf.d/docker-registry.conf
 upstream docker-registry {
@@ -735,43 +735,43 @@ server {
                proxy_pass  http://docker-registry;
                }
 }
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **����nginx**</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **重启nginx**</div></pre></td></tr></table></figure>
 
 systemctl restart nginx
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **�޸�hosts**</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **修改hosts**</div></pre></td></tr></table></figure>
 
 10.0.7.1    registry.mycompany.com
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **����**</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **测试**</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# docker login registry.mycompany.com
 Username: admin
 Password: 
 Login Succeeded
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **�ϴ�����**</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **上传镜像**</div></pre></td></tr></table></figure>
 
 docker tag centos registry.mycompany.com/centos
 docker push registry.mycompany.com/centos
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **�鿴**</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **查看**</div></pre></td></tr></table></figure>
 
 curl --user admin:admin  https://registry.mycompany.com/v2/_catalog
 {&quot;repositories&quot;:[&quot;centos&quot;]}
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **���þ�����������������֤**</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **配置局域网内其他机器认证**</div></pre></td></tr></table></figure>
 
-// �޸�hosts
+// 修改hosts
 vim /etc/hosts
 10.0.7.1    registry.mycompany.com
 
-//ͬ����ϵͳ�汾,ֱ�Ӹ���ca-bundle.crt��
+//同样的系统版本,直接覆盖ca-bundle.crt，
  scp -rp /etc/pki/tls/certs/ca-bundle.crt  root@10.0.7.2:/etc/pki/tls/certs/ca-bundle.crt
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ͬ�汾��CA����Կ���͵��ͻ����������ӵ�ca-bundle.crt</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">不同版本把CA的密钥发送到客户机，并添加到ca-bundle.crt</div></pre></td></tr></table></figure>
 
 scp -rp  /etc/pki/CA/cacert.pem root@10.0.7.2:/etc/pki/CA/cacert.pem
 cat /etc/pki/CA/cacert.pem &gt;&gt; /etc/pki/tls/certs/ca-bundle.crt
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">����docker������������������docker��ʾx509֤��û����Ȩ</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">重启docker，如果不重启会出现docker提示x509证书没有授权</div></pre></td></tr></table></figure>
 
 systemctl daemon-reload
 systemctl restart docker
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��֤</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">验证</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# curl --user admin:admin  https://registry.mycompany.com/v2/_catalog
 {&quot;repositories&quot;:[&quot;centos&quot;]}
@@ -785,41 +785,41 @@ latest: Pulling from centos
 4969bbd91a1e: Pull complete 
 Digest: sha256:d7f3db1caf4ea76117abce89709ebfc66c9339e13866016b8b2e4eee3ab4bea0
 Status: Downloaded newer image for registry.mycompany.com/centos:latest
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">## Docker ����</div><div class="line">### �鿴����IP</div><div class="line">	- ** ��һ�ַ��� **</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">## Docker 网络</div><div class="line">### 查看容器IP</div><div class="line">	- ** 第一种方法 **</div></pre></td></tr></table></figure>
 
 docker run -d --name nginx nginx
 docker inspect --format &apos;{{ .NetworkSettings.IPAddress }}&apos; nginx
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- ** �ڶ��ַ��� **</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- ** 第二种方法 **</div></pre></td></tr></table></figure>
 
 docker exec -ti nginx ip add | grep global
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- ** �����ַ��� **</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- ** 第三种方法 **</div></pre></td></tr></table></figure>
 
 docker exec -ti nginx cat /etc/hosts
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">### �˿�ӳ��</div><div class="line">	��Docker���ڲ��˿�ͨ���˿�ӳ���ķ���ӳ�䵽��������ĳһ���˿ڣ���ʹ�� -P ����ʱ��Docker ������ӳ��һ�� `49000~49900` �Ķ˿ڵ��ڲ��������ŵ������˿ڡ�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">### 端口映射</div><div class="line">	把Docker的内部端口通过端口映射的方法映射到宿主机的某一个端口，当使用 -P 标记时，Docker 会随机映射一个 `49000~49900` 的端口到内部容器开放的网络端口。</div></pre></td></tr></table></figure>
 
 docker run -d -P nginx
 
 docker ps
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                         NAMES
 3a5ec1bc2837        nginx               &quot;nginx -g &apos;daemon ...&quot;   About an hour ago   Up About an hour    0.0.0.0:2049-&gt;80/tcp, 0.0.0.0:2048-&gt;443/tcp   adoring_pike
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ͨ��docker logs�鿴Ӧ����Ϣ</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">通过docker logs查看应用信息</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# docker logs -f adoring_pike 
 172.17.0.1 - - [30/Mar/2017:15:02:40 +0000] &quot;GET / HTTP/1.1&quot; 200 612 &quot;-&quot; &quot;curl/7.29.0&quot; &quot;-&quot;
 10.0.7.1 - - [30/Mar/2017:15:02:47 +0000] &quot;GET / HTTP/1.1&quot; 200 612 &quot;-&quot; &quot;curl/7.29.0&quot; &quot;-&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-p��Сд�ģ�������ָ��Ҫӳ���Ķ˿ڣ����ң���һ��ָ���˿���ֻ���԰���һ��������</div><div class="line">֧�ֵĸ�ʽ��`ip:hostPort:containerPort` | `ip::containerPort` | `hostPort:containerPort`��</div><div class="line"></div><div class="line">ӳ�䵽��������IP�� 80 �˿�ӳ�䵽������ 80 �˿�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-p（小写的）则可以指定要映射的端口，并且，在一个指定端口上只可以绑定一个容器。</div><div class="line">支持的格式有`ip:hostPort:containerPort` | `ip::containerPort` | `hostPort:containerPort`。</div><div class="line"></div><div class="line">映射到本机所有IP的 80 端口映射到容器的 80 端口</div></pre></td></tr></table></figure>
 
-docker run -d -p 80��80 nginx
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�鿴ӳ���Ķ˿�</div></pre></td></tr></table></figure>
+docker run -d -p 80：80 nginx
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">查看映射的端口</div></pre></td></tr></table></figure>
 
 docker port adoring_pike
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## ��������</div><div class="line">	ʹ�� `--link` ��������������֮�䰲ȫ�Ľ��н�����</div><div class="line">	�����ȴ���һ���µ����ݿ�������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## 容器互联</div><div class="line">	使用 `--link` 参数可以让容器之间安全的进行交互。</div><div class="line">	下面先创建一个新的数据库容器。</div></pre></td></tr></table></figure>
 
 docker run -d --name db training/postgres
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ȼ�󴴽�һ�� web ���������������ӵ� db ����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">然后创建一个 web 容器，并将它连接到 db 容器</div></pre></td></tr></table></figure>
 
 docker run -d -P --name web --link db:db training/webapp python app.py
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ʱ��db ������ web ��������������ϵ��</div><div class="line">`--link` �����ĸ�ʽΪ `--link name:alias`������ name ��Ҫ���ӵ����������ƣ�alias ���������ӵı�����</div><div class="line"></div><div class="line">ʹ�� `env` �������鿴 web �����Ļ�������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">此时，db 容器和 web 容器建立互联关系。</div><div class="line">`--link` 参数的格式为 `--link name:alias`，其中 name 是要链接的容器的名称，alias 是这个连接的别名。</div><div class="line"></div><div class="line">使用 `env` 命令来查看 web 容器的环境变量</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# docker run --rm --name web2 --link db:db training/webapp env
 PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
@@ -832,7 +832,7 @@ DB_PORT_5432_TCP_PROTO=tcp
 DB_NAME=/web2/db
 DB_ENV_PG_VERSION=9.3
 HOME=/root
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">���� DB_ ��ͷ�Ļ��������ǹ� web �������� db ����ʹ�ã�ǰ׺���ô�д�����ӱ�����</div><div class="line"></div><div class="line">���˻���������`Docker` ������ `host` ��Ϣ���������� `/etc/hosts `���ļ��������Ǹ����� web �� hosts �ļ�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">其中 DB_ 开头的环境变量是供 web 容器连接 db 容器使用，前缀采用大写的连接别名。</div><div class="line"></div><div class="line">除了环境变量，`Docker` 还添加 `host` 信息到父容器的 `/etc/hosts `的文件。下面是父容器 web 的 hosts 文件</div></pre></td></tr></table></figure>
 
 [root@node1 ~]# docker run -t -i --rm --link db:db training/webapp /bin/bash
 root@8299f9685894:/opt/webapp# cat /etc/hosts
@@ -844,7 +844,7 @@ ff02::1    ip6-allnodes
 ff02::2    ip6-allrouters
 172.17.0.8    db d65ebb9124a4
 172.17.0.10    8299f9685894
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">## docker������ģʽ</div><div class="line">	Docker������ģʽ��Ϊ����</div><div class="line">### Bridgeģʽ</div><div class="line">	��Docker��������ʱ�����������ϴ���һ����Ϊdocker0���������ţ���������������Docker���������ӵ��������������ϡ��������ŵĹ�����ʽ���������������ƣ����������ϵ�����������ͨ��������������һ�����������С�</div><div class="line">	</div><div class="line">	��docker0�����з���һ��IP������ʹ�ã�������docker0��IP��ַΪ������Ĭ�����ء��������ϴ���һ����������veth pair�豸��Docker��veth pair�豸��һ�˷����´����������У�������Ϊeth0������������������һ�˷��������У���vethxxx�������Ƶ������������������������豸���뵽docker0�����С�����ͨ��brctl show�����鿴��</div><div class="line">	</div><div class="line">	bridgeģʽ��docker��Ĭ������ģʽ����д--net����������bridgeģʽ��ʹ��docker run -pʱ��dockerʵ������iptables����DNAT������ʵ�ֶ˿�ת�����ܡ�</div><div class="line">	</div><div class="line">	����ʹ��iptables -t nat -vnL�鿴��</div><div class="line">	bridgeģʽ����ͼ��ʾ��</div><div class="line">	![bridgeģʽ](/images/bridge-mode.png)</div><div class="line">	</div><div class="line">	��ʾ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">## docker的网络模式</div><div class="line">	Docker的网络模式分为四种</div><div class="line">### Bridge模式</div><div class="line">	当Docker进程启动时，会在主机上创建一个名为docker0的虚拟网桥，此主机上启动的Docker容器会连接到这个虚拟网桥上。虚拟网桥的工作方式和物理交换机类似，这样主机上的所有容器就通过交换机连在了一个二层网络中。</div><div class="line">	</div><div class="line">	从docker0子网中分配一个IP给容器使用，并设置docker0的IP地址为容器的默认网关。在主机上创建一对虚拟网卡veth pair设备，Docker将veth pair设备的一端放在新创建的容器中，并命名为eth0（容器的网卡），另一端放在主机中，以vethxxx这样类似的名字命名，并将这个网络设备加入到docker0网桥中。可以通过brctl show命令查看。</div><div class="line">	</div><div class="line">	bridge模式是docker的默认网络模式，不写--net参数，就是bridge模式。使用docker run -p时，docker实际是在iptables做了DNAT规则，实现端口转发功能。</div><div class="line">	</div><div class="line">	可以使用iptables -t nat -vnL查看。</div><div class="line">	bridge模式如下图所示：</div><div class="line">	![bridge模式](/images/bridge-mode.png)</div><div class="line">	</div><div class="line">	演示：</div></pre></td></tr></table></figure>
 
 docker run -tid --net=bridge --name docker_bri1 ubuntu-base:v3
 docker run -tid --net=bridge --name docker_bri2 ubuntu-base:v3
@@ -853,13 +853,13 @@ brctl show
 docker exec -ti docker_bri1 /bin/bash
 docker exec -ti docker_bri1 /bin/bash
 
-ifconfig �Ca
-route �Cn
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">### Hostģʽ</div><div class="line">	��������������ʱ��ʹ��`host`ģʽ����ô������������������һ��������`Network Namespace`�����Ǻ�����������һ��`Network Namespace`�������������������Լ��������������Լ���IP�ȣ�����ʹ����������IP�Ͷ˿ڡ����ǣ��������������棬���ļ�ϵͳ�������б��Ȼ��Ǻ������������ġ�</div><div class="line">	</div><div class="line">	Hostģʽ����ͼ��ʾ��</div><div class="line">	![Hostģʽ](/images/docker-host-mode.png)</div><div class="line">	</div><div class="line">### Containerģʽ</div><div class="line">	����ģʽָ���´������������Ѿ����ڵ�һ����������һ�� Network Namespace�������Ǻ��������������´������������ᴴ���Լ��������������Լ��� IP�����Ǻ�һ��ָ������������ IP���˿ڷ�Χ�ȡ�ͬ�������������������緽�棬���������ļ�ϵͳ�������б��Ȼ��Ǹ����ġ����������Ľ��̿���ͨ�� lo �����豸ͨ�š�</div><div class="line">	</div><div class="line">	Containerģʽʾ��ͼ��</div><div class="line">	![Containerģʽ](/images/docker-container-mode.png)</div><div class="line">	</div><div class="line">### Noneģʽ</div><div class="line">	ʹ��noneģʽ��Docker����ӵ���Լ���Network Namespace�����ǣ�����ΪDocker���������κ��������á�Ҳ����˵������Docker����û��������IP��·�ɵ���Ϣ����Ҫ�����Լ�ΪDocker������������������IP�ȡ�</div><div class="line">	</div><div class="line">	![Noneģʽ](/images/docker-none-mode.png)</div><div class="line">	</div><div class="line">## Docker��������</div><div class="line">### ���� DNS</div><div class="line">	��docker runʱʹ�����²�����</div><div class="line"></div><div class="line">	����	˵��</div><div class="line">	-h HOSTNAME or --hostname=HOSTNAME	�趨�����������������ᱻд�������ڵ� /etc/hostname ��/etc/hosts�������������ⲿ���������Ȳ����� docker ps ����ʾ��Ҳ������������������/etc/hosts ������</div><div class="line">	--link=CONTAINER_NAME:ALIAS	ѡ�����ڴ���������ʱ��������һ�������������������� /etc/hosts �ļ��У����������Ľ��̿���ʹ�������� ALIAS �Ϳ�����������</div><div class="line">	--dns=IP_ADDRESS	���� DNS �������������� /etc/resolv.conf �У����������������������������в��� /etc/hosts �е���������</div><div class="line">	--dns-search=DOMAIN	�趨�����������򣬵��趨������Ϊ .example.com ʱ��������һ����Ϊ host ������ʱ��DNS ��������host���������� host.example.com�� ע�⣺����û���������� 2 ��ѡ�Docker ��Ĭ���������ϵ� /etc/resolv.conf ������������</div><div class="line">	</div><div class="line">### �������ʿ���</div><div class="line">	</div><div class="line">	- ** ���������ⲿ���� **</div><div class="line">		����Ҫ�������ⲿ���磬��Ҫ����ϵͳ��ת��֧�֡���Linux ϵͳ�У�����ת���Ƿ��򿪡�</div></pre></td></tr></table></figure>
+ifconfig –a
+route –n
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">### Host模式</div><div class="line">	如果启动容器的时候使用`host`模式，那么这个容器将不会获得一个独立的`Network Namespace`，而是和宿主机共用一个`Network Namespace`。容器将不会虚拟出自己的网卡，配置自己的IP等，而是使用宿主机的IP和端口。但是，容器的其他方面，如文件系统、进程列表等还是和宿主机隔离的。</div><div class="line">	</div><div class="line">	Host模式如下图所示：</div><div class="line">	![Host模式](/images/docker-host-mode.png)</div><div class="line">	</div><div class="line">### Container模式</div><div class="line">	这个模式指定新创建的容器和已经存在的一个容器共享一个 Network Namespace，而不是和宿主机共享。新创建的容器不会创建自己的网卡，配置自己的 IP，而是和一个指定的容器共享 IP、端口范围等。同样，两个容器除了网络方面，其他的如文件系统、进程列表等还是隔离的。两个容器的进程可以通过 lo 网卡设备通信。</div><div class="line">	</div><div class="line">	Container模式示意图：</div><div class="line">	![Container模式](/images/docker-container-mode.png)</div><div class="line">	</div><div class="line">### None模式</div><div class="line">	使用none模式，Docker容器拥有自己的Network Namespace，但是，并不为Docker容器进行任何网络配置。也就是说，这个Docker容器没有网卡、IP、路由等信息。需要我们自己为Docker容器添加网卡、配置IP等。</div><div class="line">	</div><div class="line">	![None模式](/images/docker-none-mode.png)</div><div class="line">	</div><div class="line">## Docker网络设置</div><div class="line">### 配置 DNS</div><div class="line">	在docker run时使用以下参数：</div><div class="line"></div><div class="line">	参数	说明</div><div class="line">	-h HOSTNAME or --hostname=HOSTNAME	设定容器的主机名，它会被写到容器内的 /etc/hostname 和/etc/hosts。但它在容器外部看不到，既不会在 docker ps 中显示，也不会在其他的容器的/etc/hosts 看到。</div><div class="line">	--link=CONTAINER_NAME:ALIAS	选项会在创建容器的时候，添加一个其他容器的主机名到 /etc/hosts 文件中，让新容器的进程可以使用主机名 ALIAS 就可以连接它。</div><div class="line">	--dns=IP_ADDRESS	添加 DNS 服务器到容器的 /etc/resolv.conf 中，让容器用这个服务器来解析所有不在 /etc/hosts 中的主机名。</div><div class="line">	--dns-search=DOMAIN	设定容器的搜索域，当设定搜索域为 .example.com 时，在搜索一个名为 host 的主机时，DNS 不仅搜索host，还会搜索 host.example.com。 注意：如果没有上述最后 2 个选项，Docker 会默认用主机上的 /etc/resolv.conf 来配置容器。</div><div class="line">	</div><div class="line">### 容器访问控制</div><div class="line">	</div><div class="line">	- ** 容器访问外部网络 **</div><div class="line">		容器要想访问外部网络，需要本地系统的转发支持。在Linux 系统中，检查转发是否打开。</div></pre></td></tr></table></figure>
 
     sysctl net.ipv4.ip_forward
     net.ipv4.ip_forward = 1
-    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- ** ����֮������ **</div><div class="line">	����֮���໥���ʣ���Ҫ��������֧�֡�</div><div class="line">	- ���������������Ƿ��Ѿ�������Ĭ�������£������������ᱻ���ӵ� `docker0` �����ϡ�</div><div class="line">	- ����ϵͳ�ķ���ǽ���� `-- iptables `�Ƿ�����ͨ����</div><div class="line"></div><div class="line">- ** �������ж˿� **</div><div class="line">	������ Docker ����ʱ����Ĭ�ϻ�����һ��ת�����Ե� iptables �� FORWARD ���ϡ�����Ϊͨ����ACCEPT�����ǽ�ֹ��DROP��ȡ�������� --icc=true��ȱʡֵ������ --icc=false����Ȼ�������ֶ�ָ�� --iptables=false �򲻻����� iptables ������</div><div class="line">	</div><div class="line">	�ɼ���Ĭ�������£���ͬ����֮�����������绥ͨ�ġ�����Ϊ�˰�ȫ���ǣ�������docker�����޸�/usr/lib/systemd/system/docker.service����ʱ����--icc=false��</div><div class="line">	</div><div class="line">- ** ����ָ���˿� **</div><div class="line">	��ͨ�� -icc=false �ر��������ʺ󣬿���ͨ�� `--link=CONTAINER_NAME:ALIAS` ѡ�������������Ŀ��Ŷ˿ڡ�</div><div class="line">	���磬������ Docker ����ʱ������ͬʱʹ�� `--icc=false --iptables=true` �������ر������໥���������ʣ����� `Docker` �����޸�ϵͳ�е� `iptables` ������</div><div class="line">��ʱ��ϵͳ�е� `iptables` ��������������</div></pre></td></tr></table></figure>
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- ** 容器之间访问 **</div><div class="line">	容器之间相互访问，需要两方面的支持。</div><div class="line">	- 容器的网络拓扑是否已经互联。默认情况下，所有容器都会被连接到 `docker0` 网桥上。</div><div class="line">	- 本地系统的防火墙软件 `-- iptables `是否允许通过。</div><div class="line"></div><div class="line">- ** 访问所有端口 **</div><div class="line">	当启动 Docker 服务时候，默认会添加一条转发策略到 iptables 的 FORWARD 链上。策略为通过（ACCEPT）还是禁止（DROP）取决于配置 --icc=true（缺省值）还是 --icc=false。当然，如果手动指定 --iptables=false 则不会添加 iptables 规则。</div><div class="line">	</div><div class="line">	可见，默认情况下，不同容器之间是允许网络互通的。如果为了安全考虑，可以在docker服务修改/usr/lib/systemd/system/docker.service启动时添加--icc=false。</div><div class="line">	</div><div class="line">- ** 访问指定端口 **</div><div class="line">	在通过 -icc=false 关闭网络访问后，可以通过 `--link=CONTAINER_NAME:ALIAS` 选项来访问容器的开放端口。</div><div class="line">	例如，在启动 Docker 服务时，可以同时使用 `--icc=false --iptables=true` 参数来关闭允许相互的网络访问，并让 `Docker` 可以修改系统中的 `iptables` 规则。</div><div class="line">此时，系统中的 `iptables` 规则可能是类似</div></pre></td></tr></table></figure>
 
 iptables -nL
 ...
@@ -867,7 +867,7 @@ Chain FORWARD (policy ACCEPT)
 target     prot opt source               destination
 DROP       all  --  0.0.0.0/0            0.0.0.0/0
 ...
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">## ���ڼ���</div><div class="line"></div><div class="line">	���ڹ�����docker�����ֿ�һ�㶼�Ƚ���������һ����ʹ�ù��ڵ�һЩ���ٲֿ⣬�簢����</div><div class="line"></div><div class="line">	���룺https://cr.console.aliyun.com/#/accelerator</div><div class="line">	</div><div class="line">	����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">## 国内加速</div><div class="line"></div><div class="line">	由于国外的docker镜像仓库一般都比较慢，所以一般会使用国内的一些加速仓库，如阿里云</div><div class="line"></div><div class="line">	申请：https://cr.console.aliyun.com/#/accelerator</div><div class="line">	</div><div class="line">	配置</div></pre></td></tr></table></figure>
 
 mkdir -p /etc/docker
 cat /etc/docker/daemon.json
@@ -877,13 +877,13 @@ cat /etc/docker/daemon.json
 
 
 
-https://xxxxxxx.mirror.aliyuncs.com�滻�������뵽�ĵ�ַ��//https://5f2jam6c.mirror.aliyuncs.com
+https://xxxxxxx.mirror.aliyuncs.com替换成你申请到的地址。//https://5f2jam6c.mirror.aliyuncs.com
 
 
 sudo systemctl daemon-reload
 sudo systemctl restart docker
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line"></div><div class="line">## Docker Composeʹ��</div><div class="line">### ����</div><div class="line">&gt; Docker Compose��һ���������������и���Ӧ�õ�Docker���ߡ�ʹ��Compose����������һ���ļ��ж���һ��������Ӧ�ã�Ȼ��ʹ��һ����������������Ӧ�ã�����һ��׼��������</div><div class="line"></div><div class="line">&gt; һ��ʹ��Docker������Ӧ�ã�ͨ���ɶ����������ɡ�ʹ��Docker Compose��������Ҫʹ��shell�ű��������������������ļ��У����е�����ͨ��services�����壬Ȼ��ʹ��docker-compose�ű���������ֹͣ������Ӧ�ã���Ӧ���еķ����Լ���������������������</div><div class="line"></div><div class="line">### ��װ</div><div class="line"></div><div class="line">## ��װ docker-compose</div></pre></td></tr></table></figure>
-</code></pre><p>curl -L <a href="https://get.daocloud.io/docker/compose/releases/download/1.18.0/docker-compose-`uname" target="_blank" rel="external">https://get.daocloud.io/docker/compose/releases/download/1.18.0/docker-compose-`uname</a> -s<code>-</code>uname -m` &gt; /usr/local/bin/docker-compose<br>chmod +x /usr/bin/docker-compose<br>docker-compose –version<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">### �����ļ�</div><div class="line">    ����Ϊһ�� `docker-compose` �ο������ļ�:</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line"></div><div class="line">## Docker Compose使用</div><div class="line">### 简介</div><div class="line">&gt; Docker Compose是一个用来定义和运行复杂应用的Docker工具。使用Compose，你可以在一个文件中定义一个多容器应用，然后使用一条命令来启动你的应用，完成一切准备工作。</div><div class="line"></div><div class="line">&gt; 一个使用Docker容器的应用，通常由多个容器组成。使用Docker Compose，不再需要使用shell脚本来启动容器。在配置文件中，所有的容器通过services来定义，然后使用docker-compose脚本来启动，停止和重启应用，和应用中的服务以及所有依赖服务的容器。</div><div class="line"></div><div class="line">### 安装</div><div class="line"></div><div class="line">## 安装 docker-compose</div></pre></td></tr></table></figure>
+</code></pre><p>curl -L <a href="https://get.daocloud.io/docker/compose/releases/download/1.18.0/docker-compose-`uname" target="_blank" rel="external">https://get.daocloud.io/docker/compose/releases/download/1.18.0/docker-compose-`uname</a> -s<code>-</code>uname -m` &gt; /usr/local/bin/docker-compose<br>chmod +x /usr/bin/docker-compose<br>docker-compose –version<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">### 配置文件</div><div class="line">    下面为一份 `docker-compose` 参考配置文件:</div></pre></td></tr></table></figure></p>
 <pre><code>version: &apos;2&apos;
 services:
   web:
@@ -918,62 +918,62 @@ networks:
     driver: bridge
   back-tier:
 driver: bridge
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    ���Կ���һ�ݱ�׼�����ļ�Ӧ�ð��� version��services��networks ���󲿷֣��������ؼ��ľ��� services �� networks �������֣����������� services ����д������</div><div class="line"> </div><div class="line">### image</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    可以看到一份标准配置文件应该包含 version、services、networks 三大部分，其中最关键的就是 services 和 networks 两个部分，下面先来看 services 的书写规则。</div><div class="line"> </div><div class="line">### image</div></pre></td></tr></table></figure>
 
 services:
   web:
     image: hello-world
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">�� services ��ǩ�µĵڶ�����ǩ�� web�������������û��Լ��Զ��壬�����Ƿ������ơ�</div><div class="line">image ����ָ�������ľ������ƻ����� ID�����������ڱ��ز����ڣ�Compose ���᳢����ȡ����������</div><div class="line">����������Щ��ʽ���ǿ��Եģ�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">在 services 标签下的第二级标签是 web，这个名字是用户自己自定义，它就是服务名称。</div><div class="line">image 则是指定服务的镜像名称或镜像 ID。如果镜像在本地不存在，Compose 将会尝试拉取这个镜像。</div><div class="line">例如下面这些格式都是可以的：</div></pre></td></tr></table></figure>
 
 image: redis
 image: ubuntu:14.04
 image: tutum/influxdb
 image: example-registry.com:4000/postgresql
 image: a4bc65fd
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   </div><div class="line">### build</div><div class="line">    �������˿��Ի���ָ���ľ��񣬻����Ի���һ�� Dockerfile����ʹ�� up ����֮ʱִ�й�������������������ǩ���� build��������ָ�� Dockerfile �����ļ��е�·����Compose �����������Զ���������������Ȼ��ʹ������������������������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   </div><div class="line">### build</div><div class="line">    服务除了可以基于指定的镜像，还可以基于一份 Dockerfile，在使用 up 启动之时执行构建任务，这个构建标签就是 build，它可以指定 Dockerfile 所在文件夹的路径。Compose 将会利用它自动构建这个镜像，然后使用这个镜像启动服务容器。</div></pre></td></tr></table></figure>
 
 build: /path/to/build/dir
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ҳ����������·����ֻҪ������ȷ���Ϳ��Զ�ȡ�� Dockerfile��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">也可以是相对路径，只要上下文确定就可以读取到 Dockerfile。</div></pre></td></tr></table></figure>
 
 build: ./dir
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�趨�����ĸ�Ŀ¼��Ȼ���Ը�Ŀ¼Ϊ׼ָ�� Dockerfile��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">设定上下文根目录，然后以该目录为准指定 Dockerfile。</div></pre></td></tr></table></figure>
 
 build:
   context: ../
   dockerfile: path/of/Dockerfile
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ע�� build ����һ��Ŀ¼��������Ҫָ�� Dockerfile �ļ���Ҫ�� build ��ǩ���Ӽ���ǩ��ʹ�� dockerfile ��ǩָ���������������ӡ�</div><div class="line">������ͬʱָ���� image �� build ������ǩ����ô Compose �ṹ���������ҰѾ�������Ϊ image �������Ǹ����֡�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">注意 build 都是一个目录，如果你要指定 Dockerfile 文件需要在 build 标签的子级标签中使用 dockerfile 标签指定，如上面的例子。</div><div class="line">如果你同时指定了 image 和 build 两个标签，那么 Compose 会构建镜像并且把镜像命名为 image 后面的那个名字。</div></pre></td></tr></table></figure>
 
 build: ./dir
 image: webapp:tag
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��Ȼ������ docker-compose.yml �ж��幹����������ôһ���ٲ��� arg ������ǩ������ Dockerfile �е� ARG ָ��������ڹ���������ָ�����������������ڹ����ɹ���ȡ������ docker-compose.yml �ļ���Ҳ֧��������д����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">既然可以在 docker-compose.yml 中定义构建任务，那么一定少不了 arg 这个标签，就像 Dockerfile 中的 ARG 指令，它可以在构建过程中指定环境变量，但是在构建成功后取消，在 docker-compose.yml 文件中也支持这样的写法：</div></pre></td></tr></table></figure>
 
 build:
   context: .
   args:
     buildno: 1
     password: secret
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��������д��Ҳ��֧�ֵģ�һ����˵������д�����ʺ��Ķ���</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">下面这种写法也是支持的，一般来说下面的写法更适合阅读。</div></pre></td></tr></table></figure>
 
 build:
   context: .
   args:
     - buildno=1
     - password=secret
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�� ENV ��ͬ���ǣ�ARG ��������ֵ�ġ����磺</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">与 ENV 不同的是，ARG 是允许空值的。例如：</div></pre></td></tr></table></figure>
 
 args:
   - buildno
   - password
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    �����������̿��������Ǹ�ֵ��</div><div class="line">    </div><div class="line">    &gt; ע�⣺YAML �Ĳ���ֵ��true, false, yes, no, on, off������Ҫʹ�������������������š�˫���ž��ɣ��������ᵱ���ַ���������</div><div class="line">    </div><div class="line">### command</div><div class="line">    ʹ�� command ���Ը�������������Ĭ��ִ�е����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    这样构建过程可以向它们赋值。</div><div class="line">    </div><div class="line">    &gt; 注意：YAML 的布尔值（true, false, yes, no, on, off）必须要使用引号引起来（单引号、双引号均可），否则会当成字符串解析。</div><div class="line">    </div><div class="line">### command</div><div class="line">    使用 command 可以覆盖容器启动后默认执行的命令。</div></pre></td></tr></table></figure>
 
 command: bundle exec thin -p 3000
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ҳ����д������ Dockerfile �еĸ�ʽ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">也可以写成类似 Dockerfile 中的格式：</div></pre></td></tr></table></figure>
 
 command: [bundle, exec, thin, -p, 3000]
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### container_name</div><div class="line">    ǰ��˵�� Compose ���������Ƹ�ʽ�ǣ�&lt;��Ŀ����&gt;&lt;��������&gt;&lt;����&gt;</div><div class="line">    ��Ȼ�����Զ�����Ŀ���ơ��������ƣ���������������ȫ��������������������ʹ��������ǩָ����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### container_name</div><div class="line">    前面说过 Compose 的容器名称格式是：&lt;项目名称&gt;&lt;服务名称&gt;&lt;序号&gt;</div><div class="line">    虽然可以自定义项目名称、服务名称，但是如果你想完全控制容器的命名，可以使用这个标签指定：</div></pre></td></tr></table></figure>
 
 container_name: app
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    �������������־�ָ��Ϊ app �ˡ�</div><div class="line">### depends_on</div><div class="line">    ��ʹ�� Compose ʱ�������ĺô������ٴ������������һ����Ŀ����������˳������Ҫ���ģ�����ֱ�Ӵ��ϵ���������������Ȼ����Ϊ������������������ʧ�ܡ�</div><div class="line">    ������û�������ݿ�������ʱ��������Ӧ����������ʱ��Ӧ����������Ϊ�Ҳ������ݿ����˳���Ϊ�˱�����������������Ҫ����һ����ǩ������ depends_on��������ǩ�����������������������Ⱥ������⡣</div><div class="line">    </div><div class="line">    �������������������� redis �� db �������������������� web ������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    这样容器的名字就指定为 app 了。</div><div class="line">### depends_on</div><div class="line">    在使用 Compose 时，最大的好处就是少打启动命令，但是一般项目容器启动的顺序是有要求的，如果直接从上到下启动容器，必然会因为容器依赖问题而启动失败。</div><div class="line">    例如在没启动数据库容器的时候启动了应用容器，这时候应用容器会因为找不到数据库而退出，为了避免这种情况我们需要加入一个标签，就是 depends_on，这个标签解决了容器的依赖、启动先后的问题。</div><div class="line">    </div><div class="line">    例如下面容器会先启动 redis 和 db 两个服务，最后才启动 web 服务：</div></pre></td></tr></table></figure>
 
 version: &apos;2&apos;
 services:
@@ -986,30 +986,30 @@ services:
     image: redis
   db:
     image: postgres
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    &gt; ע�����ǣ�Ĭ��������ʹ�� docker-compose up web �����ķ�ʽ���� web ����ʱ��Ҳ������ redis �� db ������������Ϊ�������ļ��ж�����������ϵ��</div><div class="line">   </div><div class="line">### dns</div><div class="line">    �� --dns ����һ����;����ʽ���£�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    &gt; 注意的是，默认情况下使用 docker-compose up web 这样的方式启动 web 服务时，也会启动 redis 和 db 两个服务，因为在配置文件中定义了依赖关系。</div><div class="line">   </div><div class="line">### dns</div><div class="line">    和 --dns 参数一样用途，格式如下：</div></pre></td></tr></table></figure>
 
 dns: 8.8.8.8
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ҳ������һ���б���</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">也可以是一个列表：</div></pre></td></tr></table></figure>
 
 dns:
   - 8.8.8.8
   - 9.9.9.9
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">���� dns_search ������Ҳ���ƣ�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">此外 dns_search 的配置也类似：</div></pre></td></tr></table></figure>
 
 dns_search: example.com
 dns_search:
   - dc1.example.com
   - dc2.example.com
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### tmpfs</div><div class="line">    ������ʱĿ¼�������ڲ����� run �Ĳ���һ��Ч����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### tmpfs</div><div class="line">    挂载临时目录到容器内部，与 run 的参数一样效果：</div></pre></td></tr></table></figure>
 
 tmpfs: /run
 tmpfs:
   - /run
   - /tmp
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### entrypoint</div><div class="line">    �� Dockerfile ����һ��ָ������ ENTRYPOINT ָ�����ָ�������㣬�������жԱȹ��� CMD ��������</div><div class="line">    �� docker-compose.yml �п��Զ��������㣬���� Dockerfile �еĶ��壺</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### entrypoint</div><div class="line">    在 Dockerfile 中有一个指令叫做 ENTRYPOINT 指令，用于指定接入点，第四章有对比过与 CMD 的区别。</div><div class="line">    在 docker-compose.yml 中可以定义接入点，覆盖 Dockerfile 中的定义：</div></pre></td></tr></table></figure>
 
 entrypoint: /code/entrypoint.sh
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ʽ�� Docker ���ƣ�����������д��������</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">格式和 Docker 类似，不过还可以写成这样：</div></pre></td></tr></table></figure>
 
 entrypoint:
     - php
@@ -1018,16 +1018,16 @@ entrypoint:
     - -d
     - memory_limit=-1
     - vendor/bin/phpunit
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### env_file</div><div class="line">    ���ǵ�ǰ���ᵽ�� .env �ļ��ɣ������ļ��������� Compose �ı��������� docker-compose.yml �п��Զ���һ��ר�Ŵ��ű������ļ���</div><div class="line">    </div><div class="line">    ����ͨ�� docker-compose -f FILE ָ���������ļ����� env_file ��·����ʹ�������ļ�·����</div><div class="line">    </div><div class="line">    �����б��������� environment ָ����ͻ�����Ժ���Ϊ׼����ʽ���£�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### env_file</div><div class="line">    还记得前面提到的 .env 文件吧，这个文件可以设置 Compose 的变量。而在 docker-compose.yml 中可以定义一个专门存放变量的文件。</div><div class="line">    </div><div class="line">    如果通过 docker-compose -f FILE 指定了配置文件，则 env_file 中路径会使用配置文件路径。</div><div class="line">    </div><div class="line">    如果有变量名称与 environment 指令冲突，则以后者为准。格式如下：</div></pre></td></tr></table></figure>
 
 env_file: .env
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">���߸��� docker-compose.yml ���ö�����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">或者根据 docker-compose.yml 设置多个：</div></pre></td></tr></table></figure>
 
 env_file:
   - ./common.env
   - ./apps/web.env
   - /opt/secrets.env
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    &gt; ע������������˵�Ļ��������Ƕ��������� Compose ���Եģ������������ļ����� build ��������Щ�������������빹�������У�����Ҫ�ڹ�����ʹ�ñ���������ѡǰ���ս��� arg ��ǩ��</div><div class="line">    </div><div class="line">### environment</div><div class="line">    �������� env_file ��ǩ��ȫ��ͬ�������� arg �м������ƣ�������ǩ�����������þ��������������Ա����������������棬Ҳ����˵����������Ҳ��������Щ�������ã������� arg �����Ĳ�ͬ��</div><div class="line">    </div><div class="line">    һ�� arg ��ǩ�ı��������ڹ��������С��� environment �� Dockerfile �е� ENV ָ��һ�����ѱ���һֱ�����ھ����������У����� docker run -e ��Ч����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    &gt; 注意的是这里所说的环境变量是对宿主机的 Compose 而言的，如果在配置文件中有 build 操作，这些变量并不会进入构建过程中，如果要在构建中使用变量还是首选前面刚讲的 arg 标签。</div><div class="line">    </div><div class="line">### environment</div><div class="line">    与上面的 env_file 标签完全不同，反而和 arg 有几分类似，这个标签的作用是设置镜像变量，它可以保存变量到镜像里面，也就是说启动的容器也会包含这些变量设置，这是与 arg 最大的不同。</div><div class="line">    </div><div class="line">    一般 arg 标签的变量仅用在构建过程中。而 environment 和 Dockerfile 中的 ENV 指令一样会把变量一直保存在镜像、容器中，类似 docker run -e 的效果。</div></pre></td></tr></table></figure>
 
 environment:
   RACK_ENV: development
@@ -1039,27 +1039,27 @@ environment:
   - SHOW=true
   - SESSION_SECRET
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    </div><div class="line">### expose</div><div class="line">    ������ǩ��Dockerfile�е�EXPOSEָ��һ��������ָ����¶�Ķ˿ڣ�����ֻ����Ϊһ�ֲο���ʵ����docker-compose.yml�Ķ˿�ӳ�仹��ports�����ı�ǩ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    </div><div class="line">### expose</div><div class="line">    这个标签与Dockerfile中的EXPOSE指令一样，用于指定暴露的端口，但是只是作为一种参考，实际上docker-compose.yml的端口映射还得ports这样的标签。</div></pre></td></tr></table></figure>
 
 expose:
  - &quot;3000&quot;
  - &quot;8000&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### external_links</div><div class="line">    ��ʹ��Docker�����У����ǻ������൥��ʹ��docker run������������Ϊ��ʹCompose�ܹ�������Щ����docker-compose.yml�ж�����������������Ҫһ�������ı�ǩ������external_links����������Compose��Ŀ�������������ӵ���Щ��Ŀ�����ⲿ��������ǰ�����ⲿ�����б���������һ�����������ӵ�����Ŀ�ڵķ�����ͬһ���������棩��</div><div class="line">    </div><div class="line">    ��ʽ���£�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### external_links</div><div class="line">    在使用Docker过程中，我们会有许多单独使用docker run启动的容器，为了使Compose能够连接这些不在docker-compose.yml中定义的容器，我们需要一个特殊的标签，就是external_links，它可以让Compose项目里面的容器连接到那些项目配置外部的容器（前提是外部容器中必须至少有一个容器是连接到与项目内的服务的同一个网络里面）。</div><div class="line">    </div><div class="line">    格式如下：</div></pre></td></tr></table></figure>
 
 external_links:
  - redis_1
  - project_db_1:mysql
  - project_db_1:postgresql
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### extra_hosts</div><div class="line">    �����������ı�ǩ��������/etc/hosts�ļ�������һЩ��¼����Docker client��--add-host���ƣ�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### extra_hosts</div><div class="line">    添加主机名的标签，就是往/etc/hosts文件中添加一些记录，与Docker client的--add-host类似：</div></pre></td></tr></table></figure>
 
 extra_hosts:
  - &quot;somehost:162.242.195.82&quot;
  - &quot;otherhost:50.31.209.229&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">����֮���鿴�����ڲ�hosts��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">启动之后查看容器内部hosts：</div></pre></td></tr></table></figure>
 
 162.242.195.82  somehost
 50.31.209.229   otherhost
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### labels</div><div class="line">    ����������Ԫ���ݣ���Dockerfile��LABELָ��һ����˼����ʽ���£�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### labels</div><div class="line">    向容器添加元数据，和Dockerfile的LABEL指令一个意思，格式如下：</div></pre></td></tr></table></figure>
 
 labels:
   com.example.description: &quot;Accounting webapp&quot;
@@ -1070,69 +1070,69 @@ labels:
   - &quot;com.example.department=Finance&quot;
   - &quot;com.example.label-with-empty-value&quot;
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">### links</div><div class="line">    ���ǵ�������depends_on�ɣ��Ǹ���ǩ������������˳�����⣬������ǩ�������������������⣬��Docker client��--linkһ��Ч���������ӵ����������е�������</div><div class="line">    ��ʽ���£�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">### links</div><div class="line">    还记得上面的depends_on吧，那个标签解决的是启动顺序问题，这个标签解决的是容器连接问题，与Docker client的--link一样效果，会连接到其它服务中的容器。</div><div class="line">    格式如下：</div></pre></td></tr></table></figure>
 
 links:
  - db
  - db:database
  - redis
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ʹ�õı��������Զ��ڷ��������е�/etc/hosts�ﴴ�������磺</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">使用的别名将会自动在服务容器中的/etc/hosts里创建。例如：</div></pre></td></tr></table></figure>
 
 172.12.2.186  db
 172.12.2.186  database
 172.12.2.187  redis
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    ��Ӧ�Ļ�������Ҳ����������</div><div class="line">### logging</div><div class="line">    ������ǩ����������־���񡣸�ʽ���£�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    相应的环境变量也将被创建。</div><div class="line">### logging</div><div class="line">    这个标签用于配置日志服务。格式如下：</div></pre></td></tr></table></figure>
 
 logging:
   driver: syslog
   options:
     syslog-address: &quot;tcp://192.168.0.42:123&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    Ĭ�ϵ�driver��json-file��ֻ��json-file��journald����ͨ��docker-compose logs��ʾ��־��������ʽ��������־�鿴��ʽ����ĿǰCompose��֧�֡����ڿ�ѡֵ����ʹ��optionsָ����</div><div class="line">    </div><div class="line">    </div><div class="line">### pid</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    默认的driver是json-file。只有json-file和journald可以通过docker-compose logs显示日志，其他方式有其他日志查看方式，但目前Compose不支持。对于可选值可以使用options指定。</div><div class="line">    </div><div class="line">    </div><div class="line">### pid</div></pre></td></tr></table></figure>
 
 pid: &quot;host&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    ��PIDģʽ����Ϊ����PIDģʽ��������ϵͳ�������������ռ䡣����ʹ��������ǩ���ܹ����ʺͲ������������������������ƿռ䡣</div><div class="line">### ports</div><div class="line">    ӳ���˿ڵı�ǩ��</div><div class="line">    ʹ��HOST:CONTAINER��ʽ����ֻ��ָ�������Ķ˿ڣ�������������ӳ���˿ڡ�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    将PID模式设置为主机PID模式，跟主机系统共享进程命名空间。容器使用这个标签将能够访问和操纵其他容器和宿主机的名称空间。</div><div class="line">### ports</div><div class="line">    映射端口的标签。</div><div class="line">    使用HOST:CONTAINER格式或者只是指定容器的端口，宿主机会随机映射端口。</div></pre></td></tr></table></figure>
 
 ports:
  - &quot;3000&quot;
  - &quot;8000:8000&quot;
  - &quot;49100:22&quot;
  - &quot;127.0.0.1:8001:8001&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    &gt; ע�⣺��ʹ��HOST:CONTAINER��ʽ��ӳ���˿�ʱ��������ʹ�õ������˿�С��60�����ܻ��õ������ý�������ΪYAML��������xx:yy�������ָ�ʽΪ60���ơ����Խ��������ַ�����ʽ��</div><div class="line">    </div><div class="line">### security_opt</div><div class="line">    Ϊÿ����������Ĭ�ϵı�ǩ������˵�����ǹ���ȫ�������ı�ǩ����������ȫ��������user��ǩֵΪUSER��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    &gt; 注意：当使用HOST:CONTAINER格式来映射端口时，如果你使用的容器端口小于60你可能会得到错误得结果，因为YAML将会解析xx:yy这种数字格式为60进制。所以建议采用字符串格式。</div><div class="line">    </div><div class="line">### security_opt</div><div class="line">    为每个容器覆盖默认的标签。简单说来就是管理全部服务的标签。比如设置全部服务的user标签值为USER。</div></pre></td></tr></table></figure>
 
 security_opt:
   - label:user:USER
   - label:role:ROLE
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    </div><div class="line">### stop_signal</div><div class="line">    ������һ���ź���ֹͣ��������Ĭ��������ʹ�õ���SIGTERMֹͣ������������һ���źſ���ʹ��stop_signal��ǩ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    </div><div class="line">### stop_signal</div><div class="line">    设置另一个信号来停止容器。在默认情况下使用的是SIGTERM停止容器。设置另一个信号可以使用stop_signal标签。</div></pre></td></tr></table></figure>
 
 stop_signal: SIGUSR1
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">### volumes</div><div class="line">    ����һ��Ŀ¼����һ���Ѵ��ڵ����ݾ�����������ֱ��ʹ�� [HOST:CONTAINER] �����ĸ�ʽ������ʹ�� [HOST:CONTAINER:ro] �����ĸ�ʽ�����߶���������˵�����ݾ���ֻ���ģ�����������Ч�������������ļ�ϵͳ��</div><div class="line">    Compose�����ݾ�ָ��·������������·����ʹ�� . ���� .. ��ָ������Ŀ¼��</div><div class="line">    ���ݾ��ĸ�ʽ����������������ʽ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">### volumes</div><div class="line">    挂载一个目录或者一个已存在的数据卷容器，可以直接使用 [HOST:CONTAINER] 这样的格式，或者使用 [HOST:CONTAINER:ro] 这样的格式，后者对于容器来说，数据卷是只读的，这样可以有效保护宿主机的文件系统。</div><div class="line">    Compose的数据卷指定路径可以是相对路径，使用 . 或者 .. 来指定相对目录。</div><div class="line">    数据卷的格式可以是下面多种形式：</div></pre></td></tr></table></figure>
 
 volumes:
-  // ֻ��ָ��һ��·����Docker ���Զ��ڴ���һ�����ݾ�������·���������ڲ��ģ���
+  // 只是指定一个路径，Docker 会自动在创建一个数据卷（这个路径是容器内部的）。
   - /var/lib/mysql
 
-  // ʹ�þ���·���������ݾ�
+  // 使用绝对路径挂载数据卷
   - /opt/data:/var/lib/mysql
 
-  // �� Compose �����ļ�Ϊ���ĵ�����·����Ϊ���ݾ����ص�������
+  // 以 Compose 配置文件为中心的相对路径作为数据卷挂载到容器。
   - ./cache:/tmp/cache
 
-  // ʹ���û�������·����~/ ��ʾ��Ŀ¼�� /home/&lt;�û�Ŀ¼&gt;/ ���� /root/����
+  // 使用用户的相对路径（~/ 表示的目录是 /home/&lt;用户目录&gt;/ 或者 /root/）。
   - ~/configs:/etc/configs/:ro
 
-  // �Ѿ����ڵ����������ݾ���
+  // 已经存在的命名的数据卷。
   - datavolume:/var/lib/mysql
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�����㲻ʹ����������·����������ָ��һ��volume_driver��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">如果你不使用宿主机的路径，你可以指定一个volume_driver。</div></pre></td></tr></table></figure>
 
 volume_driver: mydriver
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### volumes_from</div><div class="line">    �������������߷����������ݾ�����ѡ�Ĳ����� :ro���� :rw��ǰ�߱�ʾ����ֻ�������߱�ʾ���������ݾ��ǿɶ���д�ġ�Ĭ���������ǿɶ���д�ġ�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### volumes_from</div><div class="line">    从其它容器或者服务挂载数据卷，可选的参数是 :ro或者 :rw，前者表示容器只读，后者表示容器对数据卷是可读可写的。默认情况下是可读可写的。</div></pre></td></tr></table></figure>
 
 volumes_from:
   - service_name
   - service_name:ro
   - container:container_name
   - container:container_name:rw
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### cap_add, cap_drop</div><div class="line">    ���ӻ�ɾ���������ں˹��ܡ���ϸ��Ϣ��ǰ�������½��н��⣬�˴�����׸����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### cap_add, cap_drop</div><div class="line">    添加或删除容器的内核功能。详细信息在前面容器章节有讲解，此处不再赘述。</div></pre></td></tr></table></figure>
 
 cap_add:
   - ALL
@@ -1140,19 +1140,19 @@ cap_add:
 cap_drop:
   - NET_ADMIN
   - SYS_ADMIN
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### cgroup_parent</div><div class="line">    ָ��һ�������ĸ���cgroup</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### cgroup_parent</div><div class="line">    指定一个容器的父级cgroup</div></pre></td></tr></table></figure>
 
 cgroup_parent: m-executor-abcd
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### devices</div><div class="line">    �豸ӳ���б�����Docker client��--device�������ơ�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### devices</div><div class="line">    设备映射列表。与Docker client的--device参数类似。</div></pre></td></tr></table></figure>
 
 devices:
     - &quot;/dev/ttyUSB0:/dev/ttyUSB0&quot;
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### extends</div><div class="line">    ������ǩ������չ��һ����������չ���ݿ����������ڵ�ǰ�ļ���Ҳ���������������ļ�����ͬ�����������£������߻���ѡ���ظ���ԭ�����á�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### extends</div><div class="line">    这个标签可以扩展另一个服务，扩展内容可以是来自在当前文件，也可以是来自其他文件，相同服务的情况下，后来者会有选择地覆盖原有配置。</div></pre></td></tr></table></figure>
 
 extends:
   file: common.yml
   service: webapp
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    �û��������κεط�ʹ��������ǩ��ֻҪ��ǩ���ݰ���file��service����ֵ�Ϳ����ˡ�</div><div class="line">    file��ֵ���������Ի��߾���·����������ָ��file��ֵ����ôCompose����ȡ��ǰYML�ļ�����Ϣ��</div><div class="line"></div><div class="line">### network_mode</div><div class="line">    ����ģʽ����Docker client��--net�������ƣ�ֻ�����Զ���һ��service:[service name] �ĸ�ʽ��</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    用户可以在任何地方使用这个标签，只要标签内容包含file和service两个值就可以了。</div><div class="line">    file的值可以是相对或者绝对路径，如果不指定file的值，那么Compose会读取当前YML文件的信息。</div><div class="line"></div><div class="line">### network_mode</div><div class="line">    网络模式，与Docker client的--net参数类似，只是相对多了一个service:[service name] 的格式。</div></pre></td></tr></table></figure>
 
 network_mode: &quot;bridge&quot;
 network_mode: &quot;host&quot;
@@ -1160,14 +1160,14 @@ network_mode: &quot;none&quot;
 network_mode: &quot;service:[service name]&quot;
 network_mode: &quot;container:[container name/id]&quot;
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    ����ָ��ʹ�÷����������������硣</div><div class="line">    </div><div class="line">### networks</div><div class="line">    ����ָ�����磬��ʽ���£�</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    可以指定使用服务或者容器的网络。</div><div class="line">    </div><div class="line">### networks</div><div class="line">    加入指定网络，格式如下：</div></pre></td></tr></table></figure>
 
 services:
   some-service:
     networks:
      - some-network
      - other-network
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">����������ǩ����һ���ر����ӱ�ǩaliases������һ���������÷��������ı�ǩ�����磺</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">关于这个标签还有一个特别的子标签aliases，这是一个用来设置服务别名的标签，例如：</div></pre></td></tr></table></figure>
 
 services:
   some-service:
@@ -1179,21 +1179,21 @@ services:
       other-network:
         aliases:
          - alias2
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    ��ͬ�ķ��������ڲ�ͬ�������в�ͬ�ı�����</div><div class="line"></div><div class="line">## �����Զ��徵��</div><div class="line">### ��¼</div></pre></td></tr></table></figure>
-</code></pre><p>docker login -u {username} -p {passwd} <a href="https://registry.acs.aliyun.com" target="_blank" rel="external">https://registry.acs.aliyun.com</a><br>docker login -u 1012202451213731 -p 896423Dev <a href="https://registry.acs.aliyun.com" target="_blank" rel="external">https://registry.acs.aliyun.com</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### ����ǩ</div><div class="line">https://registry.acs.aliyun.com</div></pre></td></tr></table></figure></p>
-<p>docker tag bf46626ea2a8 registry.acs.aliyun.com/1012202451213731/laravel_taobao:v1.0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">### ���ü�����</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    相同的服务可以在不同的网络有不同的别名。</div><div class="line"></div><div class="line">## 阿里自定义镜像</div><div class="line">### 登录</div></pre></td></tr></table></figure>
+</code></pre><p>docker login -u {username} -p {passwd} <a href="https://registry.acs.aliyun.com" target="_blank" rel="external">https://registry.acs.aliyun.com</a><br>docker login -u 1012202451213731 -p 896423Dev <a href="https://registry.acs.aliyun.com" target="_blank" rel="external">https://registry.acs.aliyun.com</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 打标签</div><div class="line">https://registry.acs.aliyun.com</div></pre></td></tr></table></figure></p>
+<p>docker tag bf46626ea2a8 registry.acs.aliyun.com/1012202451213731/laravel_taobao:v1.0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">### 配置加速器</div></pre></td></tr></table></figure></p>
 <p>echo “DOCKER_OPTS=\”\$DOCKER_OPTS –registry-mirror=<a href="https://lqjizur.mirror.acs.aliyun.com\" target="_blank" rel="external">https://lqjizur.mirror.acs.aliyun.com\</a>“” | sudo tee -a /etc/default/docker<br>sudo service docker restart<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### docker push</div></pre></td></tr></table></figure></p>
 <p>docker push registry.acs.aliyun.com/1012202451213731/austin_laravel_taobao:v1.0<br>```</p>
-<h2 id="���o�������"><a href="#���o�������" class="headerlink" title="���ò�������"></a>���ò�������</h2><ul>
-<li><p>�鿴��ǰ����������<br>sudo docker ps</p>
+<h2 id="常用操作命令"><a href="#常用操作命令" class="headerlink" title="常用操作命令"></a>常用操作命令</h2><ul>
+<li><p>查看当前启动的容器<br>sudo docker ps</p>
 </li>
-<li><p>�������ַ����ں��߼ӷ����������ӱ�ʾ�������У�-d ��ʾ�ں�̨����<br>sudo docker-compose up [nginx|php71|mysql|redis] -d</p>
+<li><p>启动部分服务在后边加服务名，不加表示启动所有，-d 表示在后台运行<br>sudo docker-compose up [nginx|php71|mysql|redis] -d</p>
 </li>
-<li><p>ֹͣ����������<br>sudo docker-compose stop [nginx|php71|mysql|redis]</p>
+<li><p>停止和启动类似<br>sudo docker-compose stop [nginx|php71|mysql|redis]</p>
 </li>
-<li><p>ɾ������δ���е�����<br>sudo docker rm $(docker ps -qf status=exited)</p>
+<li><p>删除所有未运行的容器<br>sudo docker rm $(docker ps -qf status=exited)</p>
 </li>
-<li><p>ɾ�����о�����-f ����ǿ��ɾ��<br>sudo docker rmi $(docker images -q)</p>
+<li><p>删除所有镜像，-f 可以强制删除<br>sudo docker rmi $(docker images -q)</p>
 <script>
 (function(){
   var bp = document.createElement('script');
@@ -1220,7 +1220,7 @@ services:
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-02-04T23:55:34.000Z" itemprop="dateUpdated">2018年2月5日 7:55</time>
+    最后更新时间：<time datetime="2018-03-09T06:46:20.435Z" itemprop="dateUpdated">2018年3月9日 14:46</time>
 </span><br>
 
 
@@ -1253,7 +1253,7 @@ services:
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker ʹ�ñʼ�》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker 使用笔记》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1263,7 +1263,7 @@ services:
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker ʹ�ñʼ�》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker 使用笔记》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1273,7 +1273,7 @@ services:
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker ʹ�ñʼ�》 — 爵士犀首&url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&via=https://austinxishou.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker 使用笔记》 — 爵士犀首&url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&via=https://austinxishou.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -1396,7 +1396,7 @@ services:
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker ʹ�ñʼ�》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker 使用笔记》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -1406,7 +1406,7 @@ services:
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker ʹ�ñʼ�》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker 使用笔记》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -1416,7 +1416,7 @@ services:
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker ʹ�ñʼ�》 — 爵士犀首&url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&via=https://austinxishou.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker 使用笔记》 — 爵士犀首&url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&via=https://austinxishou.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>

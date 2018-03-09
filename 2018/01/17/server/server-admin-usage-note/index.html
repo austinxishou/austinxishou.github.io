@@ -32,7 +32,7 @@
 <meta property="og:url" content="https://austinxishou.github.io/2018/01/17/server/server-admin-usage-note/index.html">
 <meta property="og:site_name" content="爵士犀首">
 <meta property="og:description" content="server admin usage and note">
-<meta property="og:updated_time" content="2018-01-21T02:40:57.000Z">
+<meta property="og:updated_time" content="2018-03-09T06:47:12.362Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="server admin usage and note">
 <meta name="twitter:description" content="server admin usage and note">
@@ -186,7 +186,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#����ssh-sftp"><span class="post-toc-number">1.</span> <span class="post-toc-text">����ssh-sftp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DEBUG"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">DEBUG</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#���o�ʱ����"><span class="post-toc-number">2.</span> <span class="post-toc-text">���ö�ʱ����</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置ssh-sftp"><span class="post-toc-number">1.</span> <span class="post-toc-text">配置ssh-sftp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DEBUG"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">DEBUG</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置定时任务"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置定时任务</span></a></li></ol>
         </nav>
     </aside>
     
@@ -213,64 +213,64 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="����ssh-sftp"><a href="#����ssh-sftp" class="headerlink" title="����ssh-sftp"></a>����ssh-sftp</h2><pre><code>&gt; �ڷ������Ͽ�ͨSFTP�ļ�����������ĳЩ�û��ϴ��������ļ���������Щ�û�ֻ��ʹ��SFTP�����ļ�������ʹ��SSH�ն˷��ʷ�����������SFTP���ܷ���ϵͳ�ļ�������ν�ġ�Jail��������������ϵͳ����Ա������ʹ��SFTP�����ļ���Ҳ��ʹ��SSHԶ�̹�����������
+            <h2 id="配置ssh-sftp"><a href="#配置ssh-sftp" class="headerlink" title="配置ssh-sftp"></a>配置ssh-sftp</h2><pre><code>&gt; 在服务器上开通SFTP文件服务，允许某些用户上传及下载文件。但是这些用户只能使用SFTP传输文件，不能使用SSH终端访问服务器，并且SFTP不能访问系统文件（即所谓的“Jail（监狱）”）。系统管理员则既能使用SFTP传输文件，也能使用SSH远程管理服务器。
 </code></pre><ol>
-<li><p>��װOpenSSH������</p>
+<li><p>安装OpenSSH服务器</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install openssh-server</div></pre></td></tr></table></figure>
 </li>
-<li><p>ΪSFTP���ʴ����û��飬���ڹ���Ȩ��</p>
+<li><p>为SFTP访问创建用户组，便于管理权限</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo addgroup sftp-users</div></pre></td></tr></table></figure>
 </li>
-<li><p>����SFTP�û�����������ӦȨ��</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo adduser austin</div><div class="line">sudo usermod -G sftp-users -s /bin/false austin  </div><div class="line">//��austin�����������û������Ƴ������뵽sftp-users�飬���ҹر���Shell����</div><div class="line">// -s /bin/false ָ����¼shell,���ﲻ����ssh��¼</div></pre></td></tr></table></figure>
+<li><p>创建SFTP用户，并配置相应权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo adduser austin</div><div class="line">sudo usermod -G sftp-users -s /bin/false austin  </div><div class="line">//将austin从所有其他用户组中移除并加入到sftp-users组，并且关闭其Shell访问</div><div class="line">// -s /bin/false 指定登录shell,这里不允许ssh登录</div></pre></td></tr></table></figure>
 </li>
-<li><p>����SSH�û��飬���ѹ���Ա���뵽����</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo addgroup ssh-users </div><div class="line">sudo usermod -a -G ssh-users admin  \\-a��������˼�ǲ��������û������Ƴ�</div><div class="line">sudo usermod -a -G ssh-users root \\��������root�û�ssh����</div></pre></td></tr></table></figure>
+<li><p>创建SSH用户组，并把管理员加入到该组</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sudo addgroup ssh-users </div><div class="line">sudo usermod -a -G ssh-users admin  \\-a参数的意思是不从其他用户组用移除</div><div class="line">sudo usermod -a -G ssh-users root \\额外增加root用户ssh访问</div></pre></td></tr></table></figure>
 </li>
-<li><p>׼�����������ĸ�Ŀ¼������Ŀ¼</p>
+<li><p>准备“监狱”的根目录及共享目录</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">sudo mkdir /home/sftp_root</div><div class="line">sudo mkdir /home/sftp_root/shared</div><div class="line">sudo chown admin:sftp-users /home/sftp_root/shared</div><div class="line">sudo chmod 770 /home/sftp_root/shared</div></pre></td></tr></table></figure>
 <blockquote>
-<p>���������ĸ�Ŀ¼������������Ҫ����������Ϊroot�������κ��û�������ӵ��д��Ȩ�ޡ����ˣ�Ϊ����SFTP�û��ܹ��ϴ��ļ����������ڡ���������Ŀ¼���ٴ���һ����ͨ�û��ܹ�д���Ĺ����ļ�Ŀ¼��Ϊ�˱��ڹ���Աͨ��SFTP�����ϴ����ļ����Ұ����������ļ�Ŀ¼����Ϊ����admin���У�����sftp-users��д������������Ա��SFTP�û�����Ա�Ͷ��ܶ�д����Ŀ¼�ˡ�</p>
+<p>“监狱”的根目录必须满足以下要求：所有者为root，其他任何用户都不能拥有写入权限。因此，为了让SFTP用户能够上传文件，还必须在“监狱”根目录下再创建一个普通用户能够写入的共享文件目录。为了便于管理员通过SFTP管理上传的文件，我把这个共享文件目录配置为：由admin所有，允许sftp-users读写。这样，管理员和SFTP用户组成员就都能读写这个目录了。</p>
 </blockquote>
 </li>
-<li><p>�޸�SSH�����ļ�</p>
+<li><p>修改SSH配置文件</p>
 <blockquote>
-<p>sudo nano /etc/ssh/sshd_config<br> ��sshd_config�ļ��������������������ݣ�</p>
+<p>sudo nano /etc/ssh/sshd_config<br> 在sshd_config文件的最后，添加以下内容：</p>
  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">AllowGroups ssh-users sftp-users</div><div class="line">Match Group sftp-users</div><div class="line">    ChrootDirectory /home/sftp_root</div><div class="line">    AllowTcpForwarding no</div><div class="line">    X11Forwarding no</div><div class="line">    ForceCommand internal-sftp</div></pre></td></tr></table></figure>
 </blockquote>
-<p> ��Щ���ݵ���˼�ǣ�<br> ֻ����ssh-uers��sftp-usersͨ��SSH����ϵͳ��<br> ����sftp-users�û�����������һЩ���ã�����/home/sftp_root������Ϊ�����û���ϵͳ��Ŀ¼���������ǽ����ܷ��ʸ�Ŀ¼֮��������ϵͳ�ļ�������ֹTCP Forwarding��X11 Forwarding��ǿ�Ƹ����û�����ʹ��SFTP��</p>
+<p> 这些内容的意思是：<br> 只允许ssh-uers及sftp-users通过SSH访问系统；<br> 针对sftp-users用户，额外增加一些设置：将“/home/sftp_root”设置为该组用户的系统根目录（因此它们将不能访问该目录之外的其他系统文件）；禁止TCP Forwarding和X11 Forwarding；强制该组用户仅仅使用SFTP。</p>
 </li>
 <li><p>service sshd reload</p>
 </li>
 </ol>
-<h3 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h3><pre><code>&gt; SFTP �C subsystem request failed on channel X
-</code></pre><p>   �޸�:</p>
+<h3 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h3><pre><code>&gt; SFTP – subsystem request failed on channel X
+</code></pre><p>   修改:</p>
 <blockquote>
 <p>You are using sftp to connect your server in a chrooted environment and you met the error below.</p>
 </blockquote>
 <pre><code>subsystem request failed on channel 0
-Couldn��t read packet: Connection reset by peer
+Couldn’t read packet: Connection reset by peer
 
 This causes because of wrong external library configured in your sshd_config. So, edit your sshd_config and use internal-sftp. Because openssh already has internal sftp functionality and you dont need any external libraries.
 
-Find the line beginning with ��Subsystem��. Comment out and add the following line.
+Find the line beginning with “Subsystem”. Comment out and add the following line.
 
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#Subsystem sftp /usr/lib/openssh/sftp-server</div><div class="line">Subsystem sftp internal-sftp</div></pre></td></tr></table></figure>
-</code></pre><h2 id="���o�ʱ����"><a href="#���o�ʱ����" class="headerlink" title="���ö�ʱ����"></a>���ö�ʱ����</h2><pre><code>1. crontabl����
+</code></pre><h2 id="配置定时任务"><a href="#配置定时任务" class="headerlink" title="配置定时任务"></a>配置定时任务</h2><pre><code>1. crontabl命令
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">crontab: invalid option -- &apos;h&apos;</div><div class="line">crontab: usage error: unrecognized option</div><div class="line">usage:	crontab [-u user] file</div><div class="line">	crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</div><div class="line">		(default operation is replace, per 1003.2)</div><div class="line">	-e	(edit user&apos;s crontab)</div><div class="line">	-l	(list user&apos;s crontab)</div><div class="line">	-r	(delete user&apos;s crontab)</div><div class="line">	-i	(prompt before deleting user&apos;s crontab)</div></pre></td></tr></table></figure>
 
 
-2. �༭���Ӷ�ʱ���� crontabl -u root -e
+2. 编辑添加定时任务 crontabl -u root -e
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* * * * * php /home/forge/default/artisan  schedule:run &gt;&gt; /dev/null 2&gt;&amp;1</div><div class="line">//������crontab�ĸ�ʽ��</div><div class="line">//�� ʱ �� �� ���� Ҫ���е�����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* * * * * php /home/forge/default/artisan  schedule:run &gt;&gt; /dev/null 2&gt;&amp;1</div><div class="line">//下面是crontab的格式：</div><div class="line">//分 时 日 月 星期 要运行的命令</div></pre></td></tr></table></figure>
 
 
-3. ȷ��cmd�ܹ�����ִ��
+3. 确保cmd能够正常执行
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php /home/forge/default/artisan  schedule:run</div></pre></td></tr></table></figure>
 
 
-4. �鿴cron����
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//�鿴״̬</div><div class="line">/etc/init.d/cron status</div><div class="line"></div><div class="line">//����cron����</div><div class="line">/etc/init.d/cron restart</div></pre></td></tr></table></figure>
+4. 查看cron服务
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//查看状态</div><div class="line">/etc/init.d/cron status</div><div class="line"></div><div class="line">//重启cron服务</div><div class="line">/etc/init.d/cron restart</div></pre></td></tr></table></figure>
 
 &lt;script&gt;
 </code></pre><p>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js" target="_blank" rel="external">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js" target="_blank" rel="external">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
@@ -284,7 +284,7 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-01-21T02:40:57.000Z" itemprop="dateUpdated">2018年1月21日 10:40</time>
+    最后更新时间：<time datetime="2018-03-09T06:47:12.362Z" itemprop="dateUpdated">2018年3月9日 14:47</time>
 </span><br>
 
 
@@ -367,7 +367,7 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
     <div class="waves-block waves-effect prev">
       <a href="/2018/01/18/server/php-composer-usage/" id="post-prev" class="post-nav-link">
         <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">composerʹ��</h4>
+        <h4 class="title">composer使用</h4>
       </a>
     </div>
   
@@ -376,7 +376,7 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
     <div class="waves-block waves-effect next">
       <a href="/2018/01/15/server/docker-note-useage/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">docker ʹ�ñʼ�</h4>
+        <h4 class="title">docker 使用笔记</h4>
       </a>
     </div>
   
