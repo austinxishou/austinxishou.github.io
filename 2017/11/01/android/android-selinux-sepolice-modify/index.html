@@ -18,23 +18,23 @@
 	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
     <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
     <meta http-equiv="content-language" content="zh-cn">
-    <title>SEAndroid权限修改 | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <title>Android中SELINUX规则分析和语法简介 | 爵士犀首 | Talk is cheap, show me the code!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="android,security,selinux">
+    <meta name="keywords" content="android">
 
     <meta name="description" content="android security selinux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SEAndroid权限修改">
+<meta property="og:title" content="Android中SELINUX规则分析和语法简介">
 <meta property="og:url" content="https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/index.html">
 <meta property="og:site_name" content="爵士犀首">
 <meta property="og:description" content="android security selinux">
-<meta property="og:updated_time" content="2017-03-29T05:47:19.000Z">
+<meta property="og:updated_time" content="2017-11-15T12:45:12.522Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SEAndroid权限修改">
+<meta name="twitter:title" content="Android中SELINUX规则分析和语法简介">
 <meta name="twitter:description" content="android security selinux">
     
         <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
@@ -140,7 +140,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">SEAndroid权限修改</div>
+        <div class="flex-col header-title ellipsis">Android中SELINUX规则分析和语法简介</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -162,7 +162,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">SEAndroid权限修改</h1>
+        <h1 class="title">Android中SELINUX规则分析和语法简介</h1>
         <h5 class="subtitle">
             
                 <time datetime="2017-11-01T08:03:06.333Z" itemprop="datePublished" class="page-time">
@@ -184,7 +184,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#权限修改"><span class="post-toc-number">1.</span> <span class="post-toc-text">权限修改</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法1-adb在线修改seLinux"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">方法1: adb在线修改seLinux</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法2-从kernel中彻底关闭"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">方法2: 从kernel中彻底关闭</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法3-sepolicy中添加权限"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">方法3: sepolicy中添加权限</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Selinux-About简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">Selinux-About简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-Selinux裁剪"><span class="post-toc-number">2.</span> <span class="post-toc-text">Android-Selinux裁剪</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Android-Selinux-文件结构"><span class="post-toc-number">3.</span> <span class="post-toc-text">Android-Selinux-文件结构</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#语法举例"><span class="post-toc-number">4.</span> <span class="post-toc-text">语法举例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法1-adb在线修改seLinux"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">方法1: adb在线修改seLinux</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法2-从kernel中彻底关闭"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">方法2: 从kernel中彻底关闭</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#方法3-sepolicy中添加权限"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">方法3: sepolicy中添加权限</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -192,7 +192,7 @@
   class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">SEAndroid权限修改</h1>
+        <h1 class="post-card-title">Android中SELINUX规则分析和语法简介</h1>
         <div class="post-meta">
             <time class="post-time" title="2017年11月01日 16:03" datetime="2017-11-01T08:03:06.333Z"  itemprop="datePublished">2017-11-01</time>
 
@@ -209,7 +209,71 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="权限修改"><a href="#权限修改" class="headerlink" title="权限修改"></a>权限修改</h2><h3 id="方法1-adb在线修改seLinux"><a href="#方法1-adb在线修改seLinux" class="headerlink" title="方法1: adb在线修改seLinux"></a>方法1: adb在线修改seLinux</h3><p> <code>Enforcing</code>(表示已打开)，<code>Permissive</code>（表示已关闭）</p>
+            <h2 id="Selinux-About简介"><a href="#Selinux-About简介" class="headerlink" title="Selinux-About简介"></a>Selinux-About简介</h2><p>SELINUX是可以理解为一种android上面的安全机制，是有美国国家安全局和一些公司设计的一个针对linux的安全加强系统<br>我们可以通过配置SELINUX的相关policy，来定制自己的手机的一些权限，比如，我们可以完全让root用户没有任何的权限和user一样</p>
+<h2 id="Android-Selinux裁剪"><a href="#Android-Selinux裁剪" class="headerlink" title="Android-Selinux裁剪"></a>Android-Selinux裁剪</h2><blockquote>
+<p>在android中，只定义了一个user即为u. 另外，如果是进程的话，都会统一定义为r，如果是文件的话，会被定义为object_r.<br>第三个是这个进程type，在andorid里面，定义了100多个type.按照目前我的理解，这个是进程所属的&gt;类型。第四个是s0，这个是一个安全的等级。</p>
+</blockquote>
+<h2 id="Android-Selinux-文件结构"><a href="#Android-Selinux-文件结构" class="headerlink" title="Android-Selinux-文件结构"></a>Android-Selinux-文件结构</h2><p>首先要了解sepolicy的结构：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">a. App进程 -&gt; mac_permissions.xml</div><div class="line">b. App数据文件 -&gt; seapp_contexts</div><div class="line">c. 系统文件 -&gt; file_contexts</div><div class="line">d. 系统属性 -&gt; property_contexts</div></pre></td></tr></table></figure>
+<p>然后是一些特殊的配置文件：</p>
+<ol>
+<li>external/sepolicy/attributes -&gt; 所有定义的attributes都在这个文件</li>
+<li>external/sepolicy/access_vectors -&gt; 对应了每一个class可以被允许执行的命令</li>
+<li>external/sepolicy/roles -&gt; Android中只定义了一个role，名字就是r，将r和attribute domain关联起来</li>
+<li>external/sepolicy/users -&gt; 其实是将user与roles进行了关联，设置了user的安全级别，s0为最低级是默认的级别，mls_systemHigh是最高的级别</li>
+<li>external/sepolicy/security_classes -&gt; 指的是上文命令中的class，个人认为这个class的内容是指在android运行过程中，程序或者系统可能用到的操作的模块</li>
+<li>external/sepolicy/te_macros -&gt; 系统定义的宏全在te_macros文件</li>
+<li>external/sepolicy/<em>*</em>.te -&gt; 一些配置的文件，包含了各种运行的规则</li>
+</ol>
+<p>在te文件中，我们一般遇到的语法是这样的：</p>
+<blockquote>
+<p>rule_name source_type target_type:class perm_set<br>解读为： 为source_type设置一个rule_name的规则，规则是对target_type的class 进行 perm_set的操作。</p>
+</blockquote>
+<p>type的命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">type type_id [alias alias_id,] [attribute_id]</div><div class="line">//将type_id（别名为alias）关联到attribute. </div><div class="line">//这样的话，方便用attribute来管理不同的type中包含相同的属性的部分。</div></pre></td></tr></table></figure></p>
+<p>class命令的格式为：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">class class_name [ inherits common_name ] &#123; permission_name ... &#125;</div><div class="line">//inherits表示继承了common定义的权限，然后自己额外实现了permission_name的权限</div></pre></td></tr></table></figure></p>
+<p>在te文件中常见的四种命名的规则：</p>
+<ol>
+<li>allow：赋予某项权限。</li>
+<li>allowaudit：audit含义就是记录某项操作。默认情况下是SELinux只记录那些权限检查失败的操作。<blockquote>
+<p>allowaudit则使得权限检查成功的操作也被记录。注意，allowaudit只是允许记录，它和赋予权限没关系。赋予权限必须且只能使</p>
+</blockquote>
+</li>
+<li>dontaudit：对那些权限检查失败的操作不做记录。</li>
+<li>neverallow：前面讲过，用来检查安全策略文件中是否有违反该项规则的allow语句。<h2 id="语法举例"><a href="#语法举例" class="headerlink" title="语法举例"></a>语法举例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type init, domain;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>将init关联到domain，即将domain设置为init类型的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">allow init unlabeled:filesystem mount;</div></pre></td></tr></table></figure>
+<p>允许init类型对unlabeled类型的filesystem进行mount的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">allow init fotad:unix_stream_socket &#123; bind create &#125;;</div></pre></td></tr></table></figure>
+<p>允许init类型对fotad类型的unix_stream_socket 进行bind和create的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">allow appdomain anr_data_file:dir search;</div><div class="line">allow appdomain anr_data_file:file &#123; open append &#125;;</div></pre></td></tr></table></figure>
+<p>首先appdomain是定义在te_macros里面的一个宏，很多的app规则会使用类似app_domain(shell)的命令将其添加进去<br>这两句话的意思是：</p>
+<ol>
+<li>允许app去对anr_data_file类型的目录进行查找的操作</li>
+<li>允许app对anr_data_file类型的file进行打开和添加操作 其实就是规定了出现anr时候，app往/data/anr/里面写入的权限限制</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">neverallow &#123; appdomain -unconfineddomain &#125; kmem_device:chr_file &#123; read write &#125;;</div></pre></td></tr></table></figure>
+<p>绝对不允许app(除了有unconfineddomain属性的app)对kmem_device类型的字符设备进行读写的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">neverallow &#123; appdomain -unconfineddomain &#125; self:capability2 *;</div></pre></td></tr></table></figure>
+<p>绝对不允许除了unconfineddomain以外的app对self类型的capability2进行任何的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type httpd_user_content_t, file_type, httpdcontent;</div></pre></td></tr></table></figure>
+<p>声明一个httpd_user_content_t的类型，具有file_type和httpdcontent的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">type httpd_user_content_t;</div><div class="line">typeattribute httpd_user_content_t file_type, httpdcontent;</div></pre></td></tr></table></figure>
+<p>声明一个httpd_user_content_t的类型<br>定义httpd_user_content_t具有file_type, httpdcontent的属性</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">allow appdomain self:rawip_socket create_socket_perms;</div></pre></td></tr></table></figure>
+<p>所有可以设置类型的地方其实都可以设置为属性。<br>比如这个例子，我们允许所有具有app属性的内容可以去对self属性的rawip_socket进行create的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">allow &#123;user_t domain&#125; &#123;bin_t file_type sbin_t&#125;:file execute ;</div></pre></td></tr></table></figure>
+<p>允许user_t和domain属性的类对bin_t, file_type, sbin_t类型的file进行可执行的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">allow user_t user_t:process signal;</div><div class="line">allow user_t self:process signal;</div></pre></td></tr></table></figure>
+<p>这两条语句的表述其实是一致的，其实self指的是目标的类型和发起人的类型是一致的<br>所以不能声明一个类型或者属性叫做self</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">allow user_t bin_t:file ~&#123; write setattr ioctl &#125;;</div></pre></td></tr></table></figure>
+<p>允许user_t对bin_t类型的file进行除了write setattr ioctl相关的操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">type_transition system wifi_data_file:sock_file system_wpa_socket;</div></pre></td></tr></table></figure>
+<p>当一个类型为system的类别去进行wifi_data_file类型的sock_file访问时，类型默认切换到system_wpa_socket</p>
+<p>如果下面这条语句想要执行成功<br>type_transition init_t apache_exec_t:process apache_t;<br>至少首先声明下面的三条规则：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">allow init_t apache_exec_t:file execute;</div><div class="line">allow init_t apache_t:process transition;</div><div class="line">allow apache_t apache_exec_t:file entrypoint;</div></pre></td></tr></table></figure></p>
+<p>type_transition和type_change的语法规则是一样的， type_change规则的影响不会在内核中生效，而是依赖于用户空间应用程序，如login或sshd</p>
+<h3 id="方法1-adb在线修改seLinux"><a href="#方法1-adb在线修改seLinux" class="headerlink" title="方法1: adb在线修改seLinux"></a>方法1: adb在线修改seLinux</h3><p> <code>Enforcing</code>(表示已打开)，<code>Permissive</code>（表示已关闭）</p>
 <pre><code>getenforce;  //获取当前seLinux状态
 setenforce 1;   //打开seLinux
 setenforce 0;   //关闭seLinux
@@ -267,7 +331,7 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-03-29T05:47:19.000Z" itemprop="dateUpdated">2017年3月29日 13:47</time>
+    最后更新时间：<time datetime="2017-11-15T12:45:12.522Z" itemprop="dateUpdated">2017年11月15日 20:45</time>
 </span><br>
 
 
@@ -290,7 +354,7 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 
         <div class="post-footer">
             
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/security/">security</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/selinux/">selinux</a></li></ul>
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li></ul>
 
 
             
@@ -300,7 +364,7 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&title=《SEAndroid权限修改》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&title=《Android中SELINUX规则分析和语法简介》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -310,7 +374,7 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&title=《SEAndroid权限修改》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&title=《Android中SELINUX规则分析和语法简介》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -320,7 +384,7 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SEAndroid权限修改》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&via=https://austinxishou.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android中SELINUX规则分析和语法简介》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&via=https://austinxishou.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
@@ -429,7 +493,7 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
     <div class="bottom">
         <p>
             <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>爵士犀首 &copy; 2016 - 2017</span>
+            <span>爵士犀首 &copy; 2016 - 2018</span>
         </p>
     </div>
 </footer>
@@ -443,7 +507,7 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&title=《SEAndroid权限修改》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&title=《Android中SELINUX规则分析和语法简介》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -453,7 +517,7 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&title=《SEAndroid权限修改》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&title=《Android中SELINUX规则分析和语法简介》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
@@ -463,7 +527,7 @@ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《SEAndroid权限修改》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&via=https://austinxishou.github.io" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android中SELINUX规则分析和语法简介》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/android/android-selinux-sepolice-modify/&via=https://austinxishou.github.io" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>

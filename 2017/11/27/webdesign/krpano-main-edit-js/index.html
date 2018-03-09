@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="360-site-verification" content="f623c899b6306a6a416f749df60d39a5" />
+	<meta name="sogou_site_verification" content="b2uCFUinvb"/>
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>全景图编辑器js部分代码解析 | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="JavaScript">
+
+    <meta name="description" content="全景图编辑器js部分代码解析">
+<meta property="og:type" content="article">
+<meta property="og:title" content="全景图编辑器js部分代码解析">
+<meta property="og:url" content="https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="全景图编辑器js部分代码解析">
+<meta property="og:updated_time" content="2017-11-27T02:39:05.278Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="全景图编辑器js部分代码解析">
+<meta name="twitter:description" content="全景图编辑器js部分代码解析">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">全景图编辑器js部分代码解析</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">全景图编辑器js部分代码解析</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-27T02:24:55.493Z" itemprop="datePublished" class="page-time">
+  2017-11-27
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#资源管理"><span class="post-toc-number">1.</span> <span class="post-toc-text">资源管理</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-webdesign/krpano-main-edit-js"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">全景图编辑器js部分代码解析</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年11月27日 10:24" datetime="2017-11-27T02:24:55.493Z"  itemprop="datePublished">2017-11-27</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="资源管理"><a href="#资源管理" class="headerlink" title="资源管理"></a>资源管理</h2><ol>
+<li>统一的资源管理弹窗, id=media_icon </li>
+<li>各个需要选择资源的入口</li>
+</ol>
+<p>统一的资源管理弹窗, id=media_icon<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;modal fade in&quot; id=&quot;media_icon&quot; data-backdrop=&quot;static&quot; data-keyboard=&quot;false&quot; data-position=&quot;5%&quot; aria-hidden=&quot;false&quot; style=&quot;display: block;&quot;&gt;</div><div class="line">    &lt;div class=&quot;modal-dialog modal-lg&quot; style=&quot;margin-top: 5%;&quot;&gt;</div><div class="line">        &lt;div class=&quot;modal-content&quot;&gt;</div><div class="line">            &lt;div class=&quot;modal-body&quot;&gt;</div><div class="line">                &lt;ul id=&quot;myTab&quot; class=&quot;nav nav-tabs&quot;&gt;</div><div class="line">                    &lt;li class=&quot;&quot; style=&quot;display: none;&quot;&gt;&lt;a href=&quot;#music&quot; data-toggle=&quot;tab&quot; id=&quot;music_tab&quot;&gt;音乐&lt;/a&gt;&lt;/li&gt;</div><div class="line">                    &lt;li class=&quot;&quot;&gt;&lt;a href=&quot;#pic&quot; data-toggle=&quot;tab&quot; class=&quot;img_tab&quot;&gt;图片&lt;/a&gt;&lt;/li&gt;</div><div class="line">                    &lt;li class=&quot;active&quot;&gt;&lt;a href=&quot;#upload&quot; data-toggle=&quot;tab&quot; id=&quot;upload_tab&quot;&gt;上传&lt;/a&gt;&lt;/li&gt;</div><div class="line">                    &lt;li class=&quot;find&quot; style=&quot;display: none;&quot;&gt;&lt;input type=&quot;text&quot; id=&quot;searchMediaInput&quot; placeholder=&quot;输入文件名，快速搜素&quot; class=&quot;form-control&quot;&gt;&lt;/li&gt;</div><div class="line">                    &lt;div class=&quot;btn_confirm&quot;&gt;</div><div class="line">                        &lt;li&gt;</div><div class="line">                            &lt;button class=&quot;btn btn-primary confirm-choose&quot; type=&quot;button&quot; onclick=&quot;chooseMediaResImg()&quot; style=&quot;display: none;&quot;&gt;确定选择&lt;/button&gt;</div><div class="line">                        &lt;/li&gt;</div><div class="line">                        &lt;li&gt;</div><div class="line">                            &lt;button class=&quot;btn&quot; type=&quot;button&quot; id=&quot;cancel_icon&quot; data-dismiss=&quot;modal&quot;&gt;取消</div><div class="line">                            &lt;/button&gt;</div><div class="line">                        &lt;/li&gt;</div><div class="line">                    &lt;/div&gt;</div><div class="line">                &lt;/ul&gt;</div><div class="line">                &lt;div id=&quot;myTabContent&quot; class=&quot;tab-content&quot; style=&quot;height:410px;overflow: auto;&quot;&gt;</div><div class="line">                    &lt;div class=&quot;tab-pane fade clearfix&quot; id=&quot;music&quot;&gt;&lt;/div&gt;</div><div class="line">                    &lt;div class=&quot;tab-pane fade clearfix&quot; id=&quot;pic&quot;&gt;&lt;/div&gt;</div><div class="line">                    &lt;div class=&quot;tab-pane fade active in&quot; id=&quot;upload&quot;&gt;</div><div class="line">                    &lt;div class=&quot;file-input file-input-ajax-new&quot;&gt;&lt;div class=&quot;file-preview&quot;&gt;</div><div class="line">                    &lt;div class=&quot;close fileinput-remove&quot;&gt;×&lt;/div&gt;</div><div class="line">                    &lt;div class=&quot; file-drop-zone&quot;&gt;&lt;div class=&quot;file-drop-zone-title&quot;&gt;拖拽文件/或者点击下方选择图片按钮 …&lt;/div&gt;</div><div class="line">                    &lt;div class=&quot;file-preview-thumbnails&quot;&gt;&lt;/div&gt;</div><div class="line">                    &lt;div class=&quot;clearfix&quot;&gt;&lt;/div&gt;    &lt;div class=&quot;file-preview-status text-center text-success&quot;&gt;&lt;/div&gt;</div><div class="line">                    &lt;div class=&quot;kv-fileinput-error file-error-message&quot; style=&quot;display: none;&quot;&gt;&lt;/div&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">&lt;div class=&quot;kv-upload-progress hide&quot;&gt;&lt;div class=&quot;progress&quot;&gt;</div><div class="line">    &lt;div class=&quot;progress-bar progress-bar-success&quot; role=&quot;progressbar&quot; aria-valuenow=&quot;100&quot; aria-valuemin=&quot;0&quot; aria-valuemax=&quot;100&quot; style=&quot;width:100%;&quot;&gt;</div><div class="line">        100%</div><div class="line">     &lt;/div&gt;</div><div class="line">&lt;/div&gt;&lt;/div&gt;</div><div class="line"></div><div class="line">&lt;div tabindex=&quot;500&quot; class=&quot;btn btn-primary btn-file&quot;&gt;&lt;i class=&quot;icon icon-file-o&quot;&gt;&lt;/i&gt;   &lt;span class=&quot;undefined&quot;&gt;选择图片文件&lt;/span&gt;&lt;input id=&quot;imgUpload&quot; name=&quot;file&quot; type=&quot;file&quot; class=&quot;&quot; accept=&quot;image/jpeg,image/png&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;/div&gt;&lt;div id=&quot;kvFileinputModal&quot; class=&quot;file-zoom-dialog modal fade&quot; tabindex=&quot;-1&quot; aria-labelledby=&quot;kvFileinputModalLabel&quot;&gt;&lt;div class=&quot;modal-dialog modal-lg&quot; role=&quot;document&quot; style=&quot;margin-top: 5%;&quot;&gt;</div><div class="line">  &lt;div class=&quot;modal-content&quot;&gt;</div><div class="line">    &lt;div class=&quot;modal-header&quot;&gt;</div><div class="line">      &lt;div class=&quot;kv-zoom-actions pull-right&quot;&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-header-toggle btn-toggleheader&quot; title=&quot;Toggle header&quot; data-toggle=&quot;button&quot; aria-pressed=&quot;false&quot; autocomplete=&quot;off&quot;&gt;&lt;i class=&quot;icon icon-resize&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-fullscreen&quot; title=&quot;Toggle full screen&quot; data-toggle=&quot;button&quot; aria-pressed=&quot;false&quot; autocomplete=&quot;off&quot;&gt;&lt;i class=&quot;icon icon-fullscreen&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-borderless&quot; title=&quot;Toggle borderless mode&quot; data-toggle=&quot;button&quot; aria-pressed=&quot;false&quot; autocomplete=&quot;off&quot;&gt;&lt;i class=&quot;icon icon-resize-full&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;button type=&quot;button&quot; class=&quot;btn btn-default btn-close&quot; title=&quot;Close detailed preview&quot; data-dismiss=&quot;modal&quot; aria-hidden=&quot;true&quot;&gt;&lt;i class=&quot;icon icon-remove&quot;&gt;&lt;/i&gt;&lt;/button&gt;&lt;/div&gt;</div><div class="line">      &lt;h3 class=&quot;modal-title&quot;&gt;详细预览 &lt;small&gt;&lt;span class=&quot;kv-zoom-title&quot;&gt;&lt;/span&gt;&lt;/small&gt;&lt;/h3&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;div class=&quot;modal-body&quot;&gt;</div><div class="line">      &lt;div class=&quot;floating-buttons&quot;&gt;&lt;/div&gt;</div><div class="line">      &lt;div class=&quot;kv-zoom-body file-zoom-content&quot;&gt;&lt;/div&gt;</div><div class="line">&lt;button type=&quot;button&quot; class=&quot;btn btn-navigate btn-prev&quot; title=&quot;View previous file&quot;&gt;&lt;i class=&quot;icon icon-long-arrow-left&quot;&gt;&lt;/i&gt;&lt;/button&gt; &lt;button type=&quot;button&quot; class=&quot;btn btn-navigate btn-next&quot; title=&quot;View next file&quot;&gt;&lt;i class=&quot;icon icon-long-arrow-right&quot;&gt;&lt;/i&gt;&lt;/button&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  &lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">&lt;/div&gt;</div><div class="line">                        &lt;p id=&quot;mediaTyPrompt&quot;&gt;上传文件格式：图片：png、jpg格式。&lt;/p&gt;</div><div class="line">                    &lt;/div&gt;</div><div class="line">                &lt;/div&gt;</div><div class="line">            &lt;/div&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line"></div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<ol>
+<li>各个需要选择资源的入口<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;col-md-4&quot;&gt;</div><div class="line">    &lt;a data-modalid=&quot;#media_icon&quot; data-mediatype=&quot;1&quot; data-imgtype=&quot;custom&quot; href=&quot;javascript:void(0);&quot; class=&quot;icon_media&quot;&gt;个人媒体库音乐&lt;/a&gt;&amp;nbsp;&amp;nbsp;</div><div class="line">    &lt;a data-modalid=&quot;#media_icon&quot; data-mediatype=&quot;1&quot; data-imgtype=&quot;system&quot; data-subtype=&quot;def_msc&quot; href=&quot;javascript:void(0);&quot; class=&quot;icon_media&quot;&gt;系统音乐&lt;/a&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;col-md-2&quot; style=&quot;width:150px;&quot;&gt;&lt;a data-modalid=&quot;#media_icon&quot; data-imgtype=&quot;custom&quot; href=&quot;javascript:void(0);&quot; class=&quot;icon_media&quot;&gt;从媒体库选择图片&lt;/a&gt;&lt;/div&gt;</div></pre></td></tr></table></figure>
+<ol>
+<li>绑定各入口的点击事件<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">$(document).on(&quot;click&quot;, &quot;[data-modalid]&quot;, function (e) &#123;</div><div class="line">    openMediaResObj = e.target;</div><div class="line">    pauseAudioMusic();</div><div class="line">    var mediaType = $(openMediaResObj).attr(&quot;data-mediatype&quot;);</div><div class="line">    var imgType = $(openMediaResObj).attr(&quot;data-imgtype&quot;);</div><div class="line">    $(&quot;#pic&quot;).html(&quot;&quot;);</div><div class="line">    $(&quot;#music&quot;).html(&quot;&quot;);</div><div class="line">    //查询图片媒体资源</div><div class="line">    var sb = _U.getSubmit(&quot;/member/mediares&quot;, null, &quot;ajax&quot;, false);</div><div class="line">    sb.pushData(&quot;act&quot;, &apos;list&apos;);</div><div class="line">    sb.pushData(&quot;type&quot;, imgType);</div><div class="line">    if(imgType == &apos;system&apos;)&#123;</div><div class="line">        sb.pushData(&quot;media_type&quot;, $(openMediaResObj).data(&apos;subtype&apos;));</div><div class="line">    &#125;else&#123;</div><div class="line">        sb.pushData(&quot;media_type&quot;, mediaType ? mediaType : &apos;0&apos;);</div><div class="line">    &#125;</div><div class="line">    sb.submit(function () &#123;</div><div class="line"></div><div class="line">    &#125;, function (data) &#123;</div><div class="line">        if (mediaType == &apos;1&apos;) &#123;</div><div class="line">            toggleMediaTab(&apos;music&apos;);</div><div class="line">            addMusicMediaRes(data);</div><div class="line">        &#125; else &#123;</div><div class="line">            toggleMediaTab(&apos;image&apos;);</div><div class="line">            if (imgType == &apos;system&apos;) &#123;</div><div class="line">                addDefMediaRes(data);</div><div class="line">                $(&quot;#upload_tab&quot;).hide();</div><div class="line">            &#125; else if (imgType == &apos;custom&apos;) &#123;</div><div class="line">                addImageMediaRes(data);</div><div class="line">                $(&quot;#upload_tab&quot;).show();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">    $(&quot;#searchMediaInput&quot;).val(&quot;&quot;);</div><div class="line">    $($(this).attr(&apos;data-modalid&apos;)).modal(&apos;show&apos;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-11-27T02:39:05.278Z" itemprop="dateUpdated">2017年11月27日 10:39</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/2017/11/27/webdesign/krpano-main-edit-js/" target="_blank" rel="external">https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/&title=《全景图编辑器js部分代码解析》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/&title=《全景图编辑器js部分代码解析》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《全景图编辑器js部分代码解析》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/28/webdesign/Laravel-vue-series-0/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Laravel</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/13/krpano/krpano-editor-design/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">krpano编辑器模块核心设计</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2018</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/&title=《全景图编辑器js部分代码解析》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/&title=《全景图编辑器js部分代码解析》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《全景图编辑器js部分代码解析》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/27/webdesign/krpano-main-edit-js/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACp0lEQVR42u3aQXLCMBAEQP7/aXJOAWZGKxFS1T5RxNhqHbzO7N5u8XEvj/xXj3e5/u3txIGHh4e3demP51wvKP+c3z3HP9kCPDw8vGO8V0/U9px2Ea++abfp5fd4eHh4X8+bX/O6bODh4eH9R971a3H7uL9eyR8UBjw8PLyYl7z4Xj+4k9iiDTUmL+t4eHh453h5F+l7Ph/p7+Hh4eEdGwi4fmQnr8jtiMB96cDDw8M7wVuLU9sBqV3bt7ZOPDw8vL28fLApKQP5FdpRqvyvvz7j4eHhfZA3atWXcUbLLu6Lh4eH90Fe3srKC0NSTtYYRQyBh4eHN+YViUWwiORxv7aVk4KEh4eHt5c3H2ba1dBaAxf9PTw8PLxNvPykPEKdFICcVJQKPDw8vK28HDaPgNs2WBv44uHh4X2StxZP7BrVmsQiUcXDw8PDO8Zr//lvt6kYlgpijuiaeHh4eMd4eWs/f8leW1w9BNCGEXh4eHhjXh4HrPHyCHgSiESbgoeHh3eA18apu85vy1IOxsPDwzvBWxtpWhsRyEOEycAWHh4e3mneJIQt4tRNYcT1Fo+6fHh4eHgxL7nEJD7IN24yKBD19/Dw8PAO8NqGU15a8i07PnSFh4eHN+bNQ4S2PCSP+Bb25nUcDw8P7xivjSTa4LUtFXl5iHp6eHh4eId5k9C2HQ5oN6i+Cx4eHt5h3lrzaS282Hu1l1fGw8PD28q7l0e+uOQKbSDbFg88PDy8E7y1R/laaz8JYdsRrnnrDg8PD2+NlxeDdom7YuLRFuPh4eEd4+UjWbti2V2RxJuWGx4eHt7X8JLbJIUnHyxoxxHw8PDwvo23VhhazNqYFx4eHt5neG3Ta+3MeRjRhhR4eHh4J3hrg03tBrVDV+2L+Oa5LTw8PLznxw9hwdpPve8jKQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

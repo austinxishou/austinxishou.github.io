@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="360-site-verification" content="f623c899b6306a6a416f749df60d39a5" />
+	<meta name="sogou_site_verification" content="b2uCFUinvb"/>
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>docker-lnmp ���������� Laravel ���� | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="docker">
+
+    <meta name="description" content="docker-lnmp ���������� Laravel ����">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker-lnmp ���������� Laravel ����">
+<meta property="og:url" content="https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="docker-lnmp ���������� Laravel ����">
+<meta property="og:updated_time" content="2018-01-23T09:36:16.178Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="docker-lnmp ���������� Laravel ����">
+<meta name="twitter:description" content="docker-lnmp ���������� Laravel ����">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">docker-lnmp ���������� Laravel ����</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">docker-lnmp ���������� Laravel ����</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-05T08:37:33.278Z" itemprop="datePublished" class="page-time">
+  2017-12-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/docker/">docker</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#�ο��j�"><span class="post-toc-number">1.</span> <span class="post-toc-text">�ο��ĵ�</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#docker-compose"><span class="post-toc-number">2.</span> <span class="post-toc-text">docker-compose</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-compose-yml�򵥽���"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">docker-compose.yml�򵥽���</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Mysql"><span class="post-toc-number">3.</span> <span class="post-toc-text">Mysql</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#PHP"><span class="post-toc-number">4.</span> <span class="post-toc-text">PHP</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Nginx"><span class="post-toc-number">5.</span> <span class="post-toc-text">Nginx</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#��ȡ����"><span class="post-toc-number">6.</span> <span class="post-toc-text">��ȡ����</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#�޸�E��"><span class="post-toc-number">7.</span> <span class="post-toc-text">�޸�Ȩ��</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#��docker-��������laravel-����"><span class="post-toc-number">8.</span> <span class="post-toc-text">��docker ��������laravel ����</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-laravel-data"><span class="post-toc-number">8.1.</span> <span class="post-toc-text">docker-laravel-data</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-laravel-nginx"><span class="post-toc-number">8.2.</span> <span class="post-toc-text">docker-laravel-nginx</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-laravel-phpfpm"><span class="post-toc-number">8.3.</span> <span class="post-toc-text">docker-laravel-phpfpm</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Install-Composer"><span class="post-toc-number">8.4.</span> <span class="post-toc-text">Install Composer</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Install-MySQL-package"><span class="post-toc-number">8.5.</span> <span class="post-toc-text">Install MySQL package</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Access-Control-Allow-Origin-��������E������"><span class="post-toc-number">8.6.</span> <span class="post-toc-text">Access-Control-Allow-Origin ��������Ȩ������</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-server/docker-lnmp-laravel"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">docker-lnmp ���������� Laravel ����</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月05日 16:37" datetime="2017-12-05T08:37:33.278Z"  itemprop="datePublished">2017-12-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/docker/">docker</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="�ο��j�"><a href="#�ο��j�" class="headerlink" title="�ο��ĵ�"></a>�ο��ĵ�</h2><p><a href="http://www.jianshu.com/p/2ad17b1df2c0" target="_blank" rel="external">ʹ��Docker�Laravel����</a></p>
+<p><a href="https://www.jianshu.com/p/0ce73f584728" target="_blank" rel="external"></a><br><a href="https://www.jianshu.com/p/78b03cd5880e" target="_blank" rel="external">����docker���ٴ laravel ����</a></p>
+<h2 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker-compose"></a>docker-compose</h2><h3 id="docker-compose-yml�򵥽���"><a href="#docker-compose-yml�򵥽���" class="headerlink" title="docker-compose.yml�򵥽���"></a>docker-compose.yml�򵥽���</h3><p>docker-compose�������������Ŷ�������Э���ġ�</p>
+<p>ͨ��docker-compose.yml������nginx��php��mysql֮����ͨ�ź�Э����</p>
+<p>��docker-lnmpĿ¼��ͨ������ docker-compose up ��������</p>
+<p>Ȼ��ͨ�� localhost����localhost:8000�Ϳ��Է���index.php��</p>
+<h2 id="Mysql"><a href="#Mysql" class="headerlink" title="Mysql"></a>Mysql</h2><p>Mysql����ֱ���������ٷ�,û�����κ��޸ġ�<br><a href="https://github.com/dockerfile/mysql" target="_blank" rel="external">�ٷ�Mysql���񹹽��ο�</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">mysql: ### ��������</div><div class="line">  image: mysql:5.7 ### �ٷ����� �汾��5.7</div><div class="line">  volumes:</div><div class="line">    - mysql-data:/var/lib/mysql ### ���ݾ���mysql���ݾʹ���������</div><div class="line">  ports:</div><div class="line">    - &quot;3306:3306&quot; ###�˿�ӳ�䣬�����˿�:���������˿�</div><div class="line">  environment:</div><div class="line">    - MYSQL_ROOT_PASSWORD=123456  ### ���û��������������������ǹٷ����������ġ�</div></pre></td></tr></table></figure>
+<h2 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h2><p>PHP����Ҳ�������ٷ������ǹٷ�������û���ṩ����Mysql���ص�pdo_mysql��չ����������һ���޸ģ����Բ���ֱ����image�������ٷ���������Ҫ����дһ��Dockerfile���Զ���PHP������</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">php-fpm:</div><div class="line">      build:</div><div class="line">        context: ./php ### �Զ���PHP����������Ŀ¼</div><div class="line">      volumes:</div><div class="line">        - ./www:/var/www/html ### �����ļ��������ļ�ӳ�乲����PHP����������</div><div class="line">      expose:</div><div class="line">        - &quot;9000&quot; ### �������Ⱪ¶�Ķ˿�</div><div class="line">      depends_on:</div><div class="line">        - mysql ### ����������Mysql������������PHP�����Ϳ���ͨ��mysql��Ϊ������������Mysql������</div></pre></td></tr></table></figure>
+<p>�Զ���PHP�����������ļ� Dockerfile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">### ���Թٷ���PHP�����汾Ϊ7.1-fpm.</div><div class="line">### �ð汾ֻ����FPM������CLI,�������ﲢ����ִ��composer</div><div class="line">### ������Ҫ��PHP-CLI ��Ҫ�ٿ�һ��CLI���������߰�װͬʱ����FPM��CLI�İ汾</div><div class="line">FROM php:7.1-fpm </div><div class="line"></div><div class="line">### ���û�������</div><div class="line">ENV TZ=Asia/Shanghai</div><div class="line"></div><div class="line">### ִ��bash���װphp��������չ</div><div class="line">RUN apt-get update &amp;&amp; apt-get install -y \</div><div class="line">        libfreetype6-dev \</div><div class="line">        libjpeg62-turbo-dev \</div><div class="line">        libmcrypt-dev \</div><div class="line">        libpng12-dev \</div><div class="line">    ### ������docker�ṩ�İ�װphp��չ�ķ����������ﰲװ��pdo_mysql��չ����GD����</div><div class="line">    &amp;&amp; docker-php-ext-install -j$(nproc) iconv mcrypt mysqli pdo_mysql \</div><div class="line">    &amp;&amp; docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \</div><div class="line">    &amp;&amp; docker-php-ext-install -j$(nproc) gd</div><div class="line">### ��չphp.ini</div><div class="line">COPY ./php.ini /usr/local/etc/php/conf.d/php.ini</div></pre></td></tr></table></figure>
+<h2 id="Nginx"><a href="#Nginx" class="headerlink" title="Nginx"></a>Nginx</h2><p>Nginx��Ҫ����һ��server,����Ҳ��Ҫһ���򵥵Ķ���</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">nginx:</div><div class="line">  build:</div><div class="line">    context: ./nginx ### �Զ���Nginx����������Ŀ¼</div><div class="line">  volumes:</div><div class="line">      - ./www:/var/www/html �����ļ��������ļ�ӳ�乲����PHP����������</div><div class="line">  ports:</div><div class="line">      - &quot;80:80&quot; ### �˿�ӳ�䣬����������80�˿ڱ�ռ�ã�������8000:80</div><div class="line">      - &quot;443:443&quot;</div><div class="line">  depends_on:</div><div class="line">      - php-fpm ### ����������PHP������������Nginx�����Ϳ���ͨ��php-fpm��Ϊ������������PHP������</div></pre></td></tr></table></figure>
+<p>�Զ���Nginx�����������ļ�Dockerfile</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">FROM nginx:1.11 ### �ٷ�����</div><div class="line"></div><div class="line">ENV TZ=Asia/Shanghai ### ��������</div><div class="line"></div><div class="line">COPY ./nginx.conf /etc/nginx/conf.d/default.conf ### server����</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line"></div><div class="line">    listen 80 default_server;</div><div class="line">    listen [::]:80 default_server ipv6only=on;</div><div class="line"></div><div class="line">    server_name localhost;</div><div class="line">    root /var/www/html;</div><div class="line">    index index.php index.html index.htm;</div><div class="line"></div><div class="line">    location / &#123;</div><div class="line">         try_files $uri $uri/ /index.php$is_args$args;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    location ~ \.php$ &#123;</div><div class="line">        try_files $uri /index.php =404;</div><div class="line"></div><div class="line">        ### ��Ҫ�������� php-fpm:9000������PHP����</div><div class="line">        fastcgi_pass php-fpm:9000;</div><div class="line">        fastcgi_split_path_info ^(.+\.php)(/.+)$;</div><div class="line">        fastcgi_index index.php;</div><div class="line">        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</div><div class="line">        include fastcgi_params;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    location ~ /\.ht &#123;</div><div class="line">        deny all;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="��ȡ����"><a href="#��ȡ����" class="headerlink" title="��ȡ����"></a>��ȡ����</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker-compose pull</div></pre></td></tr></table></figure>
+<h2 id="�޸�E��"><a href="#�޸�E��" class="headerlink" title="�޸�Ȩ��"></a>�޸�Ȩ��</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chown www-data:www-data -R www/</div></pre></td></tr></table></figure>
+<h2 id="��docker-��������laravel-����"><a href="#��docker-��������laravel-����" class="headerlink" title="��docker ��������laravel ����"></a>��docker ��������laravel ����</h2><pre><code>&gt; ��ȡ����������LavavelӦ�ó���,���ǲ�������Ҫһ����������PHP��web������,����Ҳ��Ҫ�ܹ�����PHP������Ӧ�ó�����composer��artisan.Ҳ�����и������л����ķ�ʽ(����������).��������һ���õĻ�������Dokcer��Laravel.ÿ�����̶���һ���Լ�������.
+
+&gt; �з�����`composer`��`artisan`������������˵����һ������,���ǿ���ֻѡ������`docker-laravel-data`,`docker-laravel-nginx`��`docker-laravel-phpfpm`��������������.
+
+![����ͼ��ͼ](/images/docker-lnmp-map.png)
+</code></pre><h3 id="docker-laravel-data"><a href="#docker-laravel-data" class="headerlink" title="docker-laravel-data"></a>docker-laravel-data</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">FROM debian:jessie</div><div class="line"></div><div class="line">MAINTAINER &quot;Dylan Lindgren&quot; &lt;dylan.lindgren@gmail.com&gt;</div><div class="line"></div><div class="line">RUN mkdir -p /data</div><div class="line">VOLUME [&quot;/data&quot;]</div><div class="line">CMD [&quot;true&quot;]</div></pre></td></tr></table></figure>
+</code></pre><h3 id="docker-laravel-nginx"><a href="#docker-laravel-nginx" class="headerlink" title="docker-laravel-nginx"></a>docker-laravel-nginx</h3><pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">FROM debian:jessie</div><div class="line"></div><div class="line">MAINTAINER &quot;Dylan Lindgren&quot; &lt;dylan.lindgren@gmail.com&gt;</div><div class="line"></div><div class="line">WORKDIR /tmp</div><div class="line"></div><div class="line">//Install Nginx</div><div class="line">RUN apt-get update -y &amp;&amp; \</div><div class="line">	apt-get install -y nginx</div><div class="line"></div><div class="line">//Apply Nginx configuration</div><div class="line">ADD config/nginx.conf /opt/etc/nginx.conf</div><div class="line">ADD config/laravel /etc/nginx/sites-available/laravel</div><div class="line">RUN ln -s /etc/nginx/sites-available/laravel /etc/nginx/sites-enabled/laravel &amp;&amp; \</div><div class="line">	rm /etc/nginx/sites-enabled/default</div><div class="line"></div><div class="line">//Nginx startup script</div><div class="line">ADD config/nginx-start.sh /opt/bin/nginx-start.sh</div><div class="line">RUN chmod u=rwx /opt/bin/nginx-start.sh</div><div class="line"></div><div class="line">RUN mkdir -p /data</div><div class="line">VOLUME [&quot;/data&quot;]</div><div class="line"></div><div class="line">//PORTS</div><div class="line">EXPOSE 80</div><div class="line">EXPOSE 443</div><div class="line"></div><div class="line">WORKDIR /opt/bin</div><div class="line">ENTRYPOINT [&quot;/opt/bin/nginx-start.sh&quot;]</div></pre></td></tr></table></figure>
+</code></pre><h3 id="docker-laravel-phpfpm"><a href="#docker-laravel-phpfpm" class="headerlink" title="docker-laravel-phpfpm"></a>docker-laravel-phpfpm</h3><h3 id="Install-Composer"><a href="#Install-Composer" class="headerlink" title="Install Composer"></a>Install Composer</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">RUN curl -sS https://getcomposer.org/installer | php</div><div class="line">RUN mv composer.phar /usr/local/bin/composer</div><div class="line">RUN chmod a+x /usr/local/bin/composer</div></pre></td></tr></table></figure>
+<h3 id="Install-MySQL-package"><a href="#Install-MySQL-package" class="headerlink" title="Install MySQL package"></a>Install MySQL package</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">RUN echo &quot;mysql-server mysql-server/root_password password devpass&quot; | debconf-set-selections</div><div class="line">RUN echo &quot;mysql-server mysql-server/root_password_again password devpass&quot; | debconf-set-selections</div><div class="line">RUN apt-get update &amp;&amp; apt-get install -y mysql-server mysql-client</div><div class="line">RUN usermod -d /var/lib/mysql/ mysql</div><div class="line">RUN update-rc.d mysql defaults</div></pre></td></tr></table></figure>
+<h3 id="Access-Control-Allow-Origin-��������E������"><a href="#Access-Control-Allow-Origin-��������E������" class="headerlink" title="Access-Control-Allow-Origin ��������Ȩ������"></a>Access-Control-Allow-Origin ��������Ȩ������</h3><p>Nginx �����취��<br>add_header Access-Control-Allow-Origin *;<br>add_header Access-Control-Allow-Headers X-Requested-With;<br>add_header Access-Control-Allow-Methods GET,POST,OPTIONS;<br>�����δ������ӵ� http{} ���߾�̬��Դ��Ӧ�� server{} ��</p>
+<p>����ֻΪ�Լ�����վʹ�ÿ��Խ���һ�д������ǺŸ�Ϊ�Լ������������� *.fbzl.org</p>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-01-23T09:36:16.178Z" itemprop="dateUpdated">2018年1月23日 17:36</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/2017/12/05/server/docker-lnmp-laravel/" target="_blank" rel="external">https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/&title=《docker-lnmp ���������� Laravel ����》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/&title=《docker-lnmp ���������� Laravel ����》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker-lnmp ���������� Laravel ����》 — 爵士犀首&url=https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/12/18/webdesign/JavaScript-parse-url-parameter/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/05/webdesign/web-front-lib/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">�ƶ�Webǰ��֪ʶ��</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2018</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/&title=《docker-lnmp ���������� Laravel ����》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/&title=《docker-lnmp ���������� Laravel ����》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker-lnmp ���������� Laravel ����》 — 爵士犀首&url=https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/12/05/server/docker-lnmp-laravel/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACtUlEQVR42u3aUW7bQAwE0Nz/0ukBUksz5KpRgaevIHYsvQ2wXA/59RVf3z+u6/f8/P2nn2evHr7w8PDw1o/+6aOTR7/+nNlfXf/mZunx8PDwHuN92lGT9+S3z/ftpKhcPzMeHh7ee3jX2/015uzy4eHh4f2PvOTGswP6KwoDHh4e3iVvdrSdBbX5J/zTrAUPDw8v5uVdpPf8/Eh/Dw8PD2/dVc833FmzKg98v0cXHh4e3hO8fMNtb9+OVbUxbvKceHh4eE/zNsMBbWOsDS/yV//yD8PDw8M7yps15s82vfJo+EAYgYeHh7fmtclnGxDkccOGURy78fDw8Na8fLPOA4VkUfKtv322YrXw8PDwRrwEPAth9wFHvkD5VwI8PDy8Pa892tarVYa5eWScxBl4eHh4T/Bm1Jyd36stOXWEgYeHh3eIN5w1KEnt6ECLPPb9AA8PDy8+8ebH3M0gVF4S8uGD6IiPh4eH9xhv0xLLe0952ywvNsMb4+Hh4Y14bfO+jVNng1ZtqHEzdIWHh4d3lNdu5W042z5c24o7XA/x8PDwRrx2LCAfAtjHHLPoBA8PD+8sbz84tRk72B++b0oFHh4e3i/x9uxki28DkWgR8fDw8B7mzQ67+dF5FmS04I8pNR4eHt4hXoucNfLb5diEGjddPjw8PLzHeG2zagOYhcV10wsPDw/vAV4b0e637+uylDfk8PDw8N7GywtDGy607bfhsBceHh7eUd53eeUDAbPDdFuEboJdPDw8vAd47eabl5C2lbVZiE1RwcPDw5vxzsavedtsFovUhQEPDw/vMd71l/z2Pe0RfFPBbooTHh4e3gt4+aE5h7Uhb1GQ8PDw8F7Myzf3drAgP1gXD4SHh4e35s0GpzZjpvsiVBQGPDw8vKO89gv/5tCc/FUb2h648PDw8FLeH5kcc6g466p1AAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

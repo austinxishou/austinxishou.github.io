@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="360-site-verification" content="f623c899b6306a6a416f749df60d39a5" />
+	<meta name="sogou_site_verification" content="b2uCFUinvb"/>
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>docker ʹ�ñʼ� | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="docker">
+
+    <meta name="description" content="dockerʹ�ñʼ�">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker ʹ�ñʼ�">
+<meta property="og:url" content="https://austinxishou.github.io/2018/01/15/server/docker-note-useage/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="dockerʹ�ñʼ�">
+<meta property="og:image" content="https://austinxishou.github.io/images/kvm-vs-docker.png">
+<meta property="og:updated_time" content="2018-02-04T23:55:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="docker ʹ�ñʼ�">
+<meta name="twitter:description" content="dockerʹ�ñʼ�">
+<meta name="twitter:image" content="https://austinxishou.github.io/images/kvm-vs-docker.png">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">docker ʹ�ñʼ�</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">docker ʹ�ñʼ�</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2018-01-15T01:18:42.376Z" itemprop="datePublished" class="page-time">
+  2018-01-15
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/docker/">docker</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#About-����"><span class="post-toc-number">1.</span> <span class="post-toc-text">About-����</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker�ʹ�ͳ���⻯�����KԱ�"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Docker�ʹ�ͳ���⻯�����ĶԱ�</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ΪʲoҪʹ��-Docker"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">ΪʲôҪʹ�� Docker</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Docker�L�������"><span class="post-toc-number">2.</span> <span class="post-toc-text">Docker�Ļ�������</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker-����"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Docker ����</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#�ֲ��洢"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">�ֲ��洢</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker-����-1"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Docker ����</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Docker-Registry"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Docker Registry</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Docker-����-2"><span class="post-toc-number">3.</span> <span class="post-toc-text">Docker ����</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#��װdocker"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">��װdocker</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#���þ�������"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">���þ�������</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ʹ�þ���"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">ʹ�þ���</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Dockerfile"><span class="post-toc-number">3.4.</span> <span class="post-toc-text">Dockerfile</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#���o�������"><span class="post-toc-number">4.</span> <span class="post-toc-text">���ò�������</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-server/docker-note-useage"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">docker ʹ�ñʼ�</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2018年01月15日 9:18" datetime="2018-01-15T01:18:42.376Z"  itemprop="datePublished">2018-01-15</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/docker/">docker</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="About-����"><a href="#About-����" class="headerlink" title="About-����"></a>About-����</h2><p><a href="https://www.cnblogs.com/linuxops/p/6781047.html" target="_blank" rel="external">�ο��ĵ�</a></p>
+<blockquote>
+<p>Docker��ʹ��go���Ի���LINUX�ں˵�cgroup��namespace�Լ�AUFS ���� Union FS �ȼ������Խ��̽��з�װ������һ�ֲ���ϵͳ���������⻯���������ڸ����Ľ��̶����������������ĸ����Ľ��̣�����Ҳ����Ϊ������</p>
+</blockquote>
+<h3 id="Docker�ʹ�ͳ���⻯�����KԱ�"><a href="#Docker�ʹ�ͳ���⻯�����KԱ�" class="headerlink" title="Docker�ʹ�ͳ���⻯�����ĶԱ�"></a>Docker�ʹ�ͳ���⻯�����ĶԱ�</h3><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/images/kvm-vs-docker.png" alt="kvm-vs-docker" title="">
+                </div>
+                <div class="image-caption">kvm-vs-docker</div>
+            </figure>
+<h3 id="ΪʲoҪʹ��-Docker"><a href="#ΪʲoҪʹ��-Docker" class="headerlink" title="ΪʲôҪʹ�� Docker"></a>ΪʲôҪʹ�� Docker</h3><ul>
+<li><strong>����Ч������ϵͳ��Դ</strong><ul>
+<li>����Docker�����ڽ��̼��𣬲���Ҫ����Ӳ�������Լ�������������ϵͳ�ȶ��⿪��������Docker��ϵͳ��Դ�������ʸ��ߡ�����������������һ����ͬ���õ������������������и���������Ӧ�á�</li>
+</ul>
+</li>
+<li><strong>�����ٵ�����ʱ��</strong><ul>
+<li>��ͳ����������������Ӧ�÷���������Ҫ�����ӣ��� Docker����Ӧ�ã�����ֱ�������������ںˣ��������������Ĳ���ϵͳ�����˿��������뼶���������뼶������ʱ�䡣�����Ľ�Լ�˿��������ԡ�������ʱ�䡣</li>
+</ul>
+</li>
+<li><strong>һ�µ����л���</strong><ul>
+<li>���ڿ������������Ի���������������һ�£�������Щ bug ��δ�ڿ��������б����֡�Docker �ľ����ṩ�˳��ں�������������ʱ������ȷ����Ӧ�����л���һ���ԣ��Ӷ������ٳ��� �����δ������һ�����û���Ⱑ�� �������⡣</li>
+</ul>
+</li>
+<li><strong>���������Ͳ���</strong><ul>
+<li>һ�δ������������С�ͨ������Ӧ�þ�����ʵ�ֳ������ɡ��������������𡣿�����Ա����ͨ�� Dockerfile �����о��񹹽��������ϳ�������(Continuous Integration)ϵͳ���м��ɲ��ԣ�����ά��Ա������ֱ�������������п��ٲ����þ������������� ��������(Continuous Delivery/Deployment) ϵͳ�����Զ����𡣶���ʹ�� Dockerfile ʹ���񹹽�͸�����������������Ŷӿ�������Ӧ�����л�����Ҳ������ά�Ŷ�����Ӧ�����������������������õ����������в����þ�����</li>
+</ul>
+</li>
+<li><strong>�����ɵ�Ǩ��</strong><ul>
+<li>Docker ȷ����ִ�л�����һ���ԣ����������������������������ơ�˽���ƣ������ǱʼǱ��������н�����һ�µġ����˿��Ժ�����Ǩ�Ƶ������ϣ������õ������л����ı仯����Ӧ���޷��������е�������</li>
+</ul>
+</li>
+<li><strong>�����ɵ�ά������չ</strong><ul>
+<li>Docker ʹ�õķֲ��洢�Լ������ļ�����Docker �Ŷ�ͬ������Դ��Ŀ�Ŷ�һ��ά����һ�����������Ĺٷ����񣬼ȿ���ֱ������������ʹ�ã��ֿ�����Ϊ������һ�����ơ�</li>
+</ul>
+</li>
+</ul>
+<h2 id="Docker�L�������"><a href="#Docker�L�������" class="headerlink" title="Docker�Ļ�������"></a>Docker�Ļ�������</h2><h3 id="Docker-����"><a href="#Docker-����" class="headerlink" title="Docker ����"></a>Docker ����</h3><pre><code>���Ƕ�֪��������ϵͳ��Ϊ�ں˺��û��ռ䡣���� Linux ���ԣ��ں������󣬻����ظ��ļ�ϵͳΪ���ṩ�û��ռ�֧�֡��� Docker ������Image�������൱����һ�����ļ�ϵͳ��Docker ������һ���������ļ�ϵͳ�������ṩ��������ʱ�����ĳ��򡢿⡢��Դ�����õ��ļ��⣬��������һЩΪ����ʱ׼����һЩ���ò��������������������������û��ȣ������񲻰����κζ�̬���ݣ��������ڹ���֮��Ҳ���ᱻ�ı䡣
+</code></pre><h3 id="�ֲ��洢"><a href="#�ֲ��洢" class="headerlink" title="�ֲ��洢"></a>�ֲ��洢</h3><pre><code>��Ϊ������������ϵͳ�����ĸ��ļ�ϵͳ���������������Ӵ��ģ������� Docker ����ʱ���ͳ������� Union FS �ļ�������������Ϊ�ֲ��洢�ļܹ��������ϸ���˵�����񲢷�����һ�� ISO �����Ĵ����ļ�������ֻ��һ�������ĸ����ʵ�����ֲ�����һ���ļ����ɣ�������һ���ļ�ϵͳ���ɣ�����˵���ɶ����ļ�ϵͳ�������ɡ�
+���񹹽�ʱ����һ���㹹����ǰһ���Ǻ�һ���Ļ�����ÿһ�㹹�����Ͳ����ٷ����ı䣬��һ���ϵ��κθı�ֻ�������Լ���һ�㡣���磬ɾ��ǰһ���ļ��Ĳ�����ʵ�ʲ�������ɾ��ǰһ�����ļ������ǽ��ڵ�ǰ������Ϊ���ļ���ɾ�����������������е�ʱ������Ȼ���ῴ�������ļ�������ʵ���ϸ��ļ���һֱ���澵�������ˣ��ڹ���������ʱ������Ҫ����С�ģ�ÿһ�㾡��ֻ�����ò���Ҫ���ӵĶ������κζ����Ķ���Ӧ���ڸò㹹������ǰ��������
+
+�ֲ��洢��������ʹ�þ����ĸ��á����Ʊ��ĸ�Ϊ���ס�����������֮ǰ�����õľ�����Ϊ�����㣬Ȼ����һ�������µĲ㣬�Զ����Լ����������ݣ������µľ�����
+</code></pre><h3 id="Docker-����-1"><a href="#Docker-����-1" class="headerlink" title="Docker ����"></a>Docker ����</h3><pre><code>������Image����������Container���Ĺ�ϵ�������������������������е�����ʵ��һ���������Ǿ�̬�Ķ��壬�����Ǿ�������ʱ��ʵ�塣�������Ա�������������ֹͣ��ɾ������ͣ�ȡ�
+
+������ʵ���ǽ��̣�����ֱ��������ִ�еĽ��̲�ͬ���������������������Լ��Ķ����������ռ䡣������������ӵ���Լ��ĸ��ļ�ϵͳ���Լ����������á��Լ��Ľ��̿ռ䣬�����Լ����û� ID �ռ䡣�����ڵĽ�����������һ�������Ļ����ʹ���������ͺ�������һ��������������ϵͳ�²���һ������������ʹ��������װ��Ӧ�ñ�ֱ�����������и��Ӱ�ȫ��
+
+ǰ�潲������ʹ�õ��Ƿֲ��洢������Ҳ�����ˡ�ÿһ����������ʱ�����Ծ���Ϊ�����㣬�����ϴ���һ����ǰ�����Ĵ洢�㣬���ǿ��Գ�����Ϊ��������ʱ��д��׼���Ĵ洢��Ϊ�����洢�㡣
+
+�����洢�����������ں�����һ������������ʱ�������洢��Ҳ��֮���������ˣ��κα����������洢������Ϣ����������ɾ������ʧ��
+
+���� Docker ����ʵ����Ҫ����������Ӧ�������洢����д���κ����ݣ������洢��Ҫ������״̬�������е��ļ�д����������Ӧ��ʹ�� ���ݾ���Volume�������߰�������Ŀ¼������Щλ�õĶ�д�����������洢�㣬ֱ�Ӷ�����(�������洢)������д�������ܺ��ȶ��Ը��ߡ�
+
+���ݾ����������ڶ������������������������ݾ��������������ˣ�ʹ�����ݾ�����������������ɾ�����������У�����ȴ���ᶪʧ��
+</code></pre><h3 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h3><pre><code>Docker Registry �ṩ�˾����ļ��еĴ洢���ַ����ܡ�һ�� Docker Registry �п��԰��������ֿ⣨Repository����ÿ���ֿ����԰���������ǩ��Tag����ͨ�� &lt;�ֿ���&gt;:&lt;��ǩ&gt; �ĸ�ʽ��ָ�����������������ĸ��汾�ľ�����Docker Registry ��Ϊ���з�����˽�з��������ǿ��Դһ�����ڱ��ص�registry
+</code></pre><h2 id="Docker-����-2"><a href="#Docker-����-2" class="headerlink" title="Docker ����"></a>Docker ����</h2><h3 id="��װdocker"><a href="#��װdocker" class="headerlink" title="��װdocker"></a>��װdocker</h3><pre><code>������Ubuntu��,����ֱ������:
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install docker</div></pre></td></tr></table></figure>
+</code></pre><h3 id="���þ�������"><a href="#���þ�������" class="headerlink" title="���þ�������"></a>���þ�������</h3><pre><code>���ڹ��ڷ���dockerԭվ���ǳ����ѣ����ڵ��Ʒ����ṩ���ṩ�˼��ٹ��ܡ�����ʹ�ð����ƽ���docker����
+��ַΪ: https://dev.aliyun.com/search.html
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sed -i &quot;s|ExecStart=/usr/bin/dockerd|ExecStart=/usr/bin/dockerd --registry-mirror=https://fz5yth0r.mirror.aliyuncs.com|g&quot; /usr/lib/systemd/system/docker.service</div><div class="line">systemctl daemon-reload</div><div class="line">systemctl restart docker</div></pre></td></tr></table></figure>
+</code></pre><h3 id="ʹ�þ���"><a href="#ʹ�þ���" class="headerlink" title="ʹ�þ���"></a>ʹ�þ���</h3><ul>
+<li><p><strong>��ȡ����</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull [OPTIONS] NAME[:TAG|@DIGEST]</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>�г�����</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">[root@node1 docker]# docker images</div><div class="line">#�ֿ���             #��ǩ                #����ID             #����ʱ��            #��С</div><div class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">centos              latest              98d35105a391        7 days ago          192 MB</div><div class="line"></div><div class="line">docker images  -a //ʹ��-a��������ʾ�м��㾵����</div><div class="line"></div><div class="line">//����ָ����ʽ����</div><div class="line">docker images   --format &quot;table &#123;&#123;.ID&#125;&#125;\t&#123;&#123;.Repository&#125;&#125;\t&#123;&#123;.Tag&#125;&#125;&quot;</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Docker ����</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">//ʹ��nginx ��������һ������������Ϊ webserver�����Ұ�������80�˿�ӳ������������80�˿ڡ�</div><div class="line">docker run --name webserver -d -p 80:80 nginx</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>Docker commit</strong></p>
+<ul>
+<li>�����޸��������Ĵ洢�㣬ʹ��docker diff �鿴�ļ��ĸĶ�</li>
+<li>���ƺ�ҳ��֮�󣬱���Ϊ���񣬵���������һ��������ʱ����������ʹ�þ��Ļ��������������κ��ļ��޸Ķ��ᱻ��¼�������洢���</li>
+<li><p>�� Docker �ṩ��һ�� docker commit ������Խ������Ĵ洢�㱣��������Ϊ���񡣻��仰˵��������ԭ�о����Ļ����ϣ��ٵ����������Ĵ洢�㣬�������µľ�����</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">docker commit \</div><div class="line">   --author &quot;austin &lt;xxx@163.com&gt;&quot; \</div><div class="line">   --message &quot;�޸ĳ�ʼ��ҳ&quot; \</div><div class="line">   webserver \</div><div class="line">   nginx:v2</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- �������� docker history �����鿴�����ڵ���ʷ��¼�������Ƚ� nginx:latest ����ʷ��¼
+
+- ���� docker commit
+&gt; �۲�֮ǰ�� docker diff webserver �Ľ��������ᷢ�ֳ���������Ҫ�޸ĵ� /usr/share/nginx/html/index.html �ļ��⣬���кܶ��ļ����Ķ��������ˡ������ǰ�װ�����������빹�����ǻ��д������޹����ݱ����ӽ��������ᵼ�¾�����Ϊӷ�ס�
+
+ʹ�� docker commit ��ζ�ų���������������֪��ִ�й�ʲô�����ô���ɵľ��񣬱��˸����޴ӵ�֪�����ң���ʹ�����������������ˣ���һ��ʱ����Ҳ�޷����������ڲ����ġ�
+
+����ʹ�� docker commit ��������������ֻ�ڵ�ǰ�������������޸ĵĻ���ÿһ���޸Ķ����þ�������ӷ��һ�Σ���ɾ������һ���Ķ��������ᶪʧ����һֱ��Ӱ���εĸ�������������
+��ʹ�����޷����ʵ�?�������þ�������ӷ�ס�
+
+docker commit ��������ѧϰ֮�⣬����һЩ������Ӧ�ó��ϣ����类���ֺ󱣴��ֳ��ȡ����ǣ���Ҫʹ�� docker commit ���ƾ��񣬶�����ΪӦ��ʹ�� Dockerfile �����ɡ�
+</code></pre><h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><pre><code>Dockerfile��һ���ı��ļ������������������ƾ�����֮ǰʹ�� docker commit �ἰ���޷��ظ������⡢���񹹽�͸���Ե����⡢�����������Ͷ���������
+ʹ��docker file ����nginx����
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FROM nginx</div><div class="line">RUN echo &apos;&lt;h1&gt;Hello, Docker!&lt;/h1&gt;&apos; &gt; /usr/share/nginx/html/index.html</div></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><p><strong>FROM</strong></p>
+<ul>
+<li><p>ָ��һ���������񣬿���ֱ������ʹ�õķ������ľ�������ubuntu��debian��centos��fedora��alpine��nginx��redis��mongo��mysql��httpd��php��tomcat �ȡ�</p>
+</li>
+<li><p>ָ��һ���հ׾���</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FROM scratch</div><div class="line">RUN  ...</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><strong>RUN</strong></p>
+<ul>
+<li><p>RUN ָ��������ִ���������������ʽ�����֡�</p>
+<ul>
+<li><p>SHELL��ʽ��</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RUN echo &apos;&lt;h1&gt;Hello, Docker!&lt;/h1&gt;&apos; &gt; /usr/share/nginx/html/index.html</div></pre></td></tr></table></figure>
+</li>
+<li><p>exec ��ʽ:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">RUN [&quot;��ִ���ļ�&quot;, &quot;����1&quot;, &quot;����2&quot;]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>��ʹ��shellģʽ��дʱ��������ÿ�����дһ��RUN��ÿһ�� RUN ����Ϊ���ͺ͸ղ������ֹ����������Ĺ���һ�����½���һ�㣬������ִ����Щ���ִ�н�������commit ��һ�����޸ģ������µľ�����Union FS ���������������Ƶģ����� AUFS�����������󲻵ó��� 42 �㣬�����ǲ��ó��� 127 �㡣</p>
+</li>
+<li><p>��ȷdockerfileд��</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">FROM debian:jessie</div><div class="line"></div><div class="line">RUN buildDeps=&apos;gcc libc6-dev make&apos; \</div><div class="line">   &amp;&amp; apt-get update \</div><div class="line">   &amp;&amp; apt-get install -y $buildDeps \</div><div class="line">   &amp;&amp; wget -O redis.tar.gz &quot;http://download.redis.io/releases/redis-3.2.5.tar.gz&quot; \</div><div class="line">   &amp;&amp; mkdir -p /usr/src/redis \</div><div class="line">   &amp;&amp; tar -xzf redis.tar.gz -C /usr/src/redis --strip-components=1 \</div><div class="line">   &amp;&amp; make -C /usr/src/redis \</div><div class="line">   &amp;&amp; make -C /usr/src/redis install \</div><div class="line">   &amp;&amp; rm -rf /var/lib/apt/lists/* \</div><div class="line">   &amp;&amp; rm redis.tar.gz \</div><div class="line">   &amp;&amp; rm -r /usr/src/redis \</div><div class="line">   &amp;&amp; apt-get purge -y --auto-remove $buildDeps</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>- ��������д����
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">FROM debian:jessie</div><div class="line"></div><div class="line">RUN apt-get update</div><div class="line">RUN apt-get install -y gcc libc6-dev make</div><div class="line">RUN wget -O redis.tar.gz &quot;http://download.redis.io/releases/redis-3.2.5.tar.gz&quot;</div><div class="line">RUN mkdir -p /usr/src/redis</div><div class="line">RUN tar -xzf redis.tar.gz -C /usr/src/redis --strip-components=1</div><div class="line">RUN make -C /usr/src/redis</div><div class="line">RUN make -C /usr/src/redis install</div></pre></td></tr></table></figure>
+</code></pre><ul>
+<li><p><strong>��������</strong></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker build -t nginx:v3 .</div></pre></td></tr></table></figure>
+<blockquote>
+<p>���񹹽������ģ�Context��</p>
+</blockquote>
+</li>
+<li><p><strong>COPY</strong></p>
+<ul>
+<li><p>SHELL��ʽ��</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">COPY &lt;Դ·��&gt;... &lt;Ŀ��·��&gt;</div></pre></td></tr></table></figure>
+<ul>
+<li>exec ��ʽ:<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	COPY [&quot;&lt;Դ·��1&gt;&quot;,... &quot;&lt;Ŀ��·��&gt;&quot;]</div><div class="line">	``` </div><div class="line">- Դ·��&quot;�����Ƕ�����Ҳ������ͨ��������ͨ��������Ҫ���� Go �� filepath.Match �������磺</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>COPY hom* /mydir/<br>COPY hom?.txt /mydir/</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	&gt; &quot;Ŀ��·��&quot;�����������ڵľ���·����Ҳ�����������ڹ���Ŀ¼������·��������Ŀ¼������ WORKDIRָ����ָ������Ŀ��·������Ҫ���ȴ���������Ŀ¼�����ڻ��ڸ����ļ�ǰ���д���ȱʧĿ¼��</div><div class="line">	ʹ�� COPY ָ�Դ�ļ��ĸ���Ԫ���ݶ��ᱣ������������д��ִ��Ȩ�ޡ��ļ�����ʱ���ȡ��������Զ��ھ������ƺ����á��ر��ǹ��������ļ�����ʹ�� Git ���й�����ʱ����</div><div class="line"></div><div class="line"></div><div class="line">- **ADD**</div><div class="line">	&quot;Դ·��&quot;������һ�� URL�����������£�Docker ��������ͼȥ�����������ӵ��ļ��ŵ�&quot;Ŀ��·��&quot;�����غ����ļ�Ȩ���Զ�����Ϊ600��</div><div class="line"></div><div class="line">	�����Ⲣ������Ҫ��Ȩ�ޣ���ô����Ҫ���Ӷ�����һ�� RUN ����Ȩ�޵�����</div><div class="line"></div><div class="line">	����&quot;Դ·��&quot;Ϊһ�� tar.gzip,tar.bzip2,tar.xz���ļ���ADD ָ����Զ���ѹ������ѹ���ļ���&quot;Ŀ��·��&quot;ȥ��</div></pre></td></tr></table></figure>
+<p>FROM scratch<br>ADD ubuntu-xenial-core-cloudimg-amd64-root.tar.gz /</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	�� Docker �ٷ�������ʵ���ĵ���Ҫ�󣬾����ܵ�ʹ�� COPY����Ϊ COPY ����������ȷ�����Ǹ����ļ����ѣ��� ADD �������˸����ӵĹ��ܣ�����ΪҲ��һ�������������ʺ�ʹ�� ADD �ĳ��ϣ��������ἰ����Ҫ�Զ���ѹ���ĳ��ϡ�</div><div class="line"></div><div class="line">	</div><div class="line">- **CMD**</div><div class="line">	- CMD ָ���ĸ�ʽ�� RUN ���ƣ�Ҳ�����ָ�ʽ��</div><div class="line">	- SHELL��ʽ��</div></pre></td></tr></table></figure>
+<p>  CMD &lt;����&gt;</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- exec ��ʽ:</div></pre></td></tr></table></figure>
+<p>  CMD [“��ִ���ļ�”, “����1”, “����2”…]</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- �����б���ʽ</div></pre></td></tr></table></figure>
+<p>  CMD [“����1”, “����2”…]��</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">��ָ���� ENTRYPOINT ָ�������� CMD ָ�������Ĳ�����</div><div class="line"></div><div class="line">&gt; ֮ǰ����������ʱ������˵����Docker �������������������ǽ��̡���Ȼ�ǽ��̣���ô������������ʱ������Ҫָ�������еĳ��򼰲�����CMD ָ����������ָ��Ĭ�ϵ����������̵����������ġ�</div><div class="line"></div><div class="line">&gt; ������ʱ����ָ���µ��������������������е�����Ĭ���������Ĭ�ϵ� CMD �� `/bin/bash` ����������ֱ�� `docker run -it centos` �Ļ�����ֱ�ӽ��� `bash`������Ҳ����������ʱָ�����б�������� `docker run -it ubuntu cat /etc/os-release`���������� `cat /etc/os-release`�����滻��Ĭ�ϵ� `/bin/bash `�����ˣ�������ϵͳ�汾��Ϣ��</div><div class="line"></div><div class="line">��ָ����ʽ�ϣ�һ���Ƽ�ʹ�� exec ��ʽ��������ʽ�ڽ���ʱ�ᱻ����Ϊ JSON ���飬����һ��Ҫʹ��˫���� &quot;������Ҫʹ�õ����š�</div><div class="line"></div><div class="line">����ʹ�� shell ��ʽ�Ļ���ʵ�ʵ������ᱻ��װΪsh -c �Ĳ�������ʽ����ִ�С����磺</div></pre></td></tr></table></figure>
+<p>CMD echo $HOME</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ʵ��ִ���У��Ὣ������Ϊ��</div></pre></td></tr></table></figure>
+<p>CMD [ “sh”, “-c”, “echo $HOME” ]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">������Ϊʲô���ǿ���ʹ�û���������ԭ������Ϊ��Щ���������ᱻ shell ���н���������</div><div class="line">Docker �����������������е�Ӧ�ö�Ӧ����ǰִ̨�У����������������������������������� upstart/systemd ȥ������̨������������û�к�̨�����ĸ��</div><div class="line"></div><div class="line">һЩ��ѧ�߽� CMD дΪ��</div></pre></td></tr></table></figure>
+<p>CMD service nginx start</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ȼ����������ִ�к��������˳��ˡ�������������ȥʹ�� `systemctl `��������ȴ���ָ���ִ�в��ˡ���������Ϊû�и�����ǰ̨����̨�ĸ��û�������������������Ĳ��죬�������Դ�ͳ�������ĽǶ�ȥ����������</div><div class="line"></div><div class="line">�����������ԣ���������������`����Ӧ�ý���`����������Ϊ�������̶����ڵģ��������˳���������ʧȥ�˴��ڵ����壬�Ӷ��˳��������������̲�������Ҫ���ĵĶ�����</div><div class="line"></div><div class="line">��ʹ��`service nginx start`�������ϣ�� `upstart` ���Ժ�̨�ػ�������ʽ���� `nginx` ���񡣶��ղ�˵�� `CMD service nginx start` �ᱻ����Ϊ `CMD [ &quot;sh&quot;, &quot;-c&quot;, &quot;service nginx start&quot;]`������������ʵ������` sh`����ô�� `service nginx start` ������������`sh` Ҳ�ͽ����ˣ�`sh` ��Ϊ�������˳��ˣ���Ȼ�ͻ��������˳���</div><div class="line"></div><div class="line">��ȷ��������ֱ��ִ�� `nginx` ��ִ���ļ�������Ҫ����ǰ̨��ʽ���С����磺</div></pre></td></tr></table></figure>
+<p>CMD [“nginx”, “-g”, “daemon off;”]</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **ENTRYPOINT**</div><div class="line">	</div><div class="line">	&gt; `ENTRYPOINT` ��Ŀ�ĺ� `CMD` һ����������ָ�������������򼰲�����`ENTRYPOINT` ������ʱҲ���������������� `CMD` Ҫ���Է�������Ҫͨ�� `docker run` �Ĳ��� `--entrypoint` ��ָ����</div><div class="line">	��ָ���� ENTRYPOINT ����`CMD` �ĺ����ͷ����˸ı䣬������ֱ�ӵ�������������ǽ� `CMD` ��������Ϊ�������� `ENTRYPOINT` ָ����仰˵ʵ��ִ��ʱ������Ϊ��</div></pre></td></tr></table></figure>
+<p><entrypoint> “<cmd>“</cmd></entrypoint></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">����һ���þ�������������һ��ʹ��</div><div class="line">����������Ҫһ����֪�Լ���ǰ���� IP �ľ�������ô�������� CMD ��ʵ�֣�</div></pre></td></tr></table></figure>
+<p>mkdir ~/myip/<br>cd ~/myip/<br>tee Dockerfile &lt;&lt;’EOF’<br>FROM centos<br>RUN  yum -y install wget \<br>   &amp;&amp; wget -O /etc/yum.repos.d/CentOS-Base.repo <a href="http://mirrors.aliyun.com/repo/Centos-7.repo" target="_blank" rel="external">http://mirrors.aliyun.com/repo/Centos-7.repo</a> \<br>   &amp;&amp;wget -O /etc/yum.repos.d/epel.repo <a href="http://mirrors.aliyun.com/repo/epel-7.repo" target="_blank" rel="external">http://mirrors.aliyun.com/repo/epel-7.repo</a> \<br>   &amp;&amp;yum -y install  curl<br>CMD [ “curl”, “-s”, “<a href="http://ip.cn" target="_blank" rel="external">http://ip.cn</a>“ ]<br>EOF<br>docker build  -t myip .</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">����һ����������</div></pre></td></tr></table></figure>
+<p>[root@node1 myip]# docker run  myip<br>��ǰ IP��123.117.85.77 ���ԣ������� ��ͨ</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ô��������������ֱ�ӰѾ�����������ʹ���ˣ���������ϣ���Ӳ����أ�</div><div class="line">�������� CMD �п��Կ���ʵ�ʵ������� curl����ô��������ϣ����ʾ HTTP ͷ��Ϣ������Ҫ���� -i ��������ô���ǿ���ֱ�Ӽ� -i ������ docker run myip ô��</div></pre></td></tr></table></figure>
+<p>[root@node1 myip]# docker rum myip -i<br>unknown shorthand flag: ‘i’ in -i<br>See ‘docker –help’.<br>…</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">���ھ������������� command������ʱ���滻 CMD ��Ĭ��ֵ������������ -i �滻��ԭ���� CMD��������������ԭ���� curl -s http://ip.cn ���档�� -i �����������������Ȼ�Ҳ�����</div><div class="line"></div><div class="line">��������ϣ������ -i �����������Ǿͱ������������������������</div></pre></td></tr></table></figure>
+<p>[root@node1 myip]# docker run myip curl -s <a href="http://ip.cn" target="_blank" rel="external">http://ip.cn</a> -i<br>HTTP/1.1 200 OK<br>Server: nginx/1.10.0 (Ubuntu)<br>Date: Fri, 24 Mar 2017 02:21:43 GMT<br>Content-Type: text/html; charset=UTF-8<br>Transfer-Encoding: chunked<br>Connection: keep-alive</p>
+<p>��ǰ IP��123.117.85.77 ���ԣ������� </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ʹ�� ENTRYPOINT �Ϳ��Ը� docker ���Σ��޸�docker����</div></pre></td></tr></table></figure>
+<p>cd ~/myip/<br>tee Dockerfile &lt;&lt;’EOF’<br>FROM centos<br>RUN  yum -y install wget \<br>   &amp;&amp; wget -O /etc/yum.repos.d/CentOS-Base.repo <a href="http://mirrors.aliyun.com/repo/Centos-7.repo" target="_blank" rel="external">http://mirrors.aliyun.com/repo/Centos-7.repo</a> \<br>   &amp;&amp;wget -O /etc/yum.repos.d/epel.repo <a href="http://mirrors.aliyun.com/repo/epel-7.repo" target="_blank" rel="external">http://mirrors.aliyun.com/repo/epel-7.repo</a> \<br>   &amp;&amp;yum -y install  curl<br>ENTRYPOINT [ “curl”, “-s”, “<a href="http://ip.cn" target="_blank" rel="external">http://ip.cn</a>“ ]<br>EOF<br>docker build  -t myip .</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�ٴ�����</div></pre></td></tr></table></figure>
+<p>[root@node1 myip]# docker run myip<br>��ǰ IP��123.117.85.77 ���ԣ�������</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>[root@node1 myip]# docker run myip -i
+HTTP/1.1 200 OK
+Server: nginx/1.10.0 (Ubuntu)
+Date: Fri, 24 Mar 2017 02:24:42 GMT
+Content-Type: text/html; charset=UTF-8
+Transfer-Encoding: chunked
+Connection: keep-alive
+
+��ǰ IP��123.117.85.77 ���ԣ�������
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��������Ӧ������ǰ��׼������</div><div class="line">[redis�Ĺٷ�dockerfile]( https://github.com/docker-library/redis/blob/master/3.2/alpine/Dockerfile)</div></pre></td></tr></table></figure>
+
+FROM alpine:3.5
+...
+RUN addgroup -S redis &amp;&amp; adduser -S -G redis redis
+...
+ENTRYPOINT [&quot;docker-entrypoint.sh&quot;]
+
+EXPOSE 6379
+CMD [ &quot;redis-server&quot; ]
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">���Կ�������Ϊ�� redis ���񴴽��� redis �û�����������ָ���� ENTRYPOINT Ϊ docker-entrypoint.sh �ű���</div></pre></td></tr></table></figure>
+
+#!/bin/sh
+...
+# allow the container to be started with `--user`
+if [ &quot;$1&quot; = &apos;redis-server&apos; -a &quot;$(id -u)&quot; = &apos;0&apos; ]; then
+    chown -R redis .
+    exec su-exec redis &quot;$0&quot; &quot;$@&quot;
+fi
+
+exec &quot;$@&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�ýű������ݾ��Ǹ��� CMD ���������жϣ������� `redis-server` �Ļ������л��� `redis` �û�������������������������ʹ�� `root `����ִ�С����磺</div></pre></td></tr></table></figure>
+
+$ docker run -it redis id
+uid=0(root) gid=0(root) groups=0(root)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **ENV ���û�������**</div><div class="line">	��ʽ�����֣�</div><div class="line">		- `ENV &lt;key&gt; &lt;value&gt;`</div><div class="line">		- `ENV &lt;key1&gt;=&lt;value1&gt; &lt;key2&gt;=&lt;value2&gt;...`</div><div class="line">	����ָ���ܼ򵥣��������û����������ѣ������Ǻ���������ָ��� RUN����������ʱ��Ӧ�ã�������ֱ��ʹ�����ﶨ���Ļ���������</div></pre></td></tr></table></figure>
+
+ENV VERSION=1.0 DEBUG=on \
+NAME=&quot;Happy Feet&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- **ARG ��������**</div><div class="line">	- ��ʽ��</div><div class="line">		`ARG &lt;������&gt;[=&lt;Ĭ��ֵ&gt;]`</div><div class="line">	���������� ENV ��Ч��һ�����������û�������������ͬ���ǣ�ARG �����õĹ��������Ļ����������ڽ�����������ʱ�ǲ���������Щ���������ġ������� ARG ��������֮������Ϣ����Ϊ docker history ���ǿ��Կ�������ֵ�ġ�</div><div class="line">	</div><div class="line">- **VOLUME ����������**</div><div class="line">	- ��ʽ:</div></pre></td></tr></table></figure>
+
+    VOLUME [&quot;&lt;·��1&gt;&quot;, &quot;&lt;·��2&gt;&quot;...]
+    VOLUME &lt;·��&gt;
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&gt; ֮ǰ����˵������������ʱӦ�þ������������洢�㲻����д�������������ݿ�����Ҫ���涯̬���ݵ�Ӧ�ã������ݿ��ļ�Ӧ�ñ����ھ�(volume)�У��������½����ǻ���һ������ Docker ���ĸ��Ϊ�˷�ֹ����ʱ�û����ǽ���̬�ļ�������Ŀ¼����Ϊ������ Dockerfile �У����ǿ�������ָ��ĳЩĿ¼����Ϊ������������������ʱ�����û���ָ�����أ���Ӧ��Ҳ�����������У������������洢��д���������ݡ�</div></pre></td></tr></table></figure>
+
+VOLUME /data
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Ҳ��������ʱ���������������á����磺</div></pre></td></tr></table></figure>
+
+docker run -d -v mydata:/data xxxx
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	�����������У���ʹ���� mydata �������������ص��� /data ����λ�ã������� Dockerfile �ж������������Ĺ������á�</div><div class="line">	</div><div class="line">- **EXPOSE �����˿�**</div><div class="line">	- ��ʽ:</div></pre></td></tr></table></figure>
+
+    EXPOSE &lt;�˿�1&gt; [&lt;�˿�2&gt;...]
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">	EXPOSE ָ������������ʱ�����ṩ�����˿ڣ�������ʱ��������Ϊ��������Ӧ�þͻῪ�������˿ڵķ�����</div><div class="line">	</div><div class="line">	- �� Dockerfile ��д�������������������ô�:</div><div class="line">		- ��������ʹ�����������������������ػ��˿ڣ��Է�������ӳ��</div><div class="line">		- ������ʱʹ�������˿�ӳ��ʱ��Ҳ���� docker run -P ʱ�����Զ�����ӳ�� EXPOSE �Ķ˿ڡ�</div><div class="line">	&gt; ���⣬������ Docker �汾�л���һ���������ô�����ǰ����������������Ĭ���Ž������У�����������������֮�䶼����ֱ�ӷ��ʣ���������һ���İ�ȫ�����⡣��������һ�� Docker �������� --icc=false����ָ���ò������������佫Ĭ���޷����ã����ǻ�����ʹ���� --links �����������ſ��Ի�ͨ������ֻ�о����� EXPOSE �������Ķ˿ڲſ��Ա����ʡ����� --icc=false ���÷����������� docker network ���Ѿ����������ˣ�ͨ���Զ����������Ժ����ɵ�ʵ���������Ļ��������롣</div><div class="line">	</div><div class="line">	</div><div class="line">- **WORKDIR ָ������Ŀ¼**</div><div class="line">	- ��ʽ:</div></pre></td></tr></table></figure>
+
+    WORKDIR &lt;����Ŀ¼·��&gt;
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">ʹ�� WORKDIR ָ��������ָ������Ŀ¼�����߳�Ϊ��ǰĿ¼�����Ժ������ĵ�ǰĿ¼�ͱ���Ϊָ����Ŀ¼������Ŀ¼�����ڣ�WORKDIR �����㽨��Ŀ¼��</div><div class="line">֮ǰ�ᵽһЩ��ѧ�߳����Ĵ����ǰ� Dockerfile ��ͬ�� Shell �ű�����д�����ִ��������⻹���ܻᵼ�³������������Ĵ�����</div></pre></td></tr></table></figure>
+
+RUN cd /app
+RUN echo &quot;hello&quot; &gt; world.txt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	&gt; ���������� Dockerfile ���й����������к󣬻ᷢ���Ҳ��� /app/world.txt �ļ������������ݲ���hello��ԭ����ʵ�ܼ򵥣��� Shell �У�����������ͬһ������ִ�л���������ǰһ�������޸ĵ��ڴ�״̬����ֱ��Ӱ����һ��������� Dockerfile �У������� RUN ������ִ�л���������ͬ����������ȫ��ͬ�������������Ƕ� Dokerfile �����ֲ��洢�ĸ���˽������µĴ�����</div><div class="line">	</div><div class="line">	&gt; ֮ǰ˵��ÿһ�� `RUN `��������һ��������ִ�����Ȼ���ύ�洢���ļ���������һ�� `RUN cd /app `��ִ�н����ǵ�ǰ���̵Ĺ���Ŀ¼������һ���ڴ��ϵı仯���ѣ����������������κ��ļ������������ڶ�����ʱ������������һ��ȫ�µ�����������һ������������ȫû��ϵ����Ȼ�����ܼ̳�ǰһ�㹹�������е��ڴ��仯��</div><div class="line"></div><div class="line">	����������Ҫ�ı��Ժ������Ĺ���Ŀ¼��λ�ã���ôӦ��ʹ�� `WORKDIR` ָ�</div><div class="line">- **USER ָ����ǰ�û�**</div><div class="line">	- ��ʽ:</div></pre></td></tr></table></figure>
+
+    USER &lt;�û���&gt;
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">USER ָ���� WORKDIR ���ƣ����Ǹı价��״̬��Ӱ���Ժ��Ĳ㡣WORKDIR �Ǹı乤��Ŀ¼��USER ���Ǹı�֮������ִ�� RUN, CMD �Լ� ENTRYPOINT �������������ݡ�</div><div class="line"></div><div class="line">��Ȼ���� WORKDIR һ����USER ֻ�ǰ������л���ָ���û����ѣ������û����������Ƚ����õģ������޷��л���</div></pre></td></tr></table></figure>
+
+RUN groupadd -r redis &amp;&amp; useradd -r -g redis redis
+USER redis
+RUN [ &quot;redis-server&quot; ]
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">- **HEALTHCHECK ��������**</div><div class="line">	- ��ʽ:</div></pre></td></tr></table></figure>
+
+    HEALTHCHECK [ѡ��] CMD &lt;����&gt;�����ü�����������״��������
+    HEALTHCHECK NONE���������������н�������ָ�ʹ�����п������ε��佡������ָ��
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">HEALTHCHECK ָ���Ǹ��� Docker Ӧ�����ν����ж�������״̬�Ƿ����������� Docker 1.12 ��������ָ�</div><div class="line"></div><div class="line">��û�� HEALTHCHECK ָ��ǰ��Docker ����ֻ����ͨ���������������Ƿ��˳����ж������Ƿ�״̬�쳣���ܶ���������û���⣬��������������������״̬��������ѭ��״̬��Ӧ�ý��̲����˳������Ǹ������Ѿ��޷��ṩ�����ˡ��� 1.12 ��ǰ��Docker �������⵽����������״̬���Ӷ��������µ��ȣ����¿��ܻ��в��������Ѿ��޷��ṩ������ȴ���ڽ����û�������</div><div class="line"></div><div class="line">���� 1.12 ֮����Docker �ṩ�� HEALTHCHECK ָ�ͨ����ָ��ָ��һ������������������ж����������̵ķ���״̬�Ƿ����������Ӷ��Ƚ���ʵ�ķ�Ӧ����ʵ��״̬��</div><div class="line"></div><div class="line">����һ������ָ���� HEALTHCHECK ָ����������������������ʼ״̬��Ϊ starting���� HEALTHCHECK ָ�������ɹ�����Ϊ healthy����������һ������ʧ�ܣ�������Ϊ unhealthy��</div><div class="line"></div><div class="line">HEALTHCHECK ֧������ѡ�</div></pre></td></tr></table></figure>
+
+--interval=&lt;����&gt;�����ν��������ļ�����Ĭ��Ϊ 30 �룻
+--timeout=&lt;ʱ��&gt;�����������������г�ʱʱ�䣬������������ʱ�䣬���ν��������ͱ���Ϊʧ�ܣ�Ĭ�� 30 �룻
+--retries=&lt;����&gt;��������ʧ��ָ������������������״̬��Ϊ unhealthy��Ĭ�� 3 �Ρ�
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&gt; �� CMD, ENTRYPOINT һ����HEALTHCHECK ֻ���Գ���һ�Σ�����д�˶�����ֻ������һ����Ч��</div><div class="line"></div><div class="line">�� HEALTHCHECK [ѡ��] CMD �����������ʽ�� ENTRYPOINT һ������Ϊ shell ��ʽ���� exec ��ʽ�������ķ���ֵ�����˸ôν��������ĳɹ�������0���ɹ���1��ʧ�ܣ�2����������Ҫʹ������ֵ��</div><div class="line"></div><div class="line">���������и������Ǹ����򵥵� Web ����������ϣ�����ӽ����������ж��� Web �����Ƿ����������������ǿ����� curl �������жϣ��� Dockerfile �� HEALTHCHECK ������ôд��</div></pre></td></tr></table></figure>
+
+mkdir ~/nginxcheck
+cd ~/nginxcheck
+vim Dockerfile
+FROM nginx
+RUN apt-get update &amp;&amp; apt-get install -y curl &amp;&amp; rm -rf /var/lib/apt/lists/*
+HEALTHCHECK --interval=5s --timeout=3s \
+  CMD curl -fs http://localhost/ || exit 1
+
+docker build -t myweb:v1 .
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��������������ÿ 5 ������һ�Σ�����Ϊ���������Լ����ǳ��̣�ʵ��Ӧ�����Խϳ���������������������� 3 ��û��Ӧ����Ϊʧ�ܣ�����ʹ�� curl -fs http://localhost/ || exit 1 ��Ϊ�����������</div><div class="line"></div><div class="line">��������</div></pre></td></tr></table></figure>
+
+docker run -d --name myweb -p 80:82 myweb:v1
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�鿴</div></pre></td></tr></table></figure>
+
+[root@node1 nginxcheck]# docker ps -f name=myweb
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                    PORTS                                 NAMES
+beb18dcc15fe        myweb:v1            &quot;nginx -g &apos;daemon ...&quot;   22 seconds ago      Up 21 seconds (healthy)   80/tcp, 443/tcp, 0.0.0.0:80-&gt;82/tcp   myweb
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	����������������ʧ�ܳ��������Դ�����״̬�ͻ���Ϊ (unhealthy)��</div><div class="line">	������������������������ stdout �Լ� stderr�����ᱻ�洢�ڽ���״̬������� docker inspect ���鿴��</div><div class="line">	</div><div class="line">- **ONBUILD Ϊ����������**</div><div class="line">	ONBUILD ��һ��������ָ�����������������ָ����� RUN, COPY �ȣ�����Щָ��ڵ�ǰ���񹹽�ʱ�����ᱻִ�С�ֻ�е��Ե�ǰ����Ϊ����������ȥ������һ��������ʱ���Żᱻִ�С�</div><div class="line">	���磺</div></pre></td></tr></table></figure>
+
+FROM node:slim
+RUN &quot;mkdir /app&quot;
+WORKDIR /app
+ONBUILD COPY ./package.json /app
+ONBUILD RUN [ &quot;npm&quot;, &quot;install&quot; ]
+ONBUILD COPY . /app/
+CMD [ &quot;npm&quot;, &quot;start&quot; ]
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">�ڹ�������������ʱ�򣬰���ONBUILD�����в����ᱻִ�У����ǵ�������������Ϊ�������񹹽�ʱ�������оͻ�ִ�С�</div></pre></td></tr></table></figure>
+
+#���ȹ�����������
+docker build -t my-node .
+
+#��������Ŀ��Ҫʹ������Dockerfile�����ľ�����Ϊ��������ʱ��ֱ��дDockerfile���������������л�����Dockerfile��ִ��
+FROM my-node
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- **�����������񷽷�**</div><div class="line">	���˱�׼��ʹ�� Dockerfile ���ɾ����ķ����⣬���ڸ���������������ʷԭ�򣬻��ṩ��һЩ���������������ɾ�����</div><div class="line">	</div><div class="line">	- �� rootfs ѹ��������</div></pre></td></tr></table></figure>
+
+    ��ʽ��docker import [ѡ��] &lt;�ļ�&gt;|&lt;URL&gt;|- [&lt;�ֿ���&gt;[:&lt;��ǩ&gt;]]
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ѹ���������Ǳ����ļ���Զ�� Web �ļ��������Ǵӱ�׼�����еõ���ѹ���������ھ��� / Ŀ¼չ������ֱ����Ϊ������һ���ύ��</div><div class="line"></div><div class="line">����������Ҫ����һ�� OpenVZ �� Ubuntu 14.04 ģ���ľ�����</div></pre></td></tr></table></figure>
+
+    docker import \
+    http://download.openvz.org/template/precreated/ubuntu-14.04-x86_64-minimal.tar.gz \
+    openvz/ubuntu:14.04
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	���������Զ������� ubuntu-14.04-x86_64-minimal.tar.gz �ļ���������Ϊ���ļ�ϵͳչ�����룬������Ϊ���� openvz/ubuntu:14.04��</div><div class="line">	</div><div class="line">- docker save �� docker load</div><div class="line">	Docker ���ṩ�� docker load �� docker save ������Խ����񱣴�Ϊһ�� tar �ļ���Ȼ�����䵽��һ��λ���ϣ��ټ��ؽ�����������û�� Docker Registry ʱ�������������Ѿ����Ƽ�������Ǩ��Ӧ��ֱ��ʹ�� Docker Registry��������ֱ��ʹ�� Docker Hub ����ʹ������˽�� Registry �����ԡ�</div><div class="line">	</div><div class="line">	ʹ�� docker save �������Խ����񱣴�Ϊ�鵵�ļ���</div></pre></td></tr></table></figure>
+
+    docker pull alpine
+    docker save alpine |gzip &gt; alpine.tar.gz
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ȼ�����ǽ� alpine-latest.tar.gz �ļ����Ƶ��˵�����һ�������ϣ����������������������ؾ�����</div></pre></td></tr></table></figure>
+
+    docker load -i alpine-latest.tar.gz
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## ʹ������</div><div class="line">### ��������</div><div class="line">	�������������ַ�ʽ��һ���ǻ��ھ����½�һ������������������һ���ǽ�����ֹ״̬��stopped������������������</div><div class="line">	</div><div class="line">- **��������������**</div><div class="line">	������ docker run ����������ʱ��Docker �ں�̨���еı�׼����������</div><div class="line">		1. ���鱾���Ƿ�����ָ���ľ��񣬲����ھʹӹ��вֿ�����</div><div class="line">		1. ���þ��񴴽�������һ������</div><div class="line">		1. ����һ���ļ�ϵͳ������ֻ���ľ�������������һ���ɶ�д��</div><div class="line">		1. �������������õ����Žӿ����Ž�һ�������ӿڵ�������ȥ</div><div class="line">		1. �ӵ�ַ������һ�� ip ��ַ������</div><div class="line">		1. ִ���û�ָ����Ӧ�ó���</div><div class="line">		1. ִ�����Ϻ���������ֹ</div><div class="line">	</div><div class="line"></div><div class="line">- **ʹ��docker run����**</div><div class="line">	��������������һ�� ��Hello World����֮����ֹ������</div></pre></td></tr></table></figure>
+
+docker run centos /bin/echo &apos;Hello world&apos;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">����һ��ǰ̨��bash���̣�-t ѡ����Docker����һ��α�նˣ�pseudo-tty�����󶨵������ı�׼�����ϣ�-i ���������ı�׼���뱣�ִ򿪡�</div></pre></td></tr></table></figure>
+
+docker run -t -i centos /bin/bash
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- **ʹ��docker start��������ֹ����**</div></pre></td></tr></table></figure>
+
+docker start  �������ֻ�ID
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">�鿴��������Դռ��,ֻ��һ��bash����</div></pre></td></tr></table></figure>
+
+[root@94b57792acbf /]# ps aux
+USER        PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root          1  0.0  0.1  11768  1932 ?        Ss   07:19   0:00 /bin/bash
+root         56  0.0  0.1  47440  1672 ?        R+   07:27   0:00 ps aux
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	</div><div class="line">- **�������Ժ�̨����ģʽ����**	</div><div class="line">	������ʱ������Ҫ�� Docker�ں�̨���ж�����ֱ�Ӱ�ִ�������Ľ��������ڵ�ǰ�������¡���ʱ������ͨ������ -d ������ʵ�֡�</div><div class="line">	ʹ���������������𣺲�ʹ�� -d ������</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# docker run centos /bin/bash -c &quot;while true; do echo hello world; sleep 1; done&quot;
+hello world
+hello world
+hello world
+hello world
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">���е���������������������</div><div class="line"></div><div class="line">��-d����</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# docker run  -d centos /bin/bash -c &quot;while true; do echo hello world; sleep 1; done&quot;
+a8e42575a9ff340c65f0023c77926b0f80051f53ade13c38847f0e8a6319ee63
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">��ʱ�������ں�̨���в������������Ľ�����ӡ���������ϣ�����ʹ�� docker logs �鿴</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# docker logs a8e42575a9ff
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	&gt; ע�� �����Ƿ��᳤�����У��Ǻ�docker runָ���������йأ��� -d �����޹ء�</div><div class="line">	</div><div class="line">- **��ֹ����**</div></pre></td></tr></table></figure>
+
+docker stop {CONTAINER ID| NAMES}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	������һ�½���ֻ������һ��bash���������û�ͨ�� exit ������ Ctrl+d ���˳��ն�ʱ��������������������ֹ��</div><div class="line">	</div><div class="line">- **��������**	</div><div class="line">	attach ����</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# docker run -dit centos /bin/bash
+14c0b4a935f57317f25111aa55beed0f3329afe60871ca06c44a12acc4172140
+[root@node1 ~]# docker ps 
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS                 PORTS                                 NAMES
+14c0b4a935f5        centos              &quot;/bin/bash&quot;              25 seconds ago      Up 24 seconds                                                dreamy_wiles
+
+[root@node1 ~]# docker attach dreamy_wiles
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	&gt; ����ʹ�� attach ������ʱ�򲢲����㡣����������ͬʱ attach ��ͬһ��������ʱ�������д��ڶ���ͬ����ʾ����ĳ����������������ʱ,��������Ҳ�޷�ִ�в�����,ʹ��attach�����˳�ʹ��ctrl+p+q �˳���Ӱ���������С�</div><div class="line"></div><div class="line">- **nsenter ����**	</div><div class="line">	��װ����</div></pre></td></tr></table></figure>
+
+yum -y install  util-linux
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">��ȡ����PID</div></pre></td></tr></table></figure>
+
+PID=$(docker inspect --format &quot;{{ .State.Pid }}&quot; dreamy_wiles)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">��������</div></pre></td></tr></table></figure>
+
+nsenter --target $PID --mount --uts --ipc --net --pid
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">- **���뵼������**	</div><div class="line">	������������</div></pre></td></tr></table></figure>
+
+docker export 7691a814370e &gt; centos.tar
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">������������</div></pre></td></tr></table></figure>
+
+cat centos.tar | sudo docker import - myimages/centos:v1.0
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ɾ������</div></pre></td></tr></table></figure>
+
+docker rm {CONTAINER ID| NAMES}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">### Docer ���ݹ���</div><div class="line">	Docker �ڲ�����������Ҫ�����ַ�ʽ��</div><div class="line">		- ���ݾ���Data volumes��</div><div class="line">		- ���ݾ�������Data volume containers��</div><div class="line">	</div><div class="line">- **���ݾ�**	</div><div class="line">	���ݾ���һ���ɹ�һ������������ʹ�õ�����Ŀ¼�����ƹ� UFS�������ṩ�ܶ����õ����ԣ�</div><div class="line">		- ���ݾ�����������֮�乲��������</div><div class="line">		- �����ݾ����޸Ļ�������Ч</div><div class="line">		- �����ݾ��ĸ��£�����Ӱ�쾵��</div><div class="line">		- ���ݾ�Ĭ�ϻ�һֱ���ڣ���ʹ������ɾ��</div><div class="line">	&gt; ע�⣺���ݾ���ʹ�ã������� Linux �¶�Ŀ¼���ļ����� mount�������еı�ָ��Ϊ���ص���Ŀ¼�е��ļ������ص�������ʾ�����ǹ��ص����ݾ���</div><div class="line">	</div><div class="line">	ʹ�� `-v` ����Ҳ����ָ������һ������������Ŀ¼��������ȥ��</div></pre></td></tr></table></figure>
+
+docker run -dit --name test  -v /tmp:/opt:ro centos  /bin/bash
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">- **���ݾ�����**	</div><div class="line">	���ݾ���������ʵ����һ��������������ר�������ṩ���ݾ��������������صġ�</div></pre></td></tr></table></figure>
+
+docker run -dit -v /dbdata --name dbdata centos /bin/bash
+[root@node1 ~]# docker attach dbdata
+[root@a9642e6adf7b /]# touch /dbdata/{1..10}.txt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">������������ʹ�� --volumes-from ������ dbdata �����е����ݾ���</div></pre></td></tr></table></figure>
+
+docker run -dit --volumes-from dbdata --name db1 centos /bin/bash
+docker run -dit --volumes-from dbdata --name db2 centos /bin/bash
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">��֤</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# docker attach db1
+[root@87f964ea0f31 /]# ls /dbdata/
+1.txt  10.txt  2.txt  3.txt  4.txt  5.txt  6.txt  7.txt  8.txt  9.txt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	&gt; ע�⣺ʹ�� --volumes-from �������������ݾ��������Լ�������Ҫ����������״̬��</div><div class="line">	</div><div class="line">	����ɾ���˹��ص����������� dbdata��db1 �� db2�������ݾ������ᱻ�Զ�ɾ��������Ҫɾ��һ�����ݾ���������ɾ������һ������������������ʱʹ�� docker rm -v ������ָ��ͬʱɾ�������������� ���������û�������֮���������ƶ����ݾ���</div><div class="line"></div><div class="line">- **�������ݾ����������ݡ��ָ���Ǩ�����ݾ�**	</div><div class="line">	�����������ݾ������е����ݽ��н��б��ݡ��ָ���Ǩ�ơ�</div><div class="line">	`����`</div><div class="line">	����ʹ�� --volumes-from ����������һ������ dbdata ��������������������������/opt/backup�������� /backup Ŀ¼���������£�</div></pre></td></tr></table></figure>
+
+docker run --volumes-from dbdata -v /opt/backup:/backup centos tar cvf /backup/backup.tar /dbdata
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">`�ָ�`</div><div class="line">����Ҫ�ָ����ݵ�һ�����������ȴ���һ�����п����ݾ������� dbdata2��</div></pre></td></tr></table></figure>
+
+docker run --volumes-from dbdata2 -v /opt/backup:/backup centos tar xvf /backup/backup.tar
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Ϊ�˲鿴/��֤�ָ������ݣ�����������һ����������ͬ�������������鿴</div></pre></td></tr></table></figure>
+
+docker run --volumes-from dbdata2 centos /bin/ls /dbdata
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">## Docker registry</div><div class="line">### Registry �� Repository ������</div><div class="line">	ע����������Registry�����ǹ����ֿ��ľ�����������ÿ���������Ͽ����ж����ֿ⣨Repository������ÿ���ֿ⣨Repository�������ж���������</div><div class="line">### ����registry</div><div class="line">	registry������Ҫ���˿���ʹ�ã���Ҫhttps�ſ��ԣ����ǿ�������openssl���˽�е�CA������������ǩ�����䷢֤�飬������ǩ��֤�����ѵ���֤���ȡ�</div><div class="line">### �˽��CA</div><div class="line">	��ʼ��CA��������/etc/pki/CA/�½���֤���������ݿ��ļ�index.txt�����к��ļ�serial����Ϊ֤�����к��ļ��ṩ��ʼֵ��</div></pre></td></tr></table></figure>
+
+touch /etc/pki/CA/{index.txt,serial}
+echo 01 &gt; /etc/pki/CA/serial
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">������Կ�����浽/etc/pki/CA/private/cakey.pem</div></pre></td></tr></table></figure>
+
+(umask 077;openssl genrsa -out  /etc/pki/CA/private/cakey.pem 2048)
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">���ɸ�֤��</div></pre></td></tr></table></figure>
+
+openssl req -new -x509 -key  /etc/pki/CA/private/cakey.pem -out /etc/pki/CA/cacert.pem -days 3650
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��д����Ϣ</div></pre></td></tr></table></figure>
+
+Country Name (2 letter code) [XX]:CN
+State or Province Name (full name) []:Beijing
+Locality Name (eg, city) [Default City]:Beijing
+Organization Name (eg, company) [Default Company Ltd]:mycompany
+Organizational Unit Name (eg, section) []:ops
+Common Name (eg, your name or your server&apos;s hostname) []:registry.mycompany.com
+Email Address []:admin@mycompany.com
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ʹLinuxϵͳ���θ�֤��</div></pre></td></tr></table></figure>
+
+cat /etc/pki/CA/cacert.pem &gt;&gt; /etc/pki/tls/certs/ca-bundle.crt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ǩ��֤��</div></pre></td></tr></table></figure>
+
+yum -y install nginx //��װnginx
+mkdir  /etc/nginx/ssl //����sslĿ¼����������Կ�ļ���֤�������ļ�
+//������Կ�ļ���֤�������ļ�
+(umask 077;openssl genrsa -out /etc/nginx/ssl/docker.key 2048)
+openssl req -new -key /etc/nginx/ssl/docker.key -out /etc/nginx/ssl/docker.csr
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��д��������Ϣǰ����Ҫ��˽��CA����Ϣһ��</div></pre></td></tr></table></figure>
+
+Country Name (2 letter code) [XX]:CN
+State or Province Name (full name) []:Beijing
+Locality Name (eg, city) [Default City]:Beijing
+Organization Name (eg, company) [Default Company Ltd]:mycompany
+Organizational Unit Name (eg, section) []:ops
+Common Name (eg, your name or your server&apos;s hostname) []:registry.mycompany.com
+Email Address []:admin@mycompany.com
+#ֱ�ӻس�
+A challenge password []:
+An optional company name []:
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ǩ����֤��</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# openssl ca -in /etc/nginx/ssl/docker.csr -out /etc/nginx/ssl/docker.crt -days 3650
+Using configuration from /etc/pki/tls/openssl.cnf
+Check that the request matches the signature
+Signature ok
+Certificate Details:
+        Serial Number: 1 (0x1)
+        Validity
+            Not Before: Mar 30 08:12:58 2017 GMT
+            Not After : Mar 28 08:12:58 2027 GMT
+        Subject:
+            countryName               = CN
+            stateOrProvinceName       = Beijing
+            organizationName          = mycompany
+            organizationalUnitName    = ops
+            commonName                = registry.mycompany.com
+            emailAddress              = admin@mycompany.com
+        X509v3 extensions:
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            Netscape Comment: 
+                OpenSSL Generated Certificate
+            X509v3 Subject Key Identifier: 
+                59:27:56:F3:67:46:4B:6D:A5:1B:66:C0:D8:C7:7D:0F:CA:90:C2:ED
+            X509v3 Authority Key Identifier: 
+                keyid:76:4A:E0:BB:91:F5:0C:B2:67:2E:D1:3C:74:2B:05:F6:2C:A9:9B:7B
+
+Certificate is to be certified until Mar 28 08:12:58 2027 GMT (3650 days)
+Sign the certificate? [y/n]:y
+
+
+1 out of 1 certificate requests certified, commit? [y/n]y
+Write out database with 1 new entries
+Data Base Updated
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">����index.txt��serial���кŸ���</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# cat /etc/pki/CA/index.txt
+V    270328055023Z        01    unknown    /C=CN/ST=Beijing/O=mycompany/OU=ops/CN=registry.mycompany.com/emailAddress=admin@mycompany.com
+
+[root@node1 ~]# cat /etc/pki/CA/serial
+02
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">### ����localhost�docker-registry</div><div class="line">	����registry</div></pre></td></tr></table></figure>
+
+docker run -d -p 5000:5000 --restart=always --name registry -v /opt/registry:/var/lib/registry registry:2
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��dockerhub����centos������ʹ��docker tag �� centos ������������Ϊ localhost:5000/centos</div></pre></td></tr></table></figure>
+
+docker pull centos &amp;&amp; docker tag centos localhost:5000/centos
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ʹ��docker push �ϴ����ǵľ���</div></pre></td></tr></table></figure>
+
+docker push localhost:5000/centos
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��˽�вֿ����ؾ���</div></pre></td></tr></table></figure>
+
+docker pull  localhost:5000/centos
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">	</div><div class="line">### ����nginx��������docker registry</div><div class="line">	- **Ϊnginx������֤**</div></pre></td></tr></table></figure>
+
+yum -y install httpd-tools
+htpasswd -cb /etc/nginx/conf.d/docker-registry.htpasswd admin admin
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- **����nginx��server**</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# cat /etc/nginx/conf.d/docker-registry.conf
+upstream docker-registry {
+    server 127.0.0.1:5000;
+}
+server {
+        listen       443;
+        server_name           registry.mycompany.com;
+        ssl                   on;
+        ssl_certificate       /etc/nginx/ssl/docker.crt;
+        ssl_certificate_key   /etc/nginx/ssl/docker.key;
+        client_max_body_size 0;
+        chunked_transfer_encoding on;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        location / {
+               auth_basic   &quot;Docker registry&quot;;
+               auth_basic_user_file /etc/nginx/conf.d/docker-registry.htpasswd;
+               proxy_pass  http://docker-registry;
+        }
+         location /_ping{
+               auth_basic off;
+               proxy_pass  http://docker-registry;
+               }
+         location /v1/_ping{
+               auth_basic off;
+               proxy_pass  http://docker-registry;
+               }
+}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **����nginx**</div></pre></td></tr></table></figure>
+
+systemctl restart nginx
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **�޸�hosts**</div></pre></td></tr></table></figure>
+
+10.0.7.1    registry.mycompany.com
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **����**</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# docker login registry.mycompany.com
+Username: admin
+Password: 
+Login Succeeded
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **�ϴ�����**</div></pre></td></tr></table></figure>
+
+docker tag centos registry.mycompany.com/centos
+docker push registry.mycompany.com/centos
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **�鿴**</div></pre></td></tr></table></figure>
+
+curl --user admin:admin  https://registry.mycompany.com/v2/_catalog
+{&quot;repositories&quot;:[&quot;centos&quot;]}
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- **���þ�����������������֤**</div></pre></td></tr></table></figure>
+
+// �޸�hosts
+vim /etc/hosts
+10.0.7.1    registry.mycompany.com
+
+//ͬ����ϵͳ�汾,ֱ�Ӹ���ca-bundle.crt��
+ scp -rp /etc/pki/tls/certs/ca-bundle.crt  root@10.0.7.2:/etc/pki/tls/certs/ca-bundle.crt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ͬ�汾��CA����Կ���͵��ͻ����������ӵ�ca-bundle.crt</div></pre></td></tr></table></figure>
+
+scp -rp  /etc/pki/CA/cacert.pem root@10.0.7.2:/etc/pki/CA/cacert.pem
+cat /etc/pki/CA/cacert.pem &gt;&gt; /etc/pki/tls/certs/ca-bundle.crt
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">����docker������������������docker��ʾx509֤��û����Ȩ</div></pre></td></tr></table></figure>
+
+systemctl daemon-reload
+systemctl restart docker
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��֤</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# curl --user admin:admin  https://registry.mycompany.com/v2/_catalog
+{&quot;repositories&quot;:[&quot;centos&quot;]}
+[root@node1 ~]# docker login registry.mycompany.com
+Username: admin
+Password: 
+Login Succeeded
+[root@node1 ~]# docker pull registry.mycompany.com/centos
+Using default tag: latest
+latest: Pulling from centos
+4969bbd91a1e: Pull complete 
+Digest: sha256:d7f3db1caf4ea76117abce89709ebfc66c9339e13866016b8b2e4eee3ab4bea0
+Status: Downloaded newer image for registry.mycompany.com/centos:latest
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">## Docker ����</div><div class="line">### �鿴����IP</div><div class="line">	- ** ��һ�ַ��� **</div></pre></td></tr></table></figure>
+
+docker run -d --name nginx nginx
+docker inspect --format &apos;{{ .NetworkSettings.IPAddress }}&apos; nginx
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- ** �ڶ��ַ��� **</div></pre></td></tr></table></figure>
+
+docker exec -ti nginx ip add | grep global
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- ** �����ַ��� **</div></pre></td></tr></table></figure>
+
+docker exec -ti nginx cat /etc/hosts
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">### �˿�ӳ��</div><div class="line">	��Docker���ڲ��˿�ͨ���˿�ӳ���ķ���ӳ�䵽��������ĳһ���˿ڣ���ʹ�� -P ����ʱ��Docker ������ӳ��һ�� `49000~49900` �Ķ˿ڵ��ڲ��������ŵ������˿ڡ�</div></pre></td></tr></table></figure>
+
+docker run -d -P nginx
+
+docker ps
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                                         NAMES
+3a5ec1bc2837        nginx               &quot;nginx -g &apos;daemon ...&quot;   About an hour ago   Up About an hour    0.0.0.0:2049-&gt;80/tcp, 0.0.0.0:2048-&gt;443/tcp   adoring_pike
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ͨ��docker logs�鿴Ӧ����Ϣ</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# docker logs -f adoring_pike 
+172.17.0.1 - - [30/Mar/2017:15:02:40 +0000] &quot;GET / HTTP/1.1&quot; 200 612 &quot;-&quot; &quot;curl/7.29.0&quot; &quot;-&quot;
+10.0.7.1 - - [30/Mar/2017:15:02:47 +0000] &quot;GET / HTTP/1.1&quot; 200 612 &quot;-&quot; &quot;curl/7.29.0&quot; &quot;-&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">-p��Сд�ģ�������ָ��Ҫӳ���Ķ˿ڣ����ң���һ��ָ���˿���ֻ���԰���һ��������</div><div class="line">֧�ֵĸ�ʽ��`ip:hostPort:containerPort` | `ip::containerPort` | `hostPort:containerPort`��</div><div class="line"></div><div class="line">ӳ�䵽��������IP�� 80 �˿�ӳ�䵽������ 80 �˿�</div></pre></td></tr></table></figure>
+
+docker run -d -p 80��80 nginx
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�鿴ӳ���Ķ˿�</div></pre></td></tr></table></figure>
+
+docker port adoring_pike
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">## ��������</div><div class="line">	ʹ�� `--link` ��������������֮�䰲ȫ�Ľ��н�����</div><div class="line">	�����ȴ���һ���µ����ݿ�������</div></pre></td></tr></table></figure>
+
+docker run -d --name db training/postgres
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ȼ�󴴽�һ�� web ���������������ӵ� db ����</div></pre></td></tr></table></figure>
+
+docker run -d -P --name web --link db:db training/webapp python app.py
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ʱ��db ������ web ��������������ϵ��</div><div class="line">`--link` �����ĸ�ʽΪ `--link name:alias`������ name ��Ҫ���ӵ����������ƣ�alias ���������ӵı�����</div><div class="line"></div><div class="line">ʹ�� `env` �������鿴 web �����Ļ�������</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# docker run --rm --name web2 --link db:db training/webapp env
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=f2868b0479d8
+DB_PORT=tcp://172.17.0.8:5432
+DB_PORT_5432_TCP=tcp://172.17.0.8:5432
+DB_PORT_5432_TCP_ADDR=172.17.0.8
+DB_PORT_5432_TCP_PORT=5432
+DB_PORT_5432_TCP_PROTO=tcp
+DB_NAME=/web2/db
+DB_ENV_PG_VERSION=9.3
+HOME=/root
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">���� DB_ ��ͷ�Ļ��������ǹ� web �������� db ����ʹ�ã�ǰ׺���ô�д�����ӱ�����</div><div class="line"></div><div class="line">���˻���������`Docker` ������ `host` ��Ϣ���������� `/etc/hosts `���ļ��������Ǹ����� web �� hosts �ļ�</div></pre></td></tr></table></figure>
+
+[root@node1 ~]# docker run -t -i --rm --link db:db training/webapp /bin/bash
+root@8299f9685894:/opt/webapp# cat /etc/hosts
+127.0.0.1    localhost
+::1    localhost ip6-localhost ip6-loopback
+fe00::0    ip6-localnet
+ff00::0    ip6-mcastprefix
+ff02::1    ip6-allnodes
+ff02::2    ip6-allrouters
+172.17.0.8    db d65ebb9124a4
+172.17.0.10    8299f9685894
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">## docker������ģʽ</div><div class="line">	Docker������ģʽ��Ϊ����</div><div class="line">### Bridgeģʽ</div><div class="line">	��Docker��������ʱ�����������ϴ���һ����Ϊdocker0���������ţ���������������Docker���������ӵ��������������ϡ��������ŵĹ�����ʽ���������������ƣ����������ϵ�����������ͨ��������������һ�����������С�</div><div class="line">	</div><div class="line">	��docker0�����з���һ��IP������ʹ�ã�������docker0��IP��ַΪ������Ĭ�����ء��������ϴ���һ����������veth pair�豸��Docker��veth pair�豸��һ�˷����´����������У�������Ϊeth0������������������һ�˷��������У���vethxxx�������Ƶ������������������������豸���뵽docker0�����С�����ͨ��brctl show�����鿴��</div><div class="line">	</div><div class="line">	bridgeģʽ��docker��Ĭ������ģʽ����д--net����������bridgeģʽ��ʹ��docker run -pʱ��dockerʵ������iptables����DNAT������ʵ�ֶ˿�ת�����ܡ�</div><div class="line">	</div><div class="line">	����ʹ��iptables -t nat -vnL�鿴��</div><div class="line">	bridgeģʽ����ͼ��ʾ��</div><div class="line">	![bridgeģʽ](/images/bridge-mode.png)</div><div class="line">	</div><div class="line">	��ʾ��</div></pre></td></tr></table></figure>
+
+docker run -tid --net=bridge --name docker_bri1 ubuntu-base:v3
+docker run -tid --net=bridge --name docker_bri2 ubuntu-base:v3
+
+brctl show
+docker exec -ti docker_bri1 /bin/bash
+docker exec -ti docker_bri1 /bin/bash
+
+ifconfig �Ca
+route �Cn
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">### Hostģʽ</div><div class="line">	��������������ʱ��ʹ��`host`ģʽ����ô������������������һ��������`Network Namespace`�����Ǻ�����������һ��`Network Namespace`�������������������Լ��������������Լ���IP�ȣ�����ʹ����������IP�Ͷ˿ڡ����ǣ��������������棬���ļ�ϵͳ�������б��Ȼ��Ǻ������������ġ�</div><div class="line">	</div><div class="line">	Hostģʽ����ͼ��ʾ��</div><div class="line">	![Hostģʽ](/images/docker-host-mode.png)</div><div class="line">	</div><div class="line">### Containerģʽ</div><div class="line">	����ģʽָ���´������������Ѿ����ڵ�һ����������һ�� Network Namespace�������Ǻ��������������´������������ᴴ���Լ��������������Լ��� IP�����Ǻ�һ��ָ������������ IP���˿ڷ�Χ�ȡ�ͬ�������������������緽�棬���������ļ�ϵͳ�������б��Ȼ��Ǹ����ġ����������Ľ��̿���ͨ�� lo �����豸ͨ�š�</div><div class="line">	</div><div class="line">	Containerģʽʾ��ͼ��</div><div class="line">	![Containerģʽ](/images/docker-container-mode.png)</div><div class="line">	</div><div class="line">### Noneģʽ</div><div class="line">	ʹ��noneģʽ��Docker����ӵ���Լ���Network Namespace�����ǣ�����ΪDocker���������κ��������á�Ҳ����˵������Docker����û��������IP��·�ɵ���Ϣ����Ҫ�����Լ�ΪDocker������������������IP�ȡ�</div><div class="line">	</div><div class="line">	![Noneģʽ](/images/docker-none-mode.png)</div><div class="line">	</div><div class="line">## Docker��������</div><div class="line">### ���� DNS</div><div class="line">	��docker runʱʹ�����²�����</div><div class="line"></div><div class="line">	����	˵��</div><div class="line">	-h HOSTNAME or --hostname=HOSTNAME	�趨�����������������ᱻд�������ڵ� /etc/hostname ��/etc/hosts�������������ⲿ���������Ȳ����� docker ps ����ʾ��Ҳ������������������/etc/hosts ������</div><div class="line">	--link=CONTAINER_NAME:ALIAS	ѡ�����ڴ���������ʱ��������һ�������������������� /etc/hosts �ļ��У����������Ľ��̿���ʹ�������� ALIAS �Ϳ�����������</div><div class="line">	--dns=IP_ADDRESS	���� DNS �������������� /etc/resolv.conf �У����������������������������в��� /etc/hosts �е���������</div><div class="line">	--dns-search=DOMAIN	�趨�����������򣬵��趨������Ϊ .example.com ʱ��������һ����Ϊ host ������ʱ��DNS ��������host���������� host.example.com�� ע�⣺����û���������� 2 ��ѡ�Docker ��Ĭ���������ϵ� /etc/resolv.conf ������������</div><div class="line">	</div><div class="line">### �������ʿ���</div><div class="line">	</div><div class="line">	- ** ���������ⲿ���� **</div><div class="line">		����Ҫ�������ⲿ���磬��Ҫ����ϵͳ��ת��֧�֡���Linux ϵͳ�У�����ת���Ƿ��򿪡�</div></pre></td></tr></table></figure>
+
+    sysctl net.ipv4.ip_forward
+    net.ipv4.ip_forward = 1
+    <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">- ** ����֮������ **</div><div class="line">	����֮���໥���ʣ���Ҫ��������֧�֡�</div><div class="line">	- ���������������Ƿ��Ѿ�������Ĭ�������£������������ᱻ���ӵ� `docker0` �����ϡ�</div><div class="line">	- ����ϵͳ�ķ���ǽ���� `-- iptables `�Ƿ�����ͨ����</div><div class="line"></div><div class="line">- ** �������ж˿� **</div><div class="line">	������ Docker ����ʱ����Ĭ�ϻ�����һ��ת�����Ե� iptables �� FORWARD ���ϡ�����Ϊͨ����ACCEPT�����ǽ�ֹ��DROP��ȡ�������� --icc=true��ȱʡֵ������ --icc=false����Ȼ�������ֶ�ָ�� --iptables=false �򲻻����� iptables ������</div><div class="line">	</div><div class="line">	�ɼ���Ĭ�������£���ͬ����֮�����������绥ͨ�ġ�����Ϊ�˰�ȫ���ǣ�������docker�����޸�/usr/lib/systemd/system/docker.service����ʱ����--icc=false��</div><div class="line">	</div><div class="line">- ** ����ָ���˿� **</div><div class="line">	��ͨ�� -icc=false �ر��������ʺ󣬿���ͨ�� `--link=CONTAINER_NAME:ALIAS` ѡ�������������Ŀ��Ŷ˿ڡ�</div><div class="line">	���磬������ Docker ����ʱ������ͬʱʹ�� `--icc=false --iptables=true` �������ر������໥���������ʣ����� `Docker` �����޸�ϵͳ�е� `iptables` ������</div><div class="line">��ʱ��ϵͳ�е� `iptables` ��������������</div></pre></td></tr></table></figure>
+
+iptables -nL
+...
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+DROP       all  --  0.0.0.0/0            0.0.0.0/0
+...
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line">## ���ڼ���</div><div class="line"></div><div class="line">	���ڹ�����docker�����ֿ�һ�㶼�Ƚ���������һ����ʹ�ù��ڵ�һЩ���ٲֿ⣬�簢����</div><div class="line"></div><div class="line">	���룺https://cr.console.aliyun.com/#/accelerator</div><div class="line">	</div><div class="line">	����</div></pre></td></tr></table></figure>
+
+mkdir -p /etc/docker
+cat /etc/docker/daemon.json
+{
+  &quot;registry-mirrors&quot;: [&quot;https://xxxxxxx.mirror.aliyuncs.com&quot;]
+}
+
+
+
+https://xxxxxxx.mirror.aliyuncs.com�滻�������뵽�ĵ�ַ��//https://5f2jam6c.mirror.aliyuncs.com
+
+
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line"></div><div class="line">## Docker Composeʹ��</div><div class="line">### ����</div><div class="line">&gt; Docker Compose��һ���������������и���Ӧ�õ�Docker���ߡ�ʹ��Compose����������һ���ļ��ж���һ��������Ӧ�ã�Ȼ��ʹ��һ����������������Ӧ�ã�����һ��׼��������</div><div class="line"></div><div class="line">&gt; һ��ʹ��Docker������Ӧ�ã�ͨ���ɶ����������ɡ�ʹ��Docker Compose��������Ҫʹ��shell�ű��������������������ļ��У����е�����ͨ��services�����壬Ȼ��ʹ��docker-compose�ű���������ֹͣ������Ӧ�ã���Ӧ���еķ����Լ���������������������</div><div class="line"></div><div class="line">### ��װ</div><div class="line"></div><div class="line">## ��װ docker-compose</div></pre></td></tr></table></figure>
+</code></pre><p>curl -L <a href="https://get.daocloud.io/docker/compose/releases/download/1.18.0/docker-compose-`uname" target="_blank" rel="external">https://get.daocloud.io/docker/compose/releases/download/1.18.0/docker-compose-`uname</a> -s<code>-</code>uname -m` &gt; /usr/local/bin/docker-compose<br>chmod +x /usr/bin/docker-compose<br>docker-compose –version<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">### �����ļ�</div><div class="line">    ����Ϊһ�� `docker-compose` �ο������ļ�:</div></pre></td></tr></table></figure></p>
+<pre><code>version: &apos;2&apos;
+services:
+  web:
+    image: dockercloud/hello-world
+    ports:
+      - 8080
+    networks:
+      - front-tier
+      - back-tier
+
+  redis:
+    image: redis
+    links:
+      - web
+    networks:
+      - back-tier
+
+  lb:
+    image: dockercloud/haproxy
+    ports:
+      - 80:80
+    links:
+      - web
+    networks:
+      - front-tier
+      - back-tier
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock 
+
+networks:
+  front-tier:
+    driver: bridge
+  back-tier:
+driver: bridge
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    ���Կ���һ�ݱ�׼�����ļ�Ӧ�ð��� version��services��networks ���󲿷֣��������ؼ��ľ��� services �� networks �������֣����������� services ����д������</div><div class="line"> </div><div class="line">### image</div></pre></td></tr></table></figure>
+
+services:
+  web:
+    image: hello-world
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">�� services ��ǩ�µĵڶ�����ǩ�� web�������������û��Լ��Զ��壬�����Ƿ������ơ�</div><div class="line">image ����ָ�������ľ������ƻ����� ID�����������ڱ��ز����ڣ�Compose ���᳢����ȡ����������</div><div class="line">����������Щ��ʽ���ǿ��Եģ�</div></pre></td></tr></table></figure>
+
+image: redis
+image: ubuntu:14.04
+image: tutum/influxdb
+image: example-registry.com:4000/postgresql
+image: a4bc65fd
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">   </div><div class="line">### build</div><div class="line">    �������˿��Ի���ָ���ľ��񣬻����Ի���һ�� Dockerfile����ʹ�� up ����֮ʱִ�й�������������������ǩ���� build��������ָ�� Dockerfile �����ļ��е�·����Compose �����������Զ���������������Ȼ��ʹ������������������������</div></pre></td></tr></table></figure>
+
+build: /path/to/build/dir
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ҳ����������·����ֻҪ������ȷ���Ϳ��Զ�ȡ�� Dockerfile��</div></pre></td></tr></table></figure>
+
+build: ./dir
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�趨�����ĸ�Ŀ¼��Ȼ���Ը�Ŀ¼Ϊ׼ָ�� Dockerfile��</div></pre></td></tr></table></figure>
+
+build:
+  context: ../
+  dockerfile: path/of/Dockerfile
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ע�� build ����һ��Ŀ¼��������Ҫָ�� Dockerfile �ļ���Ҫ�� build ��ǩ���Ӽ���ǩ��ʹ�� dockerfile ��ǩָ���������������ӡ�</div><div class="line">������ͬʱָ���� image �� build ������ǩ����ô Compose �ṹ���������ҰѾ�������Ϊ image �������Ǹ����֡�</div></pre></td></tr></table></figure>
+
+build: ./dir
+image: webapp:tag
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��Ȼ������ docker-compose.yml �ж��幹����������ôһ���ٲ��� arg ������ǩ������ Dockerfile �е� ARG ָ��������ڹ���������ָ�����������������ڹ����ɹ���ȡ������ docker-compose.yml �ļ���Ҳ֧��������д����</div></pre></td></tr></table></figure>
+
+build:
+  context: .
+  args:
+    buildno: 1
+    password: secret
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��������д��Ҳ��֧�ֵģ�һ����˵������д�����ʺ��Ķ���</div></pre></td></tr></table></figure>
+
+build:
+  context: .
+  args:
+    - buildno=1
+    - password=secret
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�� ENV ��ͬ���ǣ�ARG ��������ֵ�ġ����磺</div></pre></td></tr></table></figure>
+
+args:
+  - buildno
+  - password
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    �����������̿��������Ǹ�ֵ��</div><div class="line">    </div><div class="line">    &gt; ע�⣺YAML �Ĳ���ֵ��true, false, yes, no, on, off������Ҫʹ�������������������š�˫���ž��ɣ��������ᵱ���ַ���������</div><div class="line">    </div><div class="line">### command</div><div class="line">    ʹ�� command ���Ը�������������Ĭ��ִ�е����</div></pre></td></tr></table></figure>
+
+command: bundle exec thin -p 3000
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ҳ����д������ Dockerfile �еĸ�ʽ��</div></pre></td></tr></table></figure>
+
+command: [bundle, exec, thin, -p, 3000]
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### container_name</div><div class="line">    ǰ��˵�� Compose ���������Ƹ�ʽ�ǣ�&lt;��Ŀ����&gt;&lt;��������&gt;&lt;����&gt;</div><div class="line">    ��Ȼ�����Զ�����Ŀ���ơ��������ƣ���������������ȫ��������������������ʹ��������ǩָ����</div></pre></td></tr></table></figure>
+
+container_name: app
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    �������������־�ָ��Ϊ app �ˡ�</div><div class="line">### depends_on</div><div class="line">    ��ʹ�� Compose ʱ�������ĺô������ٴ������������һ����Ŀ����������˳������Ҫ���ģ�����ֱ�Ӵ��ϵ���������������Ȼ����Ϊ������������������ʧ�ܡ�</div><div class="line">    ������û�������ݿ�������ʱ��������Ӧ����������ʱ��Ӧ����������Ϊ�Ҳ������ݿ����˳���Ϊ�˱�����������������Ҫ����һ����ǩ������ depends_on��������ǩ�����������������������Ⱥ������⡣</div><div class="line">    </div><div class="line">    �������������������� redis �� db �������������������� web ������</div></pre></td></tr></table></figure>
+
+version: &apos;2&apos;
+services:
+  web:
+    build: .
+    depends_on:
+      - db
+      - redis
+  redis:
+    image: redis
+  db:
+    image: postgres
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    &gt; ע�����ǣ�Ĭ��������ʹ�� docker-compose up web �����ķ�ʽ���� web ����ʱ��Ҳ������ redis �� db ������������Ϊ�������ļ��ж�����������ϵ��</div><div class="line">   </div><div class="line">### dns</div><div class="line">    �� --dns ����һ����;����ʽ���£�</div></pre></td></tr></table></figure>
+
+dns: 8.8.8.8
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">Ҳ������һ���б���</div></pre></td></tr></table></figure>
+
+dns:
+  - 8.8.8.8
+  - 9.9.9.9
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">���� dns_search ������Ҳ���ƣ�</div></pre></td></tr></table></figure>
+
+dns_search: example.com
+dns_search:
+  - dc1.example.com
+  - dc2.example.com
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### tmpfs</div><div class="line">    ������ʱĿ¼�������ڲ����� run �Ĳ���һ��Ч����</div></pre></td></tr></table></figure>
+
+tmpfs: /run
+tmpfs:
+  - /run
+  - /tmp
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### entrypoint</div><div class="line">    �� Dockerfile ����һ��ָ������ ENTRYPOINT ָ�����ָ�������㣬�������жԱȹ��� CMD ��������</div><div class="line">    �� docker-compose.yml �п��Զ��������㣬���� Dockerfile �еĶ��壺</div></pre></td></tr></table></figure>
+
+entrypoint: /code/entrypoint.sh
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">��ʽ�� Docker ���ƣ�����������д��������</div></pre></td></tr></table></figure>
+
+entrypoint:
+    - php
+    - -d
+    - zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20100525/xdebug.so
+    - -d
+    - memory_limit=-1
+    - vendor/bin/phpunit
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### env_file</div><div class="line">    ���ǵ�ǰ���ᵽ�� .env �ļ��ɣ������ļ��������� Compose �ı��������� docker-compose.yml �п��Զ���һ��ר�Ŵ��ű������ļ���</div><div class="line">    </div><div class="line">    ����ͨ�� docker-compose -f FILE ָ���������ļ����� env_file ��·����ʹ�������ļ�·����</div><div class="line">    </div><div class="line">    �����б��������� environment ָ����ͻ�����Ժ���Ϊ׼����ʽ���£�</div></pre></td></tr></table></figure>
+
+env_file: .env
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">���߸��� docker-compose.yml ���ö�����</div></pre></td></tr></table></figure>
+
+env_file:
+  - ./common.env
+  - ./apps/web.env
+  - /opt/secrets.env
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    &gt; ע������������˵�Ļ��������Ƕ��������� Compose ���Եģ������������ļ����� build ��������Щ�������������빹�������У�����Ҫ�ڹ�����ʹ�ñ���������ѡǰ���ս��� arg ��ǩ��</div><div class="line">    </div><div class="line">### environment</div><div class="line">    �������� env_file ��ǩ��ȫ��ͬ�������� arg �м������ƣ�������ǩ�����������þ��������������Ա����������������棬Ҳ����˵����������Ҳ��������Щ�������ã������� arg �����Ĳ�ͬ��</div><div class="line">    </div><div class="line">    һ�� arg ��ǩ�ı��������ڹ��������С��� environment �� Dockerfile �е� ENV ָ��һ�����ѱ���һֱ�����ھ����������У����� docker run -e ��Ч����</div></pre></td></tr></table></figure>
+
+environment:
+  RACK_ENV: development
+  SHOW: &apos;true&apos;
+  SESSION_SECRET:
+
+environment:
+  - RACK_ENV=development
+  - SHOW=true
+  - SESSION_SECRET
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    </div><div class="line">### expose</div><div class="line">    ������ǩ��Dockerfile�е�EXPOSEָ��һ��������ָ����¶�Ķ˿ڣ�����ֻ����Ϊһ�ֲο���ʵ����docker-compose.yml�Ķ˿�ӳ�仹��ports�����ı�ǩ��</div></pre></td></tr></table></figure>
+
+expose:
+ - &quot;3000&quot;
+ - &quot;8000&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### external_links</div><div class="line">    ��ʹ��Docker�����У����ǻ������൥��ʹ��docker run������������Ϊ��ʹCompose�ܹ�������Щ����docker-compose.yml�ж�����������������Ҫһ�������ı�ǩ������external_links����������Compose��Ŀ�������������ӵ���Щ��Ŀ�����ⲿ��������ǰ�����ⲿ�����б���������һ�����������ӵ�����Ŀ�ڵķ�����ͬһ���������棩��</div><div class="line">    </div><div class="line">    ��ʽ���£�</div></pre></td></tr></table></figure>
+
+external_links:
+ - redis_1
+ - project_db_1:mysql
+ - project_db_1:postgresql
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### extra_hosts</div><div class="line">    �����������ı�ǩ��������/etc/hosts�ļ�������һЩ��¼����Docker client��--add-host���ƣ�</div></pre></td></tr></table></figure>
+
+extra_hosts:
+ - &quot;somehost:162.242.195.82&quot;
+ - &quot;otherhost:50.31.209.229&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">����֮���鿴�����ڲ�hosts��</div></pre></td></tr></table></figure>
+
+162.242.195.82  somehost
+50.31.209.229   otherhost
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### labels</div><div class="line">    ����������Ԫ���ݣ���Dockerfile��LABELָ��һ����˼����ʽ���£�</div></pre></td></tr></table></figure>
+
+labels:
+  com.example.description: &quot;Accounting webapp&quot;
+  com.example.department: &quot;Finance&quot;
+  com.example.label-with-empty-value: &quot;&quot;
+labels:
+  - &quot;com.example.description=Accounting webapp&quot;
+  - &quot;com.example.department=Finance&quot;
+  - &quot;com.example.label-with-empty-value&quot;
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">### links</div><div class="line">    ���ǵ�������depends_on�ɣ��Ǹ���ǩ������������˳�����⣬������ǩ�������������������⣬��Docker client��--linkһ��Ч���������ӵ����������е�������</div><div class="line">    ��ʽ���£�</div></pre></td></tr></table></figure>
+
+links:
+ - db
+ - db:database
+ - redis
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ʹ�õı��������Զ��ڷ��������е�/etc/hosts�ﴴ�������磺</div></pre></td></tr></table></figure>
+
+172.12.2.186  db
+172.12.2.186  database
+172.12.2.187  redis
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    ��Ӧ�Ļ�������Ҳ����������</div><div class="line">### logging</div><div class="line">    ������ǩ����������־���񡣸�ʽ���£�</div></pre></td></tr></table></figure>
+
+logging:
+  driver: syslog
+  options:
+    syslog-address: &quot;tcp://192.168.0.42:123&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    Ĭ�ϵ�driver��json-file��ֻ��json-file��journald����ͨ��docker-compose logs��ʾ��־��������ʽ��������־�鿴��ʽ����ĿǰCompose��֧�֡����ڿ�ѡֵ����ʹ��optionsָ����</div><div class="line">    </div><div class="line">    </div><div class="line">### pid</div></pre></td></tr></table></figure>
+
+pid: &quot;host&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    ��PIDģʽ����Ϊ����PIDģʽ��������ϵͳ�������������ռ䡣����ʹ��������ǩ���ܹ����ʺͲ������������������������ƿռ䡣</div><div class="line">### ports</div><div class="line">    ӳ���˿ڵı�ǩ��</div><div class="line">    ʹ��HOST:CONTAINER��ʽ����ֻ��ָ�������Ķ˿ڣ�������������ӳ���˿ڡ�</div></pre></td></tr></table></figure>
+
+ports:
+ - &quot;3000&quot;
+ - &quot;8000:8000&quot;
+ - &quot;49100:22&quot;
+ - &quot;127.0.0.1:8001:8001&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    &gt; ע�⣺��ʹ��HOST:CONTAINER��ʽ��ӳ���˿�ʱ��������ʹ�õ������˿�С��60�����ܻ��õ������ý�������ΪYAML��������xx:yy�������ָ�ʽΪ60���ơ����Խ��������ַ�����ʽ��</div><div class="line">    </div><div class="line">### security_opt</div><div class="line">    Ϊÿ����������Ĭ�ϵı�ǩ������˵�����ǹ���ȫ�������ı�ǩ����������ȫ��������user��ǩֵΪUSER��</div></pre></td></tr></table></figure>
+
+security_opt:
+  - label:user:USER
+  - label:role:ROLE
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    </div><div class="line">### stop_signal</div><div class="line">    ������һ���ź���ֹͣ��������Ĭ��������ʹ�õ���SIGTERMֹͣ������������һ���źſ���ʹ��stop_signal��ǩ��</div></pre></td></tr></table></figure>
+
+stop_signal: SIGUSR1
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">### volumes</div><div class="line">    ����һ��Ŀ¼����һ���Ѵ��ڵ����ݾ�����������ֱ��ʹ�� [HOST:CONTAINER] �����ĸ�ʽ������ʹ�� [HOST:CONTAINER:ro] �����ĸ�ʽ�����߶���������˵�����ݾ���ֻ���ģ�����������Ч�������������ļ�ϵͳ��</div><div class="line">    Compose�����ݾ�ָ��·������������·����ʹ�� . ���� .. ��ָ������Ŀ¼��</div><div class="line">    ���ݾ��ĸ�ʽ����������������ʽ��</div></pre></td></tr></table></figure>
+
+volumes:
+  // ֻ��ָ��һ��·����Docker ���Զ��ڴ���һ�����ݾ�������·���������ڲ��ģ���
+  - /var/lib/mysql
+
+  // ʹ�þ���·���������ݾ�
+  - /opt/data:/var/lib/mysql
+
+  // �� Compose �����ļ�Ϊ���ĵ�����·����Ϊ���ݾ����ص�������
+  - ./cache:/tmp/cache
+
+  // ʹ���û�������·����~/ ��ʾ��Ŀ¼�� /home/&lt;�û�Ŀ¼&gt;/ ���� /root/����
+  - ~/configs:/etc/configs/:ro
+
+  // �Ѿ����ڵ����������ݾ���
+  - datavolume:/var/lib/mysql
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">�����㲻ʹ����������·����������ָ��һ��volume_driver��</div></pre></td></tr></table></figure>
+
+volume_driver: mydriver
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### volumes_from</div><div class="line">    �������������߷����������ݾ�����ѡ�Ĳ����� :ro���� :rw��ǰ�߱�ʾ����ֻ�������߱�ʾ���������ݾ��ǿɶ���д�ġ�Ĭ���������ǿɶ���д�ġ�</div></pre></td></tr></table></figure>
+
+volumes_from:
+  - service_name
+  - service_name:ro
+  - container:container_name
+  - container:container_name:rw
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">### cap_add, cap_drop</div><div class="line">    ���ӻ�ɾ���������ں˹��ܡ���ϸ��Ϣ��ǰ�������½��н��⣬�˴�����׸����</div></pre></td></tr></table></figure>
+
+cap_add:
+  - ALL
+
+cap_drop:
+  - NET_ADMIN
+  - SYS_ADMIN
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### cgroup_parent</div><div class="line">    ָ��һ�������ĸ���cgroup</div></pre></td></tr></table></figure>
+
+cgroup_parent: m-executor-abcd
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### devices</div><div class="line">    �豸ӳ���б�����Docker client��--device�������ơ�</div></pre></td></tr></table></figure>
+
+devices:
+    - &quot;/dev/ttyUSB0:/dev/ttyUSB0&quot;
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">### extends</div><div class="line">    ������ǩ������չ��һ����������չ���ݿ����������ڵ�ǰ�ļ���Ҳ���������������ļ�����ͬ�����������£������߻���ѡ���ظ���ԭ�����á�</div></pre></td></tr></table></figure>
+
+extends:
+  file: common.yml
+  service: webapp
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    �û��������κεط�ʹ��������ǩ��ֻҪ��ǩ���ݰ���file��service����ֵ�Ϳ����ˡ�</div><div class="line">    file��ֵ���������Ի��߾���·����������ָ��file��ֵ����ôCompose����ȡ��ǰYML�ļ�����Ϣ��</div><div class="line"></div><div class="line">### network_mode</div><div class="line">    ����ģʽ����Docker client��--net�������ƣ�ֻ�����Զ���һ��service:[service name] �ĸ�ʽ��</div></pre></td></tr></table></figure>
+
+network_mode: &quot;bridge&quot;
+network_mode: &quot;host&quot;
+network_mode: &quot;none&quot;
+network_mode: &quot;service:[service name]&quot;
+network_mode: &quot;container:[container name/id]&quot;
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">    ����ָ��ʹ�÷����������������硣</div><div class="line">    </div><div class="line">### networks</div><div class="line">    ����ָ�����磬��ʽ���£�</div></pre></td></tr></table></figure>
+
+services:
+  some-service:
+    networks:
+     - some-network
+     - other-network
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">����������ǩ����һ���ر����ӱ�ǩaliases������һ���������÷��������ı�ǩ�����磺</div></pre></td></tr></table></figure>
+
+services:
+  some-service:
+    networks:
+      some-network:
+        aliases:
+         - alias1
+         - alias3
+      other-network:
+        aliases:
+         - alias2
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    ��ͬ�ķ��������ڲ�ͬ�������в�ͬ�ı�����</div><div class="line"></div><div class="line">## �����Զ��徵��</div><div class="line">### ��¼</div></pre></td></tr></table></figure>
+</code></pre><p>docker login -u {username} -p {passwd} <a href="https://registry.acs.aliyun.com" target="_blank" rel="external">https://registry.acs.aliyun.com</a><br>docker login -u 1012202451213731 -p 896423Dev <a href="https://registry.acs.aliyun.com" target="_blank" rel="external">https://registry.acs.aliyun.com</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### ����ǩ</div><div class="line">https://registry.acs.aliyun.com</div></pre></td></tr></table></figure></p>
+<p>docker tag bf46626ea2a8 registry.acs.aliyun.com/1012202451213731/laravel_taobao:v1.0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">### ���ü�����</div></pre></td></tr></table></figure></p>
+<p>echo “DOCKER_OPTS=\”\$DOCKER_OPTS –registry-mirror=<a href="https://lqjizur.mirror.acs.aliyun.com\" target="_blank" rel="external">https://lqjizur.mirror.acs.aliyun.com\</a>“” | sudo tee -a /etc/default/docker<br>sudo service docker restart<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### docker push</div></pre></td></tr></table></figure></p>
+<p>docker push registry.acs.aliyun.com/1012202451213731/austin_laravel_taobao:v1.0<br>```</p>
+<h2 id="���o�������"><a href="#���o�������" class="headerlink" title="���ò�������"></a>���ò�������</h2><ul>
+<li><p>�鿴��ǰ����������<br>sudo docker ps</p>
+</li>
+<li><p>�������ַ����ں��߼ӷ����������ӱ�ʾ�������У�-d ��ʾ�ں�̨����<br>sudo docker-compose up [nginx|php71|mysql|redis] -d</p>
+</li>
+<li><p>ֹͣ����������<br>sudo docker-compose stop [nginx|php71|mysql|redis]</p>
+</li>
+<li><p>ɾ������δ���е�����<br>sudo docker rm $(docker ps -qf status=exited)</p>
+</li>
+<li><p>ɾ�����о�����-f ����ǿ��ɾ��<br>sudo docker rmi $(docker images -q)</p>
+<script>
+(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+  }
+  else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+
+  var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+  document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-02-04T23:55:34.000Z" itemprop="dateUpdated">2018年2月5日 7:55</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/2018/01/15/server/docker-note-useage/" target="_blank" rel="external">https://austinxishou.github.io/2018/01/15/server/docker-note-useage/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/docker/">docker</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker ʹ�ñʼ�》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker ʹ�ñʼ�》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker ʹ�ñʼ�》 — 爵士犀首&url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/17/server/server-admin-usage-note/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">server admin usage and note</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2018/01/07/wechat/html-chuanbozhike/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">html chuanbozhike</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2018</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker ʹ�ñʼ�》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&title=《docker ʹ�ñʼ�》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker ʹ�ñʼ�》 — 爵士犀首&url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2018/01/15/server/docker-note-useage/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACsUlEQVR42u3aQXLjMAwEQP3/09kHbGTPAKLXW9U6qWJRYvNAMACuK75+bq67X1+Punv+7rt/3z984eHh4T009buJ3n3s9dh81B07Xzg8PDy8z/DyTbnd6NugkixNMmc8PDy87+G1Y/MlS87DeHh4eP8vb5NKSELIPw4MeHh4eAEvP9puwsA+YXEw14KHh4c3qTddsy3+8/dH6nt4eHh466p6XgybfXGf6n0zWzw8PLwDvHzDfepA3C5We1zGw8PD+yQvb3XKP9/+ZdP4dTtPPDw8vEd5eRp0c9TO/9IWzK5NNMPDw8N7iNe2PT07rbbw9kaBh4eHd4CXh4e8xWrWcJAHlbowhoeHh3eAN3tRW7KaBZs2eXFrwcPDw3uINyssFWtWTmgflq52GB4eHt6I16ZWk1H5e2aNCBEeDw8P7xjvXFJglpbdNzTg4eHhnePlKYbNErQFszYsvVlEPDw8vGO8TfvU5jieLGgS0up+BDw8PLwFr92gZ1t/Hmb2yWU8PDy8z/Na5P7J18+3yZGoMwIPDw9vxNts4u2Rd3a/adjCw8PDO8Fr/9Vvi/pt2mIWJNrSGh4eHt6GNzsit6nbK742y/rLM3h4eHjHeM+mVmfH600yImoawMPDw3uItylQzSbXHsrb5Mgv88HDw8M7xpsFgHyKbUtWm4YoeiLw8PDwjvFeb8ezNMHrybVhKSp94eHh4R3mJQGgbYRqj9qzZMf0Zzw8PLxu/j/llRyI2zfMDtZRYhcPDw/vAG9WxNokLE7fX5vYgoeHhxfz2gRE8tJNk1ZSbCsCAx4eHt4xXr6h5x/btGptkhF4eHh438Z7qnEqT0bM2hHw8PDwvoeXvLQ9mm9SxsP6GB4eHt6a15asWlI+rXxZi8CAh4eH9yhvVsTKy/xPBYw8iYyHh4d3jPcHrTAr8Cbp1H8AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

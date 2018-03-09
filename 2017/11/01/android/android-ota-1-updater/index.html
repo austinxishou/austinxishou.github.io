@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="360-site-verification" content="f623c899b6306a6a416f749df60d39a5" />
+	<meta name="sogou_site_verification" content="b2uCFUinvb"/>
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>Android-OTA(三) updater功能解析 | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="android,OTA,recovery">
+
+    <meta name="description" content="Android OTA升级 recovery">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android-OTA(三) updater功能解析">
+<meta property="og:url" content="https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="Android OTA升级 recovery">
+<meta property="og:updated_time" content="2018-02-28T02:02:04.615Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Android-OTA(三) updater功能解析">
+<meta name="twitter:description" content="Android OTA升级 recovery">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Android-OTA(三) updater功能解析</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Android-OTA(三) updater功能解析</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-11-01T07:52:10.299Z" itemprop="datePublished" class="page-time">
+  2017-11-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#源码文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">源码文件</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-android/android-ota-1-updater"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Android-OTA(三) updater功能解析</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年11月01日 15:52" datetime="2017-11-01T07:52:10.299Z"  itemprop="datePublished">2017-11-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/android/">android</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><blockquote>
+<p>可以说，前面分析的OTA升级的各部分代码都是在搭一个舞台，而主角现在终于登场，它就是<strong>updater</strong>. Google的代码架构设计非常好，各部分尽量松耦合。前面介绍升级脚本时，可知有两种类型的脚本，<strong>amend&amp; edify</strong>. 他们各自对应一个updater. 这里，我们主要关注新的edify的updater.</p>
+</blockquote>
+<h2 id="源码文件"><a href="#源码文件" class="headerlink" title="源码文件"></a>源码文件</h2><p><strong>tree</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.</div><div class="line">├── Android.mk</div><div class="line">├── blockimg.c</div><div class="line">├── blockimg.h</div><div class="line">├── install.c</div><div class="line">├── install.h</div><div class="line">├── updater.c</div><div class="line">└── updater.h</div></pre></td></tr></table></figure></p>
+<p><strong>入口函数 main</strong></p>
+<ol>
+<li><strong>处理version 参数</strong></li>
+<li><strong>获取命令管道</strong><blockquote>
+<p>Set up the pipe for sending commands back to the parent process.</p>
+</blockquote>
+</li>
+<li><strong>读入脚本</strong><blockquote>
+<p>mzFindZipEntry(&amp;za, SCRIPT_NAME);</p>
+</blockquote>
+</li>
+<li><strong>注册语句处理函数</strong><blockquote>
+<p>Configure edify’s functions.</p>
+</blockquote>
+</li>
+<li>解析脚本命令<blockquote>
+<p>Parse the script.</p>
+</blockquote>
+</li>
+<li>执行脚本 <blockquote>
+<p>核心函数是 Evaluate。它会调用其他callback函数，而这些callback函数又会调用Evaluate去解析不同的脚本片段。</p>
+</blockquote>
+</li>
+</ol>
+<p>主流程的代码非常简单,因为细节隐藏在那些 callback 函数里。</p>
+<p><strong>callback函数</strong></p>
+<ol>
+<li>RegisterBuiltins</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RegisterBuiltins</span><span class="params">()</span> </span>&#123;</div><div class="line">    RegisterFunction(<span class="string">"ifelse"</span>, IfElseFn);</div><div class="line">    RegisterFunction(<span class="string">"abort"</span>, AbortFn);</div><div class="line">    RegisterFunction(<span class="string">"assert"</span>, AssertFn);</div><div class="line">    RegisterFunction(<span class="string">"concat"</span>, ConcatFn);</div><div class="line">    RegisterFunction(<span class="string">"is_substring"</span>, SubstringFn);</div><div class="line">    RegisterFunction(<span class="string">"stdout"</span>, StdoutFn);</div><div class="line">    RegisterFunction(<span class="string">"sleep"</span>, SleepFn);</div><div class="line">    RegisterFunction(<span class="string">"less_than_int"</span>, LessThanIntFn);</div><div class="line">    RegisterFunction(<span class="string">"greater_than_int"</span>, GreaterThanIntFn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>RegisterInstallFunctions</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RegisterInstallFunctions</span><span class="params">()</span> </span>&#123;</div><div class="line">    RegisterFunction(<span class="string">"mount"</span>, MountFn);</div><div class="line">    RegisterFunction(<span class="string">"is_mounted"</span>, IsMountedFn);</div><div class="line">    RegisterFunction(<span class="string">"unmount"</span>, UnmountFn);</div><div class="line">    RegisterFunction(<span class="string">"format"</span>, FormatFn);</div><div class="line">    RegisterFunction(<span class="string">"show_progress"</span>, ShowProgressFn);</div><div class="line">    RegisterFunction(<span class="string">"set_progress"</span>, SetProgressFn);</div><div class="line">    RegisterFunction(<span class="string">"delete"</span>, DeleteFn);</div><div class="line">    RegisterFunction(<span class="string">"delete_recursive"</span>, DeleteFn);</div><div class="line">    RegisterFunction(<span class="string">"package_extract_dir"</span>, PackageExtractDirFn);</div><div class="line">    RegisterFunction(<span class="string">"package_extract_file"</span>, PackageExtractFileFn);</div><div class="line">    RegisterFunction(<span class="string">"symlink"</span>, SymlinkFn);</div><div class="line"></div><div class="line">    <span class="comment">// Usage:</span></div><div class="line">    <span class="comment">//   set_metadata("filename", "key1", "value1", "key2", "value2", ...)</span></div><div class="line">    <span class="comment">// Example:</span></div><div class="line">    <span class="comment">//   set_metadata("/system/bin/netcfg", "uid", 0, "gid", 3003, "mode", 02750, "selabel", "u:object_r:system_file:s0", "capabilities", 0x0);</span></div><div class="line">    RegisterFunction(<span class="string">"set_metadata"</span>, SetMetadataFn);</div><div class="line"></div><div class="line">    <span class="comment">// Usage:</span></div><div class="line">    <span class="comment">//   set_metadata_recursive("dirname", "key1", "value1", "key2", "value2", ...)</span></div><div class="line">    <span class="comment">// Example:</span></div><div class="line">    <span class="comment">//   set_metadata_recursive("/system", "uid", 0, "gid", 0, "fmode", 0644, "dmode", 0755, "selabel", "u:object_r:system_file:s0", "capabilities", 0x0);</span></div><div class="line">    RegisterFunction(<span class="string">"set_metadata_recursive"</span>, SetMetadataFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"getprop"</span>, GetPropFn);</div><div class="line">    RegisterFunction(<span class="string">"file_getprop"</span>, FileGetPropFn);</div><div class="line">    RegisterFunction(<span class="string">"write_raw_image"</span>, WriteRawImageFn);</div><div class="line">    RegisterFunction(<span class="string">"write_raw_parameter_image"</span>, WriteRawParameterImageFn);</div><div class="line">    RegisterFunction(<span class="string">"clear_misc_command"</span>, ClearMiscCommandFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"apply_patch"</span>, ApplyPatchFn);</div><div class="line">    RegisterFunction(<span class="string">"apply_patch_check"</span>, ApplyPatchCheckFn);</div><div class="line">    RegisterFunction(<span class="string">"apply_patch_space"</span>, ApplyPatchSpaceFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"wipe_block_device"</span>, WipeBlockDeviceFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"read_file"</span>, ReadFileFn);</div><div class="line">    RegisterFunction(<span class="string">"sha1_check"</span>, Sha1CheckFn);</div><div class="line">    RegisterFunction(<span class="string">"rename"</span>, RenameFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"wipe_cache"</span>, WipeCacheFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"ui_print"</span>, UIPrintFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"run_program"</span>, RunProgramFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"reboot_now"</span>, RebootNowFn);</div><div class="line">    RegisterFunction(<span class="string">"get_stage"</span>, GetStageFn);</div><div class="line">    RegisterFunction(<span class="string">"set_stage"</span>, SetStageFn);</div><div class="line"></div><div class="line">    RegisterFunction(<span class="string">"enable_reboot"</span>, EnableRebootFn);</div><div class="line">    RegisterFunction(<span class="string">"tune2fs"</span>, Tune2FsFn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>RegisterBlockImageFunctions</p>
+</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">RegisterBlockImageFunctions</span><span class="params">()</span> </span>&#123;</div><div class="line">    RegisterFunction(<span class="string">"block_image_verify"</span>, BlockImageVerifyFn);</div><div class="line">    RegisterFunction(<span class="string">"block_image_update"</span>, BlockImageUpdateFn);</div><div class="line">    RegisterFunction(<span class="string">"range_sha1"</span>, RangeSha1Fn);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>FinishRegistration<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">FinishRegistration</span><span class="params">()</span> </span>&#123;</div><div class="line">    qsort(fn_table, fn_entries, <span class="keyword">sizeof</span>(NamedFunction), fn_entry_compare);</div><div class="line">&#125;</div></pre></td></tr></table></figure><script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {</p>
+<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;       
+</code></pre><p> }<br> else {</p>
+<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
+</code></pre><p> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);</p>
+<p> var sozzsrc = (document.location.protocol == “http:”) ? “<a href="http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a">http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a</a>“;<br> document.write(‘<script src="' + sozzsrc + '" id="sozz">&lt;\/script&gt;’);<br>})();<br></script></p>
+</li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2018-02-28T02:02:04.615Z" itemprop="dateUpdated">2018年2月28日 10:02</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/2017/11/01/android/android-ota-1-updater/" target="_blank" rel="external">https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/OTA/">OTA</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/android/">android</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/recovery/">recovery</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/&title=《Android-OTA(三) updater功能解析》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/&title=《Android-OTA(三) updater功能解析》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android-OTA(三) updater功能解析》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/11/01/python/selenium-start-guide/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">selenium自动化测试入门篇教程</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/11/01/android/android-ota-3-recovery-boot-ota/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Android-OTA(三) recovery 功能解析</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2018</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/&title=《Android-OTA(三) updater功能解析》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/&title=《Android-OTA(三) updater功能解析》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Android-OTA(三) updater功能解析》 — 爵士犀首&url=https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/11/01/android/android-ota-1-updater/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACpElEQVR42u3aQW7DQAgF0Nz/0um2UuvmA4PrxfOqciJ73lQaCPB6xdf72/XzztXV++bfb3xtXHh4eHiDpSdLvHrC38+/+mb+rnzL8PDw8O7h5cuqHta9sFHdpsv7eHh4eA/g9Tait01J8o2Hh4f3fF5eXJgf673twMPDw7uHlxdYq0tJjvgk8KzXWvDw8PBq53bURXrO3yv9PTw8PLxxVz1v8CeN//x+8mm0Wjw8PLwF3ryJdarNXy3j5sk3Hh4e3lneZNCqV2g4VXSI2mN4eHh4t/CqxYhqaJkUhauFYzw8PLz/4vUS6LPbV03x8fDw8PZ4vV5Sb1Qr+Wa+uMN9Pzw8PLz4LZOGfbVl1QskowIxHh4e3gIvP3zzokAvAPS2o1oQwcPDw5vz8qZ+r1WWj23lba18JAsPDw/vTt4kwuSjA3kbrBoq8PDw8P6X1zvQ8+LF5Pkf/sbDw8Nb5k2Ks8mBXk3WF7t2eHh4eGNe3l6qjkBNPq2OIPyyTjw8PLwbeTkpCTaT7au23C4nI/Dw8PAO8aoLqqbphcJBceiq8GMADw8P70ZeoUk/GLfqPbnwb8DDw8M7ynvHV364nwoq1TQdDw8P7x5ePvzUW1avGZa34qKNxsPDw1vgVYPEfICg2n7rNdvw8PDw9ninhq56RY0oLR6MNeDh4eFt8/JQ0SvOVgu41bGw6BcDHh4e3gJvkuzOixeHyyJ4eHh4R3mTokM1+Z400prpPh4eHt4Cb7upn2B6+HxT8PDw8DZ4k3GrJOFOihF5w6w6TICHh4e3x5sc6NUENy/v5kHr8g4eHh7eA3jJEECe01aLyPma8fDw8J7Gqzb1q/gkQY9Kt3h4eHhrvPlrqqMGvSBULVLg4eHhbfAmP/ir7L1E/EB/Dw8PD+8z7wumydpPW5B9RAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

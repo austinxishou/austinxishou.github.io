@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+	<meta name="360-site-verification" content="f623c899b6306a6a416f749df60d39a5" />
+	<meta name="sogou_site_verification" content="b2uCFUinvb"/>
+	<meta name="baidu-site-verification" content="rK8VXMxyIo" />
+    <meta name="msvalidate.01" content="186DAE121CE0F450E8D9A2F19F861729" />
+    <meta http-equiv="content-language" content="zh-cn">
+    <title>�ƶ�Webǰ��֪ʶ�� | 爵士犀首 | Talk is cheap, show me the code!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="html">
+
+    <meta name="description" content="html��������">
+<meta property="og:type" content="article">
+<meta property="og:title" content="�ƶ�Webǰ��֪ʶ��">
+<meta property="og:url" content="https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/index.html">
+<meta property="og:site_name" content="爵士犀首">
+<meta property="og:description" content="html��������">
+<meta property="og:updated_time" content="2017-12-19T09:46:13.225Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="�ƶ�Webǰ��֪ʶ��">
+<meta name="twitter:description" content="html��������">
+    
+        <link rel="alternative" href="/atom.xml" title="爵士犀首" type="application/atom+xml">
+    
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.4.14">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">AustinXishou</h5>
+          <a href="mailto:3559956089@qq.com" title="3559956089@qq.com" class="mail">3559956089@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/android"  >
+                <i class="icon icon-lg icon-android"></i>
+                Android
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/webdesign"  >
+                <i class="icon icon-lg icon-chrome"></i>
+                Webdesign
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/wechat"  >
+                <i class="icon icon-lg icon-wechat"></i>
+                微信开发
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories/killtime"  >
+                <i class="icon icon-lg icon-coffee"></i>
+                闲暇时光
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/austinxishou" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">�ƶ�Webǰ��֪ʶ��</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">�ƶ�Webǰ��֪ʶ��</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-12-19T09:38:15.801Z" itemprop="datePublished" class="page-time">
+  2017-12-19
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/layout-html/">layout html</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#iframe�������ܿ����໥���ʷ���"><span class="post-toc-number">1.</span> <span class="post-toc-text">iframe�������ܿ����໥���ʷ���</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#iframe-closed-by-itself"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">iframe closed by itself</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#1-ͬ���໥����"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">1.ͬ���໥����</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#������������"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">������������</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-webdesign/iframe-cross-domain-control"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">�ƶ�Webǰ��֪ʶ��</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017年12月19日 17:38" datetime="2017-12-19T09:38:15.801Z"  itemprop="datePublished">2017-12-19</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/layout-html/">layout html</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="iframe�������ܿ����໥���ʷ���"><a href="#iframe�������ܿ����໥���ʷ���" class="headerlink" title="iframe�������ܿ����໥���ʷ���"></a>iframe�������ܿ����໥���ʷ���</h2><h3 id="iframe-closed-by-itself"><a href="#iframe-closed-by-itself" class="headerlink" title="iframe closed by itself"></a>iframe closed by itself</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//close by myself</div><div class="line">window.parent.document.body.removeChild(window.frameElement);</div><div class="line"></div><div class="line">//close by parent window //not cross domain</div><div class="line">top.window.close_iframe();//parent.close_iframe();</div><div class="line"></div><div class="line">//close by id //not allowed with cross origin</div><div class="line">let iframeRoom = window.parent.document.getElementById(&apos;iframe_room&apos;);</div><div class="line">iframeRoom.parentNode.removeChild(iframeRoom);</div></pre></td></tr></table></figure>
+<h3 id="1-ͬ���໥����"><a href="#1-ͬ���໥����" class="headerlink" title="1.ͬ���໥����"></a>1.ͬ���໥����</h3><p>����A.html �� b.html domain����localhost ��ͬ����</p>
+<p>A.html��iframe Ƕ�� B.html��name=myframe</p>
+<p>A.html��js function fMain()</p>
+<p>B.html��js function fIframe()</p>
+<p>��Ҫʵ�� A.html ���� B.html �� fIframe()��B.html ���� A.html �� fMain()</p>
+<p><code>A.html</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;  </div><div class="line">&lt;html&gt;  </div><div class="line"> &lt;head&gt;  </div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;  </div><div class="line">  &lt;title&gt; main window &lt;/title&gt;  </div><div class="line">  </div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">  // main js function  </div><div class="line">  function fMain()&#123;  </div><div class="line">    alert(&apos;main function execute success&apos;);  </div><div class="line">  &#125;  </div><div class="line">  </div><div class="line">  // exec iframe function  </div><div class="line">  function exec_iframe()&#123;  </div><div class="line">    window.myframe.fIframe();  </div><div class="line">  &#125;  </div><div class="line">  &lt;/script&gt;  </div><div class="line">  </div><div class="line"> &lt;/head&gt;  </div><div class="line">  </div><div class="line"> &lt;body&gt;  </div><div class="line">  &lt;p&gt;A.html main&lt;/p&gt;  </div><div class="line">  &lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;exec iframe function&quot; onclick=&quot;exec_iframe()&quot;&gt;&lt;/p&gt;  </div><div class="line">  &lt;iframe src=&quot;B.html&quot; name=&quot;myframe&quot; width=&quot;500&quot; height=&quot;100&quot;&gt;&lt;/iframe&gt;  </div><div class="line"> &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p><code>B.html</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;  </div><div class="line">&lt;html&gt;  </div><div class="line"> &lt;head&gt;  </div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;  </div><div class="line">  &lt;title&gt; iframe window &lt;/title&gt;  </div><div class="line">  </div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">  // iframe js function   </div><div class="line">  function fIframe()&#123;  </div><div class="line">    alert(&apos;iframe function execute success&apos;);  </div><div class="line">  &#125;  </div><div class="line">  </div><div class="line">  // exec main function  </div><div class="line">  function exec_main()&#123;  </div><div class="line">    parent.fMain();  </div><div class="line">  &#125;  </div><div class="line">  &lt;/script&gt;  </div><div class="line">  </div><div class="line"> &lt;/head&gt;  </div><div class="line">  </div><div class="line"> &lt;body&gt;  </div><div class="line">  &lt;p&gt;B.html iframe&lt;/p&gt;  </div><div class="line">  &lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;exec main function&quot; onclick=&quot;exec_main()&quot;&gt;&lt;/p&gt;  </div><div class="line"> &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<p>����A.html �� exec iframe function button��ִ�гɹ�</p>
+<h3 id="������������"><a href="#������������" class="headerlink" title="������������"></a>������������</h3><p>���� A.html domain�� localhost�� B.html domain �� 127.0.0.1 ��������</p>
+<p>����ʹ�� localhost �� 127.0.0.1 ֻ�Ƿ������ԣ�localhost �� 127.0.0.1�Ѿ���ͬһ����������ִ��Ч����һ���ġ�</p>
+<p>ʵ��ʹ��ʱ���� www.domaina.com �� www.domainb.com ���ɡ�</p>
+<p>A.html��iframe Ƕ�� B.html��name=myframe</p>
+<p>A.html��js function fMain()</p>
+<p>B.html��js function fIframe()</p>
+<p>��Ҫʵ�� A.html ���� B.html �� fIframe()��B.html ���� A.html �� fMain() ���������ã�</p>
+<p>����ʹ������ͬ���ķ������������ж�A.html �� B.html ��ͬ�򣬻��д�����ʾ��</p>
+<p>Uncaught SecurityError: Blocked a frame with origin “<a href="http://localhost" target="_blank" rel="external">http://localhost</a>“ from accessing a frame with origin “<a href="http://127.0.0.1" target="_blank" rel="external">http://127.0.0.1</a>“. Protocols, domains, and ports must match.</p>
+<p>ʵ��ԭ����</p>
+<p>��Ϊ������Ϊ�˰�ȫ����ֹ�˲�ͬ�����ʡ�����ֻҪ������ִ�е�˫����ͬ���������໥���ʡ�</p>
+<p>���ȣ�A.html ���ε���B.html�� fIframe����</p>
+<p>1.��A.html ����һ�� iframe</p>
+<p>2.iframe��ҳ������ B.html ͬ���£�����ΪexecB.html</p>
+<p>3.execB.html ���е���B.html fIframe������js����</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">parent.window.myframe.fIframe(); // execute parent myframe fIframe function  </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>��������ʵ�� A.html �� B.html �����໥���á�</p>
+<p><code>A.html</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;  </div><div class="line">&lt;html&gt;  </div><div class="line"> &lt;head&gt;  </div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;  </div><div class="line">  &lt;title&gt; main window &lt;/title&gt;  </div><div class="line">  </div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">  </div><div class="line">  // main js function  </div><div class="line">  function fMain()&#123;  </div><div class="line">    alert(&apos;main function execute success&apos;);  </div><div class="line">  &#125;  </div><div class="line">  </div><div class="line">  // exec iframe function  </div><div class="line">  function exec_iframe()&#123;  </div><div class="line">    if(typeof(exec_obj)==&apos;undefined&apos;)&#123;  </div><div class="line">        exec_obj = document.createElement(&apos;iframe&apos;);  </div><div class="line">        exec_obj.name = &apos;tmp_frame&apos;;  </div><div class="line">        exec_obj.src = &apos;http://127.0.0.1/execB.html&apos;;  </div><div class="line">        exec_obj.style.display = &apos;none&apos;;  </div><div class="line">        document.body.appendChild(exec_obj);  </div><div class="line">    &#125;else&#123;  </div><div class="line">        exec_obj.src = &apos;http://127.0.0.1/execB.html?&apos; + Math.random();  </div><div class="line">    &#125;  </div><div class="line">  &#125;  </div><div class="line">  &lt;/script&gt;  </div><div class="line">  </div><div class="line"> &lt;/head&gt;  </div><div class="line">  </div><div class="line"> &lt;body&gt;  </div><div class="line">  &lt;p&gt;A.html main&lt;/p&gt;  </div><div class="line">  &lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;exec iframe function&quot; onclick=&quot;exec_iframe()&quot;&gt;&lt;/p&gt;  </div><div class="line">  &lt;iframe src=&quot;http://127.0.0.1/B.html&quot; name=&quot;myframe&quot; width=&quot;500&quot; height=&quot;100&quot;&gt;&lt;/iframe&gt;  </div><div class="line"> &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p><code>B.html</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;  </div><div class="line">&lt;html&gt;  </div><div class="line"> &lt;head&gt;  </div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;  </div><div class="line">  &lt;title&gt; iframe window &lt;/title&gt;  </div><div class="line">  </div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">  // iframe js function   </div><div class="line">  function fIframe()&#123;  </div><div class="line">    alert(&apos;iframe function execute success&apos;);  </div><div class="line">  &#125;  </div><div class="line">  </div><div class="line">  // exec main function  </div><div class="line">  function exec_main()&#123;  </div><div class="line">    if(typeof(exec_obj)==&apos;undefined&apos;)&#123;  </div><div class="line">        exec_obj = document.createElement(&apos;iframe&apos;);  </div><div class="line">        exec_obj.name = &apos;tmp_frame&apos;;  </div><div class="line">        exec_obj.src = &apos;http://localhost/execA.html&apos;;  </div><div class="line">        exec_obj.style.display = &apos;none&apos;;  </div><div class="line">        document.body.appendChild(exec_obj);  </div><div class="line">    &#125;else&#123;  </div><div class="line">        exec_obj.src = &apos;http://localhost/execA.html?&apos; + Math.random();  </div><div class="line">    &#125;  </div><div class="line">  &#125;  </div><div class="line">  &lt;/script&gt;  </div><div class="line">  </div><div class="line"> &lt;/head&gt;  </div><div class="line">  </div><div class="line"> &lt;body&gt;  </div><div class="line">  &lt;p&gt;B.html iframe&lt;/p&gt;  </div><div class="line">  &lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;exec main function&quot; onclick=&quot;exec_main()&quot;&gt;&lt;/p&gt;  </div><div class="line"> &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p><code>execA.html</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;  </div><div class="line">&lt;html&gt;  </div><div class="line"> &lt;head&gt;  </div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;  </div><div class="line">  &lt;title&gt; exec main function &lt;/title&gt;  </div><div class="line"> &lt;/head&gt;  </div><div class="line">  </div><div class="line"> &lt;body&gt;  </div><div class="line">    &lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">        parent.parent.fMain(); // execute main function  </div><div class="line">    &lt;/script&gt;  </div><div class="line"> &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<p><code>execB.html</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;  </div><div class="line">&lt;html&gt;  </div><div class="line"> &lt;head&gt;  </div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;  </div><div class="line">  &lt;title&gt; exec iframe function &lt;/title&gt;  </div><div class="line"> &lt;/head&gt;  </div><div class="line">  </div><div class="line"> &lt;body&gt;  </div><div class="line">    &lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">        parent.window.myframe.fIframe(); // execute parent myframe fIframe function  </div><div class="line">    &lt;/script&gt;  </div><div class="line"> &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-12-19T09:46:13.225Z" itemprop="dateUpdated">2017年12月19日 17:46</time>
+</span><br>
+
+
+        欢迎转载,但请申明原链接：<a href="/2017/12/19/webdesign/iframe-cross-domain-control/" target="_blank" rel="external">https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/</a>
+    </div>
+    <footer>
+        <a href="https://austinxishou.github.io">
+            <img src="/img/avatar.jpg" alt="AustinXishou">
+            AustinXishou
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/&title=《�ƶ�Webǰ��֪ʶ��》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/&title=《�ƶ�Webǰ��֪ʶ��》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《�ƶ�Webǰ��֪ʶ��》 — 爵士犀首&url=https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2018/01/01/webdesign/wantu-cdn-sdk/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">fileinput.js ʵ���ļ��ϴ�����</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/12/18/webdesign/JavaScript-parse-url-parameter/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">[no title]</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷,欢迎再来~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/wechatpay.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            <span>博客内容遵循 <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">知识共享 署名 - 非商业性 - 相同方式共享 4.0协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>爵士犀首 &copy; 2016 - 2018</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/&title=《�ƶ�Webǰ��֪ʶ��》 — 爵士犀首&pic=https://austinxishou.github.io/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/&title=《�ƶ�Webǰ��֪ʶ��》 — 爵士犀首&source=个人技术博客 android详解 网页设计 微信开发 软件定制 个人开发者" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《�ƶ�Webǰ��֪ʶ��》 — 爵士犀首&url=https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/&via=https://austinxishou.github.io" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAN4AAADeCAAAAAB3DOFrAAACxklEQVR42u3awY4iMQwE0Pn/n2avIyGGKjtBrPT6hGBo8voQeyr++Ymvx6/r+f3Nd3+///z6+fq5ceHh4eEtlv7qdn+/P7tP/q3Zb+Hh4eHd5r3aUf++dbKJzxadr+eNBQ8PD+8LeElRefWt5J5JU46Hh4f3P/LyhjtprNvHgYeHh/cNvHaLn8W7eWOdFIbDWQseHh5ezMub2u95feV8Dw8PD299qp7Hr3ksm4wRJJ9Gq8XDw8O7wNsMTrUtbDJ2kOzt9YAXHh4e3lFeHgHkQUD7CDYjCG8eFh4eHt4HebMGerPFbw7DVgkKHh4e3ijzbP+9z4+d8oZ4c4i1Ot/Dw8PDO8RLysYm6k0C33q4qtXj4eHhrXn58VUSNCSftmHE8EHj4eHhHeW14wJJ4DsrP21ZikoFHh4e3kd47YJydh4Tt4FyHUPg4eHhHeIlS9+01HnhSZYeHYbh4eHhXeDl7fUsbN2krHk4khQePDw8vLO85AuzH2gXtx8gKM7Z8PDw8Ba8FtkOAbSDWVEda9t0PDw8vKO8drAp3/RnQUN+5BbdEw8PD+8o7xFfecOdgPP7z47l8PDw8D7DywPWNkTYLDcvJNHoAB4eHt4h3mzEKmmd20C2DSPeFCE8PDy8C7w8Em3jgDaGKLKTs0NXeHh4eCNe2y4n23R79LUJi9+sEA8PD+8yL99888Lwd6ixeRD1TAQeHh7eUV4Sm94IF2YHacWIGB4eHt413nBiq4wGZkFtPpKFh4eHd5v3KK99v3rqoCt6xHh4eHgXeO3m2w5CteB80z9VVPDw8PBmvKQYbIZHN3+Zhw7DxhoPDw9vwaszjNEOfCOSeBOm4OHh4X0NL9mg21B4c88rkxF4eHh4R3mzg/ykSMxGVIu6gYeHh3eIN/uZ9jg/b83bRx/NlOHh4eEd4rX/8CfbdDtwkBeMFQMPDw9vy/sHo/tUuWOGwOMAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+</script>
+
+<script src="/js/main.min.js?v=1.4.14"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.4.14" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
