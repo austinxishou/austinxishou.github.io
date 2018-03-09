@@ -32,7 +32,7 @@
 <meta property="og:url" content="https://austinxishou.github.io/2018/01/17/server/server-admin-usage-note/index.html">
 <meta property="og:site_name" content="爵士犀首">
 <meta property="og:description" content="server admin usage and note">
-<meta property="og:updated_time" content="2018-03-09T06:47:12.362Z">
+<meta property="og:updated_time" content="2018-03-09T07:26:25.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="server admin usage and note">
 <meta name="twitter:description" content="server admin usage and note">
@@ -186,7 +186,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置ssh-sftp"><span class="post-toc-number">1.</span> <span class="post-toc-text">配置ssh-sftp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DEBUG"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">DEBUG</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#配置定时任务"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置定时任务</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务端环境搭建"><span class="post-toc-number">1.</span> <span class="post-toc-text">服务端环境搭建</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置ssh-sftp"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">配置ssh-sftp</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#问题记录"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">问题记录</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#配置定时任务"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">配置定时任务</span></a></li></ol></li></ol>
         </nav>
     </aside>
     
@@ -213,8 +213,10 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="配置ssh-sftp"><a href="#配置ssh-sftp" class="headerlink" title="配置ssh-sftp"></a>配置ssh-sftp</h2><pre><code>&gt; 在服务器上开通SFTP文件服务，允许某些用户上传及下载文件。但是这些用户只能使用SFTP传输文件，不能使用SSH终端访问服务器，并且SFTP不能访问系统文件（即所谓的“Jail（监狱）”）。系统管理员则既能使用SFTP传输文件，也能使用SSH远程管理服务器。
-</code></pre><ol>
+            <h3 id="服务端环境搭建"><a href="#服务端环境搭建" class="headerlink" title="服务端环境搭建"></a>服务端环境搭建</h3><h4 id="配置ssh-sftp"><a href="#配置ssh-sftp" class="headerlink" title="配置ssh-sftp"></a>配置ssh-sftp</h4><blockquote>
+<p>在服务器上开通SFTP文件服务，允许某些用户上传及下载文件。但是这些用户只能使用SFTP传输文件，不能使用SSH终端访问服务器，并且SFTP不能访问系统文件（即所谓的“Jail（监狱）”）。系统管理员则既能使用SFTP传输文件，也能使用SSH远程管理服务器。</p>
+</blockquote>
+<ol>
 <li><p>安装OpenSSH服务器</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install openssh-server</div></pre></td></tr></table></figure>
 </li>
@@ -233,50 +235,59 @@
 <p>“监狱”的根目录必须满足以下要求：所有者为root，其他任何用户都不能拥有写入权限。因此，为了让SFTP用户能够上传文件，还必须在“监狱”根目录下再创建一个普通用户能够写入的共享文件目录。为了便于管理员通过SFTP管理上传的文件，我把这个共享文件目录配置为：由admin所有，允许sftp-users读写。这样，管理员和SFTP用户组成员就都能读写这个目录了。</p>
 </blockquote>
 </li>
-<li><p>修改SSH配置文件</p>
-<blockquote>
-<p>sudo nano /etc/ssh/sshd_config<br> 在sshd_config文件的最后，添加以下内容：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">AllowGroups ssh-users sftp-users</div><div class="line">Match Group sftp-users</div><div class="line">    ChrootDirectory /home/sftp_root</div><div class="line">    AllowTcpForwarding no</div><div class="line">    X11Forwarding no</div><div class="line">    ForceCommand internal-sftp</div></pre></td></tr></table></figure>
-</blockquote>
+<li><p>修改SSH配置文件<br> sudo nano /etc/ssh/sshd_config<br> 在sshd_config文件的最后，添加以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">AllowGroups ssh-users sftp-users</div><div class="line">Match Group sftp-users</div><div class="line">    ChrootDirectory /home/sftp_root</div><div class="line">    AllowTcpForwarding no</div><div class="line">    X11Forwarding no</div><div class="line">    ForceCommand internal-sftp</div></pre></td></tr></table></figure>
 <p> 这些内容的意思是：<br> 只允许ssh-uers及sftp-users通过SSH访问系统；<br> 针对sftp-users用户，额外增加一些设置：将“/home/sftp_root”设置为该组用户的系统根目录（因此它们将不能访问该目录之外的其他系统文件）；禁止TCP Forwarding和X11 Forwarding；强制该组用户仅仅使用SFTP。</p>
 </li>
 <li><p>service sshd reload</p>
 </li>
 </ol>
-<h3 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h3><pre><code>&gt; SFTP – subsystem request failed on channel X
+<h5 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h5><pre><code>&gt; SFTP – subsystem request failed on channel X
 </code></pre><p>   修改:</p>
 <blockquote>
 <p>You are using sftp to connect your server in a chrooted environment and you met the error below.</p>
 </blockquote>
-<pre><code>subsystem request failed on channel 0
-Couldn’t read packet: Connection reset by peer
+<p>subsystem request failed on channel 0<br>Couldn’t read packet: Connection reset by peer</p>
+<p>This causes because of wrong external library configured in your sshd_config. So, edit your sshd_config and <code>use internal-sftp</code>. Because openssh already has internal sftp functionality and <code>you dont need any external libraries</code>.</p>
+<p>Find the line beginning with “Subsystem”. Comment out and add the following line.</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#Subsystem sftp /usr/lib/openssh/sftp-server</div><div class="line">Subsystem sftp internal-sftp</div></pre></td></tr></table></figure>
+</code></pre><h4 id="配置定时任务"><a href="#配置定时任务" class="headerlink" title="配置定时任务"></a>配置定时任务</h4><ol>
+<li><p>crontabl命令</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">crontab: invalid option -- &apos;h&apos;</div><div class="line">crontab: usage error: unrecognized option</div><div class="line">usage:	crontab [-u user] file</div><div class="line">	crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</div><div class="line">		(default operation is replace, per 1003.2)</div><div class="line">	-e	(edit user&apos;s crontab)</div><div class="line">	-l	(list user&apos;s crontab)</div><div class="line">	-r	(delete user&apos;s crontab)</div><div class="line">	-i	(prompt before deleting user&apos;s crontab)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>编辑添加定时任务 crontabl -u root -e</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* * * * * php /home/forge/default/artisan  schedule:run &gt;&gt; /dev/null 2&gt;&amp;1</div><div class="line">//下面是crontab的格式：</div><div class="line">//分 时 日 月 星期 要运行的命令</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>确保cmd能够正常执行</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php /home/forge/default/artisan  schedule:run</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>查看cron服务</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//查看状态</div><div class="line">/etc/init.d/cron status</div><div class="line"></div><div class="line">//重启cron服务</div><div class="line">/etc/init.d/cron restart</div></pre></td></tr></table></figure>
+ <script>
+(function(){
+ var bp = document.createElement('script');
+ var curProtocol = window.location.protocol.split(':')[0];
+ if (curProtocol === 'https') {
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+ }
+ else {
+     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+ }
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(bp, s);
 
-This causes because of wrong external library configured in your sshd_config. So, edit your sshd_config and use internal-sftp. Because openssh already has internal sftp functionality and you dont need any external libraries.
-
-Find the line beginning with “Subsystem”. Comment out and add the following line.
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#Subsystem sftp /usr/lib/openssh/sftp-server</div><div class="line">Subsystem sftp internal-sftp</div></pre></td></tr></table></figure>
-</code></pre><h2 id="配置定时任务"><a href="#配置定时任务" class="headerlink" title="配置定时任务"></a>配置定时任务</h2><pre><code>1. crontabl命令
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">crontab: invalid option -- &apos;h&apos;</div><div class="line">crontab: usage error: unrecognized option</div><div class="line">usage:	crontab [-u user] file</div><div class="line">	crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</div><div class="line">		(default operation is replace, per 1003.2)</div><div class="line">	-e	(edit user&apos;s crontab)</div><div class="line">	-l	(list user&apos;s crontab)</div><div class="line">	-r	(delete user&apos;s crontab)</div><div class="line">	-i	(prompt before deleting user&apos;s crontab)</div></pre></td></tr></table></figure>
-
-
-2. 编辑添加定时任务 crontabl -u root -e
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* * * * * php /home/forge/default/artisan  schedule:run &gt;&gt; /dev/null 2&gt;&amp;1</div><div class="line">//下面是crontab的格式：</div><div class="line">//分 时 日 月 星期 要运行的命令</div></pre></td></tr></table></figure>
-
-
-3. 确保cmd能够正常执行
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php /home/forge/default/artisan  schedule:run</div></pre></td></tr></table></figure>
-
-
-4. 查看cron服务
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//查看状态</div><div class="line">/etc/init.d/cron status</div><div class="line"></div><div class="line">//重启cron服务</div><div class="line">/etc/init.d/cron restart</div></pre></td></tr></table></figure>
-
-&lt;script&gt;
-</code></pre><p>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js" target="_blank" rel="external">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js" target="_blank" rel="external">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
-<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
-document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
-</code></pre><p>})();<br></p>
+ var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+</li>
+</ol>
 
         </div>
 
@@ -284,7 +295,7 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2018-03-09T06:47:12.362Z" itemprop="dateUpdated">2018年3月9日 14:47</time>
+    最后更新时间：<time datetime="2018-03-09T07:26:25.758Z" itemprop="dateUpdated">2018年3月9日 15:26</time>
 </span><br>
 
 

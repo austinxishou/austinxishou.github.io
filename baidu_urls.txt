@@ -1,4 +1,3 @@
-https://austinxishou.github.io/2018/03/09/server/opentaobao-dev-doc/
 https://austinxishou.github.io/2018/03/09/python/python-parse-xml-usage/
 https://austinxishou.github.io/2018/03/05/server/php-mysql-usage-1/
 https://austinxishou.github.io/2018/02/28/android/android-ota-5-block-base/
@@ -7,4 +6,5 @@ https://austinxishou.github.io/2018/01/20/server/open-taobao-note-usage/
 https://austinxishou.github.io/2018/01/18/server/php-composer-usage/
 https://austinxishou.github.io/2018/01/17/server/server-admin-usage-note/
 https://austinxishou.github.io/2018/01/15/server/docker-note-useage/
-https://austinxishou.github.io/2018/01/07/wechat/html-chuanbozhike/
+https://austinxishou.github.io/2018/01/01/webdesign/wantu-cdn-sdk/
+https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/

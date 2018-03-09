@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://austinxishou.github.io/"/>
-  <updated>2018-03-09T06:45:52.693Z</updated>
+  <updated>2018-03-09T03:07:04.086Z</updated>
   <id>https://austinxishou.github.io/</id>
   
   <author>
@@ -14,49 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>淘宝开放平台文档记录</title>
-    <link href="https://austinxishou.github.io/2018/03/09/server/opentaobao-dev-doc/"/>
-    <id>https://austinxishou.github.io/2018/03/09/server/opentaobao-dev-doc/</id>
-    <published>2018-03-09T06:44:48.218Z</published>
-    <updated>2018-03-09T06:45:52.693Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="JSSDK文档"><a href="#JSSDK文档" class="headerlink" title="JSSDK文档"></a>JSSDK文档</h2><p><a href="https://open.m.taobao.com/doc.htm?spm=a21gy.7971451.0.0.zZRYGw#?docType=1&amp;docId=104000" target="_blank" rel="external">JSSDK文档</a></p>
-<p>引入<script src="//g.alicdn.com/tmapp/tida/3.2.60/tida.js?appkey=24582700"></script></p>
-<h2 id="阿里无线开放API"><a href="#阿里无线开放API" class="headerlink" title="阿里无线开放API"></a>阿里无线开放API</h2><p><a href="http://coolgame.ews.m.jaeapp.com/example/index.html" target="_blank" rel="external">http://coolgame.ews.m.jaeapp.com/example/index.html</a></p>
-<h2 id="创建前台应用"><a href="#创建前台应用" class="headerlink" title="创建前台应用"></a>创建前台应用</h2><ol>
-<li>EWS环境必须手动引用Tida</li>
-<li>同时每个页面上的head里面加入 <meta name="spm-id" content="a1z51.互动应用前台appkey">开启数据统计功能</li>
-</ol>
-<h2 id="店铺二楼接入流程"><a href="#店铺二楼接入流程" class="headerlink" title="店铺二楼接入流程"></a>店铺二楼接入流程</h2><ol>
-<li>购买聚石塔服务器<blockquote>
-<p>114.55.37.28</p>
-</blockquote>
-</li>
-<li>添加机器到资源池</li>
-<li><p>创建服务<script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {</p>
-<pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;       
-</code></pre><p> }<br> else {</p>
-<pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
-</code></pre><p> }<br> var s = document.getElementsByTagName(“script”)[0];<br> s.parentNode.insertBefore(bp, s);</p>
-<p> var sozzsrc = (document.location.protocol == “http:”) ? “<a href="http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a">http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a</a>“;<br> document.write(‘<script src="' + sozzsrc + '" id="sozz">&lt;\/script&gt;’);<br>})();<br></script></p>
-</li>
-</ol>
-]]></content>
-    
-    <summary type="html">
-    
-      淘宝开放平台文档记录
-    
-    </summary>
-    
-      <category term="server" scheme="https://austinxishou.github.io/categories/server/"/>
-    
-    
-      <category term="server" scheme="https://austinxishou.github.io/tags/server/"/>
-    
-  </entry>
   
   <entry>
     <title>python 解析xml相关问题</title>
@@ -249,43 +206,44 @@ var _this = this;
   </entry>
   
   <entry>
-    <title>server admin usage and note</title>
+    <title>淘宝开放平台文档记录</title>
     <link href="https://austinxishou.github.io/2018/01/20/server/open-taobao-note-usage/"/>
     <id>https://austinxishou.github.io/2018/01/20/server/open-taobao-note-usage/</id>
     <published>2018-01-20T01:15:36.234Z</published>
-    <updated>2018-02-07T06:26:10.321Z</updated>
+    <updated>2018-03-09T10:08:24.648Z</updated>
     
-    <content type="html"><![CDATA[<p>�̼���Ȩ�ص���ַ</p>
-<blockquote>
-<p>�ص���ַ����Ҫ��������ʹ�ÿ���ƽ̨oAuth2.0��ȡ��ȡSessionKey(��AccessToken)ʱ���������Ὣ��½��Ȩ�ɹ�������Ϣ���ظ��ص���ַ</p>
-</blockquote>
-<h3 id="API���÷�������"><a href="#API���÷�������" class="headerlink" title="API���÷�������"></a>API���÷�������</h3><p><a href="http://open.taobao.com/doc2/detail?spm=a219a.7386653.0.0.ZBzp5E&amp;articleId=101617&amp;docType=1#s3" target="_blank" rel="external">�ٷ��ĵ�</a></p>
-<h3 id="�ٷ�SDKʹ��˵��"><a href="#�ٷ�SDKʹ��˵��" class="headerlink" title="�ٷ�SDKʹ��˵��"></a>�ٷ�SDKʹ��˵��</h3><p><a href="http://open.taobao.com/doc2/detail?spm=a219a.7386653.0.0.ZBzp5E&amp;articleId=101618&amp;docType=1" target="_blank" rel="external">�ٷ��ĵ�</a></p>
-<h3 id="�u���E"><a href="#�u���E" class="headerlink" title="�û���Ȩ"></a>�û���Ȩ</h3><h4 id="y����Eurl"><a href="#y����Eurl" class="headerlink" title="ƴ����Ȩurl"></a>ƴ����Ȩurl</h4><p><a href="https://oauth.taobao.com/authorize?response_type=code&amp;client_id=" target="_blank" rel="external">https://oauth.taobao.com/authorize?response_type=code&amp;client_id=</a><br>24747068&amp;redirect_uri=<a href="http://wiki.kulchao.com/api/taobao/addcode&amp;state=1212&amp;view=wap" target="_blank" rel="external">http://wiki.kulchao.com/api/taobao/addcode&amp;state=1212&amp;view=wap</a></p>
-<h3 id="���㹲��-token"><a href="#���㹲��-token" class="headerlink" title="���㹲�� token"></a>���㹲�� token</h3><p>ȫ�ִ洢,��ʱˢ��</p>
+    <content type="html"><![CDATA[<h2 id="云数据库"><a href="#云数据库" class="headerlink" title="云数据库"></a>云数据库</h2><p>购买ECS和RDS,应用部署在ECS上，数据库迁移至RDS上.<br>ECS允许安装数据库客户端管理RDS数据库(DB), 数据库(DB)不允许安装在ECS服务器上<br><a href="https://dev.aliyun.com/search.html?spm=5176.1972344.0.1.52695aaaznWsba" target="_blank" rel="external">阿里云-hub</a></p>
+<h2 id="授权及安全等级"><a href="#授权及安全等级" class="headerlink" title="授权及安全等级"></a>授权及安全等级</h2><p>相关文档链接</p>
 <ol>
-<li>Access_Tokenȫ�ִ洢<blockquote>
+<li><a href="http://open.taobao.com/doc2/detail.htm?spm=a219a.7386653.0.0.LpQmNS&amp;articleId=1002&amp;docType=1&amp;treeId=null" target="_blank" rel="external">开放平台安全等级说明</a></li>
+</ol>
+<h3 id="API调用方法详解"><a href="#API调用方法详解" class="headerlink" title="API调用方法详解"></a>API调用方法详解</h3><p><a href="http://open.taobao.com/doc2/detail?spm=a219a.7386653.0.0.ZBzp5E&amp;articleId=101617&amp;docType=1#s3" target="_blank" rel="external">官方文档</a></p>
+<h3 id="官方SDK使用说明"><a href="#官方SDK使用说明" class="headerlink" title="官方SDK使用说明"></a>官方SDK使用说明</h3><p><a href="http://open.taobao.com/doc2/detail?spm=a219a.7386653.0.0.ZBzp5E&amp;articleId=101618&amp;docType=1" target="_blank" rel="external">官方文档</a></p>
+<h3 id="用户授权"><a href="#用户授权" class="headerlink" title="用户授权"></a>用户授权</h3><h4 id="拼接授权url"><a href="#拼接授权url" class="headerlink" title="拼接授权url"></a>拼接授权url</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">https://oauth.taobao.com/authorize?response_type=code&amp;client_id=</div><div class="line">24747068&amp;redirect_uri=http://wiki.kulchao.com/api/taobao/addcode&amp;state=1212&amp;view=wap</div></pre></td></tr></table></figure>
+<h3 id="多点共享-token"><a href="#多点共享-token" class="headerlink" title="多点共享 token"></a>多点共享 token</h3><p>全局存储,定时刷新</p>
 <ol>
-<li>�����˱���token���ļ�</li>
-<li>���� sellerId ��ȡ��ͬ����Ȩ</li>
+<li>Access_Token全局存储<blockquote>
+<ol>
+<li>服务端保存token到文件</li>
+<li>根据 sellerId 获取相同的授权</li>
 </ol>
 </blockquote>
 </li>
 </ol>
 <p>sellerid<br>    token<br>    refresh_token</p>
-<p>��ʱ����:</p>
-<h2 id="�Զ��徵������"><a href="#�Զ��徵������" class="headerlink" title="�Զ��徵������"></a>�Զ��徵������</h2><ol>
-<li>�޸�listen�˿�-service nginx restart</li>
-<li><p>�޸�ʱ��</p>
+<p>定时任务:</p>
+<h2 id="自定义镜像部署"><a href="#自定义镜像部署" class="headerlink" title="自定义镜像部署"></a>自定义镜像部署</h2><ol>
+<li>修改listen端口-service nginx restart</li>
+<li><p>修改时区</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cp /usr/share/zoneinfo/Asia/Shanghai  /etc/localtime</div></pre></td></tr></table></figure>
 </li>
-<li><p>��װcron�����ö�ʱ����</p>
+<li><p>安装cron并设置定时任务</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">apt-get install cron</div><div class="line"></div><div class="line">crontab -u www-data -e</div><div class="line"></div><div class="line">service cron restart</div></pre></td></tr></table></figure>
 </li>
-<li><p>�ӿڲ���</p>
+<li><p>接口测试</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">https://kuchaoyun.ews.m.jaeapp.com/api/taobao/favor/?sellerId=2636801283&amp;storeId=111&amp;saleId=123</div></pre></td></tr></table></figure>
 </li>
-<li><p>��������</p>
+<li><p>跨域设置</p>
 </li>
 </ol>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">add_header Access-Control-Allow-Origin *;</div><div class="line">add_header Access-Control-Allow-Headers X-Requested-With;</div><div class="line">add_header Access-Control-Allow-Methods GET,POST;</div></pre></td></tr></table></figure>
@@ -298,7 +256,7 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
     
     <summary type="html">
     
-      server admin usage and note
+      淘宝开放平台文档记录
     
     </summary>
     
@@ -343,10 +301,12 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
     <link href="https://austinxishou.github.io/2018/01/17/server/server-admin-usage-note/"/>
     <id>https://austinxishou.github.io/2018/01/17/server/server-admin-usage-note/</id>
     <published>2018-01-17T02:18:46.864Z</published>
-    <updated>2018-03-09T06:47:12.362Z</updated>
+    <updated>2018-03-09T07:26:25.758Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="配置ssh-sftp"><a href="#配置ssh-sftp" class="headerlink" title="配置ssh-sftp"></a>配置ssh-sftp</h2><pre><code>&gt; 在服务器上开通SFTP文件服务，允许某些用户上传及下载文件。但是这些用户只能使用SFTP传输文件，不能使用SSH终端访问服务器，并且SFTP不能访问系统文件（即所谓的“Jail（监狱）”）。系统管理员则既能使用SFTP传输文件，也能使用SSH远程管理服务器。
-</code></pre><ol>
+    <content type="html"><![CDATA[<h3 id="服务端环境搭建"><a href="#服务端环境搭建" class="headerlink" title="服务端环境搭建"></a>服务端环境搭建</h3><h4 id="配置ssh-sftp"><a href="#配置ssh-sftp" class="headerlink" title="配置ssh-sftp"></a>配置ssh-sftp</h4><blockquote>
+<p>在服务器上开通SFTP文件服务，允许某些用户上传及下载文件。但是这些用户只能使用SFTP传输文件，不能使用SSH终端访问服务器，并且SFTP不能访问系统文件（即所谓的“Jail（监狱）”）。系统管理员则既能使用SFTP传输文件，也能使用SSH远程管理服务器。</p>
+</blockquote>
+<ol>
 <li><p>安装OpenSSH服务器</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo apt-get install openssh-server</div></pre></td></tr></table></figure>
 </li>
@@ -365,50 +325,59 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
 <p>“监狱”的根目录必须满足以下要求：所有者为root，其他任何用户都不能拥有写入权限。因此，为了让SFTP用户能够上传文件，还必须在“监狱”根目录下再创建一个普通用户能够写入的共享文件目录。为了便于管理员通过SFTP管理上传的文件，我把这个共享文件目录配置为：由admin所有，允许sftp-users读写。这样，管理员和SFTP用户组成员就都能读写这个目录了。</p>
 </blockquote>
 </li>
-<li><p>修改SSH配置文件</p>
-<blockquote>
-<p>sudo nano /etc/ssh/sshd_config<br> 在sshd_config文件的最后，添加以下内容：</p>
- <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">AllowGroups ssh-users sftp-users</div><div class="line">Match Group sftp-users</div><div class="line">    ChrootDirectory /home/sftp_root</div><div class="line">    AllowTcpForwarding no</div><div class="line">    X11Forwarding no</div><div class="line">    ForceCommand internal-sftp</div></pre></td></tr></table></figure>
-</blockquote>
+<li><p>修改SSH配置文件<br> sudo nano /etc/ssh/sshd_config<br> 在sshd_config文件的最后，添加以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">AllowGroups ssh-users sftp-users</div><div class="line">Match Group sftp-users</div><div class="line">    ChrootDirectory /home/sftp_root</div><div class="line">    AllowTcpForwarding no</div><div class="line">    X11Forwarding no</div><div class="line">    ForceCommand internal-sftp</div></pre></td></tr></table></figure>
 <p> 这些内容的意思是：<br> 只允许ssh-uers及sftp-users通过SSH访问系统；<br> 针对sftp-users用户，额外增加一些设置：将“/home/sftp_root”设置为该组用户的系统根目录（因此它们将不能访问该目录之外的其他系统文件）；禁止TCP Forwarding和X11 Forwarding；强制该组用户仅仅使用SFTP。</p>
 </li>
 <li><p>service sshd reload</p>
 </li>
 </ol>
-<h3 id="DEBUG"><a href="#DEBUG" class="headerlink" title="DEBUG"></a>DEBUG</h3><pre><code>&gt; SFTP – subsystem request failed on channel X
+<h5 id="问题记录"><a href="#问题记录" class="headerlink" title="问题记录"></a>问题记录</h5><pre><code>&gt; SFTP – subsystem request failed on channel X
 </code></pre><p>   修改:</p>
 <blockquote>
 <p>You are using sftp to connect your server in a chrooted environment and you met the error below.</p>
 </blockquote>
-<pre><code>subsystem request failed on channel 0
-Couldn’t read packet: Connection reset by peer
+<p>subsystem request failed on channel 0<br>Couldn’t read packet: Connection reset by peer</p>
+<p>This causes because of wrong external library configured in your sshd_config. So, edit your sshd_config and <code>use internal-sftp</code>. Because openssh already has internal sftp functionality and <code>you dont need any external libraries</code>.</p>
+<p>Find the line beginning with “Subsystem”. Comment out and add the following line.</p>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#Subsystem sftp /usr/lib/openssh/sftp-server</div><div class="line">Subsystem sftp internal-sftp</div></pre></td></tr></table></figure>
+</code></pre><h4 id="配置定时任务"><a href="#配置定时任务" class="headerlink" title="配置定时任务"></a>配置定时任务</h4><ol>
+<li><p>crontabl命令</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">crontab: invalid option -- &apos;h&apos;</div><div class="line">crontab: usage error: unrecognized option</div><div class="line">usage:	crontab [-u user] file</div><div class="line">	crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</div><div class="line">		(default operation is replace, per 1003.2)</div><div class="line">	-e	(edit user&apos;s crontab)</div><div class="line">	-l	(list user&apos;s crontab)</div><div class="line">	-r	(delete user&apos;s crontab)</div><div class="line">	-i	(prompt before deleting user&apos;s crontab)</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>编辑添加定时任务 crontabl -u root -e</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* * * * * php /home/forge/default/artisan  schedule:run &gt;&gt; /dev/null 2&gt;&amp;1</div><div class="line">//下面是crontab的格式：</div><div class="line">//分 时 日 月 星期 要运行的命令</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>确保cmd能够正常执行</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php /home/forge/default/artisan  schedule:run</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p>查看cron服务</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//查看状态</div><div class="line">/etc/init.d/cron status</div><div class="line"></div><div class="line">//重启cron服务</div><div class="line">/etc/init.d/cron restart</div></pre></td></tr></table></figure>
+ <script>
+(function(){
+ var bp = document.createElement('script');
+ var curProtocol = window.location.protocol.split(':')[0];
+ if (curProtocol === 'https') {
+     bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+ }
+ else {
+     bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+ }
+ var s = document.getElementsByTagName("script")[0];
+ s.parentNode.insertBefore(bp, s);
 
-This causes because of wrong external library configured in your sshd_config. So, edit your sshd_config and use internal-sftp. Because openssh already has internal sftp functionality and you dont need any external libraries.
-
-Find the line beginning with “Subsystem”. Comment out and add the following line.
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">#Subsystem sftp /usr/lib/openssh/sftp-server</div><div class="line">Subsystem sftp internal-sftp</div></pre></td></tr></table></figure>
-</code></pre><h2 id="配置定时任务"><a href="#配置定时任务" class="headerlink" title="配置定时任务"></a>配置定时任务</h2><pre><code>1. crontabl命令
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">crontab: invalid option -- &apos;h&apos;</div><div class="line">crontab: usage error: unrecognized option</div><div class="line">usage:	crontab [-u user] file</div><div class="line">	crontab [ -u user ] [ -i ] &#123; -e | -l | -r &#125;</div><div class="line">		(default operation is replace, per 1003.2)</div><div class="line">	-e	(edit user&apos;s crontab)</div><div class="line">	-l	(list user&apos;s crontab)</div><div class="line">	-r	(delete user&apos;s crontab)</div><div class="line">	-i	(prompt before deleting user&apos;s crontab)</div></pre></td></tr></table></figure>
-
-
-2. 编辑添加定时任务 crontabl -u root -e
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">* * * * * php /home/forge/default/artisan  schedule:run &gt;&gt; /dev/null 2&gt;&amp;1</div><div class="line">//下面是crontab的格式：</div><div class="line">//分 时 日 月 星期 要运行的命令</div></pre></td></tr></table></figure>
-
-
-3. 确保cmd能够正常执行
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">php /home/forge/default/artisan  schedule:run</div></pre></td></tr></table></figure>
-
-
-4. 查看cron服务
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//查看状态</div><div class="line">/etc/init.d/cron status</div><div class="line"></div><div class="line">//重启cron服务</div><div class="line">/etc/init.d/cron restart</div></pre></td></tr></table></figure>
-
-&lt;script&gt;
-</code></pre><p>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js" target="_blank" rel="external">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js" target="_blank" rel="external">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
-<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
-document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
-</code></pre><p>})();<br></p>
+ var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+ document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+</li>
+</ol>
 ]]></content>
     
     <summary type="html">
@@ -429,9 +398,9 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
     <link href="https://austinxishou.github.io/2018/01/15/server/docker-note-useage/"/>
     <id>https://austinxishou.github.io/2018/01/15/server/docker-note-useage/</id>
     <published>2018-01-15T01:18:42.376Z</published>
-    <updated>2018-03-09T06:46:20.435Z</updated>
+    <updated>2018-03-09T10:21:32.680Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About-简介"></a>About-简介</h2><p><a href="https://www.cnblogs.com/linuxops/p/6781047.html" target="_blank" rel="external">参考文档</a></p>
+    <content type="html"><![CDATA[<h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About-简介"></a>About-简介</h2><p><a href="https://www.cnblogs.com/linuxops/p/6781047.html" target="_blank" rel="external">参考文档</a><br><a href="https://docs.docker.com/get-started/" target="_blank" rel="external">官方docker-doc</a></p>
 <blockquote>
 <p>Docker是使用go语言基于LINUX内核的cgroup，namespace以及AUFS 类的 Union FS 等技术，对进程进行封装隔离的一种操作系统层面的虚拟化技术，由于隔离的进程独立于宿主和其它的隔离的进程，因此也称其为容器。</p>
 </blockquote>
@@ -468,31 +437,21 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
 </ul>
 </li>
 </ul>
-<h2 id="Docker的基本概念"><a href="#Docker的基本概念" class="headerlink" title="Docker的基本概念"></a>Docker的基本概念</h2><h3 id="Docker-镜像"><a href="#Docker-镜像" class="headerlink" title="Docker 镜像"></a>Docker 镜像</h3><pre><code>我们都知道，操作系统分为内核和用户空间。对于 Linux 而言，内核启动后，会挂载根文件系统为其提供用户空间支持。而 Docker 镜像（Image），就相当于是一个根文件系统。Docker 镜像是一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（如匿名卷、环境变量、用户等）。镜像不包含任何动态数据，其内容在构建之后也不会被改变。
-</code></pre><h3 id="分层存储"><a href="#分层存储" class="headerlink" title="分层存储"></a>分层存储</h3><pre><code>因为镜像包含操作系统完整的根文件系统，其体积往往是庞大的，因此在 Docker 设计时，就充分利用 Union FS 的技术，将其设计为分层存储的架构。所以严格来说，镜像并非是像一个 ISO 那样的打包文件，镜像只是一个虚拟的概念，其实际体现并非由一个文件组成，而是由一组文件系统组成，或者说，由多层文件系统联合组成。
-镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。比如，删除前一层文件的操作，实际不是真的删除前一层的文件，而是仅在当前层标记为该文件已删除。在最终容器运行的时候，虽然不会看到这个文件，但是实际上该文件会一直跟随镜像。因此，在构建镜像的时候，需要额外小心，每一层尽量只包含该层需要添加的东西，任何额外的东西应该在该层构建结束前清理掉。
-
-分层存储的特征还使得镜像的复用、定制变的更为容易。甚至可以用之前构建好的镜像作为基础层，然后进一步添加新的层，以定制自己所需的内容，构建新的镜像。
-</code></pre><h3 id="Docker-容器"><a href="#Docker-容器" class="headerlink" title="Docker 容器"></a>Docker 容器</h3><pre><code>镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。
-
-容器的实质是进程，但与直接在宿主执行的进程不同，容器进程运行于属于自己的独立的命名空间。因此容器可以拥有自己的根文件系统、自己的网络配置、自己的进程空间，甚至自己的用户 ID 空间。容器内的进程是运行在一个隔离的环境里，使用起来，就好像是在一个独立于宿主的系统下操作一样。这种特性使得容器封装的应用比直接在宿主运行更加安全。
-
-前面讲过镜像使用的是分层存储，容器也是如此。每一个容器运行时，是以镜像为基础层，在其上创建一个当前容器的存储层，我们可以称这个为容器运行时读写而准备的存储层为容器存储层。
-
-容器存储层的生存周期和容器一样，容器消亡时，容器存储层也随之消亡。因此，任何保存于容器存储层的信息都会随容器删除而丢失。
-
-按照 Docker 最佳实践的要求，容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。所有的文件写入操作，都应该使用 数据卷（Volume）、或者绑定宿主目录，在这些位置的读写会跳过容器存储层，直接对宿主(或网络存储)发生读写，其性能和稳定性更高。
-
-数据卷的生存周期独立于容器，容器消亡，数据卷不会消亡。因此，使用数据卷后，容器可以随意删除、重新运行，数据却不会丢失。
-</code></pre><h3 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h3><pre><code>Docker Registry 提供了镜像的集中的存储、分发功能。一个 Docker Registry 中可以包含多个仓库（Repository）；每个仓库可以包含多个标签（Tag）；通过 &lt;仓库名&gt;:&lt;标签&gt; 的格式来指定具体是这个软件哪个版本的镜像。Docker Registry 分为公有服务和私有服务，我们可以搭建一个基于本地的registry
-</code></pre><h2 id="Docker-操作"><a href="#Docker-操作" class="headerlink" title="Docker 操作"></a>Docker 操作</h2><h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><pre><code>例如在Ubuntu中,可以直接运行:
-
+<h2 id="Docker的基本概念"><a href="#Docker的基本概念" class="headerlink" title="Docker的基本概念"></a>Docker的基本概念</h2><h3 id="Docker-镜像"><a href="#Docker-镜像" class="headerlink" title="Docker 镜像"></a>Docker 镜像</h3><p>我们都知道，操作系统分为内核和用户空间。对于 Linux 而言，内核启动后，会挂载根文件系统为其提供用户空间支持。而 Docker 镜像（Image），就相当于是一个根文件系统。Docker 镜像是一个特殊的文件系统，除了提供容器运行时所需的程序、库、资源、配置等文件外，还包含了一些为运行时准备的一些配置参数（如匿名卷、环境变量、用户等）。镜像不包含任何动态数据，其内容在构建之后也不会被改变。</p>
+<h3 id="分层存储"><a href="#分层存储" class="headerlink" title="分层存储"></a>分层存储</h3><p>因为镜像包含操作系统完整的根文件系统，其体积往往是庞大的，因此在 Docker 设计时，就充分利用 Union FS 的技术，将其设计为分层存储的架构。所以严格来说，镜像并非是像一个 ISO 那样的打包文件，镜像只是一个虚拟的概念，其实际体现并非由一个文件组成，而是由一组文件系统组成，或者说，由多层文件系统联合组成。<br>镜像构建时，会一层层构建，前一层是后一层的基础。每一层构建完就不会再发生改变，后一层上的任何改变只发生在自己这一层。比如，删除前一层文件的操作，实际不是真的删除前一层的文件，而是仅在当前层标记为该文件已删除。在最终容器运行的时候，虽然不会看到这个文件，但是实际上该文件会一直跟随镜像。因此，在构建镜像的时候，需要额外小心，每一层尽量只包含该层需要添加的东西，任何额外的东西应该在该层构建结束前清理掉。</p>
+<p>分层存储的特征还使得镜像的复用、定制变的更为容易。甚至可以用之前构建好的镜像作为基础层，然后进一步添加新的层，以定制自己所需的内容，构建新的镜像。</p>
+<h3 id="Docker-容器"><a href="#Docker-容器" class="headerlink" title="Docker 容器"></a>Docker 容器</h3><p>镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态的定义，容器是镜像运行时的实体。容器可以被创建、启动、停止、删除、暂停等。</p>
+<p>容器的实质是进程，但与直接在宿主执行的进程不同，容器进程运行于属于自己的独立的命名空间。因此容器可以拥有自己的根文件系统、自己的网络配置、自己的进程空间，甚至自己的用户 ID 空间。容器内的进程是运行在一个隔离的环境里，使用起来，就好像是在一个独立于宿主的系统下操作一样。这种特性使得容器封装的应用比直接在宿主运行更加安全。</p>
+<p>前面讲过镜像使用的是分层存储，容器也是如此。每一个容器运行时，是以镜像为基础层，在其上创建一个当前容器的存储层，我们可以称这个为容器运行时读写而准备的存储层为容器存储层。</p>
+<p>容器存储层的生存周期和容器一样，容器消亡时，容器存储层也随之消亡。因此，任何保存于容器存储层的信息都会随容器删除而丢失。</p>
+<p>按照 Docker 最佳实践的要求，容器不应该向其存储层内写入任何数据，容器存储层要保持无状态化。所有的文件写入操作，都应该使用 数据卷（Volume）、或者绑定宿主目录，在这些位置的读写会跳过容器存储层，直接对宿主(或网络存储)发生读写，其性能和稳定性更高。</p>
+<p>数据卷的生存周期独立于容器，容器消亡，数据卷不会消亡。因此，使用数据卷后，容器可以随意删除、重新运行，数据却不会丢失。</p>
+<h3 id="Docker-Registry"><a href="#Docker-Registry" class="headerlink" title="Docker Registry"></a>Docker Registry</h3><p>Docker Registry 提供了镜像的集中的存储、分发功能。一个 Docker Registry 中可以包含多个仓库（Repository）；每个仓库可以包含多个标签（Tag）；通过 &lt;仓库名&gt;:&lt;标签&gt; 的格式来指定具体是这个软件哪个版本的镜像。Docker Registry 分为公有服务和私有服务，我们可以搭建一个基于本地的registry</p>
+<h2 id="Docker-操作"><a href="#Docker-操作" class="headerlink" title="Docker 操作"></a>Docker 操作</h2><h3 id="安装docker"><a href="#安装docker" class="headerlink" title="安装docker"></a>安装docker</h3><p>例如在Ubuntu中,可以直接运行:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">apt-get install docker</div></pre></td></tr></table></figure>
-</code></pre><h3 id="配置镜像加速"><a href="#配置镜像加速" class="headerlink" title="配置镜像加速"></a>配置镜像加速</h3><pre><code>由于国内访问docker原站点非常困难，国内的云服务提供商提供了加速功能。我们使用阿里云进行docker加速
-地址为: https://dev.aliyun.com/search.html
-
+<h3 id="配置镜像加速"><a href="#配置镜像加速" class="headerlink" title="配置镜像加速"></a>配置镜像加速</h3><p>由于国内访问docker原站点非常困难，国内的云服务提供商提供了加速功能。我们使用阿里云进行docker加速<br>地址为: <a href="https://dev.aliyun.com/search.html" target="_blank" rel="external">https://dev.aliyun.com/search.html</a></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">sed -i &quot;s|ExecStart=/usr/bin/dockerd|ExecStart=/usr/bin/dockerd --registry-mirror=https://fz5yth0r.mirror.aliyuncs.com|g&quot; /usr/lib/systemd/system/docker.service</div><div class="line">systemctl daemon-reload</div><div class="line">systemctl restart docker</div></pre></td></tr></table></figure>
-</code></pre><h3 id="使用镜像"><a href="#使用镜像" class="headerlink" title="使用镜像"></a>使用镜像</h3><ul>
+<h3 id="使用镜像"><a href="#使用镜像" class="headerlink" title="使用镜像"></a>使用镜像</h3><ul>
 <li><p><strong>获取镜像</strong></p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">docker pull [OPTIONS] NAME[:TAG|@DIGEST]</div></pre></td></tr></table></figure>
 </li>
@@ -515,19 +474,15 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
 <pre><code>- 还可以用 docker history 具体查看镜像内的历史记录，如果比较 nginx:latest 的历史记录
 
 - 慎用 docker commit
-&gt; 观察之前的 docker diff webserver 的结果，你会发现除了真正想要修改的 /usr/share/nginx/html/index.html 文件外，还有很多文件被改动或添加了。如果是安装软件包、编译构建，那会有大量的无关内容被添加进来，将会导致镜像极为臃肿。
-
-使用 docker commit 意味着除了制作镜像的人知道执行过什么命令、怎么生成的镜像，别人根本无从得知。而且，即使是这个制作镜像的人，过一段时间后也无法记清具体在操作的。
-
-如果使用 docker commit 制作镜像，由于只在当前层操作，后期修改的话，每一次修改都会让镜像更加臃肿一次，所删除的上一层的东西并不会丢失，会一直如影随形的跟着这个镜像，
-即使根本无法访问到?。这会让镜像更加臃肿。
-
-docker commit 命令除了学习之外，还有一些特殊的应用场合，比如被入侵后保存现场等。但是，不要使用 docker commit 定制镜像，定制行为应该使用 Dockerfile 来完成。
-</code></pre><h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><pre><code>Dockerfile是一个文本文件，用来来构建、定制镜像。之前使用 docker commit 提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。
-使用docker file 定制nginx镜像
-
+</code></pre><blockquote>
+<p>观察之前的 docker diff webserver 的结果，你会发现除了真正想要修改的 /usr/share/nginx/html/index.html 文件外，还有很多文件被改动或添加了。如果是安装软件包、编译构建，那会有大量的无关内容被添加进来，将会导致镜像极为臃肿。</p>
+</blockquote>
+<p>使用 docker commit 意味着除了制作镜像的人知道执行过什么命令、怎么生成的镜像，别人根本无从得知。而且，即使是这个制作镜像的人，过一段时间后也无法记清具体在操作的。</p>
+<p>如果使用 docker commit 制作镜像，由于只在当前层操作，后期修改的话，每一次修改都会让镜像更加臃肿一次，所删除的上一层的东西并不会丢失，会一直如影随形的跟着这个镜像，<br>即使根本无法访问到?。这会让镜像更加臃肿。</p>
+<p>docker commit 命令除了学习之外，还有一些特殊的应用场合，比如被入侵后保存现场等。但是，不要使用 docker commit 定制镜像，定制行为应该使用 Dockerfile 来完成。</p>
+<h3 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h3><p>Dockerfile是一个文本文件，用来来构建、定制镜像。之前使用 docker commit 提及的无法重复的问题、镜像构建透明性的问题、体积的问题就都会解决。<br>使用docker file 定制nginx镜像</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">FROM nginx</div><div class="line">RUN echo &apos;&lt;h1&gt;Hello, Docker!&lt;/h1&gt;&apos; &gt; /usr/share/nginx/html/index.html</div></pre></td></tr></table></figure>
-</code></pre><ul>
+<ul>
 <li><p><strong>FROM</strong></p>
 <ul>
 <li><p>指定一个基础镜像，可以直接拿来使用的服务类的镜像，如ubuntu、debian、centos、fedora、alpine、nginx、redis、mongo、mysql、httpd、php、tomcat 等。</p>
@@ -1395,8 +1350,9 @@ services:
       other-network:
         aliases:
          - alias2
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    相同的服务可以在不同的网络有不同的别名。</div><div class="line"></div><div class="line">## 阿里自定义镜像</div><div class="line">### 登录</div></pre></td></tr></table></figure>
-</code></pre><p>docker login -u {username} -p {passwd} <a href="https://registry.acs.aliyun.com" target="_blank" rel="external">https://registry.acs.aliyun.com</a><br>docker login -u 1012202451213731 -p 896423Dev <a href="https://registry.acs.aliyun.com" target="_blank" rel="external">https://registry.acs.aliyun.com</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 打标签</div><div class="line">https://registry.acs.aliyun.com</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">    </div><div class="line">    相同的服务可以在不同的网络有不同的别名。</div><div class="line"></div><div class="line">## 阿里自定义镜像</div><div class="line">[阿里容器HUB控制台](https://cr.console.aliyun.com/)</div><div class="line">### 登录</div></pre></td></tr></table></figure>
+</code></pre><p>docker login -u 1012202451213731 -p {passwd} <a href="https://registry.acs.aliyun.com" target="_blank" rel="external">https://registry.acs.aliyun.com</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### 打标签</div><div class="line">https://registry.acs.aliyun.com</div></pre></td></tr></table></figure>
 <p>docker tag bf46626ea2a8 registry.acs.aliyun.com/1012202451213731/laravel_taobao:v1.0<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">### 配置加速器</div></pre></td></tr></table></figure></p>
 <p>echo “DOCKER_OPTS=\”\$DOCKER_OPTS –registry-mirror=<a href="https://lqjizur.mirror.acs.aliyun.com\" target="_blank" rel="external">https://lqjizur.mirror.acs.aliyun.com\</a>“” | sudo tee -a /etc/default/docker<br>sudo service docker restart<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">### docker push</div></pre></td></tr></table></figure></p>
 <p>docker push registry.acs.aliyun.com/1012202451213731/austin_laravel_taobao:v1.0<br>```</p>
@@ -1445,203 +1401,33 @@ services:
   </entry>
   
   <entry>
-    <title>html chuanbozhike</title>
-    <link href="https://austinxishou.github.io/2018/01/07/wechat/html-chuanbozhike/"/>
-    <id>https://austinxishou.github.io/2018/01/07/wechat/html-chuanbozhike/</id>
-    <published>2018-01-07T09:24:19.364Z</published>
-    <updated>2018-01-07T09:23:43.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="常用快捷键-windows-d-返回桌面"><a href="#常用快捷键-windows-d-返回桌面" class="headerlink" title="常用快捷键: windows+d  返回桌面"></a>常用快捷键: windows+d  返回桌面</h2><pre><code>Windows+e 我的电脑
-Windows+r 打开运行
-Alt+tab   切换软件
-ctrl+tab  切换网页 文档切换
-F2         重命名
-F5        刷新
-</code></pre><p>Web标准:由W3c制定<br>               html(结构标准)     Css(表现标准)     Js(行为标准)<br>Url地址就是网址</p>
-<h2 id="Html结构标准"><a href="#Html结构标准" class="headerlink" title="Html结构标准"></a>Html结构标准</h2><p>&lt;!doctype html&gt; 声明文档类型</p>
-<html>   根标签<br><head><br>     <title></title>  网页头标题<br></head><br><body><br></body><br></html>
-
-<h2 id="标签分类"><a href="#标签分类" class="headerlink" title="标签分类"></a>标签分类</h2><p>单标签  &lt;! Doctype html&gt;<br>           注释标签<br>           <br>换行标签<br>           <hr> 水平线<br>双标签<br>  标题: </p><h1>定义最大的标题。<h6> 定义最小的标题。<br>           <h1>在一个页面里只能出现一次<br>  段落: <p></p><p></p>
-<p>  文本内容: <font>  </font>  规定文本的字体、字体尺寸、字体颜色</p>
-<pre><code>加粗&lt;strong&gt; &lt;/strong&gt;  &lt;b&gt;&lt;/b&gt;
-倾斜 &lt;em&gt;&lt;/em&gt;  &lt;i&gt;&lt;/i&gt;
-删除线 &lt;del&gt; &lt;/del&gt;     &lt;s&gt;&lt;/s&gt;
-下划线 &lt;ins&gt;&lt;/ins&gt;  &lt;u&gt;&lt;/u&gt;
-工作中尽量使用前者
-</code></pre><p> 图片标签<img><br>              src图片来源<br>              alt 图片不显示的时候,显示文字<br>              titile 提示文本  鼠标放到图片上显示的文字</p>
-<h2 id="Sublime"><a href="#Sublime" class="headerlink" title="Sublime"></a>Sublime</h2><p>1、标签输入后,按tab键,自动补全括号<br>2、html:xt +tab  结构代码</p>
-<p>3、sublime 快捷键<br>     ctrl+shift+d  复制一行代码<br>     ctrl+shift+k  快速删除一行<br>     ctrl+鼠标单击  集体输入<br>     ctrl+h  查找和替换<br>     ctrl+f  查找<br>     crl+/ 注释<br>     ctrl+L 快速选中一行<br>     ctrl+shift+上下箭头   快速上下移动</p>
-<h2 id="路径"><a href="#路径" class="headerlink" title="路径"></a>路径</h2><p>1、相对路径<br>     文件和图片在同一个目录(文件夹),直接写文件名即可;<br>2、图片在文件下一级目录里,文件夹名称+/图片(html文件)名称<br>3、图片在文件上一级目录里,  ../+图片(html文件)名称<br>4、图片在文件上一级目录的文件夹里,  ../+文件夹ming/+图片(html文件)名称</p>
-<h2 id="超链接"><a href="#超链接" class="headerlink" title="超链接"></a>超链接</h2><p>  1、<a></a><br>    href 链接地址   titile 鼠标显示图片文字<br>    target显示图片打开方式   target=”_blank” 在新窗口打开<br>    target=”_self”在当前页面打开</p>
-<p>  2、超链接优化写法<br>    让所有的超链接当前页面不关闭，打开新窗口： 在<head></head>中输入<base target="_blank"></p>
-<h2 id="锚点"><a href="#锚点" class="headerlink" title="锚点"></a>锚点</h2><p>  1 、先定义一个锚点 </p><p id="sd"><br>      id=”取一个英文名作为锚点名称”<br>     超链接到锚点 <a herf="#sd">回到顶部</a></p>
-<h2 id="空链-压缩文件下载-特殊字符"><a href="#空链-压缩文件下载-特殊字符" class="headerlink" title="空链 压缩文件下载    特殊字符"></a>空链 压缩文件下载    特殊字符</h2><p>   1、空链:就是没有目标端点的链接<br>           格式 <a href="#">显示内容</a></p>
-<h2 id="列表"><a href="#列表" class="headerlink" title="列表"></a>列表</h2><p>   1、 无序列表<br>     格式:<br>     <ul type="列表前面的符号 "><br>        <li> </li><br>     </ul></p>
-<pre><code>type=&quot;square&quot;  小方块 
-type=&quot;disc&quot;  实心小圆圈
-type=&quot;circle&quot; 空心小圆圈
-</code></pre><p>  2、 有序列表<br>      格式:<br>      <ol><br>        <li> </li><br>      </ol></p>
-<pre><code>type=&quot;&quot; type的值可以为1 a 等等
-type=&quot;1&quot; start=3  数字序列从3开始,start决定了开始的数字或者字母
-type=&quot;a&quot; start=3  字母序列从c开始
-</code></pre><p>  3、自定义列表<br>      格式:<br>      <dl><br>        <dt>小标题</dt><br>        <dd>解释标题</dd><br>      <dl></dl></dl></p>
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-
-    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
-    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
-})();
-</script>
-</h1></h6></h1>]]></content>
-    
-    <summary type="html">
-    
-      html基础
-    
-    </summary>
-    
-      <category term="layout html" scheme="https://austinxishou.github.io/categories/layout-html/"/>
-    
-    
-      <category term="html" scheme="https://austinxishou.github.io/tags/html/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>html layout</title>
-    <link href="https://austinxishou.github.io/2018/01/07/wechat/html-css-layout/"/>
-    <id>https://austinxishou.github.io/2018/01/07/wechat/html-css-layout/</id>
-    <published>2018-01-07T04:05:01.668Z</published>
-    <updated>2017-12-05T15:02:05.000Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="Online-web"><a href="#Online-web" class="headerlink" title="Online web"></a>Online web</h2><p><a href="http://zh.learnlayout.com/" target="_blank" rel="external">ѧϰCSS����</a><br><a href="http://blog.doyoe.com/" target="_blank" rel="external">Webǰ��ʵ����</a></p>
-<p><a href="http://www.jianshu.com/p/56d8672ccb0f" target="_blank" rel="external">http://www.jianshu.com/p/56d8672ccb0f</a></p>
-<h2 id="����CSS-position����"><a href="#����CSS-position����" class="headerlink" title="����CSS position����"></a>����CSS position����</h2><p><a href="http://www.cnblogs.com/lrzw32/p/4966217.html" target="_blank" rel="external">����CSS position����</a><br>position��������</p>
-<pre><code>1. static
-    static��position���Ե�Ĭ��ֵ��Ĭ�������£��鼶Ԫ�غ�����Ԫ�ذ��ո��Ե����Խ�����ʾ
-2. relative
-    relative���������ĳ����Զ�λ���������������Ժ���Ԫ�ػ�����top��left��bottom��right����ƫ�ƣ��ؼ�������ԭ���Ŀռ���Ȼ������
-3. absolute
-    Ԫ�����ó�absolute���������ĵ��������Ҳ�ռ��ԭ���Ŀռ䣬������Ԫ�ػᶥ����ȥ�����Ҳ���Ԫ��������Ԫ�ػ��ǿ鼶Ԫ�أ���������һ���鼶����Ҳ������������Ԫ��span������absolute���Ϳ�������height��width�����ˡ�
-4. fixed
-    fixed�ı��ַ�ʽ������absolute������������absolute�����ڲ�ȷ���ĸ�Ԫ�ؽ���ƫ�ƣ�fixed�������������������ڽ���ƫ��
-</code></pre><h2 id="����CSS-float����"><a href="#����CSS-float����" class="headerlink" title="����CSS float����"></a>����CSS float����</h2><p><a href="http://luopq.com/2015/11/08/CSS-float/" target="_blank" rel="external">����CSS float����</a></p>
-<p>float����:</p>
-<ol>
-<li>����Ԫ�ػ�����ͨ�ĵ��������룬������Ԫ��Ӱ���Ĳ������Լ�������Ӱ����Χ��Ԫ�ض������л���</li>
-<li>����Ԫ���ڸ�����ʱ������margin���ᳬ����������padding</li>
-<li>�ж�������Ԫ�أ������ĸ���Ԫ�ص�margin���ᳬ��ǰ�渡��Ԫ�ص�margin</li>
-<li>����Ԫ��һ�����󸡶���һ�����Ҹ������󸡶�Ԫ�ص�marginRight�������Ҹ���Ԫ�ص�marginLeft����</li>
-<li>�������������Ȳ����������ĸ���Ԫ�ؽ������¸������䶥����ǰ�渡��Ԫ�صĵ׶�</li>
-<li>����Ԫ�ض��˲��ᳬ�����������ڱ߽��׶ˣ������ж�������Ԫ�أ���һ������Ԫ�صĶ��˲��ᳬ����һ������Ԫ�صĵ׶�</li>
-<li>����Ԫ�ػᾡ���ܵ��򶥶˶��롢���������Ҷ���</li>
-</ol>
-<p>float��������:</p>
-<ol>
-<li>����Ԫ�ص�������</li>
-</ol>
-<p>��������:</p>
-<p>ΪʲôҪ��������:</p>
-<blockquote>
-<p>����֪����һ���鼶Ԫ������û������height����height������Ԫ�سſ��ġ�����Ԫ��ʹ���˸���֮������Ԫ�ػ�������׼�ĵ�����Ҳ����˵������Ԫ����û�����ݿ��Գſ����߶ȣ���������Ԫ�ص�height�ͻᱻ���ԣ���������ν�ĸ߶����ݡ�</p>
-</blockquote>
-<p>������������:</p>
-<ol>
-<li>���Ӷ�����div<br>����������ֱ�ӵķ����������и���Ԫ�أ������丸��Ԫ�ص�����������һ������Ϊ����һ����Ԫ�أ�<br> �ŵ㣺����ֱ�ӣ���ѧ�߳���ʹ�õķ�����Ҳ��������<br> ȱ�㣺���Ӷ�������������ǩ�����������廯��ÿ��������Ҫ���Ӷ����Ŀձ�ǩ�������˷�</li>
-<li>����Ԫ������overflow:hidden<br> �ŵ㣺�������٣�û�ж����ı�ǩ<br> ȱ�㣺������Ԫ�س�����Ԫ�صķ�Χ�������ɳ����Ĳ��ֱ�����</li>
-<li>afterαԪ��(�Ƽ�ʹ�����ַ���)<br> �ŵ㣺û�ж�����ǩ���ۺ��������ǱȽϺõķ���<br> ȱ�㣺���Ը��ӣ�����������ԭ����Ҳͦ�򵥵�<br> after��ʾ��Ԫ�صĺ��棬ͨ������������һ������clear��Ԫ�أ�Ȼ����������</li>
-</ol>
-<p>float��Ӧ��</p>
-<pre><code>1. ���ֻ���Ч��
-    float������Ӧ�þ������ֻ���Ч��������ͼ�Ĳ�ï�����º����á�
-2. �����˵�����
-
-3. ����
-</code></pre><h2 id="����CSS-dispaly����"><a href="#����CSS-dispaly����" class="headerlink" title="����CSS dispaly����"></a>����CSS dispaly����</h2><p><a href="http://www.zhangxinxu.com/wordpress/2012/04/inline-block-space-remove-%E5%8E%BB%E9%99%A4%E9%97%B4%E8%B7%9D/" target="_blank" rel="external">ȥ��inline-blockԪ�ؼ�������N�ַ���</a></p>
-<h2 id="��L�ߴ�"><a href="#��L�ߴ�" class="headerlink" title="��Ļ�ߴ�"></a>��Ļ�ߴ�</h2><p>����̨ʽ��1536*482��<br><a href="http://www.cnblogs.com/lyzg/p/4877277.html?utm_source=caibaojian.com" target="_blank" rel="external">���������Ա���font-size˼��ǰ�����Ƹ��빤����</a><br><a href="https://github.com/peunzhang/pageResponse" target="_blank" rel="external">pageResponse�ƶ�����Ӧʽ����</a></p>
-<h3 id="�ٷֱY���"><a href="#�ٷֱY���" class="headerlink" title="�ٷֱȲ���"></a>�ٷֱȲ���</h3><h3 id="rem����"><a href="#rem����" class="headerlink" title="rem����"></a>rem����</h3><p>���㣺 remֻ����ĳ���ֲ���Χ����Ӧ����ĳЩ�ֱ�����Ч������</p>
-<h3 id="transfer��scale����"><a href="#transfer��scale����" class="headerlink" title="transfer��scale����"></a>transfer��scale����</h3><h3 id="Flex����"><a href="#Flex����" class="headerlink" title="Flex����"></a>Flex����</h3><p><a href="https://segmentfault.com/a/1190000011428421" target="_blank" rel="external">Flex���ֲ���������������</a></p>
-<h2 id="ͼTfloat��������DIV�д�ֱ����"><a href="#ͼTfloat��������DIV�д�ֱ����" class="headerlink" title="ͼƬfloat��������DIV�д�ֱ����"></a>ͼƬfloat��������DIV�д�ֱ����</h2><p>ͼƬfloat��������DIV�д�ֱ����?<br><a href="http://www.zhangxinxu.com/study/200908/img-text-vertical-align.html" target="_blank" rel="external">��С���̶���ͼƬ�Ͷ������ֵĴ�ֱˮƽ����</a></p>
-<p>border-bottom: 3px solid #FD904B !important;</p>
-<p>����/չ��</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">var zk = document.getElementById(&quot;zk&quot;);</div><div class="line">var iszk = false;</div><div class="line">zk.onclick = function () &#123;</div><div class="line">    if (iszk) &#123;</div><div class="line">        document.getElementById(&quot;banner2&quot;).style.padding = &quot;20px 0&quot;;</div><div class="line">        zk.innerHTML = &apos;&lt;p style=&quot;text-indent: 2em;margin-top: 10px&quot;&gt;�й��Ļ���������ȫ���ԣ�������ģ�Ļ�����ҵʢ�ᣬ�����ѳɹ��ٰ��Ľ죬���нϸߵ���ҵ֪����������Ӱ�������Ļ����������ᣨ���£�����&lt;span style=&quot;color: dodgerblue;&quot;&gt;չ��ȫ��&lt;/span&gt;&lt;/p&gt;&apos;;</div><div class="line">        iszk = false;</div><div class="line">    &#125; else &#123;</div><div class="line">        document.getElementById(&quot;banner2&quot;).style.padding = &quot;0 0 20px 0&quot;;</div><div class="line">        zk.innerHTML = &apos;&lt;p style=&quot;text-indent: 2em;margin-top: 10px&quot;&gt;�й��Ļ���������ȫ���ԡ�������ģ�Ļ�����ҵʢ�ᣬ�������ѳɹ��ٰ��Ľ죬���нϸߵ���ҵ֪����������Ӱ�������Ļ����������ᣨ���¼��ơ������ᡱ������������Ҫ���飬���������ټ��Ļ�����ҵ����������ҵ��λ������չʾ��ҵ�ڶ����Ļ����Ƽ������ι�Ӧ���Լ������Ļ����������ʲ�Ʒ��������Ϊ�����ٰ��ع�����������ҵ�λ���������һ���Ļ�����ʢ�硣&lt;/p&gt;&lt;div class=&quot;_underline&quot;&gt;&lt;/div&gt;&lt;p&gt;չ�����ƣ�2017���й��Ļ�������?�Ļ�����������&lt;/p&gt;&lt;p&gt;ʱ&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;�䣺2017��11��29��-12��1�գ�չ��3�죩&lt;/p&gt;&lt;p&gt;��&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;�㣺����ɽ�л�չ����&lt;/p&gt;&lt;p&gt;��&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ģ��������չ������Լ30000ƽ���ף�ӵ��3��չ��������11000ƽ���ף����Ĵ�չ����&lt;/p&gt;&lt;div class=&quot;_underline&quot;&gt;&lt;/div&gt;&lt;p&gt;��һչ����������+�������Ļ�����ҵ�������ĸ�&lt;/p&gt;&lt;p&gt;�ڶ�չ�����������ʣ����㴫ͳ�Ļ��Ĵ����봴��&lt;/p&gt;&lt;p&gt;����չ�����Ļ����β�Ʒ����&lt;/p&gt;&lt;p&gt;����չ�������׹��ʻ��������Ļ����߻����˶���Ʒչ&lt;/p&gt;&lt;div&gt;&lt;p style=&quot;color: dodgerblue;text-align: right&quot;&gt;����&lt;/p&gt;&lt;/div&gt;&lt;br&gt;&apos;;</div><div class="line">        iszk = true;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//Ѱ��</div><div class="line">function findGold() &#123;</div><div class="line">    window.location.href = &quot;?r=wbh/findgold&quot;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>�Զ��尴ť<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">.custombtn &#123;</div><div class="line">    padding: 10px;</div><div class="line">    border-radius: 5px;</div><div class="line">    background-color: #6A9FFD;</div><div class="line">    color: white !important;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>ͼ�Ŀ��»���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">.underline &#123;</div><div class="line">    padding: 10px 0;</div><div class="line">    margin: 0 5px;</div><div class="line">    border-bottom: 1px solid #eeeeee;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;underline&quot;&gt;</div><div class="line">    &lt;a href=&quot;?r=site/cominfo&amp;amp;id=5&quot; class=&quot;cusBtn&quot;&gt;</div><div class="line">    &lt;div class=&quot;row&quot;&gt;</div><div class="line">        &lt;div class=&quot;col-xs-3&quot; align=&quot;center&quot;&gt;</div><div class="line">                                            &lt;img src=&quot;company/5.png&quot; width=&quot;100%&quot; style=&quot;max-height: 50px&quot;&gt;</div><div class="line">                                        &lt;/div&gt;</div><div class="line">        &lt;div class=&quot;col-xs-9&quot;&gt;</div><div class="line">            &lt;h4 style=&quot;color: #AE923F;&quot;&gt;������ͼ���������Ƽ���չ���޹�˾&lt;/h4&gt;</div><div class="line">            &lt;p style=&quot;margin:15px 0;&quot;&gt;������ͼ��һ���Ժ����л��Ļ���������������Ϊ��ּ���Ļ�������...&lt;/p&gt;</div><div class="line">        &lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">    &lt;/a&gt;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
-<p>����������</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div class=&quot;triangle&quot;&gt;&lt;/div&gt;</div><div class="line">.triangle &#123;</div><div class="line">    margin: 1em auto;</div><div class="line">    width: 0;</div><div class="line">    height: 0;</div><div class="line">    border-left: 0.5em solid transparent;</div><div class="line">    border-right: 0.5em solid transparent;</div><div class="line">    border-top: 0.6em solid #222;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">.researchFormTop .triangle &#123;</div><div class="line">    margin: 1em auto;</div><div class="line">    width: 0;</div><div class="line">    height: 0;</div><div class="line">    border-left: 0.5em solid transparent;</div><div class="line">    border-right: 0.5em solid transparent;</div><div class="line">    border-bottom: 0.6em solid #222;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>΢�ŷ���<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">wx.config(&#123;</div><div class="line">    debug: false,</div><div class="line">    appId: &apos;wxe0e045abe94b1536&apos;, // ������ںŵ�Ψһ��ʶ</div><div class="line">    timestamp: &apos;1512444969&apos;, // �������ǩ����ʱ����</div><div class="line">    nonceStr: &apos;53ee6134-5e1e-495d-b2d4-edac4fbed2e2&apos;, // �������ǩ����������</div><div class="line">    signature: &quot;ca62c5cdcc0b88b62c9b52783d4dcf4aad141ad7&quot;,</div><div class="line">    jsApiList: [&apos;onMenuShareTimeline&apos;, &apos;onMenuShareAppMessage&apos;,&apos;hideMenuItems&apos;] // �����Ҫʹ�õ�JS�ӿ��б�������JS�ӿ��б�����¼2</div><div class="line">&#125;);</div><div class="line"></div><div class="line">wx.ready(function()&#123;</div><div class="line">	console.log(&quot;΢����֤�ɹ�&quot;);</div><div class="line">	wx.hideMenuItems(&#123;</div><div class="line">	    menuList: [&apos;menuItem:copyUrl&apos;,&apos;menuItem:originPage&apos;,&apos;menuItem:openWithQQBrowser&apos;,&apos;menuItem:openWithSafari&apos;,&apos;menuItem:share:qq&apos;,&apos;menuItem:share:weiboApp&apos;,&apos;menuItem:share:QZone&apos;] // Ҫ���صĲ˵��ֻ�����ء������ࡱ�͡������ࡱ��ť������menu������¼3</div><div class="line">	&#125;);</div><div class="line">	</div><div class="line">	//����Ȧ</div><div class="line">	var title=&quot;�й��Ļ���������ֱ������&quot;;</div><div class="line">	var link=location.href;</div><div class="line">	if(location.href.indexOf(&quot;sub&quot;)==-1)&#123;</div><div class="line">		link+=&quot;&amp;sub=0&quot;;</div><div class="line">	&#125;</div><div class="line">	var imgUrl=location.protocol+location.host+&quot;/liveimage/zgwhwlds.jpg&quot;</div><div class="line">	var desc=&quot;�����˴����������ʣ���һʱ���ۿ�ȫ��Ⱥ���Ļ������ֱ����&quot;;</div><div class="line">wx.onMenuShareTimeline(&#123;</div><div class="line">    title: title, // ��������</div><div class="line">    link: link, // �������ӣ�������������·�������뵱ǰҳ����Ӧ�Ĺ��ں�JS��ȫ����һ��</div><div class="line">    imgUrl: imgUrl, // ����ͼ��</div><div class="line">    success: function () &#123; </div><div class="line">        layer_show(&quot;�����ɹ�&quot;);</div><div class="line">    &#125;,</div><div class="line">    cancel: function () &#123; </div><div class="line">    &#125;,fail:function()&#123;</div><div class="line">    	layer_show(&quot;����ʧ��&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line"></div><div class="line">//����������</div><div class="line"> wx.onMenuShareAppMessage(&#123;</div><div class="line">    title: title, // ��������</div><div class="line">    desc: desc, // ��������</div><div class="line">    link: link, // �������ӣ�������������·�������뵱ǰҳ����Ӧ�Ĺ��ں�JS��ȫ����һ��</div><div class="line">    imgUrl: imgUrl, // ����ͼ��</div><div class="line">    type: &apos;&apos;, // ��������,music��video��link������Ĭ��Ϊlink</div><div class="line">    dataUrl: &apos;&apos;, // ����type��music��video����Ҫ�ṩ�������ӣ�Ĭ��Ϊ��</div><div class="line">    success: function () &#123; </div><div class="line">    	layer_show(&quot;�����ɹ�&quot;);</div><div class="line">    &#125;,</div><div class="line">    cancel: function () &#123; </div><div class="line">    &#125;,fail:function()&#123;</div><div class="line">    	layer_show(&quot;����ʧ��&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">&#125;);</div><div class="line"></div><div class="line">wx.error(function(res)&#123;</div><div class="line">// config��Ϣ��֤ʧ�ܻ�ִ��error��������ǩ�����ڵ�����֤ʧ�ܣ�����������Ϣ���Դ���config��debugģʽ�鿴��Ҳ�����ڷ��ص�res�����в鿴������SPA��������������ǩ����</div><div class="line">console.log(&quot;΢����֤ʧ��&quot;);</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-
-    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
-    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
-})();
-</script>
-]]></content>
-    
-    <summary type="html">
-    
-      html��������
-    
-    </summary>
-    
-      <category term="layout html" scheme="https://austinxishou.github.io/categories/layout-html/"/>
-    
-    
-      <category term="html" scheme="https://austinxishou.github.io/tags/html/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>fileinput.js ʵ���ļ��ϴ�����</title>
+    <title>fileinput.js 实现文件上传功能</title>
     <link href="https://austinxishou.github.io/2018/01/01/webdesign/wantu-cdn-sdk/"/>
     <id>https://austinxishou.github.io/2018/01/01/webdesign/wantu-cdn-sdk/</id>
     <published>2018-01-01T11:28:22.096Z</published>
-    <updated>2018-01-01T11:39:56.000Z</updated>
+    <updated>2018-03-09T07:22:38.259Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="About-����"><a href="#About-����" class="headerlink" title="About-����"></a>About-����</h2><p><a href="http://baichuan.taobao.com/docs/doc.htm?spm=a3c0d.7629140.0.0.MyI4iu&amp;treeId=38&amp;articleId=102762&amp;docType=1" target="_blank" rel="external">�ٷ��ĵ�</a></p>
-<h2 id="�ٷ�jssdkʵ��"><a href="#�ٷ�jssdkʵ��" class="headerlink" title="�ٷ�jssdkʵ��"></a>�ٷ�jssdkʵ��</h2><ul>
-<li>����html5 js�ϴ�����</li>
+    <content type="html"><![CDATA[<h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About-简介"></a>About-简介</h2><p><a href="http://baichuan.taobao.com/docs/doc.htm?spm=a3c0d.7629140.0.0.MyI4iu&amp;treeId=38&amp;articleId=102762&amp;docType=1" target="_blank" rel="external">官方文档</a></p>
+<h2 id="官方jssdk实现"><a href="#官方jssdk实现" class="headerlink" title="官方jssdk实现"></a>官方jssdk实现</h2><ul>
+<li>顽兔html5 js上传组件</li>
 </ul>
-<h3 id="ʹ�÷���"><a href="#ʹ�÷���" class="headerlink" title="ʹ�÷���"></a>ʹ�÷���</h3><pre><code>window.uploadJSSDK({
-    file: File,   //�ļ�������,html5 file���ͣ�����Ҫ��������
-    token: &apos;test&apos;,  //��Ȩtoken������
-    dir: &apos;&apos;,  //Ŀ¼��ѡ�Ĭ�ϸ�Ŀ¼&apos;&apos;
-    retries: 0,  //���Դ�����ѡ�Ĭ��0������
-    maxSize: 0,  //�ϴ���С���ƣ�ѡ�Ĭ��0û������
-    chunkSize: 4*1024*1024,  //��Ƭ�ϴ�ÿƬ��С��ѡ�Ĭ��4M
-    name: &quot;test&quot;,  //�ļ����ƣ�ѡ�Ĭ��Ϊ�ļ�����
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><pre><code>window.uploadJSSDK({
+    file: File,   //文件，必填,html5 file类型，不需要读数据流
+    token: &apos;test&apos;,  //鉴权token，必填
+    dir: &apos;&apos;,  //目录，选填，默认根目录&apos;&apos;
+    retries: 0,  //重试次数，选填，默认0不重试
+    maxSize: 0,  //上传大小限制，选填，默认0没有限制
+    chunkSize: 4*1024*1024,  //分片上传每片大小，选填，默认4M
+    name: &quot;test&quot;,  //文件名称，选填，默认为文件名称
     callback: function (percent, result) {
-        //percent���ϴ��ٷֱȣ���-1ʧ�ܣ�0-100�ϴ��İٷֱȣ�100�������ϴ�
-        //result(�����˷��ص�responseText��json��ʽ)
+        //percent（上传百分比）：-1失败；0-100上传的百分比；100即完成上传
+        //result(服务端返回的responseText，json格式)
     }
 });
-</code></pre><h3 id="upfile-js����"><a href="#upfile-js����" class="headerlink" title="upfile.js����"></a>upfile.js����</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">if (!file || !token) &#123;</div><div class="line">            callback(-1, &apos;�ϴ��ļ�������������file�Լ�token&apos;);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if (maxSize &amp;&amp; file.size &gt; maxSize) &#123;</div><div class="line">            callback(-1, &quot;�ļ���С���ܳ���&quot;+maxSize);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if (file.size &gt; chunkSize) &#123;</div><div class="line">            //�ֿ��ϴ�</div><div class="line">            startChunks();</div><div class="line">        &#125; else &#123;</div><div class="line">            //��ͨ�ϴ�</div><div class="line">            uploadSingle();</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
-<h3 id="uploadSingle-��ͨ�ϴ�"><a href="#uploadSingle-��ͨ�ϴ�" class="headerlink" title="uploadSingle-��ͨ�ϴ�"></a>uploadSingle-��ͨ�ϴ�</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function uploadSingle() &#123;</div><div class="line">          var formData = new FormData();</div><div class="line">          formData.append(&apos;dir&apos;, dir);</div><div class="line">          formData.append(&apos;name&apos;, configName);</div><div class="line">          formData.append(&apos;size&apos;, file.size);</div><div class="line">          formData.append(&apos;content&apos;, file);</div><div class="line">          var url = upload_url;</div><div class="line"></div><div class="line">          ajax(url, formData, function (e) &#123;</div><div class="line">              var status = e.status,</div><div class="line">                  message = e.statusText || &quot;&quot;;</div><div class="line">              if (status == 200 &amp;&amp; message == &quot;OK&quot;) &#123;</div><div class="line">                  callback(100, JSON.parse(e.responseText));</div><div class="line">              &#125; else &#123;</div><div class="line">                  handleError(JSON.parse(e.responseText), &quot;&quot;, &quot;&quot;, status);</div><div class="line">              &#125;</div><div class="line">          &#125;);</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
+</code></pre><h3 id="upfile-js分析"><a href="#upfile-js分析" class="headerlink" title="upfile.js分析"></a>upfile.js分析</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">if (!file || !token) &#123;</div><div class="line">            callback(-1, &apos;上传文件参数必须配置file以及token&apos;);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if (maxSize &amp;&amp; file.size &gt; maxSize) &#123;</div><div class="line">            callback(-1, &quot;文件大小不能超过&quot;+maxSize);</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if (file.size &gt; chunkSize) &#123;</div><div class="line">            //分块上传</div><div class="line">            startChunks();</div><div class="line">        &#125; else &#123;</div><div class="line">            //普通上传</div><div class="line">            uploadSingle();</div><div class="line">        &#125;</div></pre></td></tr></table></figure>
+<h3 id="uploadSingle-普通上传"><a href="#uploadSingle-普通上传" class="headerlink" title="uploadSingle-普通上传"></a>uploadSingle-普通上传</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">function uploadSingle() &#123;</div><div class="line">          var formData = new FormData();</div><div class="line">          formData.append(&apos;dir&apos;, dir);</div><div class="line">          formData.append(&apos;name&apos;, configName);</div><div class="line">          formData.append(&apos;size&apos;, file.size);</div><div class="line">          formData.append(&apos;content&apos;, file);</div><div class="line">          var url = upload_url;</div><div class="line"></div><div class="line">          ajax(url, formData, function (e) &#123;</div><div class="line">              var status = e.status,</div><div class="line">                  message = e.statusText || &quot;&quot;;</div><div class="line">              if (status == 200 &amp;&amp; message == &quot;OK&quot;) &#123;</div><div class="line">                  callback(100, JSON.parse(e.responseText));</div><div class="line">              &#125; else &#123;</div><div class="line">                  handleError(JSON.parse(e.responseText), &quot;&quot;, &quot;&quot;, status);</div><div class="line">              &#125;</div><div class="line">          &#125;);</div><div class="line">      &#125;</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">function ajax(url,data,complete)&#123;</div><div class="line">    var request = new XMLHttpRequest();</div><div class="line">    var query = &apos;Authorization=&apos; + token + &apos;&amp;UserAgent=ALIMEDIASDK_WORKSTATION&apos;;</div><div class="line">    if(url.indexOf(&apos;?&apos;) &gt; -1)&#123;</div><div class="line">        url += &apos;&amp;&apos; + query;</div><div class="line">    &#125;else&#123;</div><div class="line">        url += &apos;?&apos; + query;</div><div class="line">    &#125;</div><div class="line">    request.open(&apos;POST&apos;, url);</div><div class="line">    </div><div class="line">    request.onload = function(e) &#123;</div><div class="line">        complete(request);</div><div class="line">    &#125;;</div><div class="line">    request.send(data);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="����plupload-jsʹ��"><a href="#����plupload-jsʹ��" class="headerlink" title="����plupload.jsʹ��"></a>����plupload.jsʹ��</h2><script>
+<h2 id="配合plupload-js使用"><a href="#配合plupload-js使用" class="headerlink" title="配合plupload.js使用"></a>配合plupload.js使用</h2><script>
 (function(){
     var bp = document.createElement('script');
     var curProtocol = window.location.protocol.split(':')[0];
@@ -1662,7 +1448,7 @@ type=&quot;a&quot; start=3  字母序列从c开始
     
     <summary type="html">
     
-      fileinput.js ʵ���ļ��ϴ�����
+      fileinput.js 实现文件上传功能
     
     </summary>
     
@@ -1674,40 +1460,40 @@ type=&quot;a&quot; start=3  字母序列从c开始
   </entry>
   
   <entry>
-    <title>�ƶ�Webǰ��֪ʶ��</title>
+    <title>移动Web前端知识库</title>
     <link href="https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/"/>
     <id>https://austinxishou.github.io/2017/12/19/webdesign/iframe-cross-domain-control/</id>
     <published>2017-12-19T09:38:15.801Z</published>
-    <updated>2017-12-19T09:46:13.225Z</updated>
+    <updated>2018-03-09T07:22:49.941Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="iframe�������ܿ����໥���ʷ���"><a href="#iframe�������ܿ����໥���ʷ���" class="headerlink" title="iframe�������ܿ����໥���ʷ���"></a>iframe�������ܿ����໥���ʷ���</h2><h3 id="iframe-closed-by-itself"><a href="#iframe-closed-by-itself" class="headerlink" title="iframe closed by itself"></a>iframe closed by itself</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//close by myself</div><div class="line">window.parent.document.body.removeChild(window.frameElement);</div><div class="line"></div><div class="line">//close by parent window //not cross domain</div><div class="line">top.window.close_iframe();//parent.close_iframe();</div><div class="line"></div><div class="line">//close by id //not allowed with cross origin</div><div class="line">let iframeRoom = window.parent.document.getElementById(&apos;iframe_room&apos;);</div><div class="line">iframeRoom.parentNode.removeChild(iframeRoom);</div></pre></td></tr></table></figure>
-<h3 id="1-ͬ���໥����"><a href="#1-ͬ���໥����" class="headerlink" title="1.ͬ���໥����"></a>1.ͬ���໥����</h3><p>����A.html �� b.html domain����localhost ��ͬ����</p>
-<p>A.html��iframe Ƕ�� B.html��name=myframe</p>
-<p>A.html��js function fMain()</p>
-<p>B.html��js function fIframe()</p>
-<p>��Ҫʵ�� A.html ���� B.html �� fIframe()��B.html ���� A.html �� fMain()</p>
+    <content type="html"><![CDATA[<h2 id="iframe与主框架跨域相互访问方法"><a href="#iframe与主框架跨域相互访问方法" class="headerlink" title="iframe与主框架跨域相互访问方法"></a>iframe与主框架跨域相互访问方法</h2><h3 id="iframe-closed-by-itself"><a href="#iframe-closed-by-itself" class="headerlink" title="iframe closed by itself"></a>iframe closed by itself</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//close by myself</div><div class="line">window.parent.document.body.removeChild(window.frameElement);</div><div class="line"></div><div class="line">//close by parent window //not cross domain</div><div class="line">top.window.close_iframe();//parent.close_iframe();</div><div class="line"></div><div class="line">//close by id //not allowed with cross origin</div><div class="line">let iframeRoom = window.parent.document.getElementById(&apos;iframe_room&apos;);</div><div class="line">iframeRoom.parentNode.removeChild(iframeRoom);</div></pre></td></tr></table></figure>
+<h3 id="1-同域相互访问"><a href="#1-同域相互访问" class="headerlink" title="1.同域相互访问"></a>1.同域相互访问</h3><p>假设A.html 与 b.html domain都是localhost （同域）</p>
+<p>A.html中iframe 嵌入 B.html，name=myframe</p>
+<p>A.html有js function fMain()</p>
+<p>B.html有js function fIframe()</p>
+<p>需要实现 A.html 调用 B.html 的 fIframe()，B.html 调用 A.html 的 fMain()</p>
 <p><code>A.html</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;  </div><div class="line">&lt;html&gt;  </div><div class="line"> &lt;head&gt;  </div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;  </div><div class="line">  &lt;title&gt; main window &lt;/title&gt;  </div><div class="line">  </div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">  // main js function  </div><div class="line">  function fMain()&#123;  </div><div class="line">    alert(&apos;main function execute success&apos;);  </div><div class="line">  &#125;  </div><div class="line">  </div><div class="line">  // exec iframe function  </div><div class="line">  function exec_iframe()&#123;  </div><div class="line">    window.myframe.fIframe();  </div><div class="line">  &#125;  </div><div class="line">  &lt;/script&gt;  </div><div class="line">  </div><div class="line"> &lt;/head&gt;  </div><div class="line">  </div><div class="line"> &lt;body&gt;  </div><div class="line">  &lt;p&gt;A.html main&lt;/p&gt;  </div><div class="line">  &lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;exec iframe function&quot; onclick=&quot;exec_iframe()&quot;&gt;&lt;/p&gt;  </div><div class="line">  &lt;iframe src=&quot;B.html&quot; name=&quot;myframe&quot; width=&quot;500&quot; height=&quot;100&quot;&gt;&lt;/iframe&gt;  </div><div class="line"> &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
 <p><code>B.html</code></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;  </div><div class="line">&lt;html&gt;  </div><div class="line"> &lt;head&gt;  </div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;  </div><div class="line">  &lt;title&gt; iframe window &lt;/title&gt;  </div><div class="line">  </div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">  // iframe js function   </div><div class="line">  function fIframe()&#123;  </div><div class="line">    alert(&apos;iframe function execute success&apos;);  </div><div class="line">  &#125;  </div><div class="line">  </div><div class="line">  // exec main function  </div><div class="line">  function exec_main()&#123;  </div><div class="line">    parent.fMain();  </div><div class="line">  &#125;  </div><div class="line">  &lt;/script&gt;  </div><div class="line">  </div><div class="line"> &lt;/head&gt;  </div><div class="line">  </div><div class="line"> &lt;body&gt;  </div><div class="line">  &lt;p&gt;B.html iframe&lt;/p&gt;  </div><div class="line">  &lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;exec main function&quot; onclick=&quot;exec_main()&quot;&gt;&lt;/p&gt;  </div><div class="line"> &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<p>����A.html �� exec iframe function button��ִ�гɹ�</p>
-<h3 id="������������"><a href="#������������" class="headerlink" title="������������"></a>������������</h3><p>���� A.html domain�� localhost�� B.html domain �� 127.0.0.1 ��������</p>
-<p>����ʹ�� localhost �� 127.0.0.1 ֻ�Ƿ������ԣ�localhost �� 127.0.0.1�Ѿ���ͬһ����������ִ��Ч����һ���ġ�</p>
-<p>ʵ��ʹ��ʱ���� www.domaina.com �� www.domainb.com ���ɡ�</p>
-<p>A.html��iframe Ƕ�� B.html��name=myframe</p>
-<p>A.html��js function fMain()</p>
-<p>B.html��js function fIframe()</p>
-<p>��Ҫʵ�� A.html ���� B.html �� fIframe()��B.html ���� A.html �� fMain() ���������ã�</p>
-<p>����ʹ������ͬ���ķ������������ж�A.html �� B.html ��ͬ�򣬻��д�����ʾ��</p>
+<p>点击A.html 的 exec iframe function button，执行成功</p>
+<h3 id="跨域互相访问"><a href="#跨域互相访问" class="headerlink" title="跨域互相访问"></a>跨域互相访问</h3><p>假设 A.html domain是 localhost， B.html domain 是 127.0.0.1 （跨域）</p>
+<p>这里使用 localhost 与 127.0.0.1 只是方便测试，localhost 与 127.0.0.1已经不同一个域，因此执行效果是一样的。</p>
+<p>实际使用时换成 www.domaina.com 与 www.domainb.com 即可。</p>
+<p>A.html中iframe 嵌入 B.html，name=myframe</p>
+<p>A.html有js function fMain()</p>
+<p>B.html有js function fIframe()</p>
+<p>需要实现 A.html 调用 B.html 的 fIframe()，B.html 调用 A.html 的 fMain() （跨域调用）</p>
+<p>如果使用上面同域的方法，浏览器判断A.html 与 B.html 不同域，会有错误提示。</p>
 <p>Uncaught SecurityError: Blocked a frame with origin “<a href="http://localhost" target="_blank" rel="external">http://localhost</a>“ from accessing a frame with origin “<a href="http://127.0.0.1" target="_blank" rel="external">http://127.0.0.1</a>“. Protocols, domains, and ports must match.</p>
-<p>ʵ��ԭ����</p>
-<p>��Ϊ������Ϊ�˰�ȫ����ֹ�˲�ͬ�����ʡ�����ֻҪ������ִ�е�˫����ͬ���������໥���ʡ�</p>
-<p>���ȣ�A.html ���ε���B.html�� fIframe����</p>
-<p>1.��A.html ����һ�� iframe</p>
-<p>2.iframe��ҳ������ B.html ͬ���£�����ΪexecB.html</p>
-<p>3.execB.html ���е���B.html fIframe������js����</p>
+<p>实现原理：</p>
+<p>因为浏览器为了安全，禁止了不同域访问。因此只要调用与执行的双方是同域则可以相互访问。</p>
+<p>首先，A.html 如何调用B.html的 fIframe方法</p>
+<p>1.在A.html 创建一个 iframe</p>
+<p>2.iframe的页面放在 B.html 同域下，命名为execB.html</p>
+<p>3.execB.html 里有调用B.html fIframe方法的js调用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">parent.window.myframe.fIframe(); // execute parent myframe fIframe function  </div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>��������ʵ�� A.html �� B.html �����໥���á�</p>
+<p>这样就能实现 A.html 与 B.html 跨域相互调用。</p>
 <p><code>A.html</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;  </div><div class="line">&lt;html&gt;  </div><div class="line"> &lt;head&gt;  </div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;  </div><div class="line">  &lt;title&gt; main window &lt;/title&gt;  </div><div class="line">  </div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">  </div><div class="line">  // main js function  </div><div class="line">  function fMain()&#123;  </div><div class="line">    alert(&apos;main function execute success&apos;);  </div><div class="line">  &#125;  </div><div class="line">  </div><div class="line">  // exec iframe function  </div><div class="line">  function exec_iframe()&#123;  </div><div class="line">    if(typeof(exec_obj)==&apos;undefined&apos;)&#123;  </div><div class="line">        exec_obj = document.createElement(&apos;iframe&apos;);  </div><div class="line">        exec_obj.name = &apos;tmp_frame&apos;;  </div><div class="line">        exec_obj.src = &apos;http://127.0.0.1/execB.html&apos;;  </div><div class="line">        exec_obj.style.display = &apos;none&apos;;  </div><div class="line">        document.body.appendChild(exec_obj);  </div><div class="line">    &#125;else&#123;  </div><div class="line">        exec_obj.src = &apos;http://127.0.0.1/execB.html?&apos; + Math.random();  </div><div class="line">    &#125;  </div><div class="line">  &#125;  </div><div class="line">  &lt;/script&gt;  </div><div class="line">  </div><div class="line"> &lt;/head&gt;  </div><div class="line">  </div><div class="line"> &lt;body&gt;  </div><div class="line">  &lt;p&gt;A.html main&lt;/p&gt;  </div><div class="line">  &lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;exec iframe function&quot; onclick=&quot;exec_iframe()&quot;&gt;&lt;/p&gt;  </div><div class="line">  &lt;iframe src=&quot;http://127.0.0.1/B.html&quot; name=&quot;myframe&quot; width=&quot;500&quot; height=&quot;100&quot;&gt;&lt;/iframe&gt;  </div><div class="line"> &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <p><code>B.html</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;  </div><div class="line">&lt;html&gt;  </div><div class="line"> &lt;head&gt;  </div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;  </div><div class="line">  &lt;title&gt; iframe window &lt;/title&gt;  </div><div class="line">  </div><div class="line">  &lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">  // iframe js function   </div><div class="line">  function fIframe()&#123;  </div><div class="line">    alert(&apos;iframe function execute success&apos;);  </div><div class="line">  &#125;  </div><div class="line">  </div><div class="line">  // exec main function  </div><div class="line">  function exec_main()&#123;  </div><div class="line">    if(typeof(exec_obj)==&apos;undefined&apos;)&#123;  </div><div class="line">        exec_obj = document.createElement(&apos;iframe&apos;);  </div><div class="line">        exec_obj.name = &apos;tmp_frame&apos;;  </div><div class="line">        exec_obj.src = &apos;http://localhost/execA.html&apos;;  </div><div class="line">        exec_obj.style.display = &apos;none&apos;;  </div><div class="line">        document.body.appendChild(exec_obj);  </div><div class="line">    &#125;else&#123;  </div><div class="line">        exec_obj.src = &apos;http://localhost/execA.html?&apos; + Math.random();  </div><div class="line">    &#125;  </div><div class="line">  &#125;  </div><div class="line">  &lt;/script&gt;  </div><div class="line">  </div><div class="line"> &lt;/head&gt;  </div><div class="line">  </div><div class="line"> &lt;body&gt;  </div><div class="line">  &lt;p&gt;B.html iframe&lt;/p&gt;  </div><div class="line">  &lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;exec main function&quot; onclick=&quot;exec_main()&quot;&gt;&lt;/p&gt;  </div><div class="line"> &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
 <p><code>execA.html</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.01 Transitional//EN&quot; &quot;http://www.w3.org/TR/html4/loose.dtd&quot;&gt;  </div><div class="line">&lt;html&gt;  </div><div class="line"> &lt;head&gt;  </div><div class="line">  &lt;meta http-equiv=&quot;content-type&quot; content=&quot;text/html; charset=utf-8&quot;&gt;  </div><div class="line">  &lt;title&gt; exec main function &lt;/title&gt;  </div><div class="line"> &lt;/head&gt;  </div><div class="line">  </div><div class="line"> &lt;body&gt;  </div><div class="line">    &lt;script type=&quot;text/javascript&quot;&gt;  </div><div class="line">        parent.parent.fMain(); // execute main function  </div><div class="line">    &lt;/script&gt;  </div><div class="line"> &lt;/body&gt;  </div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure></p>
@@ -1733,7 +1519,7 @@ type=&quot;a&quot; start=3  字母序列从c开始
     
     <summary type="html">
     
-      html��������
+      html布局详解
     
     </summary>
     
@@ -1853,16 +1639,16 @@ type=&quot;a&quot; start=3  字母序列从c开始
   </entry>
   
   <entry>
-    <title>�ƶ�Webǰ��֪ʶ��</title>
+    <title>移动Web前端知识库</title>
     <link href="https://austinxishou.github.io/2017/12/05/webdesign/web-front-lib/"/>
     <id>https://austinxishou.github.io/2017/12/05/webdesign/web-front-lib/</id>
     <published>2017-12-05T02:32:37.189Z</published>
-    <updated>2017-12-05T02:41:11.791Z</updated>
+    <updated>2018-03-09T07:22:32.990Z</updated>
     
     <content type="html"><![CDATA[<ol>
-<li>(�����ṹ�淶)[<a href="https://html5boilerplate.com/mobile/" target="_blank" rel="external">https://html5boilerplate.com/mobile/</a>]</li>
-<li>(��Դ�빤��)[<a href="https://github.com/AlloyTeam/Mars/tree/master/tools" target="_blank" rel="external">https://github.com/AlloyTeam/Mars/tree/master/tools</a>]</li>
-<li><p><a href="https://github.com/AlloyTeam/AlloyLever" target="_blank" rel="external">�ƶ�Web�������Է������������ϱ��û����ⶨλ</a><script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {</p>
+<li>(代码结构规范)[<a href="https://html5boilerplate.com/mobile/" target="_blank" rel="external">https://html5boilerplate.com/mobile/</a>]</li>
+<li>(资源与工具)[<a href="https://github.com/AlloyTeam/Mars/tree/master/tools" target="_blank" rel="external">https://github.com/AlloyTeam/Mars/tree/master/tools</a>]</li>
+<li><p><a href="https://github.com/AlloyTeam/AlloyLever" target="_blank" rel="external">移动Web开发调试发布错误监控上报用户问题定位</a><script><br>(function(){<br> var bp = document.createElement(‘script’);<br> var curProtocol = window.location.protocol.split(‘:’)[0];<br> if (curProtocol === ‘https’) {</p>
 <pre><code>bp.src = &apos;https://zz.bdstatic.com/linksubmit/push.js&apos;;       
 </code></pre><p> }<br> else {</p>
 <pre><code>bp.src = &apos;http://push.zhanzhang.baidu.com/push.js&apos;;
@@ -1874,7 +1660,7 @@ type=&quot;a&quot; start=3  字母序列从c开始
     
     <summary type="html">
     
-      html��������
+      html布局详解
     
     </summary>
     
@@ -1948,9 +1734,9 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
       <category term="web" scheme="https://austinxishou.github.io/categories/web/"/>
     
     
-      <category term="Vue" scheme="https://austinxishou.github.io/tags/Vue/"/>
-    
       <category term="Laravel" scheme="https://austinxishou.github.io/tags/Laravel/"/>
+    
+      <category term="Vue" scheme="https://austinxishou.github.io/tags/Vue/"/>
     
   </entry>
   
@@ -2046,6 +1832,222 @@ document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&qu
     </summary>
     
       <category term="android" scheme="https://austinxishou.github.io/categories/android/"/>
+    
+    
+      <category term="JavaScript" scheme="https://austinxishou.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>krpano编辑器模块核心设计</title>
+    <link href="https://austinxishou.github.io/2017/11/13/krpano/krpano-editor-design/"/>
+    <id>https://austinxishou.github.io/2017/11/13/krpano/krpano-editor-design/</id>
+    <published>2017-11-13T01:10:12.687Z</published>
+    <updated>2017-11-14T12:28:32.842Z</updated>
+    
+    <content type="html"><![CDATA[<p>##</p>
+<ol>
+<li>/static/js/kr/uhweb.js</li>
+<li>/static/js/kr/main_edit.js</li>
+<li>/tour/tour.js</li>
+<li></li>
+</ol>
+<p>## </p>
+<ol>
+<li></li>
+<li>全景设置</li>
+</ol>
+<h2 id="预览"><a href="#预览" class="headerlink" title="预览"></a>预览</h2><p>previewPano</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">function previewPano() &#123;</div><div class="line">    window.open(&quot;/tour/&quot;+works_view_uuid);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="场景编辑-main-edit"><a href="#场景编辑-main-edit" class="headerlink" title="场景编辑-main_edit"></a>场景编辑-main_edit</h2><h2 id="初始化场景数据"><a href="#初始化场景数据" class="headerlink" title="初始化场景数据"></a>初始化场景数据</h2><h3 id="通过ajax获取数据"><a href="#通过ajax获取数据" class="headerlink" title="通过ajax获取数据"></a>通过ajax获取数据</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">function init() &#123;</div><div class="line">    // var id = $(&quot;#modelatlasid&quot;).val();</div><div class="line">    var sb = _U.getSubmit(&quot;/edit/pic&quot;, null, &quot;ajax&quot;, false);</div><div class="line">    // var name = $(&quot;#modelatlasname&quot;).val();</div><div class="line">    sb.pushData(&quot;pid&quot;, pk_works_main);</div><div class="line">    sb.pushData(&quot;act&quot;,&quot;update_init&quot;);</div><div class="line">    sb.submit(function () &#123;</div><div class="line"></div><div class="line">    &#125;, function (data) &#123;</div><div class="line">        initSceneGroupContainerHeight();//设置场景前端容器高度</div><div class="line">        initPage(data);//</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="页面数据初始化-initPage"><a href="#页面数据初始化-initPage" class="headerlink" title="页面数据初始化-initPage"></a>页面数据初始化-initPage</h3><p>主要实现在 initPage(data) 函数中</p>
+<p><strong>读取工程设置,并对应显示在页面中</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">worksmain = data.worksmain;</div><div class="line">panoConfig = data.panoConfig;</div><div class="line">works_view_uuid = worksmain.view_uuid;</div><div class="line">$(&quot;#worksnameshow&quot;).text($.trim(worksmain.name));</div><div class="line">$(&quot;#worksname&quot;).val($.trim(worksmain.name));</div><div class="line">$(&quot;#workcomment&quot;).val(worksmain.profile);</div><div class="line">$(&quot;#user_viewNum&quot;).text(worksmain.browsing_num);</div><div class="line">$(&quot;#thumbpath&quot;).attr(&quot;src&quot;, worksmain.thumb_path+&quot;?imageView2/1/w/250/h/250&quot;);</div><div class="line">$(&quot;#thumbpath&quot;).error(function()&#123;</div><div class="line">    $(this).attr(&quot;src&quot;,&quot;/static/images/kr/default2-120x120.png&quot;);</div><div class="line">&#125;);</div><div class="line">$(&quot;#flag_publish&quot;).bootstrapSwitch(&apos;state&apos;, worksmain.flag_publish == &apos;1&apos; ? true : false);</div><div class="line"></div><div class="line">var atlasmain = data.atlasmain;</div><div class="line">$(&quot;#atlasname&quot;).text(atlasmain.name);</div><div class="line"></div><div class="line">//是否允许显示到首页</div><div class="line">$(&quot;#flag_allowed_recomm&quot;).bootstrapSwitch(&apos;state&apos;, worksmain.flag_allowed_recomm==&apos;1&apos;?true:false);</div></pre></td></tr></table></figure>
+<p><strong>初始化标签框</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">var tag_list = data.tag_list;</div><div class="line">var tags = data.tags;</div><div class="line">var pic_chosen_html = &quot;&quot;;</div><div class="line">for(var i =0 ; i&lt;tag_list.length;i++)&#123;</div><div class="line">    var flag = false;</div><div class="line">    for(var j=0 ;j&lt;tags.length;j++)&#123;</div><div class="line">        if (tags[j].tag_id==tag_list[i].id) &#123;</div><div class="line">            flag = true;</div><div class="line">            break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    pic_chosen_html +=&apos;&lt;option  value=&quot;&apos;+tag_list[i].id+&apos;&quot; &apos;+(flag?&quot;selected=\&quot;selected\&quot;&quot;:&quot;&quot;)+&apos;&gt;&apos;+tag_list[i].name+&apos;&lt;/option&gt;&apos;;</div><div class="line">&#125;</div><div class="line">$(&quot;#pic_chosen&quot;).html(pic_chosen_html);</div><div class="line">$(&quot;#pic_chosen&quot;).trigger(&apos;chosen:updated&apos;);</div></pre></td></tr></table></figure>
+<p><strong>加载工程场景列表</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">var imgsmain = data.imgsmain;</div><div class="line">imgsmain.forEach(function (row, num) &#123;</div><div class="line"></div><div class="line">    var location = row.location;</div><div class="line">    var picname = row.filename;</div><div class="line"></div><div class="line">    var html =</div><div class="line">        &apos;&lt;div class=&quot;col-md-3&quot; flag=&quot;nostatus&quot; id=&quot;&apos; + row.pk_img_main + &apos;&quot; data-viewuuid=&quot;&apos; + row.view_uuid + &apos;&quot;&gt;&apos; +</div><div class="line">        &apos;&lt;div class=&quot;card&quot;&gt;&apos; +</div><div class="line">        &apos;&lt;div class=&quot;media-wrapper&quot;&gt;&lt;img alt=&quot;&quot; src=&quot;&apos; + row.thumb_path + &apos;&quot;&gt;&lt;/div&gt;&apos; +</div><div class="line">        &apos;&lt;div class=&quot;card-heading&quot;&gt;&apos; +</div><div class="line">        &apos;&lt;span class=&quot;pull-right&quot;&gt;&lt;a href=&quot;javascript:void(0);&quot; onclick=&quot;deletepic(this);&quot;&gt;&lt;i class=&quot;icon-remove-circle&quot;&gt;&lt;/i&gt;&apos; + &apos;删除&apos; + &apos;&lt;/a&gt;&lt;/span&gt;&apos; +</div><div class="line">        &apos;&lt;span class=&quot;card-scene-name&quot;&gt;&apos; + picname + &apos;&lt;/span&gt;&apos; +</div><div class="line">        &apos;&lt;/div&gt;&apos; +</div><div class="line">        &apos;&lt;/div&gt;&apos; +</div><div class="line">        &apos;&lt;/div&gt;&apos;;</div><div class="line"></div><div class="line">    $(&quot;#pics&quot;).append(html);</div><div class="line">    // if(row.lng &amp;&amp; row.lat)&#123;</div><div class="line">    //     $(&quot;#pics &gt; div:last&quot;).data(&apos;locationdata&apos;,&#123;lng:row.lng,lat:row.lat&#125;);</div><div class="line">    // &#125;</div><div class="line"></div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<h3 id="初始化工程配置"><a href="#初始化工程配置" class="headerlink" title="初始化工程配置"></a>初始化工程配置</h3><pre><code>initPanoConfig(data.panoConfig);
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">function initPanoConfig(panoConfig) &#123;</div><div class="line">    $(&quot;#gyro&quot;).bootstrapSwitch(&apos;state&apos;, panoConfig.gyro==&apos;1&apos;?true:false);</div><div class="line">    $(&quot;#littleplanet&quot;).bootstrapSwitch(&apos;state&apos;, panoConfig.littleplanet==&apos;1&apos;?true:false);</div><div class="line">    $(&quot;#scenechoose&quot;).bootstrapSwitch(&apos;state&apos;, panoConfig.scenechoose==&apos;1&apos;?true:false);</div><div class="line">    $(&quot;#autorotate&quot;).bootstrapSwitch(&apos;state&apos;, panoConfig.autorotate==&apos;1&apos;?true:false);</div><div class="line">    initAngleOfView(panoConfig.angle_of_view);</div><div class="line">    initSpecialEffect(panoConfig.special_effects);</div><div class="line">    initHotSpot(panoConfig.hotspot);</div><div class="line">    initSandTable(panoConfig.sand_table);</div><div class="line">    initTourGuide(panoConfig.tour_guide);</div><div class="line">    initSceneGroup(panoConfig.scene_group);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<pre><code>initWorkUseAndShare();
+initSelect(data);
+</code></pre><h2 id="可视化编辑"><a href="#可视化编辑" class="headerlink" title="可视化编辑"></a>可视化编辑</h2><p>主要实现在openPanoSetting函数中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">function openPanoSetting() &#123;</div><div class="line">   var settings = &#123;&#125;;</div><div class="line">    settings[&quot;onstart&quot;] = &apos;js(initPanoSetting());&apos;;</div><div class="line">    embedpano(&#123;</div><div class="line">        id: &quot;panoSettingObject&quot;,</div><div class="line">        swf: &quot;/tour/tour.swf&quot;,</div><div class="line">        xml: &quot;/tour/tour.xml.php?view=&quot;+works_view_uuid ,</div><div class="line">        target: &quot;settingPano&quot;,</div><div class="line">        html5:&apos;auto&apos;,</div><div class="line">       // flash:&apos;only&apos;,</div><div class="line">        wmode:&apos;opaque-flash&apos;,</div><div class="line">        mobilescale:0.7,</div><div class="line">        vars:settings,</div><div class="line">        webglsettings:&#123;preserveDrawingBuffer:true&#125;</div><div class="line">    &#125;);</div><div class="line">    initPanoSettingSceneChoose();</div><div class="line">   </div><div class="line">    $(&quot;#panoSettingModal&quot;).modal(&apos;show&apos;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>initHotSpotDataToPage</p>
+<h2 id="krpano-js模块功能"><a href="#krpano-js模块功能" class="headerlink" title="krpano-js模块功能"></a>krpano-js模块功能</h2><h3 id="vrshow-js"><a href="#vrshow-js" class="headerlink" title="vrshow.js"></a>vrshow.js</h3><p><strong>initPano</strong></p>
+<p>/static/js/kr/<script><br>(function(){<br>    var bp = document.createElement(‘script’);<br>    var curProtocol = window.location.protocol.split(‘:’)[0];<br>    if (curProtocol === ‘https’) {<br>        bp.src = ‘<a href="https://zz.bdstatic.com/linksubmit/push.js">https://zz.bdstatic.com/linksubmit/push.js</a>‘;<br>    }<br>    else {<br>        bp.src = ‘<a href="http://push.zhanzhang.baidu.com/push.js">http://push.zhanzhang.baidu.com/push.js</a>‘;<br>    }<br>    var s = document.getElementsByTagName(“script”)[0];<br>    s.parentNode.insertBefore(bp, s);</p>
+<pre><code>var sozzsrc = (document.location.protocol == &quot;http:&quot;) ? &quot;http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;:&quot;https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a&quot;;
+document.write(&apos;&lt;script src=&quot;&apos; + sozzsrc + &apos;&quot; id=&quot;sozz&quot;&gt;&lt;\/script&gt;&apos;);
+</code></pre><p>})();<br></script></p>
+]]></content>
+    
+    <summary type="html">
+    
+      krpano编辑器模块核心设计
+    
+    </summary>
+    
+      <category term="krpano" scheme="https://austinxishou.github.io/categories/krpano/"/>
+    
+    
+      <category term="krpano" scheme="https://austinxishou.github.io/tags/krpano/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>createjs详解-preloadJS的使用</title>
+    <link href="https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/"/>
+    <id>https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-createjs/</id>
+    <published>2017-11-07T08:05:26.130Z</published>
+    <updated>2017-11-07T09:58:43.366Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About-简介"></a>About-简介</h2><p>createJs框架<br><a href="http://www.ajexoop.com/wordpress/" target="_blank" rel="external">ajexoop博客</a><br><a href="http://creatine.guineashots.com/" target="_blank" rel="external">Creatine-基于create.js的游戏引擎</a><br><a href="http://www.mapeditor.org/" target="_blank" rel="external">Creatine-地图编辑器</a></p>
+<blockquote>
+<p>createJs分成easelJs（图形动画）、preloadJs（文件加载）、soundJs（音频控制）以及tweenJs（补间动画）四部分</p>
+</blockquote>
+<h2 id="preloadJS的使用"><a href="#preloadJS的使用" class="headerlink" title="preloadJS的使用"></a>preloadJS的使用</h2><p><code>定义依赖模块</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">require.config(&#123;</div><div class="line">    paths: &#123;</div><div class="line">		jquery:	&apos;lib/jquery-3.1.0.min&apos;,</div><div class="line">		PreloadJS: &apos;lib/preloadjs-0.6.2.min&apos;,</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><code>定义manifest</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Global.manifest = [</div><div class="line">               &#123;src:&quot;image/man.png&quot; , id:&quot;man&quot;&#125;,</div><div class="line">               &#123;src:&quot;image/ground.png&quot; , id:&quot;ground&quot;&#125;,</div><div class="line">               &#123;src:&quot;image/bg.png&quot; , id:&quot;bg&quot;&#125;,</div><div class="line">               &#123;src:&quot;image/high.jpg&quot; , id:&quot;high&quot;&#125;,</div><div class="line">               &#123;src:&quot;image/coins.png&quot; , id:&quot;coin&quot;&#125;</div><div class="line">];</div></pre></td></tr></table></figure>
+<blockquote>
+<p>src表示资源的路径，id在后面用来取加载好的资源。</p>
+</blockquote>
+<p><code>加载资源</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">// 加载资源</div><div class="line">var loader = new createjs.LoadQueue(false);</div><div class="line">   loader.setMaxConnections(100);</div><div class="line">   loader.maintainScriptOrder = true;</div><div class="line">loader.addEventListener(&apos;progress&apos;, function (e) &#123;</div><div class="line">	console.log(Math.floor(e.progress * 100) + &apos;%&apos;);</div><div class="line">&#125;);</div><div class="line">   loader.addEventListener(&apos;complete&apos;, function () &#123;&#125;);//当图片素材load完后执行该方法</div><div class="line">   loader.loadManifest(Global.manifest);</div></pre></td></tr></table></figure>
+<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>参照网络上的<a href="http://whxaxes.github.io/canvas-test/src/Game-demo/runningMan/index.html" target="_blank" rel="external">酷跑demo</a></p>
+<p><code>初始化舞台</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">function init()&#123;</div><div class="line">	stage = new createjs.Stage(&quot;cas&quot;);</div><div class="line">	C_W = stage.canvas.width;</div><div class="line">	C_H = stage.canvas.height;</div><div class="line">	var manifest = [</div><div class="line">		&#123;src:&quot;image/man.png&quot; , id:&quot;man&quot;&#125;,</div><div class="line">		&#123;src:&quot;image/ground.png&quot; , id:&quot;ground&quot;&#125;,</div><div class="line">		&#123;src:&quot;image/bg.png&quot; , id:&quot;bg&quot;&#125;,</div><div class="line">		&#123;src:&quot;image/high.jpg&quot; , id:&quot;high&quot;&#125;,</div><div class="line">		&#123;src:&quot;image/coins.png&quot; , id:&quot;coin&quot;&#125;</div><div class="line">	]</div><div class="line">	loader = new createjs.LoadQueue(false);</div><div class="line">	loader.addEventListener(&quot;complete&quot; , handleComplete);</div><div class="line">	loader.loadManifest(manifest);</div><div class="line">	drawLoading();</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+]]></content>
+    
+    <summary type="html">
+    
+      createjs详解-preloadJS的使用
+    
+    </summary>
+    
+      <category term="webdesign" scheme="https://austinxishou.github.io/categories/webdesign/"/>
+    
+    
+      <category term="JavaScript" scheme="https://austinxishou.github.io/tags/JavaScript/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>AMD模块详解——Javascript模块化编程(三)</title>
+    <link href="https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-3-amd/"/>
+    <id>https://austinxishou.github.io/2017/11/07/webdesign/JavaScript-module-3-amd/</id>
+    <published>2017-11-07T03:47:12.535Z</published>
+    <updated>2018-01-10T02:55:02.512Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="js模块开发的任务"><a href="#js模块开发的任务" class="headerlink" title="js模块开发的任务"></a>js模块开发的任务</h2><p>首先需要了解</p>
+<ol>
+<li>Node Package Manager (NPM): 阅读 <a href="https://docs.npmjs.com/getting-started/what-is-npm" target="_blank" rel="external">Getting Started guide</a></li>
+<li>Modern JavaScript with ES2015/16: 阅读 Babel 的 <a href="https://babeljs.io/learn-es2015/" target="_blank" rel="external">Learn ES2015 guide</a></li>
+<li><a href="https://github.com/vuejs-templates/webpack-simple" target="_blank" rel="external"> webpack-simple</a></li>
+<li><a href="https://egghead.io/courses/using-webpack-for-production-javascript-applications" target="_blank" rel="external"> 这个在 Egghead.io上的 高级 Webpack 课程</a></li>
+<li><a href="https://vue-loader.vuejs.org/" target="_blank" rel="external">vue-loader</a></li>
+</ol>
+<h2 id="About-简介"><a href="#About-简介" class="headerlink" title="About-简介"></a>About-简介</h2><blockquote>
+<p>前端开发在近一两年发展的非常快，JavaScript作为主流的开发语言得到了前所未有的热捧。大量的前端框架出现了，这些框架都在尝试着解决一些前端开发中的共性问题，但是实现又不尽相同。<br>在这个背景下，CommonJS社区诞生了，为了让前端框架发展的更加成熟，CommonJS鼓励开发人员 一起在社区里为一些完成特定功能的框架制定规范。 AMD（Asynchronous Module Definition） 就是其中的一个规范。</p>
+</blockquote>
+<h3 id="传统JavaScript代码的问题"><a href="#传统JavaScript代码的问题" class="headerlink" title="传统JavaScript代码的问题"></a>传统JavaScript代码的问题</h3><blockquote>
+<p>让我们来看看一般情况下JavaScript代码是如何开发的：通过<code>&lt;script&gt;</code>标签来载入JavaScript文件，用全局变量 来区分不同的功能代码，全局变量之间的依赖关系需要显式的通过指定其加载顺序来解决，发布应用时要通过工具来压缩所有的JavaScript代码到一个文 件。当Web项目变得非常庞大，前端模块非常多的时候，手动管理这些全局变量间的依赖关系就变得很困难，这种做法显得非常的低效。</p>
+</blockquote>
+<h3 id="AMD-（Asynchronous-Module-Definition）-的引入"><a href="#AMD-（Asynchronous-Module-Definition）-的引入" class="headerlink" title="AMD （Asynchronous Module Definition） 的引入"></a>AMD （Asynchronous Module Definition） 的引入</h3><blockquote>
+<p>从名称上看便知它是适合script tag的。也可以说AMD是专门为浏览器中JavaScript环境设计的规范。它吸取了CommonJS的一些优点，但又不照搬它的格式。</p>
+<p>开始AMD作为CommonJS的 transport format  存在，因无法与CommonJS开发者达成一致而独立出来。它有自己的 wiki  和 讨论组  。</p>
+</blockquote>
+<p>AMD提出了一种基于模块的异步加载JavaScript代码的机制，它推荐开发人员将JavaScript代码封装进一个个模块，对全局对象的依 赖变成了对其他模块的依赖，无须再声明一大堆的全局变量。通过延迟和按需加载来解决各个模块的依赖关系。模块化的JavaScript代码好处很明显，各 个功能组件的松耦合性可以极大的提升代码的复用性、可维护性。这种非阻塞式的并发式快速加载JavaScript代码，使Web页面上其他不依赖 JavaScript代码的UI元素，如图片、CSS以及其他DOM节点得以先加载完毕，Web页面加载速度更快，用户也得到更好的体验。</p>
+<p>  CommonJS的AMD规范中只定义了一个全局的方法:<br>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(id?, dependencies?, factory);</div></pre></td></tr></table></figure></p>
+<p>  该方法用来定义一个JavaScript模块，开发人员可以用这个方法来将部分功能模块封装在这个<code>define方法</code>体内。</p>
+<ul>
+<li><p><code>id</code>表示该模块的标识，为可选参数。</p>
+</li>
+<li><p><code>dependencies</code>是一个字符串Array，表示该模块依赖的其他所有模块标识，模块依赖必须在真正执行具体的factory方法前解决，这些依赖对象加载执行以后的返回值，可以以默认的顺序作为factory方法的参数。dependencies也是可选参数，当用户不提供该参数时，实现 AMD的框架应提供默认值为[“require”，”exports”，“module”]。</p>
+</li>
+<li><p><code>factory</code>是一个用于执行改模块的方法，它可以使用前面dependencies里声明的其他依赖模块的返回值作为参数，若该方法有返回值，当该模块被其他模块依赖时，返回值就是该模块的输出。</p>
+</li>
+</ul>
+<p>CommonJS在规范中并没有详细规定其他的方法，一些主要的AMD框架如RequireJS、curl、bdload等都实现了define方法，同时各个框架都有自己的补充使得其API更实用。</p>
+<h2 id="AMD模块的写法"><a href="#AMD模块的写法" class="headerlink" title="AMD模块的写法"></a>AMD模块的写法</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">define(id?, dependencies?, factory);</div></pre></td></tr></table></figure>
+<p>其中:</p>
+<ul>
+<li>id: 模块标识，可以省略。</li>
+<li>dependencies: 所依赖的模块，可以省略。</li>
+<li>factory: 模块的实现，或者一个JavaScript对象。</li>
+</ul>
+<blockquote>
+<p>id遵循CommonJS  Module Identifiers  。dependencies元素的顺序和factory参数一一对应。</p>
+</blockquote>
+<p>以下是使用AMD模式开发的简单三层结构（基础库/UI层/应用层）：</p>
+<ol>
+<li><p><strong>定义无依赖的模块 （base.js）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">define(function() &#123;</div><div class="line">    return &#123;</div><div class="line">        mix: function(source, target) &#123;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p><strong>定义有依赖的模块 （ui.js，page.js）</strong></p>
+</li>
+</ol>
+<p><code>ui.js</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">define([&apos;base&apos;], function(base) &#123;</div><div class="line">    return &#123;</div><div class="line">        show: function() &#123;</div><div class="line">            // todo with module base</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<p><code>page.js</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">define([&apos;data&apos;, &apos;ui&apos;], function(data, ui) &#123;</div><div class="line">    // init here</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
+<ol>
+<li><p><strong>定义数据对象模块 （data.js）</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">define(&#123;</div><div class="line">    users: [],</div><div class="line">    members: []</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+</li>
+<li><p>具名模块</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">define(&apos;index&apos;, [&apos;data&apos;,&apos;base&apos;], function(data, base) &#123;</div><div class="line">    // todo</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>具名模块多数时候是<code>不推荐</code>的，一般由打包工具合并多个模块到一个js文件中时使用。</p>
+</blockquote>
+<ol>
+<li>包装模块</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">define(function(require, exports, module) &#123;</div><div class="line">    var base = require(&apos;base&apos;);</div><div class="line">    exports.show = function() &#123;</div><div class="line">        // todo with module base</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
+<p>不考虑多了一层函数外，格式和Node.js是一样的。使用require获取依赖模块，使用exports导出API。<br>除了define外，AMD还保留一个关键字require。 require   作为规范保留的全局标识符，可以实现为   module loader。也可以不实现。</p>
+<p>目前，实现AMD的库有 RequireJS  、 curl  、 Dojo  、 bdLoad 、 JSLocalnet 、 Nodules  等。</p>
+<p>也有很多库支持AMD规范，即将自己作为一个模块存在，如 MooTools  、jQuery  、 qwery  、 bonzo   甚至还有  firebug  。</p>
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';       
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+
+    var sozzsrc = (document.location.protocol == "http:") ? "http://js.passport.qihucdn.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a":"https://jspassport.ssl.qhimg.com/11.0.1.js?6934e60f0fcbf5f113646cf0c3c61c6a";
+    document.write('<script src="' + sozzsrc + '" id="sozz"><\/script>');
+})();
+</script>
+]]></content>
+    
+    <summary type="html">
+    
+      AMD模块详解 Javascript模块化编程
+    
+    </summary>
+    
+      <category term="webdesign" scheme="https://austinxishou.github.io/categories/webdesign/"/>
     
     
       <category term="JavaScript" scheme="https://austinxishou.github.io/tags/JavaScript/"/>
